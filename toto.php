@@ -1,5 +1,3 @@
 <?php
-print( "Bonjour Monsieur <br>");
-print( "toto !<br>");
-print( " Comment allez-vous ?<br>");
+print( "toto de nelly sur la Branche N majuscule");
 ?>
