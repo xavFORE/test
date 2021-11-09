@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .imgBall1 {
+            position: absolute;
+            left: 10px;
+            top: 50px;
+            height: 110px;
+            width: 60px;
+            z-index: 10;
+        }
+         
+        .boiteABallon {
+            position: absolute;
+            background-image: url( './box-wood.png' );
+            background-size: cover;
+            left: 0px;
+            top: 0px;
+            width:  400px;
+            height: 400px;
+            z-index: -2;
+        }
+
+        .fondBoiteABallon {
+            width:  100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .grille {
+            position: absolute;
+            left: 0px;
+            top:    0px;
+            width: 400px;
+            height: 400px;
+            z-index: 20;
+        }
+
+        .pos {
+            position: absolute;
+            left: 30px;
+            top: 30px;
+            z-index: 1;
+        }
+
+
+    </style>
+
+    <script src="maLibPerso.js"></script>
+
+</head>
+
+<body onload="init()">
+
+    <script>
+        // variables globales du jeux
+        // tableaux qui contient les infos sur chaque ballon
+        let ballons = [];
+        var nbrBallons = 3;
+        // dimension de la boite du jeux
+        let limitX = 400;
+        let limitY = 400;
+
+
+        function createBallons( nbrBallonsAcreer )
+        {
+            // remise à zéro du tableau qui contenait le jeux de ballon
+            // (en clair on remplace le tableau par un nouveau tableau vide)
+            ballons = [];
+            // je vide la div qui contient les ballons
+            document.getElementById( 'boiteABallonID').innerHTML = '';
+
+            // tant qu'il y a des ballons à creer
+            while( nbrBallonsAcreer ) { // elem 0 ->id,    elem 1 -> dx,          elem 2 -> dy            
+                // je creer l'ID du ballon (une IMG)
+                let idBallon = "b" + nbrBallonsAcreer;
+                
+                // ce tableau contient les infos du ballon
+                let ballonTableau = [ 
+                                        idBallon,   // id du ballon 
+                                        rndIntervalleInt(1,6),  // dx ( vitesse horizontale )
+                                        rndIntervalleInt(1,6),  // dy ( vitesse verticale )
+                                        rndIntervalleInt(1,limitX-150), // position x de depart du ballon
+                                        rndIntervalleInt(1,limitY-150)  // position y de depart du ballon
+                                    ];
+                
+                
+                // je stocke mon ballon (les infos du ballon)
+                // dans le tableau globale de tous les ballons
+                ballons.push( ballonTableau );
+                // dessine le ballon dans la div
+                document.getElementById( 'boiteABallonID').innerHTML += '<img class="imgBall1" id="'+idBallon+'" src="./ballon01.png" alt="">';
+                nbrBallonsAcreer--;
+            }
+        }
+
+        function changeNbrBallons( )
+        {
+            // recuperer la valeur du cursor
+            nbrBallons = document.getElementById( 'cursor').value;
+            // creer le nbr de ballons
+            createBallons( nbrBallons );
+        }
+
+        // est appelée par le onload du body
+        function init()
+        {
+            createBallons( nbrBallons );
+            // place un callback sur la fonction dessineJeux
+            // qui est rappelé toutes les 20 ms 
+            setInterval( dessineJeux, 20  );
+        }
+        
+        // cette fonction se charge de tous le dessin de l'écran
+        function dessineJeux()
+        {
+            // MAJ (mise à jour) du compteur du nbr de ballon
+            document.getElementById( "cptBallons").innerHTML = nbrBallons;  
+            // recalculer et dessiner tous les ballons 1 par 1
+            for ( ballon of ballons ) 
+            {
+                bougeBallon( ballon );
+            }
+        }
+
+        // calcule la nouvelle position du ballon
+        // et le réaffiche
+        // reçoit un tableau qui contient les infos du ballon
+        function bougeBallon( bal )
+        {
+            // get info dans le tableau
+            let id  = bal[0];
+            let dx  = bal[1];
+            let dy  = bal[2];
+            let x   = bal[3];
+            let y   = bal[4];
+
+            x += dx; 
+            y += dy; 
+
+            // controle horizontal 
+            if ( (x > limitX-60) || (x < 0) )
+            {
+                // inversion du sens de déplacement
+                dx = -dx;
+                // memorisation de dx dans le tableau
+                bal[1] = dx;
+            }
+
+            if ( (y+100) > limitY  || y < 0 )
+            {
+                dy = -dy;
+                // put dy dans le tableau
+                bal[2] = dy;
+            }
+            // affichage du ballon avec ses nouvelles coordonnées
+            document.getElementById( id ).style.left = x + "px";
+            document.getElementById( id ).style.top  = y + "px";
+            // memorisation des nouvelles coordonnées du ballon 
+            bal[3] = x;
+            bal[4] = y;
+        }
+    </script>
+
+    <div id="boiteABallonID" class="boiteABallon">
+    </div>
+    <img class="grille" src="./grille.png" alt="">
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <button onclick="bouge()">bouge </button>
+    <br>
+    <input type="range" min="1" max="20" id="cursor" onchange="changeNbrBallons()">
+    <br>
+    <div id="cptBallons">
+    </div>
+
+</body>
+
+</html>
