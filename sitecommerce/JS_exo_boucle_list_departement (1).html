@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--<script type="text/javascript" src="maLibPerso.js"></script>-->
+    <style>
+        .d1 {
+            width: 100px;
+            height: 40px;
+            background-color: burlywood;
+            margin: 2px;
+        }
+
+        .d2 {
+            width: 100px;
+            height: 40px;
+            background-color: blue;
+            margin: 2px;
+        }
+
+        .dp {
+            width: 20px;
+            height: 20px;
+            background-color: blanchedalmond;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .de {
+            width: 200px;
+            height: 200px;
+            background-color: blanchedalmond;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+
+
+        let departements = [  //nom,    prix, quantité
+            ["nord", 20, 59],
+            ["pas-de-Calais", 17, 62],
+            ["allier", 27, 3],
+            ["var", 36, 83],
+            ["bouche du rhone", 25, 69],
+            ["reunion", 35, 973],
+            ["calédonie", 32, "NC"],
+            ["somme", 26, 80]
+        ];
+
+        let pays = [  //nom,    prix, quantité
+            ["fr", 24],
+            ["be", 3],
+            ["de", 2],
+            ["uk", -3],
+            ["esp", 12],
+            ["nl", 44],
+            ["eg", 14],
+            ["ch", 15]
+        ];
+
+
+        function calcMoyTempDept(listDep) {
+            let totalTemp = 0;
+            for (let index = 0; index < listDep.length; index++) {
+                let ligne = listDep[index];
+                let temp = ligne[1];
+                totalTemp += temp;
+            }
+            return totalTemp / listDep.length;
+        }
+
+        let moyenne = calcMoyTempDept(departements);
+        document.write("moyenne : ", moyenne, "<br>");
+
+        moyenne = calcMoyTempDept(pays);
+        document.write("moyenne : ", moyenne, "<br>");
+
+
+        function chercheDepPlusChaud(listDep) {
+            let tempMax = 0;
+            let deptLePlusChaud = "";
+            for (dept of listDep) {
+                let nom = dept[0];
+                let temp = dept[1];
+
+                if (temp > tempMax) {
+                    deptLePlusChaud = nom;
+                    tempMax = temp;
+                }
+            }
+            return deptLePlusChaud;
+        }
+
+        let dpc = chercheDepPlusChaud( departements  );
+        document.write("le dep le + chaud est ", dpc, "<br>");
+
+        let ppc = chercheDepPlusChaud( pays );
+        document.write("le pays le + chaud est ", ppc, "<br>");
+
+        //departements pour afficher tous les élément d'un container (liste, tableau,...) 
+        // il faut le parcourir avec une boucle
+
+
+        // faire une fonction calcule moyenne temperature
+        // faire une fonction qui donne le departement le plus chaud
+
+    </script>
+
+
+
+
+</body>
+
+</html>
