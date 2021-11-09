@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>LA MAROTINE</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--test-->
+    <script
+      src="https://kit.fontawesome.com/8608354378.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+      * {
+        border: 0px;
+        margin: 0px;
+      }
+      .navbar-expand-lg .navbar-nav {
+        margin-inline-start: auto !important;
+      }
+      .navbar-custom {
+        background-color: rgba(17, 17, 17, 0.459) !important;
+      }
+      .text-blanc {
+        color: white !important;
+        font-size: 30px;
+      }
+      .text-blanc:hover {
+        color: rgb(221, 42, 42) !important;
+        font-size: 30px;
+      }
+
+      .footer {
+        background-color: rgba(17, 17, 17, 0.459) !important;
+      }
+      a {
+        color: #080808;
+        text-decoration: none !important;
+      }
+      body {
+        background: linear-gradient(
+            rgba(252, 251, 251, 0.438),
+            rgba(253, 250, 250, 0.315)
+          ),
+          url("nenuphar.2.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+      footer {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+      }
+      /*test*/
+      .image_heure {
+        height: 150px;
+        right: 100px;
+        padding: 10px;
+      }
+      .contenue_image_tarif {
+        text-align: center;
+        background-color: brown;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 100px;
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+    <script>
+      window.addEventListener("resize", taille);
+      function taille() {
+        var w = window.innerWidth;
+        var largeur_footer = Math.floor(0.9 * w);
+
+        var marge = Math.floor((w - largeur_footer) / 2);
+        document.getElementById("foot").style.width = largeur_footer + "px";
+        document.getElementById("foot").style.left = marge + "px";
+      }
+    </script>
+  </head>
+  <body onload="taille()">
+    <div class="image_de_fond container-fluid">
+      <!--bandeau-->
+      <header class="row">
+        <div class="col-12">
+          <nav
+            class="navbar navbar-custom navbar-expand-lg navbar-light bg-light"
+          >
+            <div class="container-fluid">
+              <a class="navbar-brand text-blanc" href="#"
+                >Hébergement <br />
+                de charme</a
+              >
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link text-blanc" href="#">Tarif</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-blanc" href="#">alentour</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-blanc" href="#">Photo</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-blanc">connexion </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-blanc">contact </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!--main-->
+      <div class="row flex-fill page-container">
+        <div class="col-lg-4">
+          <div class="contenue_image_tarif">
+            <img class="image_heure" src="heure.jpg" alt="heure" />
+            <h2>à l'heure</h2>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="contenue_image_tarif">
+            <img class="image_heure" src="nuit.jfif" alt="nuit" />
+            <h2>à la nuit</h2>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="contenue_image_tarif">
+            <img class="image_heure" src="soleil.jfif" alt="journée" />
+            <h2>à la journée</h2>
+          </div>
+        </div>
+      </div>
+      <!--footer-->
+      <footer id="foot">
+        <div class="row footer">
+          <div class="col-lg-4 text-center">
+            <a href=""><i class="fab fa-facebook-square fa-4x"></i></a>
+          </div>
+          <div class="col-lg-4 text-center">
+            <a href=""><i class="fab fa-instagram fa-4x"></i></a>
+          </div>
+          <div class="col-lg-4 text-center">
+            <a href=""><i class="fas fa-file-signature fa-4x"></i></a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

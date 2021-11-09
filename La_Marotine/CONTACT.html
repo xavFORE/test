@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>LA MAROTINE</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap CSS -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--javascript-->
+
+    <script
+      src="https://kit.fontawesome.com/8608354378.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+
+    <!--CSS-->
+
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fontlibrary.org//face/anaktoria-textfonts"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/style_menu.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./css/styleContactClient.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+      integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .nom {
+        display: block;
+        margin-top: 15%;
+        width: 300px;
+        height: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: "AnaktoriaRegular";
+      }
+      .prenom {
+        display: block;
+        
+        margin-top: 2%;
+       width: 300px;
+        height: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: "AnaktoriaRegular";
+      }
+      .mail {
+        display: block;
+        margin-top: 2%;
+        width: 300px;
+        height: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: "AnaktoriaRegular";
+      }
+      .tel {
+        display: block;
+        margin-top: 2%;
+        width: 300px;
+        height: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: "AnaktoriaRegular";
+      }
+      .contenue_mail {
+        display: block;
+        margin-top: 2%;
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: "AnaktoriaRegular";
+      }
+      .btOK {
+        display: block;
+        float: right;
+        margin-top: 2%;
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: "AnaktoriaRegular";
+      }
+      .erreur {
+        display: block;
+        float: right;
+        margin-top: 2%;
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: "AnaktoriaRegular";
+      }
+      .div_text {
+        float: right;
+        margin-top: 2%;
+        font-family: "AnaktoriaRegular";
+      }
+      /*partie carte */
+      .carte{
+        margin-left: 25%;
+        margin-top: 5%;
+      }
+      .adress_et_num{
+        margin-left: 25%;
+        margin-top: 15%;
+        font-family: "AnaktoriaRegular";
+        font-size: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="image_de_fond container-fluid">
+      <!--bandeau-->
+
+      <header class="row">
+        <div class="col-12">
+          <nav
+            class="navbar navbar-custom navbar-expand-lg navbar-light bg-light"
+          >
+            <div class="container-fluid">
+              <a class="navbar-brand text-blanc" href="#"
+                ><img
+                  class="logo_la_marotine"
+                  src="image/logo_la_marotine.png"
+                  alt="logo_la_marotine"
+              /></a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="titre">
+                <p>La Marotine</p>
+              </div>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link text-blanc" href="#">Tarif</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-blanc" href="#">Photo</a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link text-blanc"
+                      onclick="loadPage( 'contactClient.html' )"
+                      >Contact</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!--main-->
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="adress_et_num">
+            <p>3 Rue de Mentque 62890 Nort-Leulinghem</p>
+            <p>Tel 06 81 04 45 13</p>
+          </div>
+          <div >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6225.606439512417!2d2.0892549334512553!3d50.79847037952491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47dc505b1eea24f5%3A0x87f5b4e466caacbd!2s3%20Rte%20de%20Mentque%2C%2062890%20Nort-Leulinghem!5e1!3m2!1sfr!2sfr!4v1636022171766!5m2!1sfr!2sfr"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              class="carte"
+            ></iframe>
+          </div>
+        </div>
+        <div class="col-lg-6 div_text">
+          <div class="row">
+            <input
+              type="text"
+              placeholder="nom"
+              onchange="verifnom()"
+              id="nom"
+              class="nom row"
+            />
+          </div>
+          <div class="row">
+            <input
+              type="text"
+              placeholder="prenom"
+              onchange="verifprenom()"
+              id="prenom"
+              class="prenom col-12"
+            />
+          </div>
+          <div class="row">
+            <input
+              type="text"
+              placeholder="adresse mail"
+              onchange="verifMail()"
+              id="mail"
+              class="mail col-12"
+              name="text1"
+            />
+          </div>
+          <div class="row">
+            <input
+              type="tel"
+              placeholder="numéro de téléphone "
+              onchange="verifTel()"
+              id="tel"
+              class="tel"
+              required
+              maxlength="10"
+            />
+          </div>
+          <div class="row">
+            <textarea
+              placeholder="contenue du mail"
+              onchange="veriftextarea()"
+              name="contenue_du_mail"
+              id="contenue_mail"
+              class="contenue_mail"
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
+          <div class="row">
+            <button id="btOK" class="btOK">envoyer</button>
+          </div>
+          <div class="row">
+            <div id="erreur" class="erreur"></div>
+          </div>
+        </div>
+
+        <!--footer-->
+
+        <footer></footer>
+        <!--js-->
+        <script>
+          let ctn_nom = false;
+          let ctn_prenom = false;
+          let ctn_email = false;
+          let ctn_contenue_mail = false;
+          let ctn_telephone = false;
+
+          document.getElementById("btOK").disabled = true;
+          //controle si il a bien le nom
+          function verifnom() {
+            ctn_nom = true;
+            controle();
+          }
+          //controle si il a bien le prenom
+          function verifprenom() {
+            ctn_prenom = true;
+            controle();
+          }
+          //controle si il a bien l'adresse mail est si elle est corect
+          function verifMail() {
+            ctn_email = false;
+            let saisie_mail = document.getElementById("mail").value;
+            effaceMessage();
+            let tableau = saisie_mail.split("@");
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,10})+$/;
+            if (!saisie_mail.match(mailformat)) message("mail incorrect");
+            else ctn_email = true;
+            controle();
+          }
+
+          //controler si il a du contenue dans le textarea
+          function veriftextarea() {
+            ctn_contenue_mail = true;
+            controle();
+          }
+          //controler le numéro de tel
+          function verifTel() {
+            effaceMessage();
+            ctn_telephone = false;
+            let ctn_du_tel = document.getElementById("tel").value;
+            let longueur_ctn = ctn_du_tel.length;
+            console.log(longueur_ctn);
+            if (longueur_ctn == 10) {
+              ctn_telephone = true;
+            } else {
+              message("le numéro de téléphone et trop court ");
+            }
+            controle();
+          }
+          $("#tel").keyup(function () {
+            $("#tel").val(this.value.match(/[0-9]*/));
+          });
+          //pour acctiver le button si tous est ok
+          function controle() {
+            document.getElementById("btOK").disabled = true;
+
+            if (
+              ctn_nom &&
+              ctn_prenom &&
+              ctn_email &&
+              ctn_contenue_mail &&
+              ctn_telephone
+            ) {
+              document.getElementById("btOK").disabled = false;
+            }
+          }
+
+          //effacer message d'erreur
+          function effaceMessage() {
+            document.getElementById("erreur").innerHTML = "";
+          }
+          //afficher le message
+          function message(mes) {
+            document.getElementById("erreur").innerHTML += mes + "<br>";
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
