@@ -1,4 +1,4 @@
 <?php
-print( " c'est l'histoire d'un schtroumf qui court qui court. il tombe et il se fait un bleu ! <br>");
+print( " c'est un gars qui va voir sa femme et qui lui dit  chérie ce soir tu me vois !  <br> elle pourquoi tu sors <br> non, je t'encule lol  <br>");
 
 ?>
