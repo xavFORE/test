@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <body>
+        <div id='image' onchange='changementorientation()'>
+    
+            <script>
+                changementorientation();
+                
+                let hauteur = innerHeight;
+                let largeur = innerWidth;
+                window.onresize = changementorientation;
+
+        
+                function changementorientation() {
+                    let portrait = true;
+                    let paysage = false;
+                    let hauteur = innerHeight;
+                    let largeur = innerWidth;
+                    if (hauteur < largeur) {
+                        imgPaysage = 'class="image_index" src="images/losc_inside_index_paysage.png" usemap="#index-map" alt="menu LOSC"';
+                        document.getElementById('image').innerHTML = '<img '+ imgPaysage + '>';
+                        let portrait = false; 
+                        let paysage = true; 
+                    }
+                    else {
+                        imgPortrait = 'class="image_index" src="./images/losc_inside_index_portrait.png" usemap="#index-map" alt="menu LOSC"';
+                        document.getElementById('image').innerHTML = '<img '+ imgPortrait + '>';
+                        let portrait = true; 
+                        let paysage = false; 
+                        
+                    }
+                   
+        
+                }
+                
+            </script>
+    
+</body>
+</html>

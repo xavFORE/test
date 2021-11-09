@@ -1,0 +1,94 @@
+/* General*/
+
+
+
+.logo_losc {
+    width: 15%;
+}
+#parent {
+    position: relative;
+ }
+ img.superpose {
+    position: absolute;
+    top:0px;
+    left:0px;
+    
+ }
+ #img_1 {
+    z-index: 10;
+ }
+ #img_2 {
+    z-index: 11;
+ }
+ #img_3 {
+    z-index: 11;
+ }
+ #img_4 {
+    z-index: 11;
+ }
+ .superpose  {
+     transition: all 1s ease;}
+ .superpose:hover{   
+      transform:scale(1.25);}
+.image_index {
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+    size-adjust: auto;
+    
+    
+}
+
+.body2 {
+    background: url(../images/logo_loscfond_type.png)fixed center;
+    background-repeat: no-repeat;
+    background-color: rgb(248, 248, 248);
+    background-size: cover;
+    background-position: center;
+
+    
+}
+
+/* bandeau*/
+
+.bandeau {
+    background-image: linear-gradient(to right, #24216a, #e01e13);
+}
+
+.bandeau-text {
+    color: white;
+    text-align: left;
+}
+
+.menu {
+    background-color: #e01e13 !important;
+    width: 100%;
+}
+
+.rechercher {
+    background-color: #24216a;
+    color: white;
+}
+
+
+
+
+
+/*Footer*/
+
+footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #211e5f;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 22px #dd271f;
+}
+
+.copyright {
+    text-align: center;
+    font-weight: bold;
+    padding: 20px;
+    color: #dd271f;
+}
