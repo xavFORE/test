@@ -14,10 +14,9 @@ function sautLigne()
     document.write( "--------------------------<br>");
 }
 
-function rndIntervalleInt(min, max) {
+function rndIntervalleInt(min, max) 
+{
     return Math.floor(rndIntervalleFloat(min, max ));
-
-
 }
 function rndIntervalleFloat(min, max) {
     return Math.random() * (max - min) + min;
