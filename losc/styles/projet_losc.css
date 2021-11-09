@@ -1,0 +1,119 @@
+/* General*/
+
+.image_index {
+    width: 100%;
+}
+
+.body2 {
+    background: url(../images/logo_loscfond_type.png)fixed center;
+    background-repeat: no-repeat;
+    background-color: rgb(248, 248, 248);
+    background-size: cover;
+    background-position: center;
+}
+
+/* bandeau*/
+
+.bandeau {
+    background-image: linear-gradient(to right, #24216a, #e01e13);
+}
+
+.bandeau-text {
+    color: white;
+    text-align: left;
+}
+
+.menu {
+    background-color: #e01e13 !important;
+    width: 100%;
+}
+
+.rechercher {
+    background-color: #24216a;
+    color: white;
+}
+
+/*main*/
+
+/*calendrier*/
+#reinitpageca
+{
+    z-index: -1;
+}
+
+
+.calendrier {
+    background-image: linear-gradient(to right, #24216a, #e01e13);
+
+    text-align: center;
+    border-radius: 40px;
+    margin: 20px;
+    padding: 25px;
+}
+
+.calendrier h2 {
+    border-bottom: 2px solid chartreuse;
+    color: white;
+}
+
+.tftable {
+    font-size: 12px;
+    color: #333333;
+    width: 100%;
+    border-width: 1px;
+    border-color: #729ea5;
+    border-collapse: collapse;
+    
+}
+
+.tftable th {
+    font-size: 12px;
+    background-color: #acc8cc;
+
+    padding: 8px;
+    border-style: solid;
+    border-color: #729ea5;
+    text-align: center;
+}
+
+.tftable tr {
+    background-image: linear-gradient(to right, #24216a, #e01e13);
+    opacity: 0.9;
+}
+
+.tftable td {
+    font-size: 15px;
+    border-bottom:   1px ;
+    padding: 8px;
+    border-style: solid;
+    border-color: #729ea5;
+    color: white;
+    text-transform: uppercase;
+}
+
+.tftable tr:hover {
+    background-color: #ffffff;
+}
+.tftable td img{
+    width: 30px;
+}
+
+/*Footer*/
+
+footer {
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #211e5f;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 22px #dd271f;
+}
+
+.copyright {
+    text-align: center;
+    font-weight: bold;
+    padding: 20px;
+    color: #dd271f;
+}
