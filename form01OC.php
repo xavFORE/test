@@ -1,11 +1,18 @@
 <?php
+    
+
     if ( $_POST )
     {
         $nom = $_POST[ "nom" ];
         print( "bonjour ".$nom."<br>" );
      
         $mail = $_POST["mail"];
-        print( "mail : ".$mail."<br>" );
+        if ( filter_var( $mail, FILTER_VALIDATE_EMAIL ) )
+        {
+            print( "mail : ".$mail."<br>" );
+        }
+        else 
+            print( "mail : ".$mail."<br>" );
         //exit();
 
         $pw = $_POST["pw"];
