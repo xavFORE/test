@@ -30,7 +30,7 @@ print("<h1>" . $str . "</h1>" . "<br>\n");
         function calcul( $num1, $num2 )
         {
             $res = $num1 + $num2;
-            print($res);
+            print("Résultat du calcul : " . $res . "<br>\n");
         }
 
     function disBonjour( $nom )
@@ -38,6 +38,31 @@ print("<h1>" . $str . "</h1>" . "<br>\n");
         $nom = ucfirst( $nom );
 
         print( "Bonjour $nom <br>\n");
+    }
+
+    $lesprenoms = ["xavier", "bouchra", "karim"];
+
+    foreach ( $lesprenoms as $prenom ) {
+        $prenom = strtoupper($prenom);
+        print($prenom . "<br>\n");
+    }
+
+    $tabnum = [52,6,7,12,3];
+
+    calc($tabnum);
+
+    function calc($montab)
+    {
+        $somme = 0;
+
+        for ($i = 0; $i < count($montab); $i++)
+        {
+            $somme += $montab[$i];
+        }
+
+        $moyen = $somme / count($montab);
+
+        print "Moyenne du tableau : " . $moyen . "<br>\n";
     }
 
 ?>
