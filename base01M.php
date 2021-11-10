@@ -3,10 +3,10 @@
 
 <?php
 
-    $nom = "toto";
+    $nom = "Mehdi";
 
     for( $i=0 ; $i<3 ; $i++ ) 
-        print( "<h1>Hello $nom    ligne:$i</h1>\n" );
+        print( "<h1>Hello $nom    ligne: $i</h1>\n" );
 
 
 
