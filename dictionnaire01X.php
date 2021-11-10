@@ -13,11 +13,10 @@
     $magasin = [ "couscous" => 17, "tomates" => 4.3, "navet" => 5, "carrotes" => 6, "pois chiche" => 1.4 ];
     
 
+
     
     
-    
- 
-    print( $dictionnaire[ music ]."<br>" ) ;
+    print( $dictionnaire[ "music" ]."<br>" ) ;
 
 
 
