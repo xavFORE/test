@@ -1,5 +1,17 @@
 <?php
 
+$db_server = 'localhost';
+$db_name = 'test';
+$db_user_login = 'root';
+$db_user_pass = '';
+
+$conn = mysqli_connect($db_server,$db_user_login, $db_user_pass, $db_name);
+
+if($conn->connect_error){
+    die('Erreur : ' .$conn->connect_error);
+}
+
+
 $str = "hello le php";
 $str = strtoupper($str);
 print("<h1>" . $str . "</h1>" . "<br>\n");
