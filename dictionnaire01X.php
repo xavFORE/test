@@ -13,10 +13,14 @@
     $magasin = [ "couscous" => 17, "tomates" => 4.3, "navet" => 5, "carrotes" => 6, "pois chiche" => 1.4 ];
     
 
+
     
     
+<<<<<<< HEAD
     
  
+=======
+>>>>>>> origin/xavier
     print( $dictionnaire[ "music" ]."<br>" ) ;
 
 
