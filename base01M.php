@@ -3,20 +3,21 @@
 
 <?php
 
-    $nom = "Mehdi";
+    $nom = "mehdi";
+    $nom = ucfirst( $nom );
 
-    for( $i=0 ; $i<3 ; $i++ ) 
-        print( "<h1>Hello $nom    ligne: $i</h1>\n" );
+    for( $i = 0 ; $i < 3 ; $i++ )
+        print( "<h1>Hello $nom ligne : $i</h1>\n" );
+
+        disBonjour( "olivier" );
+        disBonjour( "karim" );
 
 
-
-        disBonjour( "Olivier" );    
-        disBonjour( "Karim" );  
-        
-        
     function disBonjour( $nom )
     {
-        print( "bonjour $nom<br>\n" );
+        $nom = ucfirst( $nom );
+
+        print( "Bonjour $nom <br>\n");
     }
 
 ?>
