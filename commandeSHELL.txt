@@ -1,0 +1,15 @@
+
+
+cd      Change Directory
+mkdir   Make Directory
+rm      remove Directory
+
+pwd     path Work Directory
+
+ls      lister le Directory
+ls -l   lister le Directory avec détail
+
+
+
+
+

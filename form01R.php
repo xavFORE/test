@@ -1,4 +1,6 @@
 <?php
+    
+
     if ( $_POST )
     {
 
@@ -8,6 +10,7 @@
      
         
         $mail = $_POST["mail"];
+<<<<<<< HEAD:form01R.php
         $mail = "";
         if (empty($_POST["mail"])) {
            print ( "Email requis <br>");
@@ -22,6 +25,15 @@
         print( "mail : ".$mail."<br>" );
      
 
+=======
+        if ( filter_var( $mail, FILTER_VALIDATE_EMAIL ) )
+        {
+            print( "mail : ".$mail."<br>" );
+        }
+        else 
+            print( "mail : ".$mail."<br>" );
+        //exit();
+>>>>>>> origin/xavier:form01X.php
 
         $pw = $_POST["pw"];
         print( "mot de passe : ".$pw."<br>" );
