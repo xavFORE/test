@@ -13,6 +13,13 @@ print("<h1>" . $str . "</h1>" . "<br>\n");
         disBonjour( "olivier" );
         disBonjour( "karim" );
 
+        calcul(3,5);
+
+        function calcul( $num1, $num2 )
+        {
+            $res = $num1 + $num2;
+            print($res);
+        }
 
     function disBonjour( $nom )
     {
