@@ -1,7 +1,8 @@
-
-<h1>Hello le PHP</h1>
-
 <?php
+
+$str = "<h1>hello le php</h1>";
+$str = strtoupper($str);
+print( $str . "<br>");
 
     $nom = "mehdi";
     $nom = ucfirst( $nom );
