@@ -10,15 +10,15 @@
  
     $langages = ["front" => ["HTML","CSS"], "back" => ["PHP", "MYSQL"]];
 
-    print( $dictionnaire[ "music" ]."<br>" ) ;
+    print( $dictionnaire[ "music" ] . "<br>" ) ;
 
     for( $i = 0 ; $i < count( $uneListe ) ; $i++ )
     {
-        print( "element $i : ".($uneListe[$i])." <br>");
+        print( "element $i : " . ( $uneListe[$i] ) . " <br>");
     }
 
     print( "-----------------------------<br>");
-    affDict( $uneListe  );
+    affDict( $uneListe );
 
     print( "-----------------------------<br>");
     affDict( $dictionnaire );
@@ -32,11 +32,11 @@
     print( "-----------------------------<br>");
     affDict( $langages );
 
-    function affDict(  $dict )
+    function affDict( $dict )
     {
         foreach( $dict as $i => $element )
         {
-            if ( is_array( $element )  )
+            if ( is_array( $element ) )
             {
                 print( "$i ____________ <br>");
     
