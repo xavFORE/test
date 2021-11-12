@@ -15,7 +15,7 @@
 
         $nom = $_POST[ "nom" ];
 
-        $nom = strtolower ( $nom );
+        $nom = strtolower( ( $nom ));
         
         $mes = $prenoms[ $nom ];
 
