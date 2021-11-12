@@ -27,7 +27,7 @@
         else
         {
             array_push($prenoms, $nom);
-            print( $nom." "."add<br>" );
+            print( "ajout de ".$nom." dans le dictionnaire<br>" );
         }
         
         //exit();
