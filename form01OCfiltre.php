@@ -1,7 +1,7 @@
 <?php
     if ( $_POST )
     {
-        $nom = $_POST[ "nom" ];
+        $nom = $_POST[ "Xavier"=> "vieux", "Olivier" => "voyage"];
         
         // si xavier  -> vieux
         // si olivier  -> voyage
