@@ -11,6 +11,7 @@
             "hanane"    => " utilise de argan",
             "bouchra"   => " aime les brownies",
             "karim"     => " est un crack en javascript",
+            "toto"      => "est malade"
         ];
 
         // XaviER
