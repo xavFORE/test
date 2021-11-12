@@ -11,10 +11,26 @@
         // mehdi    -> ange
         // hanane   -> argan
         // bouchra  -> brownie
-        // karim    -> javascript   
-         
+        // karim    -> javascript  
+        
+         $nom = [
+             "xavier"       =>" vieux",
+            " olivier"      => "voyage",
+             "remi"         =>" train",
+             "alexis"       => "voiture",
+             "nelly"        => "rage",
+             "mehdi"        => "ange",
+             "hanane"       => "argan",
+             "bouchra"      => "brownie",
+             "karim"        => "javacript"
+         ];
+         //print_r (array_values[$nom] );
+
+         print_r($nom[$_POST['nom']] );
         exit();
+        
     }
+
 ?>
 
 
