@@ -26,7 +26,9 @@
          ];
          //print_r (array_values[$nom] );
 
-         print_r($nom[$_POST['nom']] );
+        print($nom[$_POST['nom']] );
+
+
         exit();
         
     }
