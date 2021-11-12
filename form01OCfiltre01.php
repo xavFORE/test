@@ -14,28 +14,17 @@
         ];
 
         $nom = $_POST[ "nom" ];
+
+        $nom = strtolower ( $nom );
         
         $mes = $prenoms[ $nom ];
 
         print( $mes."<br>" );
 
-
-        // si xavier  -> vieux
-        // si olivier  -> voyage
-        // remi     -> train
-        // alexis   -> voiture
-        // nelly    -> rage
-        // mehdi    -> ange
-        // hanane   -> argan
-        // bouchra  -> brownie
-        // karim    -> javascript   
         
         //exit();
     }
 ?>
-
-
-
 
 <form action="#" method="post">
     <input type="text" name="nom" placeholder="ton nom">
