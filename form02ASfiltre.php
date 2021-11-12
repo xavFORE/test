@@ -12,6 +12,7 @@
             "bouchra"   => " aime les brownies",
             "karim"     => " est un crack en javascript",
         ];
+<<<<<<< HEAD:form02ASfiltre.php
         $nom = strtolower($_POST[ "nom" ]);
         
         $mes = $prenoms[ $nom ];
@@ -19,9 +20,29 @@
        print( $mes."<br>" );
 
     };
+=======
+
+        // XaviER
+        $nom = $_POST[ "nom" ];
+
+        // XaviER -> xavier
+        $nom = strtolower( $nom  );
+        
+        if ( array_key_exists( $nom, $prenoms ) )
+        {
+            $mes = $prenoms[ $nom ];
+            print( $nom." ".$mes."<br>" );
+        }
+        else
+        {
+            print( $nom." inconnu <br>" );
+        }
+
+        
+        //exit();
+    }
+>>>>>>> origin/xavier:form01Xfiltre.php
 ?>
-
-
 
 
 <form action="#" method="post">
