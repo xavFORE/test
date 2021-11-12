@@ -26,7 +26,8 @@
         }
         else
         {
-            array_push($prenoms, $nom);
+            session_start() ;
+            $_SESSION[$prenoms[ $nom ]] = "nouveau dans la liste";
             print( "ajout de ".$nom." dans le dictionnaire<br>" );
         }
         
