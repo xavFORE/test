@@ -12,7 +12,7 @@
             "bouchra"   => " aime les brownies",
             "karim"     => " est un crack en javascript",
         ];
-        
+
         $nom = strtolower($_POST[ "nom" ]);
         
         $mes = $prenoms[ $nom ];
@@ -36,7 +36,11 @@
         {
             print( $nom." inconnu <br>" );
         };
-
+        $ajouter = $_POST["ajoutnom"];
+        array_push($prenoms, $ajouter);
+        foreach ($prenoms as $key => $value) {
+            print($value.'<br>');
+        }
         
         //exit();
     };
@@ -44,7 +48,8 @@
 
 
 <form action="#" method="post">
-    <input type="text" name="nom" placeholder="ton nom">
+    <input type="text" name="nom" placeholder="recherche">
+    <input type="text" name="ajoutnom" placeholder="ajouter">
     <br>
     <button type="submit">OK</button>
 </form>
