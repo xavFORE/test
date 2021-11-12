@@ -12,6 +12,7 @@
             "bouchra"   => " aime les brownies",
             "karim"     => " est un crack en javascript",
         ];
+
         
           $nom = strtolower($_POST[ "nom" ]);
           $presentTab = array_key_exists($nom,$prenoms );
@@ -23,13 +24,15 @@
         }
         else {
             print ("nom pas present");
-            array_push($prenoms, "$nom => 'pas encore définis'");
+            $newPrenoms = array_push($prenoms, ("$nom => 'pas encore définis'"));
+            foreach ( $newPrenoms as $i => $element) {
+            print("$i => $element");
+            
+            
+             
         }
         
-        foreach ($prenoms) {
-            print($nom);
-        }
-
+ }
         // si xavier  -> vieux
         // si olivier  -> voyage
         // remi     -> train
