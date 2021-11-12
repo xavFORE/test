@@ -27,8 +27,9 @@
         else
         {
             print( $nom." inconnu <br>" );
+            $prenoms[ $nom ] = "nouveau dans la liste";
+            print($nom);
         }
-        
         
         //exit();
     }
@@ -36,7 +37,7 @@
 
 
 <form action="#" method="post">
-    <input type="text" name="nom" placeholder="ton nom">
+    <input type="text" name="nom" placeholder="supprimer">
     <br>
     <button type="submit">OK</button>
 </form>
