@@ -27,8 +27,7 @@
         else
         {
             array_push($prenoms, $nom);
-            $mes = $prenoms[ $nom ];
-            print( $nom." "." est ajouté"."<br>" );
+            print( $nom." "."add<br>" );
         }
         
         //exit();
