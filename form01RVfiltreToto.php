@@ -27,14 +27,17 @@
         else
         {
             print( $nom." inconnu <br>" );
+            array_push($prenoms, ("$nom " => "pas encore définis"));
+            $prenoms =$prenoms[$nom];
+            $prenoms += [ $nom => "pas encore définis" ];
         }
 
-        foreach ($prenoms as $nom => $) {
-            # code...
-        }
-        
+       
+        foreach ( $prenoms as $i => $element) {
+            print("$i => $element");
         //exit();
     }
+}
 ?>
 
 
