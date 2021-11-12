@@ -12,15 +12,14 @@
             "bouchra"   => " aime les brownies",
             "karim"     => " est un crack en javascript",
         ];
-<<<<<<< HEAD:form02ASfiltre.php
+        
         $nom = strtolower($_POST[ "nom" ]);
         
         $mes = $prenoms[ $nom ];
 
        print( $mes."<br>" );
 
-    };
-=======
+    
 
         // XaviER
         $nom = $_POST[ "nom" ];
@@ -36,12 +35,11 @@
         else
         {
             print( $nom." inconnu <br>" );
-        }
+        };
 
         
         //exit();
-    }
->>>>>>> origin/xavier:form01Xfiltre.php
+    };
 ?>
 
 
