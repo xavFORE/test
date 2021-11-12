@@ -1,8 +1,25 @@
 <?php
     if ( $_POST )
     {
+        $prenoms = [
+            "xavier"    => " est vieux",
+            "olivier"   => " vas voyage",
+            "remi"      => " est dans le train",
+            "alexis"    => " achète des voitures",
+            "nelly"     => " est en rage",
+            "mehdi"     => " est un ange",
+            "hanane"    => " utulise de argan",
+            "bouchra"   => " aime les brownies",
+            "karim"     => " est un crack en javascript",
+        ];
+
         $nom = $_POST[ "nom" ];
         
+        $mes = $prenoms[ $nom ];
+
+        print( $mes."<br>" );
+
+
         // si xavier  -> vieux
         // si olivier  -> voyage
         // remi     -> train
@@ -13,7 +30,7 @@
         // bouchra  -> brownie
         // karim    -> javascript   
         
-        exit();
+        //exit();
     }
 ?>
 
