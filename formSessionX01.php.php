@@ -1,5 +1,5 @@
 <?php
-session_start();
+
     if ( $_POST )
     {
         $prenoms = [
@@ -12,7 +12,6 @@ session_start();
             "hanane"    => " utilise de argan",
             "bouchra"   => " aime les brownies",
             "karim"     => " est un crack en javascript",
-            "toto"      => "est malade"
         ];
 
         // XaviER
@@ -32,6 +31,7 @@ session_start();
             //              session
             //              cookies
             //              session_start
+            //              php store dictionary in session
 
             print_r( $prenoms );
             print( $nom." inconnu <br>" );
