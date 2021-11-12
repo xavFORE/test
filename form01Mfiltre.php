@@ -1,31 +1,25 @@
 <?php
-
-$users = ["xavier","olivier","remi","alexis","nelly","mehdi","hanane","bouchra","karim"];
-
     if ( $_POST )
     {
-        $nom = $_POST[ "nom" ];
+        $prenoms = [
+            "xavier"    => " est vieux",
+            "olivier"   => " vas voyage",
+            "remi"      => " est dans le train",
+            "alexis"    => " achète des voitures",
+            "nelly"     => " est en rage",
+            "mehdi"     => " est un ange",
+            "hanane"    => " utulise de argan",
+            "bouchra"   => " aime les brownies",
+            "karim"     => " est un crack en javascript"
+        ];
 
-            if ($nom == "xavier")
-                print($nom . " -> " . "vieux");
-            else if ($nom == "olivier")
-                print($nom . " -> " . "voyage");
-            else if ($nom == "remi")
-                print($nom . " -> " . "train");
-            else if ($nom == "alexis")
-                print($nom . " -> " . "voiture");
-            else if ($nom == "nelly")
-                print($nom . " -> " . "rage");
-            else if ($nom == "mehdi")
-                print($nom . " -> " . "ange");
-            else if ($nom == "hanane")
-                print($nom . " -> " . "argan");
-            else if ($nom == "bouchra")
-                print($nom . " -> " . "brownie");
-            else if ($nom == "karim")
-                print($nom . " -> " . "javascript");
-            else print($nom . " qui est tu ?");
+        $nom = $_POST[ "nom" ];
         
+        $mes = $prenoms[ $nom ];
+
+        print( $mes."<br>" );
+
+
         // si xavier  -> vieux
         // si olivier  -> voyage
         // remi     -> train
@@ -36,9 +30,12 @@ $users = ["xavier","olivier","remi","alexis","nelly","mehdi","hanane","bouchra",
         // bouchra  -> brownie
         // karim    -> javascript   
         
-        exit();
+        //exit();
     }
 ?>
+
+
+
 
 <form action="#" method="post">
     <input type="text" name="nom" placeholder="ton nom">
