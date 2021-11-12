@@ -1,17 +1,29 @@
 <?php
+    session_start();
+
+    $prenoms = [
+        "xavier"    => " est vieux",
+        "olivier"   => " va en voyage",
+        "remi"      => " est dans le train",
+        "alexis"    => " achète des voitures",
+        "nelly"     => " est en rage",
+        "mehdi"     => " est un ange",
+        "hanane"    => " utilise de argan",
+        "bouchra"   => " aime les brownies",
+        "karim"     => " est un crack en javascript",
+    ];
+
+    if ( array_key_exists( 'liste', $_SESSION ) )
+    {
+        $prenoms = $_SESSION[ 'liste' ];
+    }
+    else
+        $_SESSION[ 'liste' ] = $prenoms;
+
+
+
     if ( $_POST )
     {
-        $prenoms = [
-            "xavier"    => " est vieux",
-            "olivier"   => " va en voyage",
-            "remi"      => " est dans le train",
-            "alexis"    => " achète des voitures",
-            "nelly"     => " est en rage",
-            "mehdi"     => " est un ange",
-            "hanane"    => " utilise de argan",
-            "bouchra"   => " aime les brownies",
-            "karim"     => " est un crack en javascript",
-        ];
 
         // XaviER
         $prenom = $_POST[ "prenom" ];
@@ -37,6 +49,7 @@
             print( $prenom." inconnu <br>" );
             print( "ajout de ".$prenom." dans le dictionnaire<br>" );
             $prenoms[ $prenom ] = "nouveau dans la liste";
+            $_SESSION[ 'liste' ] = $prenoms;
             print_r( $prenoms );
 
             //header( "location : ");
