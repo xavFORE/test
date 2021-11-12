@@ -4,7 +4,12 @@
         
     $tabFantome = [ 0 => "toto", 1 => "tata", 2 => 3.14, 5 => "Donald", "riri", "fifi", 'loulou'   ];
 
+<<<<<<< HEAD:dictionnaire01M.php
     $dictionnaire = [ "sport" => [ "ext" => 'foot', 'int' => 'echecs', 'violences gratuites' => "lutte" ], "plat" => "couscous", "music" => "Céline Dion", "voiture" => "lamborghini"   ];
+=======
+
+    $dictionnaire = [ "sport" => [ "ext" => 'foot', 'int' => ['echecs', "natation", "bieres"], 'violences gratuites' => "lutte" ], "plat" => "couscous", "music" => "Céline Dion", "voiture" => "lamborghini"   ];
+>>>>>>> origin/xavier:dictionnaire01X.php
 
     $magasin = [ "couscous" => 17, "tomates" => 4.3, "navet" => 5, "carrotes" => 6, "pois chiche" => 1.4 ];
  
@@ -21,7 +26,7 @@
     affDict( $uneListe );
 
     print( "-----------------------------<br>");
-    affDict( $dictionnaire );
+    affDictR( $dictionnaire );
 
     print( "-----------------------------<br>");
     affDict( $magasin );
@@ -49,5 +54,18 @@
         }
     }
 
-?>
+    function affDictR(  $dict, $tab = "---->" )
+    {
+        foreach( $dict as $i => $element )
+        {
+            if ( is_array( $element )  )
+            {
+                print( "$tab $i : <br>");
+                affDictR(  $element, "------".$tab );
+            }
+            else
+                print( "$tab $i : $element <br>");
+        }
+    }
 
+?>
