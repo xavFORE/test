@@ -12,26 +12,13 @@
             "bouchra"   => " aime les brownies",
             "karim"     => " est un crack en javascript",
         ];
-
-        $nom = $_POST[ "nom" ];
+        $nom = strtolower($_POST[ "nom" ]);
         
         $mes = $prenoms[ $nom ];
 
-        print( $mes."<br>" );
+       print( $mes."<br>" );
 
-
-        // si xavier  -> vieux
-        // si olivier  -> voyage
-        // remi     -> train
-        // alexis   -> voiture
-        // nelly    -> rage
-        // mehdi    -> ange
-        // hanane   -> argan
-        // bouchra  -> brownie
-        // karim    -> javascript   
-        
-        //exit();
-    }
+    };
 ?>
 
 
