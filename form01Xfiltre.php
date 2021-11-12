@@ -11,6 +11,7 @@
             "hanane"    => " utulise de argan",
             "bouchra"   => " aime les brownies",
             "karim"     => " est un crack en javascript",
+            "toto"      => "est malade",
         ];
 
         // XaviER
@@ -27,6 +28,7 @@
         else
         {
             print( $nom." inconnu <br>" );
+            print(" ajout de " .$nom." dans le dictionnaire <br>");
         }
 
         
