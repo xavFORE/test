@@ -1,6 +1,10 @@
 <?php
+    session_name("prenom");
+    session_start(); 
+    
+   
     if ( $_POST )
-    {
+    { 
         $prenoms = [
             "xavier"    => " est vieux",
             "olivier"   => " vas voyage",
@@ -11,6 +15,7 @@
             "hanane"    => " utilise de argan",
             "bouchra"   => " aime les brownies",
             "karim"     => " est un crack en javascript",
+            
         ];
 
         // XaviER
@@ -31,23 +36,27 @@
             //              cookies
             //              session_start
 
-            print_r( $prenoms );
+            //print_r( $prenoms );
             print( $nom." inconnu <br>" );
             print( "ajout de ".$nom." dans le dictionnaire<br>" );
             $prenoms[ $nom ] = "nouveau dans la liste";
-            print_r( $prenoms );
+            $_SESSION['prenom'] = $prenoms;
+            
+            //print_r( $prenoms );
+          
         }
 
-        foreach ($prenoms as $nom => $) {
-            # code...
+        foreach ($prenoms as $nom => $element) {
+            print(" $nom => $element");
         }
         
         //exit();
     }
+   
 ?>
 
 
-<form action="#" method="post">
+<form action= "#"  method="post">
     <input type="text" name="nom" placeholder="ton nom">
     <br>
     <button type="submit">OK</button>
