@@ -13,28 +13,26 @@
             "karim"     => " est un crack en javascript",
         ];
 
+        // XaviER
         $nom = $_POST[ "nom" ];
+
+        // XaviER -> xavier
+        $nom = strtolower( $nom  );
         
-        $mes = $prenoms[ $nom ];
+        if ( array_key_exists( $nom, $prenoms ) )
+        {
+            $mes = $prenoms[ $nom ];
+            print( $nom." ".$mes."<br>" );
+        }
+        else
+        {
+            print( $nom." inconnu <br>" );
+        }
 
-        print( $mes."<br>" );
-
-
-        // si xavier  -> vieux
-        // si olivier  -> voyage
-        // remi     -> train
-        // alexis   -> voiture
-        // nelly    -> rage
-        // mehdi    -> ange
-        // hanane   -> argan
-        // bouchra  -> brownie
-        // karim    -> javascript   
         
         //exit();
     }
 ?>
-
-
 
 
 <form action="#" method="post">
