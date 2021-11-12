@@ -8,7 +8,7 @@
             "alexis"    => " achète des voitures",
             "nelly"     => " est en rage",
             "mehdi"     => " est un ange",
-            "hanane"    => " utulise de argan",
+            "hanane"    => " utilise de argan",
             "bouchra"   => " aime les brownies",
             "karim"     => " est un crack en javascript",
         ];
@@ -26,7 +26,16 @@
         }
         else
         {
+            // mot clé :
+            //              session
+            //              cookies
+            //              session_start
+
+            print_r( $prenoms );
             print( $nom." inconnu <br>" );
+            print( "ajout de ".$nom." dans le dictionnaire<br>" );
+            $prenoms[ $nom ] = "nouveau dans la liste";
+            print_r( $prenoms );
         }
 
         
