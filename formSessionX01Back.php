@@ -1,10 +1,9 @@
 <?php
-
     if ( $_POST )
     {
         $prenoms = [
             "xavier"    => " est vieux",
-            "olivier"   => " vas voyage",
+            "olivier"   => " va en voyage",
             "remi"      => " est dans le train",
             "alexis"    => " achète des voitures",
             "nelly"     => " est en rage",
@@ -15,15 +14,16 @@
         ];
 
         // XaviER
-        $nom = $_POST[ "nom" ];
+        $prenom = $_POST[ "prenom" ];
+        print( "saisie $prenom <br>"  );
 
         // XaviER -> xavier
-        $nom = strtolower( $nom  );
+        $prenom = strtolower( $prenom  );
         
-        if ( array_key_exists( $nom, $prenoms ) )
+        if ( array_key_exists( $prenom, $prenoms ) )
         {
-            $mes = $prenoms[ $nom ];
-            print( $nom." ".$mes."<br>" );
+            $mes = $prenoms[ $prenom ];
+            print( $prenom." ".$mes."<br>" );
         }
         else
         {
@@ -33,21 +33,16 @@
             //              session_start
             //              php store dictionary in session
 
+            //print_r( $prenoms );
+            print( $prenom." inconnu <br>" );
+            print( "ajout de ".$prenom." dans le dictionnaire<br>" );
+            $prenoms[ $prenom ] = "nouveau dans la liste";
             print_r( $prenoms );
-            print( $nom." inconnu <br>" );
-            print( "ajout de ".$nom." dans le dictionnaire<br>" );
-            $prenoms[ $nom ] = "nouveau dans la liste";
-            print_r( $prenoms );
+
+            //header( "location : ");
         }
 
         
         //exit();
     }
 ?>
-
-
-<form action="#" method="post">
-    <input type="text" name="nom" placeholder="ton nom">
-    <br>
-    <button type="submit">OK</button>
-</form>
