@@ -8,29 +8,16 @@
             "alexis"    => " achète des voitures",
             "nelly"     => " est en rage",
             "mehdi"     => " est un ange",
-            "hanane"    => " utulise de argan",
+            "hanane"    => " utilise de l'argan",
             "bouchra"   => " aime les brownies",
             "karim"     => " est un crack en javascript"
         ];
 
         $nom = $_POST[ "nom" ];
         
-        $mes = $prenoms[ $nom ];
+        $mes = $prenoms[ strtolower($nom)];
 
         print( $mes."<br>" );
-
-
-        // si xavier  -> vieux
-        // si olivier  -> voyage
-        // remi     -> train
-        // alexis   -> voiture
-        // nelly    -> rage
-        // mehdi    -> ange
-        // hanane   -> argan
-        // bouchra  -> brownie
-        // karim    -> javascript   
-        
-        //exit();
     }
 ?>
 
