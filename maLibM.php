@@ -41,4 +41,16 @@ function lienVers($titre, $source)
     return $struc;
 }
 
+function afficheTableau( $tab )
+{
+    printSL("<table>");
+
+    foreach ($tab as $key => $value) {
+        printSL("<tr><td>$key : </td>");
+        printSL("<td>$value</td></tr>");
+    }
+
+    printSL("</table><br>");
+}
+
 ?>
