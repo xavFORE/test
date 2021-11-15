@@ -1,8 +1,12 @@
 <?php
+<<<<<<< HEAD
     session_name("prenom");
     session_start(); 
     
    
+=======
+
+>>>>>>> origin/xavier
     if ( $_POST )
     { 
         $prenoms = [
@@ -35,6 +39,7 @@
             //              session
             //              cookies
             //              session_start
+            //              php store dictionary in session
 
             //print_r( $prenoms );
             print( $nom." inconnu <br>" );
