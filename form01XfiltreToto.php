@@ -1,4 +1,8 @@
 <?php
+
+// session_start au début de la session pour poser des cookies. 
+session_start();
+
     if ( $_POST )
     {
         $prenoms = [
