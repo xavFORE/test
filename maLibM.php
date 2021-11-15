@@ -26,11 +26,14 @@ function pied()
     printSL( '</html>');
 }
          
-function ecritEnGrand( $mes , $style)
+function ecritEnGrand( $mes , $style = "" )
 {
     $mes = strtoupper( $mes );
-    printSL( "<h1 class='" . $style . "'>" . $mes . "</h1>" );
-}
 
+    if( $style )
+        printSL( "<h1 class='" . $style . "'>" . $mes . "</h1>" );
+    else
+        printSL( "<h1>" . $mes . "</h1>" );
+}
 
 ?>
