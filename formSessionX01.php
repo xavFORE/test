@@ -1,11 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-// session_start au début de la session pour poser des cookies. 
-session_start();
-
-=======
->>>>>>> origin/xavier
     if ( $_POST )
     {
         $prenoms = [
@@ -50,8 +44,6 @@ session_start();
         //exit();
     }
 ?>
-
-
 <form action="#" method="post">
     <input type="text" name="nom" placeholder="ton nom">
     <br>
