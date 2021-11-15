@@ -1,6 +1,5 @@
 <?php
 
-// print Saut de Ligne
 function printSL( $mes )
 {
     print( $mes."\n" );
@@ -28,12 +27,18 @@ function pied()
          
 function ecritEnGrand( $mes , $style = "" )
 {
-    $mes = strtoupper( $mes );
+    if ( $style != "" )
+        $style = " class='$style'";
 
-    if( $style )
-        printSL( "<h1 class='" . $style . "'>" . $mes . "</h1>" );
-    else
-        printSL( "<h1>" . $mes . "</h1>" );
+    $mes = strtoupper( $mes );
+    printSL( "<h1$style>$mes</h1>" );
+}
+
+function lienVers($titre, $source)
+{
+    $struc = "";
+    $struc .= "<a href='$source'>$titre</a>";
+    return $struc;
 }
 
 ?>
