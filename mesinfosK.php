@@ -8,7 +8,7 @@ entete( "mes infos");
 
 ecritEnGrand( "le magasin est ouvert de 11:55 à midi ", "enMoyen" );
 
-
+lienVers("retour", "bonjourToto01Km.php");
 
 
 

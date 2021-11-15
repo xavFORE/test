@@ -30,6 +30,10 @@ function sL( $l ){
     print($l."\n");
 }
 
+function lienVers(  $mes, $cible ){
+    
+    sL("<a href=\"$cible\">$mes</a>");
 
+}
 
 ?>

@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
-require "maLibKm.php";
-=======
 require "maLibX.php";
->>>>>>> origin/xavier
 
 
 // ma page commence ici
