@@ -1,5 +1,5 @@
 <?php
-require "maLib.php";
+require "maLibN.php";
 
 
 // ma page commence ici
