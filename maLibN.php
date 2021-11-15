@@ -20,14 +20,21 @@ function entete( $titre )
 
 function ecritEnGrand($ecrit, $class="")
 {
-    $ecrit = strtoupper($ecrit);
-    if ($class) {
-        printSL('<h1 class="'.$class.'">'.$ecrit.'</h1>');
-    }
-    else
-    printSL('<h1>'.$ecrit.'</h1>');
+    if ( $class != "" )
+    $class = " class='$class'";
+
+$ecrit = strtoupper( $ecrit );
+printSL( "<h1$class>$ecrit</h1>" );
+//printSL( '<h1 class="'.$class.'">'.$ecrit.'</h1>' );
+// <h1 class="enGrand">bonjour TOTO !!</h1>
+// <h1 class="enMoyen">bonjour TOTO !!</h1>
     
     
+}
+
+function lienVers($informations, $source)
+{
+    print("<a href='$source'>$informations</a>");
 }
 
 function pied()
