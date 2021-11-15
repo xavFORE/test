@@ -1,27 +1,57 @@
 <?php
 
+// print Saut de Ligne
+function printSL( $mes )
+{
+    print( $mes."\n" );
+}
+
 function entete( $titre )
 {
-    print( '<!DOCTYPE html>');
-    print( '<html lang="fr">');
-    print( '<head>');
-    print( '    <meta charset="UTF-8">');
-    print( '    <meta http-equiv="X-UA-Compatible" content="IE=edge">');
-    print( '    <meta name="viewport" content="width=device-width, initial-scale=1.0">');
-    print( "    <title>$titre</title>");
-    print( '</head>');
-    print( '<body>');
+    printSL( '<!DOCTYPE html>');
+    printSL( '<html lang="fr">');
+    printSL( '<head>');
+    printSL( '    <meta charset="UTF-8">');
+    printSL( '    <meta http-equiv="X-UA-Compatible" content="IE=edge">');
+    printSL( '    <meta name="viewport" content="width=device-width, initial-scale=1.0">');
+    printSL( "    <title>$titre</title>");
+    printSL( '<link rel="stylesheet" href="./monCSSoc.css">');
+    printSL( '</head>');
+    printSL( '<body>');
 }   
 
 function pied()
 {
-    print( '</body>');
-    print( '</html>');
+    printSL( '</body>');
+    printSL( '</html>');
+}
+         
+function ecritEnGrand( $mes )
+{
+    $mes = strtoupper( $mes );
+    printSL( "<h1>$mes</h1>" );
+}
+function ecritUneClass($mes , $class)
+{
+    if ($class) {
+        $class = ' class="'.$class.'"';
+  
+    printSL( "<div$class>$mes</div>" );
+    }
+    else
+    printSL( "<div>$mes</div>" );
 }
 
-function ecritEnGrand($grand)
+function liensvers($info , $mesinfos)
 {
-    print('<h1>'.$grand.'</h1>');
+    if ($mesinfos) {
+        $mesinfos = ' h="'.$class.'"';
+  
+    printSL( "<div$class>$mes</div>" );
+    }
+    else
+    printSL( "<div>$mes</div>" );
 }
+
 
 ?>
