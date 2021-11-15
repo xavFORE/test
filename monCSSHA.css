@@ -5,7 +5,9 @@
     right: 80%;
     font-size: 50px;
     color: red;
-    background-color: burlywood;}
+    background-color: burlywood;
+}
+
 .enMoyen
 {
     text-align: center;
@@ -23,4 +25,10 @@
     font-size: 50px;
     color: rgb(114, 38, 185);
     background-color: rgb(138, 225, 231);
+}
+
+.klass_default
+{
+    font-size: 10px;
+    color: gray;
 }
