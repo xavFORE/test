@@ -38,6 +38,12 @@ function ecritEnGrand( $mes, $class="" )
     // <h1 class="enMoyen">bonjour TOTO !!</h1>
 }
 
+function lienVers( $mes, $cible )
+{
+    printSL( "<a href=\"$cible\">$mes</a>"   );
+}
+
+
 /*
 sauver le travail courant -> 
 git status
