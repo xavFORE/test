@@ -1,5 +1,5 @@
 <?php
-require "maLibRV.php";
+require "./maLibRV.php";
 
 
 // ma page commence ici
