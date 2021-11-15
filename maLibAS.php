@@ -12,13 +12,19 @@ function entete( $titre )
     printSL( '    <meta http-equiv="X-UA-Compatible" content="IE=edge">');
     printSL( '    <meta name="viewport" content="width=device-width, initial-scale=1.0">');
     printSL( "    <title>$titre</title>");
+    printSL( '<link rel="stylesheet" href="monCssAS.css">');
     printSL( '</head>');
     printSL( '<body>');
 }  
 
-function ecritEnGrand( $text)
+function ecritEnGrand( $text, $css="" )
 {
-    printSL('<h1>'.strtoupper($text).'</h1>');
+    if($css){
+    printSL('<h1 class="'.$css.'">'.strtoupper($text)."</h1>");
+    }
+    else
+    printSL('<h1>'.strtoupper($text)."</h1>");
+    
 }
 
 

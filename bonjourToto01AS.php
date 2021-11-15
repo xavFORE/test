@@ -5,6 +5,7 @@ require "./maLibAS.php";
 // ma page commence ici
 
 entete( "salut");
-ecritEnGrand( 'bonjour TOTO !!');
+ecritEnGrand( "bonjour TOTO !!", "enMoyen");    
+ecritEnGrand( "bonjour Alexis !!");
 pied();
 ?>
