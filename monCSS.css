@@ -1,10 +1,26 @@
 .enGrand
 {
-    font-size: 100px;
+    text-align: center;
+    width: 80%;
+    right: 80%;
+    font-size: 50px;
     color: red;
-}
+    background-color: burlywood;}
 .enMoyen
 {
+    text-align: center;
+    width: 80%;
+    right: 80%;
     font-size: 50px;
     color: rebeccapurple;
+    background-color: chartreuse;
+}
+.enPetit
+{
+    text-align: center;
+    width: 80%;
+    right: 80%;
+    font-size: 50px;
+    color: rgb(114, 38, 185);
+    background-color: rgb(138, 225, 231);
 }

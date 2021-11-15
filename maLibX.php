@@ -30,6 +30,9 @@ function ecritEnGrand( $mes )
 {
     $mes = strtoupper( $mes );
     printSL( "<h1>$mes</h1>" );
+       
+    <h1 class="enGrand">bonjour TOTO !!</h1>
+    <h1 class="enMoyen">bonjour TOTO !!</h1>
 }
 
 
