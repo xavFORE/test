@@ -13,10 +13,10 @@ function entete( $titre )
     print( '<body>');
 }   
 
-    function ecritEnGrand($ecrit)
-    {
-        print("$ecrit");
-    }
+function ecritEnGrand($ecrit)
+{
+    print("$ecrit");
+}
 
 function pied()
 {
