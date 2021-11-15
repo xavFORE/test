@@ -44,8 +44,6 @@
         //exit();
     }
 ?>
-
-
 <form action="#" method="post">
     <input type="text" name="nom" placeholder="ton nom">
     <br>
