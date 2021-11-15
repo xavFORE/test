@@ -1,10 +1,9 @@
 <?php
-// page1.php
-
 session_start();
+
 $prenoms = [
     "xavier"    => " est vieux",
-    "olivier"   => " vas voyage",
+    "olivier"   => " va en voyage",
     "remi"      => " est dans le train",
     "alexis"    => " achète des voitures",
     "nelly"     => " est en rage",
@@ -13,40 +12,47 @@ $prenoms = [
     "bouchra"   => " aime les brownies",
     "karim"     => " est un crack en javascript",
 ];
-if (array_key_exists('liste', $_SESSION)) {
-    $_prenoms;
-} else
 
+if (array_key_exists('liste', $_SESSION)) {
+    $prenoms = $_SESSION['liste'];
+} else
     $_SESSION['liste'] = $prenoms;
+
+
+
 if ($_POST) {
 
-
     // XaviER
-    $nom = $_POST["nom"];
+    $prenom = $_POST["prenom"];
+    print("saisie $prenom <br>");
 
     // XaviER -> xavier
-    $nom = strtolower($nom);
+    $prenom = strtolower($prenom);
 
-    if (array_key_exists($nom, $prenoms)) {
-        $mes = $prenoms[$nom];
-        print($nom . " " . $mes . "<br>");
+    if (array_key_exists($prenom, $prenoms)) {
+        $mes = $prenoms[$prenom];
+        print($prenom . " " . $mes . "<br>");
     } else {
         // mot clé :
         //              session
         //              cookies
         //              session_start
+        //              php store dictionary in session
 
-        print("ajout de " . $nom . " dans le dictionnaire<br>");
-        $prenoms[$nom] = "nouveau dans la liste<br>";
+        //print_r( $prenoms );
+        print($prenom . " inconnu <br>");
+        print("ajout de " . $prenom . " dans le dictionnaire<br>");
+        $prenoms[$prenom] = "nouveau dans la liste";
         $_SESSION['liste'] = $prenoms;
         print_r($prenoms);
+
+        //header( "location : ");
     }
+
+
+    //exit();
 }
-
-// Fonctionne si le cookie a été accepté
-echo '<br /><a href="test02.php">page 2</a>';
-
-?>
+?>  
 <form action="#" method="post">
     <input type="text" name="nom" placeholder="ton nom">
     <br>
