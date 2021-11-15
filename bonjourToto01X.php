@@ -11,7 +11,7 @@ ecritEnGrand( "hello hello TOTO !!", "enGrand" );
 ecritEnGrand( "TOTO manque de classe..." );
 ecritEnGrand( "TOTO avec la classe...", "enMoyen" );
 
-lienVers( "mes infos", "mesinfosX.php"  );
+lienVers( "mes infos", "mesinfosRV.php"  );
 
 
 
