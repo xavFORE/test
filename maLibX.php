@@ -45,6 +45,12 @@ function ecritEnGrand( $mes, $class="" )
 >>>>>>> origin/xavier
 }
 
+function lienVers( $mes, $cible )
+{
+    printSL( "<a href=\"$cible\">$mes</a>"   );
+}
+
+
 /*
 sauver le travail courant -> 
 git status
