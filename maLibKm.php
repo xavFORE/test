@@ -2,26 +2,34 @@
 
 function entete( $titre )
 {
-    print( '<!DOCTYPE html>');
-    print( '<html lang="fr">');
-    print( '<head>');
-    print( '    <meta charset="UTF-8">');
-    print( '    <meta http-equiv="X-UA-Compatible" content="IE=edge">');
-    print( '    <meta name="viewport" content="width=device-width, initial-scale=1.0">');
-    print( "    <title>$titre</title>");
+    sL( '<!DOCTYPE html>');
+    sL( '<html lang="fr">');
+    sL( '<head> ');
+    sL( '    <meta charset="UTF-8">');
+    sL( '    <meta http-equiv="X-UA-Compatible" content="IE=edge">');
+    sL( '    <meta name="viewport" content="width=device-width, initial-scale=1.0">');
+    sL( "    <title>$titre</title>");
+    sl('<link rel="stylesheet" href="monCSS.css">');
     
-    print( '</head>');
-    print( '<body>');
+
+    sL( '</head>');
+    sL( '<body>');
 }   
 
 function pied()
 {
-    print( '</body>');
-    print( '</html>');
+    sL( '</body>');
+    sL( '</html>');
 }
 
-function ecritEnGrand($titre){
-    print( "<h1>$titre</h1>");
+function ecritEnGrand($titre, $class){
+    sL( "<h1 class='$class'>$titre</h1>");
 }
+
+function sL( $l ){
+    print($l."\n");
+}
+
+
 
 ?>
