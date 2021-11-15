@@ -45,12 +45,12 @@ function ecritUneClass($mes , $class)
 function liensvers($info , $mesinfos)
 {
     if ($mesinfos) {
-        $mesinfos = ' h="'.$class.'"';
-  
-    printSL( "<div$class>$mes</div>" );
-    }
-    else
-    printSL( "<div>$mes</div>" );
+      // $mesinfos =  '<a href="./mesinfosOC.php">'.$info.'</div>'
+      printSL('<a href="'.$mesinfos.'">'.$info.'</div>'  );
+
+}
+else
+    printSL( "<div>$info</div>" );
 }
 
 

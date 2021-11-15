@@ -26,11 +26,24 @@ function pied()
     printSL( '</html>');
 }
          
-function ecritEnGrand( $mes )
+function ecritEnGrand( $mes, $class="" )
 {
+    if ( $class != "" )
+        $class = " class='$class'";
+
     $mes = strtoupper( $mes );
-    printSL( "<h1>$mes</h1>" );
+    printSL( "<h1$class>$mes</h1>" );
+    //printSL( '<h1 class="'.$class.'">'.$mes.'</h1>' );
+    // <h1 class="enGrand">bonjour TOTO !!</h1>
+    // <h1 class="enMoyen">bonjour TOTO !!</h1>
 }
+
+/*
+sauver le travail courant -> 
+git status
+git add ........
+git commit
+*/
 
 
 ?>
