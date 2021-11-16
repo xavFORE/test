@@ -46,12 +46,43 @@ function liensvers($info , $mesinfos)
 {
     if ($mesinfos) {
       // $mesinfos =  '<a href="./mesinfosOC.php">'.$info.'</div>'
-      printSL('<a href="'.$mesinfos.'">'.$info.'</div>'  );
+      printSL('<a href="'.$mesinfos.'">'.$info.'</a>'  );
 
 }
 else
     printSL( "<div>$info</div>" );
 }
+
+
+
+function fbrTD($nom1 ) ,ecritUneClass($class1)
+{
+print('<td'.$class1.'>'.$nom1.'</td>');
+}
+
+function fbrTR($nom2 , $class1)
+{
+    print('<tr '.$class1.'>'.$nom2.'</tr>');
+    }
+
+
+function afficheTableau($tab)
+ {
+    print("<table>");
+    foreach( $tab as $jour => $heures )
+    {
+        fbrTD(fbrTR("$jour","td"),fbrTR($heures,"td"));
+
+    }
+    print("</table>");
+}
+
+
+
+
+
+
+  
 
 
 ?>

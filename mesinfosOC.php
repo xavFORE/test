@@ -10,6 +10,19 @@ ecritEnGrand( "le magasin est ouvert de 11:55 à midi ", "enMoyen" );
 
 liensvers(" Retour page accueil" , "./bonjourToto01OC.php");
 
+
+
+
+$horaires =  [
+    "lundi"     => "fermé",
+    "mardi"     => "9h-12  14-18",
+    "mercredi"  => "9h-12  14:39-18:45",
+    "jeudi"     => "9h-12  14-18",
+    "vendredi"  => "9h-12  14-18",
+    "samedi"    => "9h-12  14-18"
+];
+
+afficheTableau( $horaires , 'tr');  
 //print( '<h1>bonjour TOTO !!</h1>');
 pied();
 ?>
