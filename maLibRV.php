@@ -50,19 +50,18 @@ function afficheTableau( $tablo, $class )
     {
         //     <tr> <td>lundi</td><td>fermé</td></tr>
        //printSL( "<tr><td>$jour</td><td>$heure</td></tr>" );
-       printSL( "<tr>" );
-            
-            $code  = fabriqueBalise( "td", $jour  );
+       
             // <td>lundi</td>
-            printSL( $code );
+            $code  = fabriqueBalise( "td", $jour  );
             $code2 = fabriqueBalise( "td", $heures);
-       printSL( "</tr>" );
+            printSL("<tr> $code $code2 </tr>");
+      
     }
     printSL( "</table>" );
 }
 function fabriqueBalise($balise, $value)
 {
-    printSL("<$balise> \"$value\"</\"$balise\">");
+    printSL("<$balise> $value </$balise>");
 
 }
 /*
