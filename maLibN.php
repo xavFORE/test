@@ -37,6 +37,19 @@ function lienVers($informations, $source)
     print("<a href='$source'>$informations</a>");
 }
 
+function afficheTableau($tabLo)
+{
+    print("<table>");
+
+    foreach ($tabLo as $key => $value) 
+    {
+
+        print("<tr><td>$key</td><td>--></td><td>$value</td></tr>");
+    }
+    print("</table>");
+
+}
+
 function pied()
 {
     print( '</body>');

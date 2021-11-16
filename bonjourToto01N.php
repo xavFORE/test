@@ -6,9 +6,9 @@ require "maLibN.php";
 
 entete( "salut");
 
-ecritEnGrand( "bonjour TOTO !!", "enMoyen" );
-ecritEnGrand( "bonjour Nelly !!", "enGrand");
-ecritEnGrand( "TOTO manque de classe..." );
+//ecritEnGrand( "bonjour TOTO !!", "enMoyen" );
+//ecritEnGrand( "bonjour Nelly !!", "enGrand");
+//ecritEnGrand( "TOTO manque de classe..." );
 ecritEnGrand( "TOTO avec la classe...", "enMoyen" );
 
 lienVers( "mes infos", "mesinfosN.php"  );
