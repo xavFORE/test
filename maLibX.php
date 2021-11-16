@@ -32,17 +32,10 @@ function ecritEnGrand( $mes, $class="" )
         $class = " class='$class'";
 
     $mes = strtoupper( $mes );
-<<<<<<< HEAD
-    printSL( "<h1>$mes</h1>" );
-       
-    <h1 class="enGrand">bonjour TOTO !!</h1>
-    <h1 class="enMoyen">bonjour TOTO !!</h1>
-=======
     printSL( "<h1$class>$mes</h1>" );
     //printSL( '<h1 class="'.$class.'">'.$mes.'</h1>' );
     // <h1 class="enGrand">bonjour TOTO !!</h1>
     // <h1 class="enMoyen">bonjour TOTO !!</h1>
->>>>>>> origin/xavier
 }
 
 function lienVers( $mes, $cible )
