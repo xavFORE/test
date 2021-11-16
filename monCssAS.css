@@ -6,3 +6,15 @@
   font-size: 50px;
   color: rebeccapurple;
 }
+table,tr,td{
+ border: 2px solid black; 
+ font-size: 50px;
+ text-align: center;
+ padding: 20px;
+}
+.contenue_td{
+  background-color: chartreuse;
+}
+.fermé{
+  background-color: red;
+}
