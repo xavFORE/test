@@ -36,4 +36,13 @@ function lienVers(  $mes, $cible ){
 
 }
 
+
+function afficheTableau( $horaires){ 
+    print('<table>');
+    foreach ($horaires as $key => $value) {  
+            sL("<tr><td>$key</td><td>$value</td></tr>");     
+    }
+     print ('</table>');
+}
+
 ?>
