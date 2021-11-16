@@ -15,7 +15,7 @@
     right: 80%;
     font-size: 50px;
     color: rebeccapurple;
-    background-color: chartreuse;
+    background-color: rgb(168, 187, 149);
 }
 .enPetit
 {
@@ -29,6 +29,11 @@
 
 .klass_default
 {
+    
     font-size: 10px;
     color: gray;
+}
+tr
+{
+    border: 1px solid black;
 }

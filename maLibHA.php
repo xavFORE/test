@@ -46,6 +46,20 @@ function lienVers(  $mes, $cible   )
 
 }
 
+function afficheTableau( $hor )
+{
+    printSL("<table>");
+    foreach($hor as $clé => $valeur)
+     {
+        printSL( "<tr><td>$clé</td><td> ---> </td><td>$valeur</td></tr>\n") ;
+     
+     }
+     printSL("</table>");
+
+}      
+
+
+
 /*
 sauver le travail courant -> 
 git status

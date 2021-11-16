@@ -24,3 +24,14 @@
     color: rgb(114, 38, 185);
     background-color: rgb(138, 225, 231);
 }
+.klass_default
+{
+    
+    font-size: 10px;
+    color: gray;
+}
+td
+{
+    border: solid 1px black;
+    text-align: center;
+}
