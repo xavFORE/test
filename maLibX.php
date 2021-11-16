@@ -50,7 +50,30 @@ function lienVers( $mes, $cible )
     printSL( "<a href=\"$cible\">$mes</a>"   );
 }
 
+function afficheTableau( $tablo, $class )
+{
+    printSL( "<table class='$class'>" );
+    foreach ($tablo as $jour => $heures ) 
+    {
+        //     <tr> <td>lundi</td><td>fermé</td></tr>
+       //printSL( "<tr><td>$jour</td><td>$heure</td></tr>" );
+       printSL( "<tr>" );
+            
+            $code  = fabriqueBalise( "td", $jour  );
+            // <td>lundi</td>
+            printSL( $code );
+            
+            printSL( "<td>" );
+                printSL( $heures );
+            printSL( "</td>" );
+       printSL( "</tr>" );
+    }
 
+
+
+
+    printSL( "</table>" );
+}
 /*
 sauver le travail courant -> 
 git status
