@@ -19,8 +19,7 @@ $horaires = [
                 "samedi"    => "9h-12  14-18"
               ];
 
-
-  afficheTableau( $horaires );            
+afficheTableau( $horaires, "tablo1" );            
 
 
 //print( '<h1>bonjour TOTO !!</h1>');
