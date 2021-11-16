@@ -18,4 +18,10 @@
 
 .maClass {
     border: 2px solid black;
+    background-color: mediumseagreen;
+}
+
+table {
+    background-color: grey;
+    border: 2px solid;
 }

@@ -41,19 +41,24 @@ function lienVers($titre, $source)
     return $struc;
 }
 
-function afficheTableau( $tab, $class )
+function afficheTableau( $tab, $class = "")
 {
     printSL("<table>");
+
+    if ($class != "")
+        $class = " class='$class'";
 
     foreach ($tab as $key => $value) {
 
         printSL( "<tr>" );
 
-        $code = fabriqueBalise( "td", $key);
-        printSL( $code );
+        $code = fabriqueBalise( "td", $key, $class );
+        print( $code );
 
-        printSL("<td class='$class'>=></td>");
-        printSL("<td class='$class'>$value</td>");
+        printSL("<td$class>=></td>");
+
+        $code1 = fabriqueBalise( "td", $value, $class );
+        print($code1);
 
         printSL( "</tr>" );
     }
@@ -61,9 +66,10 @@ function afficheTableau( $tab, $class )
     printSL("</table><br>");
 }
 
-function fabriqueBalise( $td, $jour )
+function fabriqueBalise( $balise, $data, $class )
 {
-    printSL("<$td class='maClass'>$jour</$td>");
+    $code = "<$balise$class>$data</$balise>\n";
+    return $code;
 }
 
 ?>
