@@ -15,7 +15,7 @@ $horaires = [
                 "samedi"    => "9h-12  14-18"
             ];
 
-afficheTableau( $horaires );      
+afficheTableau( $horaires, "maClass" );      
 
 printSL(lienVers("Accueil", "bonjourToto01M.php"));
 
