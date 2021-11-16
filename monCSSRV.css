@@ -3,8 +3,23 @@
     font-size: 100px;
     color: red;
 }
+
 .enMoyen
 {
     font-size: 50px;
     color: rebeccapurple;
+}
+
+.klass_default
+{
+    font-size: 10px;
+    color: gray;
+}
+
+.tableau 
+{
+    border: 2px solid black;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
 }
