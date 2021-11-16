@@ -1,0 +1,17 @@
+.enGrand
+{
+    font-size: 100px;
+    color: red;
+}
+
+.enMoyen
+{
+    font-size: 50px;
+    color: rebeccapurple;
+}
+
+.klass_default
+{
+    font-size: 10px;
+    color: gray;
+}

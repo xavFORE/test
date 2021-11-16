@@ -1,4 +1,5 @@
 <?php
+
     if ( $_POST )
     {
         $prenoms = [
@@ -8,30 +9,9 @@
             "alexis"    => " achète des voitures",
             "nelly"     => " est en rage",
             "mehdi"     => " est un ange",
-            "hanane"    => " utulise de argan",
+            "hanane"    => " utilise de argan",
             "bouchra"   => " aime les brownies",
-<<<<<<< HEAD
             "karim"     => " est un crack en javascript",
-        ];
-
-        $nom = $_POST[ "nom" ];
-        
-        $mes = $prenoms[ $nom ];
-
-        print( $mes."<br>" );
-
-
-        // si xavier  -> vieux
-        // si olivier  -> voyage
-        // remi     -> train
-        // alexis   -> voiture
-        // nelly    -> rage
-        // mehdi    -> ange
-        // hanane   -> argan
-        // bouchra  -> brownie
-        // karim    -> javascript   
-=======
-            "karim"     => " est un crack en javascript"
         ];
 
         // XaviER
@@ -47,22 +27,23 @@
         }
         else
         {
-            session_start() ;
-            $_SESSION[$prenoms[ $nom ]] = "nouveau dans la liste";
+            // mot clé :
+            //              session
+            //              cookies
+            //              session_start
+            //              php store dictionary in session
+
+            print_r( $prenoms );
+            print( $nom." inconnu <br>" );
             print( "ajout de ".$nom." dans le dictionnaire<br>" );
+            $prenoms[ $nom ] = "nouveau dans la liste";
+            print_r( $prenoms );
         }
->>>>>>> b72ebc854e26ed9e0672ebfc9b8d6e7f2a792b15
+
         
         //exit();
     }
 ?>
-
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> b72ebc854e26ed9e0672ebfc9b8d6e7f2a792b15
 <form action="#" method="post">
     <input type="text" name="nom" placeholder="ton nom">
     <br>
