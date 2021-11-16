@@ -51,10 +51,12 @@ function afficheTableau( $tablo, $class )
         //     <tr> <td>lundi</td><td>fermé</td></tr>
        //printSL( "<tr><td>$jour</td><td>$heure</td></tr>" );
        printSL( "<tr>" );
-            printSL( "<td  class='$class'>" );
-                printSL( $jour );
-            printSL( "</td>" );
-            printSL( "<td  class='$class'>" );
+            
+            $code  = fabriqueBalise( "td", $jour  );
+            // <td>lundi</td>
+            printSL( $code );
+            
+            printSL( "<td>" );
                 printSL( $heures );
             printSL( "</td>" );
        printSL( "</tr>" );
