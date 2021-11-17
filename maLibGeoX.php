@@ -82,7 +82,39 @@ class Cercle extends PointColor
     {
         print( "je suis un cercle en ($this->x, $this->y) de rayon $this->rayon<br>" );
     }
+}
 
+class Carre extends PointColor
+{
+    protected $cote;
+
+    public function __construct( $x, $y, $cote, $couleur="" )
+    {
+        parent::__construct( $x, $y, $couleur );
+        $this->cote = $cote; 
+    }
+
+    public function aff()
+    {
+        print( "je suis un carré ($this->x, $this->y) de coté $this->cote<br>" );
+    }
+}
+
+
+class Rectangle extends Carre
+{
+    private $grandCote;
+
+    public function __construct( $x, $y, $cote, $grandCote, $couleur="" )
+    {
+        parent::__construct( $x, $y, $cote, $couleur );
+        $this->grandCote = $grandCote; 
+    }
+
+    public function aff()
+    {
+        print( "je suis un rectangle ($this->x, $this->y) de cotés $this->cote et $this->grandCote<br>" );
+    }
 }
 
 ?>
