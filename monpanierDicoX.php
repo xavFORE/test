@@ -2,7 +2,7 @@
 
 $monPanier = 
 [
-    [ "article" => "fraise"         ,  "qte" =>  2.5,   "pu" =>    5 ],
+    [ "qte" =>  2.5,   "article" => "fraise"         ,     "pu" =>    5 ],
     [ "article" => "framboise"      ,  "qte" =>  1.2,   "pu" =>    5 ],
     [ "article" => "sucre"          ,  "qte" =>  7  ,   "pu" =>    0.85 ],
     [ "article" => "sardine"        ,  "qte" =>  0.2,   "pu" =>    2.34, "dispo" => 0  ],
