@@ -13,7 +13,7 @@ $monPanier =
 ];
 
 $prix_un_article = "0";
-foreach ($monPanier as $key => $value ) {
+foreach ($monPanier as $value ) {
     $prix_un_article +=($value[1]*$value[2]."<br>");
     print_r("pour ".$value[1]." ".$value[0]." ça coute ".$prix_un_article."<br>");
 }
