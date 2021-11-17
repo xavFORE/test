@@ -66,6 +66,7 @@ foreach( $tableauPoints as $point )
     $point->aff();
 }
 */
+
 foreach( $tableauPoints as $point )
 {
     $point->affL();
