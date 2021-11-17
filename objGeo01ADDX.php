@@ -41,37 +41,19 @@ class Point
 }
 
 
-$point01 = new Point( 14, 18);
-$point02 = new Point(  4,  1);
-$point03 = new Point(  1,  8);
-$point04 = new Point( 39, 45);
+// ********************************************************
 
-$tableauPoints = [ $point01, $point02, $point03, $point04 ];
+$p1 = new Point( 10, 15 );
+$p2 = new Point( 2, 2 );
 
-foreach( $tableauPoints as $point )
-{
-    $point->aff();
-}
-
-foreach( $tableauPoints as $point )
-{
-    $point->deplace( 3, 0);
-    $point->aff();
-}
-
-/*
-foreach( $tableauPoints as $point )
-{
-    $point->raz(); // <<--------
-    $point->aff();
-}
-*/
-foreach( $tableauPoints as $point )
-{
-    $point->affL();
-    // (14,18)  ->  (x=14, y=1)
-}
+$p1->add(  $p2  );
 
 
+$p1->aff();
+// (12, 17)
+
+
+//$p1->deplace( 2, 2 );
+ 
 
 ?>
