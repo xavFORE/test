@@ -81,6 +81,12 @@ class Cercle extends PointColor
         print( "je suis un cercle en ($this->x, $this->y) de rayon $this->rayon<br>" );
     }
 
+    public function surface()
+    {
+        $res = ($this->rayon * $this->rayon)*pi();
+        return $res;
+    }
+
 }
 
 class Carre extends Cercle
@@ -93,6 +99,12 @@ class Carre extends Cercle
     public function aff()
     {
         print( "je suis un carré en ($this->x, $this->y) de coté $this->rayon $this->color<br>" );
+    }
+
+    public function surface()
+    {
+        $res = $this->rayon * $this->rayon;
+        return $res;
     }
 }
 
@@ -109,6 +121,12 @@ class Rectangle extends Carre
     public function aff()
     {
         print( "je suis un rectangle en ($this->x, $this->y) de largeur $this->rayon, de longueur $this->longueur $this->color<br>" );
+    }
+
+    public function surface()
+    {
+        $res = $this->rayon * $this->longueur;
+        return $res;
     }
 }
 
