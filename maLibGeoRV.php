@@ -82,39 +82,56 @@ class Cercle extends PointColor
     {
         print( "je suis un cercle en ($this->x, $this->y) de rayon $this->rayon<br>" );
     }
+    public function surface()
+    {
+        $surface = $this->rayon * $this->rayon * 3.14;
+        return $surface;
+    }
 
 }
 
-class Rectangle extends Point
+class Carre extends PointColor
 {
-    private $largeur;
-    private $longueur; 
-
-    public function __construct( $x, $y, $largeur, $longueur)
-    {
-        parent::__construct( $x, $y);
-        $this->largeur = $largeur; 
-        $this->longueur = $longueur;
-    }
-    public function aff()
-    {
-        print( "je suis un rectangle en ($this->x, $this->y) de largeur $this->largeur et de longueur $this->longueur<br>" );
-    }
-}
-class Carre extends Point
-{
-    private $cote;
+    protected $cote;
      
+    
 
-    public function __construct( $x, $y, $cote)
+    public function __construct( $x, $y, $cote, $couleur="" )
     {
-        parent::__construct( $x, $y);
+        parent::__construct( $x, $y, $couleur );
         $this->cote = $cote; 
-        
     }
+
     public function aff()
     {
-        print( "je suis un carré en ($this->x, $this->y) de côté $this->cote<br>" );
+        print( "je suis un carré ($this->x, $this->y) de coté $this->cote<br>" );
+    }
+    public function surface()
+    {
+        $surface = $this->cote * $this->cote;
+        return $surface;
+    }
+}
+
+
+class Rectangle extends Carre
+{
+    private $grandCote;
+
+    public function __construct( $x, $y, $cote, $grandCote, $couleur="" )
+    {
+        parent::__construct( $x, $y, $cote, $couleur );
+        $this->grandCote = $grandCote; 
+    }
+
+    public function aff()
+    {
+        print( "je suis un rectangle ($this->x, $this->y) de cotés $this->cote et $this->grandCote<br>" );
+    }
+    public function surface()
+    {
+        $surface = $this->cote * $this->grandCote; 
+        return $surface; 
     }
 }
 
