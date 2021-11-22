@@ -26,7 +26,7 @@ $c1->ajouteArticle( $p1, $a5 );
 $c1->ajouteArticle( $p1, $a2 );
 
 $c1->ajouteArticle( $p1, $a7 );
-
+print("<br>");
 $p1->affiche();
 // Bouteille d'eau
 // velo

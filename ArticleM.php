@@ -21,6 +21,11 @@ class Article
     {
         return $this->prix;
     }
+
+    function affLigneTab()
+    {
+        print( "<tr><td style='border: solid 2px black;'>$this->nom</td><td style='border: solid 2px black;'>$this->prix €</td></tr>");
+    }
 }
 
 ?>

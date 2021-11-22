@@ -18,9 +18,12 @@ class Panier
 
     function affiche()
     {
-        foreach ($this->articles as $article) {
-            print("$article<br>");
-        }
+        print( "<table style='border: solid 3px black;'><tr><td style='border: solid 2px black;'>Article</td><td style='border: solid 2px black;'>Prix</td></tr>" );
+
+        foreach( $this->articles as $article  )
+            $article->affLigneTab();
+
+        print( "</table>" );
     }
 }
 
