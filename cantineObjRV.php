@@ -72,11 +72,22 @@ class Salarie extends Ident
 
 class Client extends Ident
 {
+    private $nbrTicket;
+    
+     
     function aff()
     {
         print("I a customer ! <br>");
         parent::aff();
     }
+    public function getTicket ($Ticket){
+        
+        if ($this->Ticket != 0) {
+            print ("nbr de ticket =  $this->Ticket ");
+    }
+    }
+
+
 }
 
 class Stagiaire extends Salarie
@@ -95,6 +106,9 @@ class Stagiaire extends Salarie
 
 
 
+$c1 = new Client( "Manu", 13, "aaaa" );
+$c1->getTicket(12); 
+
 $entreprise = 
 [   // fonc    nom          age   pw
 
@@ -109,7 +123,7 @@ $entreprise =
     new Stagiaire( "ZZ Stop", 90, "mohamed" ),
 
     new Client( "Ligonnes", 60, "GDGDG" ),
-    new Client( "Manu", 13, "aaaa" )
+    $c1
 ];
 
 
