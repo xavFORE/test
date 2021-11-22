@@ -1,8 +1,8 @@
 <?php
 
-require "ArticleX.php";
-require "ClientX.php";
-require "PanierX.php";
+require_once "ArticleH.php";
+require_once "ClientH.php";
+require_once "PanierH.php";
 
 
 $a0 = new Article( "meto à roulettes", 99999  );
@@ -10,6 +10,8 @@ $a0 = new Article( "meto à roulettes", 99999  );
 
 $a1 = new Article( "velo", 344  );
 //
+
+
 
 $a2 = new Article( "lampe", 3.45  );
 $a3 = new Article( "mug FE", 5  );
@@ -22,6 +24,8 @@ $a9 = new Article( "Maison", 750000  );
 
 
 $c1 = new Client( "Roger" );
+
+$c1 = new Client( "hanane" );
 // nouveau client Roger
 
 $p1 = new Panier();
@@ -33,7 +37,7 @@ $c1->ajouteArticle( $p1, $a5 );
 $c1->ajouteArticle( $p1, $a2 );
 //
 $c1->ajouteArticle( $p1, $a7 );
-
+print("<br>");
 
 $p1->affiche();
 // Bouteille d'eau
