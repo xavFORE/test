@@ -12,7 +12,7 @@ class Client
     function ajouteArticle( $panier, $article )
     {
         $panier-> metDansLePanier($article);
-        print("$this->nom a ajouter $article dans <br>");
+        print( "$this->nom a ajouté $article dans son panier<br>" ); 
     }
 
 

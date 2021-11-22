@@ -23,7 +23,7 @@ class Article
     }
     function affLigneTab()
     {
-        print("<tr><td>$this->nom</tr></td>")
+        print( "<tr><td>$this->nom</td><td>$this->prix</td></tr>");
     }
 }
 
