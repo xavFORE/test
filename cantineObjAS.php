@@ -72,7 +72,7 @@
 
     class Client extends Ident
     {
-        public $nbrTicket;
+        private $nbrTicket;
         function aff()
         {
             parent::aff();
@@ -82,7 +82,11 @@
             } else
             print("j'ai " . $this->nbrTicket . " ticket<br>");
         }
+        function achatTicket($nt){
+            $this->nbrTicket += $nt;
+        }
     }
+
 
     class Stagiaire extends Salarie
     {
@@ -101,7 +105,7 @@
 
 
     $c1 = new Client("Manu", 13, "aaaa");
-    $c1->nbrTicket = 12;
+    $c1->achatTicket(5);
 
     $entreprise =
         [   // fonc    nom          age   pw
