@@ -57,9 +57,8 @@ class Salarie extends Ident
 
     function __construct( $n, $a, $p, $s )
     {
-            parent::__construct( $n, $a, $p );
-            $this->salaire = $s; 
-
+        parent::__construct( $n, $a, $p );
+        $this->salaire = $s; 
     }
 
     function aff()
@@ -72,10 +71,18 @@ class Salarie extends Ident
 
 class Client extends Ident
 {
+    private $nbrTicket = 0;
+
     function aff()
     {
         print("I a customer ! <br>");
         parent::aff();
+        print("Crédits : $this->nbrTicket");
+    }
+
+    function acheterTicket( $nt )
+    {
+        $this->nbrTicket += $nt;
     }
 }
 
@@ -83,7 +90,7 @@ class Stagiaire extends Salarie
 {
     function __construct( $n, $a, $p )
     {
-            parent::__construct( $n, $a, $p, 0 );
+        parent::__construct( $n, $a, $p, 0 );
     }
 
     function aff()
@@ -93,25 +100,22 @@ class Stagiaire extends Salarie
     }
 }
 
-
+$c1 = new Client( "Manu", 13, "aaaa" );
+$c1->acheterTicket( 5 );
 
 $entreprise = 
-[   // fonc    nom          age   pw
-
+[
     new Salarie( "Dupont", 23, "JHDG", 10000000000 ),
     new Salarie( "Durant", 28, "nbdbnd", 5678 ),
     new Salarie( "Zorro",  21, "4435", 70 ),
     new Boss( "Gaston", 45, "boss" ),
     new Client( "Ramirez", 33, "123" ),
     new Salarie( "Olivier", 28, "764YDJJDWW", 80000 ),
-
     new Stagiaire( "JeanJean", 60, "GDGDG" ),
     new Stagiaire( "ZZ Stop", 90, "mohamed" ),
-
     new Client( "Ligonnes", 60, "GDGDG" ),
-    new Client( "Manu", 13, "aaaa" )
+    $c1
 ];
-
 
 foreach( $entreprise as $personne )
 {
