@@ -16,6 +16,9 @@
 <body>
     
 <?php
+
+//error_reporting(E_NOTICE);
+
 class Ident
 {
     public $nom;
@@ -59,7 +62,6 @@ class Salarie extends Ident
     {
             parent::__construct( $n, $a, $p );
             $this->salaire = $s; 
-
     }
 
     function aff()
@@ -72,14 +74,18 @@ class Salarie extends Ident
 
 class Client extends Ident
 {
-    public $nbrTicket;
+    private $nbrTicket;
     function aff()
     {
         print("I a customer ! <br>");
         parent::aff();
+        print( "ticket : $this->nbrTicket<br>");
     }
 
-
+    function achatTicket( $nt )
+    {
+        $this->nbrTicket += $nt;
+    }
 }
 
 class Stagiaire extends Salarie
@@ -99,7 +105,7 @@ class Stagiaire extends Salarie
 
 
 $c1 = new Client( "Manu", 13, "aaaa" );
-$c1->nbrTicket = 12; 
+$c1->achatTicket( 5 );
 
 $entreprise = 
 [   // fonc    nom          age   pw
