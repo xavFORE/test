@@ -1,8 +1,8 @@
 <?php
 
-require "ArticleAS.php";
-require "ClientAS.php";
-require "PanierAS.php";
+require_once "ArticleAS.php";
+require_once "ClientAS.php";
+require_once "PanierAS.php";
 
 
 $a0 = new Article( "meto à roulettes", 99999  );
