@@ -1,8 +1,8 @@
 <?php
 
-require "ArticleX.php";
-require "ClientX.php";
-require "PanierX.php";
+require_once "ArticleX.php";
+require_once "ClientX.php";
+require_once "PanierX.php";
 
 
 $a0 = new Article( "meto à roulettes", 99999  );
@@ -21,6 +21,7 @@ $a8 = new Article( "Ordinateur", 699  );
 $a9 = new Article( "Maison", 750000  );
 
 
+$c0 = new Client( "Pierre" );
 $c1 = new Client( "Roger" );
 // nouveau client Roger
 
