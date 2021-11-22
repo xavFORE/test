@@ -1,19 +1,21 @@
 <?php
 
+require_once "PanierX.php";
+
 class Client
 {
-
-    function __construct( $nom )
+    private $nom; 
+    function __construct( $n )
     {
-
+        $this->nom = $n;
+        print( "nouveau client : $this->nom<br>" );            
     }
 
     function ajouteArticle( $panier, $article )
     {
-        
+        $panier->metDansLePanier( $article );
+        print( "$this->nom a ajouté $article dans son panier<br>" ); 
     }
-
-
 }
 
 ?>
