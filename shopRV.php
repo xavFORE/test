@@ -1,8 +1,8 @@
 <?php
 
-require "ArticleRV.php";
-require "ClientRV.php";
-require "PanierRV.php";
+require_once "ArticleRV.php";
+require_once "ClientRV.php";
+require_once "PanierRV.php";
 
 
 $a0 = new Article( "meto à roulettes", 99999  );
@@ -19,6 +19,7 @@ $a6 = new Article( "Ferrari rouge", 10.5  );
 $a7 = new Article( "Raspberry PI 4", 50.99  );
 $a8 = new Article( "Ordinateur", 699  );
 $a9 = new Article( "Maison", 750000  );
+
 
 $c0 = new Client( "Pierre" );
 $c1 = new Client( "Roger" );

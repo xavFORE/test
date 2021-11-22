@@ -1,19 +1,22 @@
 <?php
 
-class Article 
+class Article
 {
-    public $nom; 
-    public $prix; 
-    function __construct( $nom, $prix )
-    {
-        $this->nom = $nom; 
-        $this->prix = $prix; 
+    private $nom;
+    private $prix;
 
-        print("nouvel article : $this->nom <br>");
+    function __construct( $n, $m )
+    {
+        // this représente l'instance de l'objet
+        $this->nom  = $n;
+        $this->prix = $m;
+        print( "nouvel article : $this->nom<br>" );        
     }
 
-
-
+    function __toString()
+    {
+        return $this->nom;
+    }
 }
 
 ?>

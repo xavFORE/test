@@ -1,26 +1,21 @@
 <?php
 
+require_once "PanierRV.php";
+
 class Client
 {
     private $nom; 
-    function __construct( $nom )
+    function __construct( $n )
     {
-        $this->nom = $nom; 
-        print("nouveau client : $this->nom <br>");
+        $this->nom = $n;
+        print( "nouveau client : $this->nom<br>" );            
     }
-    
+
     function ajouteArticle( $panier, $article )
     {
-        $this->panier = $panier; 
-        $this->article = $article; 
-        $panier += $article;
-
-        print($panier);
-
+        $panier->metDansLePanier( $article );
+        print( "$this->nom a ajouté $article dans son panier<br>" ); 
     }
-    
-
-
 }
 
 ?>
