@@ -10,12 +10,15 @@ class Panier
     }
     
     function mes_dans_le_pagnier( $article){
-        $articles[]= $article;
+        $this->articles[]= $article;
     }
 
     function affiche()
     {
-        
+        print("voici les article de mon pagnier :");
+        foreach ($this->articles as $key => $value) {
+            print($value."  ");
+        }
     }
 
 
