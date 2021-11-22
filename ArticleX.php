@@ -17,6 +17,16 @@ class Article
     {
         return $this->nom;
     }
+
+    function getPrix()
+    {
+        return $this->prix;
+    }
+
+    function affLigneTab()
+    {
+        print( "<tr><td>$this->nom</td><td>$this->prix</td></tr>");
+    }
 }
 
 ?>

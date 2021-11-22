@@ -14,11 +14,15 @@ class Panier
 
     function metDansLePanier( $article )
     {
-        $articles[] = $article;
+        $this->articles[] = $article;
     }
 
     function affiche( )
     {       
+        print( "<table>" );
+        foreach( $this->articles as $article  )
+            $article->affLigneTab();
+        print( "</table>" );
     }
 }
 
