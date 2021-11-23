@@ -7,8 +7,10 @@ class Point
 
     function __construct( $x, $y )
     {
-        $this->x = $x;
-        $this->y = $y;
+        $this->x = rand(0,500);
+            $this->y = rand(0,500);
+        //$this->x = $x;
+        //$this->y = $y;
     }
 }
 
@@ -20,7 +22,11 @@ class Carre extends Point
     function __construct( $x, $y, $cote, $color="pink" )
     {
         parent::__construct( $x, $y );
-        $this->cote = $cote;
+        
+            
+            $this->cote = rand(0,100);
+        
+        //$this->cote = $cote;
         $this->color = $color;
     }
 
@@ -73,19 +79,17 @@ class Lien extends Carre{
 
     function __construct( $x, $y, $cote, $lien )
     {
-        parent::__construct( $x, $y, $cote, "" );
+        $this->x = $x;
+        $this->y = $y;
+        $this->cote = $cote;
         $this->lien = $lien;
     }
 
     function affHTML()
     {
-        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px;\"".' ><form action="geoAS.php"><input type="submit" value="changement de direction" onclick="bouge()"/></form>'."</div>\n");
+        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px;\"".' ><form action="geoAS.php"><input type="submit" value="changement de direction"/></form>'."</div>\n");
     }
-    function bouge(){
-        $this->x = rand(0,1000);
-        $this->y = rand(0,1000);
-        $this->cote = rand(0,1000);
-    }
+    
 }
 
 
@@ -105,5 +109,3 @@ class Page
             $forme->affHTML();
     }
 }
-
-?>
