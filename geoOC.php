@@ -1,111 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .figure
-        {
+        .figure {
             position: absolute;
         }
-
-        #carre2
-        {
-            position: absolute;
-            left : 30px;
-            top : 150px;
-            width: 10px;
-            height:10px; 
-            background-color : red;
-        }
-
-
     </style>
-
-
 </head>
+
 <body>
 
-<?php
+    <?php
 
-class Point
-{
-    protected $x;
-    protected $y;
-
-    function __construct( $x, $y )
-    {
-        $this->x = $x;
-        $this->y = $y;
-    }
-}
-
-class Carre extends Point 
-{
-    private $cote;
-    private $color;
-
-    function __construct( $x, $y, $cote, $color )
-    {
-        parent::__construct( $x, $y );
-        $this->cote = $cote;
-        $this->color = $color;
-    }
-
-    function aff()
-    {
-        print( "carré( $this->x, $this->y, $this->cote)<br>"  );
-
-    }
-
-    function affHTML()
-    {
-        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";\" ></div>\n");
-    }
-
-}
+    require_once "geoLibOC.php";
 
 
-class Page
-{
-    private $formes = [];
+    $p1 = new Point(12, 5);
+    // creation Point 12,5
+    $c1 = new Carre(3, 15, 100, "green");
+    // creation Carré 3, 15, 100
 
-    function addFigure( $figure )
-    {
-        $this->formes[] = $figure;
-    }
+    $c2 = new Carre(-3, -15, 50, "black");
+    $c3 = new Carre(30, 150, 10, "orange");
+    $c4 = new Carre(155, 33, 75, "red");
+    $c5 = new Carre(35, 105, 20, "blue");
 
-    function affiche()
-    {
-        foreach( $this->formes as $forme)
-            $forme->affHTML();
-    }
-}
+    $p = new Page();
+    // creation de la page
+    $f1 = new Photo(200, 250, 300, "XXXXXXX");
 
+    $p->addFigure($c1);
+    $p->addFigure($c2);
+    $p->addFigure($c3);
+    $p->addFigure($c4);
+    $p->addFigure($c5);
 
+    $p->addFigure($f1);
 
+    $p->affiche();
 
-$p1 = new Point( 12, 5 );
-// creation Point 12,5
-$c1 = new Carre( 3, 15, 100, "yellow");
-// creation Carré 3, 15, 100
+    ?>
 
-$c2 = new Carre( -3, -15, 50, "black");
-$c3 = new Carre( 30, 150, 10, "orange");
-
-$p = new Page();
-// creation de la page
-
-
-$p->addFigure( $c1 );
-$p->addFigure( $c2 );
-$p->addFigure( $c3 );
-
-
-$p->affiche();
-
-?>
 </body>
+
 </html>
