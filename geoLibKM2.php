@@ -85,12 +85,9 @@ class Link extends Text
 {
     private $link;
 
-
-
     function __construct( $x, $y, $cote, $color, $link )
     {
-        parent::__construct( $x, $y, $cote, $color );
-        parent::addContent(  <a href="geoX.php"></a>  );
+        parent::__construct( $x, $y, $cote, $color, "<a href='$link'>cliquez ici</a>" );
     }
 }
 
