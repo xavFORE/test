@@ -7,8 +7,8 @@ class Point
 
     function __construct( $x, $y )
     {
-        $this->x = rand(0,300);
-        $this->y = rand(0,300);
+        $this->x = $x;
+        $this->y = $y;
     }
 }
 
@@ -17,14 +17,11 @@ class Carre extends Point
     protected $cote;
     protected $color;
     protected $content="";
-    protected $sortant1="";
-    protected $sortant2="";
-    protected $new_lien="";
 
     function __construct( $x, $y, $cote, $color="pink" )
     {
         parent::__construct( $x, $y );
-        $this->cote = rand(0,300);
+        $this->cote = $cote;
         $this->color = $color;
     }
 
@@ -33,22 +30,19 @@ class Carre extends Point
         print( "carré( $this->x, $this->y, $this->cote)<br>"  );
     }
 
+    function __toString()
+    {
+        return "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";\" >$this->content</div>\n";
+    }
+
     function affHTML()
     {
-        print( "$this->sortant1"."<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";\" >".$this->content.$this->new_lien."</div>". "$this->sortant2\n");
+        print( $this );
     }
 
     function addContent( $str )
     {
         $this->content = $str;
-    }
-    function addsortant1( $str )
-    {
-        $this->sortant1 = $str;
-    }
-    function addsortant2( $str )
-    {
-        $this->sortant2 = $str;
     }
 }
 
@@ -72,15 +66,61 @@ class Foto extends Carre
         parent::addContent( "<img class=\"fototadapt\" src='$image'>" );
     }
 }
+
 class Lien extends Carre 
 {
     private $lien;
+
     function __construct( $x, $y, $cote, $color, $lien )
     {
         parent::__construct( $x, $y, $cote, $color );
         $this->lien = $lien;
-        parent::addsortant1( '<a href="'.$lien.'">' );
-        parent::addsortant2( '</a>' );
+    }
+
+    function affHTML()
+    {
+        print( "<a href='$this->lien'>");
+        parent::affHTML();
+        print( "</a>");
+    }
+}
+
+class LienN extends Carre 
+{
+    private $lien;
+    private $content1;
+
+    function __construct( $x, $y, $cote, $color, $lien )
+    {
+        parent::__construct( $x, $y, $cote, $color );
+        $this->lien = $lien;
+    }
+
+    function affHTML()
+    {
+        print( "<a href='$this->lien'>");
+        print( $this->content1 );
+        print( "</a>");
+    }
+
+    function addContent( $str )
+    {
+        $this->content1 = $str;
+    }
+}
+class LienT extends Carre {
+    private $contenue_text;
+    function __construct( $x, $y, $cote, $color,$contenue_text, $lien )
+    {
+        parent::__construct( $x, $y, $cote, $color, $lien );
+        $this->contenue_text = $contenue_text;
+    }
+    function affHTML()
+    {
+        print('<div class="figure" style="left:300px; top:110px; width:150px; height:150px; background-color:green;" >
+        <a href="'.$this->lien.'">'.$this->contenue_text.'</a>
+            </div>');
+        
     }
 }
 

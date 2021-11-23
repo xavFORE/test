@@ -7,10 +7,8 @@ class Point
 
     function __construct( $x, $y )
     {
-        $this->x = rand(0,500);
-            $this->y = rand(0,500);
-        //$this->x = $x;
-        //$this->y = $y;
+        $this->x = $x;
+        $this->y = $y;
     }
 }
 
@@ -18,15 +16,12 @@ class Carre extends Point
 {
     protected $cote;
     protected $color;
+    protected $content="";
 
     function __construct( $x, $y, $cote, $color="pink" )
     {
         parent::__construct( $x, $y );
-        
-            
-            $this->cote = rand(0,100);
-        
-        //$this->cote = $cote;
+        $this->cote = $cote;
         $this->color = $color;
     }
 
@@ -37,9 +32,13 @@ class Carre extends Point
 
     function affHTML()
     {
-        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";\" ></div>\n");
+        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";\" >$this->content</div>\n");
     }
 
+    function addContent( $str )
+    {
+        $this->content = $str;
+    }
 }
 
 
@@ -74,23 +73,6 @@ class Foto extends Carre
         print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px;\" ><img class=\"fototadapt\" src='$this->image'></div>\n");
     }
 }
-class Lien extends Carre{
-    private $lien;
-
-    function __construct( $x, $y, $cote, $lien )
-    {
-        $this->x = $x;
-        $this->y = $y;
-        $this->cote = $cote;
-        $this->lien = $lien;
-    }
-
-    function affHTML()
-    {
-        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px;\"".' ><form action="geoAS.php"><input type="submit" value="changement de direction"/></form>'."</div>\n");
-    }
-    
-}
 
 
 
@@ -109,3 +91,5 @@ class Page
             $forme->affHTML();
     }
 }
+
+?>
