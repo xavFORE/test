@@ -37,14 +37,17 @@ class Carre extends Point
 
     function affHTML()
     {
-        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";\" ></div>\n");
+        if( $this->color == "" )
+            print( "<div class='figure' style='left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px;'></div>\n");
+        else
+            print( "<div class='figure' style='left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";'></div>\n");
     }
 
 }
 
 class Photo extends Carre
 {
-    private $src;
+    protected $src;
 
     function __construct( $x, $y, $cote, $src, $color="" )
     {
@@ -58,6 +61,25 @@ class Photo extends Carre
             print( "<div class='figure' style='left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px;'><img class='monimg' src='".$this->src."'></div>\n");
         else
             print( "<div class='figure' style='left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";'><img class='monimg' src='".$this->src."'></div>\n");
+    }
+}
+
+class Lien extends Photo
+{
+    private $lien;
+
+    function __construct( $x, $y, $cote, $src, $lien, $color="" )
+    {
+        parent::__construct( $x, $y, $cote, $src, $color );
+        $this->lien = $lien;
+    }
+
+    function affHTML()
+    {
+        if( $this->color == "" )
+            print( "<div class='figure' style='left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px;'><a href='".$this->src."'>".$this->lien."</a></div>\n");
+        else
+            print( "<div class='figure' style='left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";'><a href='".$this->src."'>".$this->lien."</a></div>\n");
     }
 }
 
