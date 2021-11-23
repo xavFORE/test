@@ -24,6 +24,7 @@
 </head>
 <body>
 
+<a href="https://www.govoyages.com/"><img src="images/av5.png" style="white-space: inherit;"></a>
 <?php
 
 require_once "geoLibH.php";
@@ -36,7 +37,7 @@ $c3 = new Carre( 150, 400, 150, "blue");
 $p = new Page();                            // creation de la page
 $f1 = new foto( 150, 150, 200, "pink","images/av5.png");
 $t1 = new Text( 10, 200, 60, "red", "bonjour toto");
-$l1 = new lien( 10, 150, 100,"geoH.php ");
+$l1 = new lien( 10, 150, 100,"https://www.govoyages.com/");
 
 $p->addFigure( $c1 );
 $p->addFigure( $c2 );
@@ -44,6 +45,7 @@ $p->addFigure( $c3 );
 $p->addFigure( $t1 );
 $p->addFigure( $f1 );
 $p->addFigure( $l1 );
+
 $p->affiche();
 
 ?>

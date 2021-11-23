@@ -39,10 +39,10 @@ class Carre extends Point
 class Text extends Carre
 {
        private $text;
-    
+
     function __construct( $x, $y, $cote, $color, $text )
     {
-       
+        
         parent::__construct( $x, $y, $cote, $color );
         $this->text = $text;
     }
@@ -72,14 +72,13 @@ class foto extends Carre
     }
 
 }
-class lien extends foto
+class lien extends Carre
 {
-       private $lien;
+       
 
-    function __construct( $x, $y, $cote, $lien )
+    function __construct( $x, $y, $cote,$color, $lien )
     {
-        parent::__construct( $x, $y, $cote );
-        $this->lien = $lien;
+        parent::__construct( $x, $y, $cote,$color );
     }
 
 
