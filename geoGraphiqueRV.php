@@ -19,6 +19,7 @@
             width: 10px;
             height:10px; 
             background-color : red;
+            background-image : url
         }
 
 
@@ -30,7 +31,6 @@
    
 <div class="figure" style="left:3px; top:15px; width:100px; height:100px; background-color:yellow;" ></div>
 <div id="carre2" ></div>
-
 
 
 </body>
