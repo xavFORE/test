@@ -31,7 +31,11 @@
 <div class="figure" style="left:3px; top:15px; width:100px; height:100px; background-color:yellow;" ></div>
 <div id="carre2" ></div>
 
+<?php
 
+
+
+?>
 
 </body>
 </html>

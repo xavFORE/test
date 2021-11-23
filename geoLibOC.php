@@ -54,13 +54,13 @@ class Page
 
 class Photo extends Carre
 {
-    private $phot;
+    protected $phot;
 
-    function __contruct($x, $y, $cote, $photx)
+    function __construct($x, $y, $cote, $photx="")
     {
         parent::__construct($x, $y, $cote);
         $this->phot = $photx;
-        print($photx);
+       
     }
 
     function affHTML()
@@ -68,3 +68,23 @@ class Photo extends Carre
         print("<div class=\"figure\" style=\"left:" . $this->x . "px; top:" . $this->y . "px; width:" . $this->cote . "px; height:" . $this->cote . "px; background-image: url('" . $this->phot . "');\"></div>\n");
     }
 }
+class Lien extends Photo
+{
+protected $liens;
+
+function __construct($x, $y, $cote, $onclick, $lien )
+{
+    parent::__construct($x, $y, $cote );
+    $this->lien = $lien;
+    $this->onclick = $onclick;
+
+   
+}
+function affHTML()
+    {
+        print("<div class=\"figure\" style=\"left:" . $this->x . "px; top:" . $this->y . "px; width:" . $this->cote . "px; height:" . $this->cote . "px;\"><button class=\"button\" onclick=".$this->onclick."><a href=".$this->lien.">acceuil</a></button></div>\n");
+    }
+
+}
+
+?>

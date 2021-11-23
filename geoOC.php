@@ -9,6 +9,14 @@
     <style>
         .figure {
             position: absolute;
+            background-size: contain;
+        }
+        .button {
+            padding: 50px;
+            background-color: blue;
+            border-radius: 50px;
+     
+  
         }
     </style>
 </head>
@@ -22,17 +30,19 @@
 
     $p1 = new Point(12, 5);
     // creation Point 12,5
-    $c1 = new Carre(3, 15, 100, "green");
+    $c1 = new Carre(3, 15, 100, "blue");
     // creation Carré 3, 15, 100
 
     $c2 = new Carre(-3, -15, 50, "black");
     $c3 = new Carre(30, 150, 10, "orange");
     $c4 = new Carre(155, 33, 75, "red");
-    $c5 = new Carre(35, 105, 20, "blue");
+    $c5 = new Carre(35, 105, 20, "green");
 
     $p = new Page();
     // creation de la page
-    $f1 = new Photo(200, 250, 300, "XXXXXXX");
+    $f1 = new Photo(200, 250, 300, "./images/av1.jpeg");
+
+    $l1 = new Lien(225,650,100,"test()" ,"./geoGraphiqueOC.php");
 
     $p->addFigure($c1);
     $p->addFigure($c2);
@@ -41,6 +51,9 @@
     $p->addFigure($c5);
 
     $p->addFigure($f1);
+
+    $p->addFigure($l1);
+
 
     $p->affiche();
 
