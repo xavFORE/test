@@ -79,6 +79,8 @@ class Photo extends Carre
 
 
 
+
+
 class Page
 {
     private $formes = [];
@@ -96,6 +98,25 @@ class Page
 }
 
 
+class Link extends Text
+{
+   
+    protected $text;
+
+    function __construct( $x, $y, $cote, $color, $text )
+    {
+        parent::__construct( $x, $y,$cote,$color );
+        $this->text = $text;
+        
+    }
+
+    
+    function affHTML()
+    {
+        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";\" >$this->text</div>\n");
+    }
+
+}
 
 
 
