@@ -6,20 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .figure
+        .photo{
+
+        }
+        /*.figure
         {
+           
+            left : 30px;
+            top : 150px;
+            width: 50px;
+            height:50px;
             position: absolute;
         }
-
-        #carre2
+/*
+       /* #carre2
         {
             position: absolute;
             left : 30px;
             top : 150px;
-            width: 10px;
-            height:10px; 
-            background-color : red;
+            width: 50px;
+            height:50px; 
+            background-color : black;
+            
         }
+      */
 
 
     </style>
@@ -28,8 +38,9 @@
 </head>
 <body>
    
-<div class="figure" style="left:3px; top:15px; width:100px; height:100px; background-color:yellow;" ></div>
+<div class="figure" style="left:10px; top:30px; width:150px; height:150px; background-color:yellow;" ></div>
 <div id="carre2" ></div>
+
 
 
 
