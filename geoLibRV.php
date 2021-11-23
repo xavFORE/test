@@ -11,25 +11,25 @@ class Point
     {
         $this->x = $x;
         $this->y = $y;
+        $this->x= rand(1, 400); 
+        $this->y= rand(0, 400); 
+        
+    
     }
+         
+   
 
-    function move($dx, $dy)
-    {
-        $this->dx = $dx;
-        $this->dy = $dy;
 
-        $x += $this->dx; 
-        $y += $this->dy; 
 
-    }
+
 }
 
 class Carre extends Point 
 {
-    private $cote;
-    private $color;
+    protected $cote;
+    protected $color;
 
-    function __construct( $x, $y, $cote, $color )
+    function __construct( $x, $y, $cote, $color="pink" )
     {
         parent::__construct( $x, $y );
         $this->cote = $cote;
@@ -48,33 +48,53 @@ class Carre extends Point
 
 }
 
+
+class Text extends Carre 
+{
+    private $text;
+
+    function __construct( $x, $y, $cote, $color, $text )
+    {
+        parent::__construct( $x, $y, $cote, $color );
+        $this->text = $text;
+    }
+
+    function affHTML()
+    {
+        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";\" >$this->text</div>\n");
+    }
+}
+
+class Lien extends Carre 
+{   private $lien;
+    function __construct( $x, $y, $cote, $color, $lien )
+    {
+        parent::__construct( $x, $y, $cote, $color );
+        $this->lien = $lien;
+    }
+    function affHTML()
+    {
+        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color :".$this->color.";\"><a href=$this->lien>Cliquez sur moi</a></div>\n");
+    }
+}
+
 class Foto extends Carre 
-{       private $foto; 
-    function __construct( $x, $y, $cote, $color, $foto )
+{
+    private $image;
+
+    function __construct( $x, $y, $cote, $image )
     {
-        parent::__construct( $x, $y, $cote, $color);
-        $this->foto = $foto;
-        
+        parent::__construct( $x, $y, $cote, "" );
+        $this->image = $image;
     }
-    
+
     function affHTML()
     {
-        print( "<div> <a href= # ><img src=$this->foto></a></div>\n");
+        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px;\" ><img class=\"fototadapt\" src='$this->image'></div>\n");
     }
 }
 
-class Lien extends Foto
-{   private $lien; 
-    function __construct( $x, $y, $cote, $color, $foto, $lien)
-    {       parent::__construct( $x, $y, $cote, $color, $foto);
-            $this->lien = $lien;
-    }
-    function affHTML()
-    {
-        print( "<div> <a href= $this->lien   > cliquez ici </a></div>\n");
-    }
 
-}
 
 class Page
 {
@@ -91,9 +111,5 @@ class Page
             $forme->affHTML();
     }
 }
-
-
-
-
 
 ?>
