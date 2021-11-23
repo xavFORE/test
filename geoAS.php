@@ -23,7 +23,7 @@
 
 <?php
 
-require_once "geoLibAS.php";
+require_once "geoLibAS2.php";
 
 
 $p1 = new Point( 12, 5 );
@@ -38,7 +38,7 @@ $t1 = new Text( 150, 200, 50, "red", "Hello Toto" );
 $t2 = new Text( 100, 100, 50, "red", '<img class="fototadapt" src="images/av1.jpeg">' );
 $f1 = new Foto( 150, 200, 50, "images/av1.jpeg" );
 
-$l1 = new Lien( 300, 400, 100, "red", "geoX.php" );
+$l1 = new Lien( 300, 400, 100, "green", "geoAS.php" );
 
 
 //$t2->move( 20, 0);
