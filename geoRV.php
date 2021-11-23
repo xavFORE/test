@@ -23,7 +23,7 @@
 
 <?php
 
-require_once "geoLibRV.php";
+require_once "geoLibRV2.php";
 
 
 $p1 = new Point( 12, 5 );
@@ -38,9 +38,9 @@ $t1 = new Text( 150, 200, 50, "red", "Hello Toto" );
 $t2 = new Text( 100, 100, 50, "red", '<img class="fototadapt" src="images/av1.jpeg">' );
 $f1 = new Foto( 150, 200, 50, "images/av1.jpeg" );
 
-$l1 = new Lien( 300, 300, 50, "red", "geoRV.php" );
+$l1 = new Lien( 250, 200, 50, "red", "geoRV.php" );
 
-
+$c1->addContent( "bonjour Toto");
 //$t2->move( 20, 0);
 
 
