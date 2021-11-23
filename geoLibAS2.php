@@ -7,8 +7,8 @@ class Point
 
     function __construct( $x, $y )
     {
-        $this->x = rand(0,500);
-        $this->y = rand(0,500);
+        $this->x = rand(0,300);
+        $this->y = rand(0,300);
     }
 }
 
@@ -19,11 +19,12 @@ class Carre extends Point
     protected $content="";
     protected $sortant1="";
     protected $sortant2="";
+    protected $new_lien="";
 
     function __construct( $x, $y, $cote, $color="pink" )
     {
         parent::__construct( $x, $y );
-        $this->cote = rand(0,500);
+        $this->cote = rand(0,300);
         $this->color = $color;
     }
 
@@ -34,7 +35,7 @@ class Carre extends Point
 
     function affHTML()
     {
-        print( "$this->sortant1"."<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";\" >$this->content</div>". "$this->sortant2\n");
+        print( "$this->sortant1"."<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";\" >".$this->content.$this->new_lien."</div>". "$this->sortant2\n");
     }
 
     function addContent( $str )
