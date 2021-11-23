@@ -49,28 +49,16 @@ class Text extends Carre
     function __construct( $x, $y, $cote, $color, $text )
     {
         parent::__construct( $x, $y, $cote, $color );
-        $this->text = $text;
-    }
-
-    function affHTML()
-    {
-        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";\" >$this->text</div>\n");
+        parent::addContent($text);
     }
 }
 
 class Foto extends Carre 
 {
-    private $image;
-
     function __construct( $x, $y, $cote, $image )
     {
         parent::__construct( $x, $y, $cote, "" );
-        $this->image = $image;
-    }
-
-    function affHTML()
-    {
-        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px;\" ><img class=\"fototadapt\" src='$this->image'></div>\n");
+        parent::addContent( "<img class=\"fototadapt\" src='$image'>" );
     }
 }
 
