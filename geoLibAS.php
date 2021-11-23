@@ -14,10 +14,10 @@ class Point
 
 class Carre extends Point 
 {
-    private $cote;
-    private $color;
+    protected $cote;
+    protected $color;
 
-    function __construct( $x, $y, $cote, $color )
+    function __construct( $x, $y, $cote, $color="pink" )
     {
         parent::__construct( $x, $y );
         $this->cote = $cote;
@@ -32,24 +32,60 @@ class Carre extends Point
     function affHTML()
     {
         print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";\" ></div>\n");
-       
     }
 
 }
-class photo extends Carre{
+
+
+class Text extends Carre 
+{
     private $text;
-    function __construct($x, $y, $cote, $color, $text)
+
+    function __construct( $x, $y, $cote, $color, $text )
     {
-        parent::__construct($x, $y, $cote, $color);
+        parent::__construct( $x, $y, $cote, $color );
         $this->text = $text;
     }
-    
+
     function affHTML()
     {
-        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";\" >".'<img class="taille_image" src="./images/'.$this->text.'.png" '."</div>\n");
-        print("<form action=".'"https://google.com"'.'><input type="submit" value="Go to Google" /></form>');
+        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";\" >$this->text</div>\n");
     }
-    
+}
+
+class Foto extends Carre 
+{
+    private $image;
+
+    function __construct( $x, $y, $cote, $image )
+    {
+        parent::__construct( $x, $y, $cote, "" );
+        $this->image = $image;
+    }
+
+    function affHTML()
+    {
+        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px;\" ><img class=\"fototadapt\" src='$this->image'></div>\n");
+    }
+}
+class Lien extends Carre{
+    private $lien;
+
+    function __construct( $x, $y, $cote, $lien )
+    {
+        parent::__construct( $x, $y, $cote, "" );
+        $this->lien = $lien;
+    }
+
+    function affHTML()
+    {
+        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px;\"".' ><form action="geoAS.php"><input type="submit" value="changement de direction" onclick="bouge()"/></form>'."</div>\n");
+    }
+    function bouge(){
+        $this->x = rand(0,1000);
+        $this->y = rand(0,1000);
+        $this->cote = rand(0,1000);
+    }
 }
 
 
@@ -69,30 +105,5 @@ class Page
             $forme->affHTML();
     }
 }
-
-
-
-
-$p1 = new Point( 12, 5 );
-// creation Point 12,5
-$c1 = new Carre( 3, 15, 100, "yellow");
-// creation Carré 3, 15, 100
-
-
-$c2 = new Carre( -3, -15, 50, "black");
-$c3 = new Carre( 30, 150, 10, "orange");
-$c4 = new Carre( 6, 30, 200, "green");
-// creation Carré 6, 30, 200
-
-$p = new Page();
-// creation de la page
-
-
-$p->addFigure( $c1 );
-$p->addFigure( $c2 );
-$p->addFigure( $c3 );
-$p->addFigure( $c4 );
-
-$p->affiche();
 
 ?>
