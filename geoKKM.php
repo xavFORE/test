@@ -10,33 +10,39 @@
         {
             position: absolute;
         }
-
-        .photot
+        .fototadapt
         {
-            width: 100px;
-            height:auto;
+            width:100%;
+            height:100%;
         }
 
     </style>
 </head>
 <body>
 
+
 <?php
 
-require_once "geoLibKM2.php";
+require_once "geoLibX.php";
 
 
 $p1 = new Point( 12, 5 );
 // creation Point 12,5
-$c1 = new Carre( 500, 400, 100, "yellow");
+$c1 = new Carre( 3, 15, 100, "yellow");
 // creation Carré 3, 15, 100
 
-$c2 = new Carre( 400, 350, 50, "black");
+$c2 = new Carre( -3, -15, 50, "black");
 $c3 = new Carre( 30, 150, 10, "orange");
-$c4 = new Carre( 70, 250, 100, "red");
-$t5 = new Text( 70, 500, 100, "blue", " toto va à la plage" );
-$ph1 = new Text( 70, 800, 100, "blue", "<img src='images/av1.jpeg'>" );
-$ph2 = new Photo( 400, 400, 100,  "images/av1.jpeg" );
+
+$t1 = new Text( 150, 200, 50, "red", "Hello Toto" );
+$t2 = new Text( 100, 100, 50, "red", '<img class="fototadapt" src="images/av1.jpeg">' );
+$f1 = new Foto( 150, 200, 50, "images/av1.jpeg" );
+
+$l1 = new Lien( 250, 200, 50, "red", "geoX.php" );
+
+$c1->addContent( "bonjour Toto");
+//$t2->move( 20, 0);
+
 
 $p = new Page();
 // creation de la page
@@ -45,14 +51,13 @@ $p = new Page();
 $p->addFigure( $c1 );
 $p->addFigure( $c2 );
 $p->addFigure( $c3 );
-$p->addFigure( $c4 );
-$p->addFigure( $t5 );
-$p->addFigure( $ph2 );
+$p->addFigure( $t1 );
+$p->addFigure( $t2 );
+$p->addFigure( $f1 );
+$p->addFigure( $l1 );
 
 $p->affiche();
 
 ?>
-
-<img src="" alt="">
 </body>
 </html>
