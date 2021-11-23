@@ -35,6 +35,7 @@ $i1 = new Photo( rand(5,600), rand(5,600), rand(50,450), "https://www.pierre-gir
 $i2 = new Photo( rand(5,600), rand(5,600), rand(50,450), "https://img-19.ccm2.net/cI8qqj-finfDcmx6jMK6Vr-krEw=/1500x/smart/b829396acc244fd484c5ddcdcb2b08f3/ccmcms-commentcamarche/20494859.jpg", "grey" );
 
 $l1 = new Lien( 150, 200, 55, "geoM.php", "green" );
+$l2 = new LienT( 400, 150, 150, "green", "allez au LOSC", "http://www.losc.fr" );
 
 $p = new Page();
 
@@ -45,6 +46,7 @@ $p->addFigure( $c4 );
 $p->addFigure( $i1 );
 $p->addFigure( $i2 );
 $p->addFigure( $l1 );
+$p->addFigure( $l2 );
 
 # $i2->move( 600, 300 );
 

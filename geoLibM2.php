@@ -61,6 +61,15 @@ class Foto extends Carre
     }
 }
 
+class LienT extends Carre
+{
+    function __construct( $x, $y, $cote, $color, $mess, $lien )
+    {
+        parent::__construct( $x, $y, $cote, $color );
+        parent::addContent( "<a href='".$lien."'>".$mess."</a>" );
+    }
+}
+
 class Lien extends Carre
 {
     private $lien;

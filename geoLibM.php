@@ -64,6 +64,24 @@ class Photo extends Carre
     }
 }
 
+class LienT extends Carre
+{
+    private $mess;
+    private $lien;
+
+    function __construct( $x, $y, $cote, $color, $mess, $lien )
+    {
+        parent::__construct( $x, $y, $cote, $color );
+        $this->mess = $mess;
+        $this->lien = $lien;
+    }
+
+    function affHTML()
+    {
+        print("<div class='figure' style='left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";'><a href='".$this->lien."'>".$this->mess."</a></div>");
+    }
+}
+
 class Lien extends Photo
 {
     function __construct( $x, $y, $cote, $src, $color="" )
