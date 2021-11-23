@@ -14,14 +14,15 @@ class Point
 
 class Carre extends Point 
 {
-    private $cote;
-    private $color;
-
-    function __construct( $x, $y, $cote, $color )
+    protected $cote;
+    protected $color;
+   
+    function __construct( $x, $y, $cote, $color)
     {
         parent::__construct( $x, $y );
         $this->cote = $cote;
         $this->color = $color;
+       
     }
 
     function aff()
@@ -31,11 +32,62 @@ class Carre extends Point
 
     function affHTML()
     {
-        print( "<div class=\"figure\" style=\"left:".$this->x."px; top:".$this->y."px; width:".$this->cote."px; height:".$this->cote."px; background-color:".$this->color.";\" ></div>\n");
+        print( "<div class=\"figure\" style=\"left:".$this->x.
+        "px; top:".$this->y."px; width:".$this->cote."px; height:"
+        .$this->cote."px; background-color :".$this->color.";\" ></div>\n");
+    }
+
+  
+}
+
+class Texte extends Carre 
+{
+  
+    private $texte;
+    
+    function __construct( $x, $y, $cote, $col, $texte)
+    {
+        parent::__construct( $x, $y, $cote, $col );
+        $this->texte = $texte;
+        
+    }
+
+    function aff()
+    {
+        print( "carré( $this->x, $this->y, $this->cote)<br>"  );
+    }
+    function affHTML()
+    {
+        print( "<div class=\"figure\" style=\"left:".$this->x.
+        "px; top:".$this->y."px; width:".$this->cote."px; height:"
+        .$this->cote."px; background-color :".$this->color."; \">".$this->texte."</div>\n");
     }
 
 }
 
+class Image extends Carre 
+{
+  
+    private $image;
+    
+    function __construct( $x, $y, $cote, $image)
+    {
+        parent::__construct( $x, $y, $cote, "" );
+        $this->image = $image;
+        
+    }
+
+  
+    function affHTML()
+    {
+        print( "<div class=\"figure\" style=\"left:".$this->x.
+        "px; top:".$this->y."px; width:".$this->cote."px; height:"
+        .$this->cote."px; background-image : url(".$this->image."); \"></div>\n");
+    }
+
+    //background-image: url("../images/fond_or.png");
+
+}
 
 class Page
 {
@@ -56,22 +108,5 @@ class Page
 
 
 
-$p1 = new Point( 12, 5 );
-// creation Point 12,5
-$c1 = new Carre( 3, 15, 100, "yellow");
-// creation Carré 3, 15, 100
-
-$c2 = new Carre( -3, -15, 50, "black");
-$c3 = new Carre( 30, 150, 10, "orange");
-
-$p = new Page();
-// creation de la page
-
-
-$p->addFigure( $c1 );
-$p->addFigure( $c2 );
-$p->addFigure( $c3 );
-
-$p->affiche();
 
 ?>
