@@ -23,22 +23,24 @@
 
 <?php
 
-require_once "geoLibH.php";
+require_once "geoLibX2.php";
 
 
 $p1 = new Point( 12, 5 );
 // creation Point 12,5
-$c1 = new Carre( 3, 15, 100, "yellow");
+$c1 = new Carre( 500, 80, 150, "yellow");
 // creation Carré 3, 15, 100
 
-$c2 = new Carre( -3, -15, 50, "black");
+print( $c1 );
+
+$c2 = new Carre( 300, -15, 50, "pink");
 $c3 = new Carre( 30, 150, 10, "orange");
 
-$t1 = new Text( 150, 200, 50, "red", "Hello Toto" );
-$t2 = new Text( 100, 100, 50, "red", '<img class="fototadapt" src="images/av1.jpeg">' );
-$f1 = new Foto( 150, 200, 50, "images/av1.jpeg" );
+$t1 = new Text( 600, 200, 80, "red", "Hello Toto" );
+$t2 = new Text( 100, 100, 80, "red", '<img class="fototadapt" src="images/av1.jpeg">' );
+$f1 = new Foto( 600, 200, 80, "images/av1.jpeg" );
 
-$l1 = new Lien( 250, 200, 50, "red", "geoH.php" );
+$l1 = new Lien( 250, 200, 80, "red", "http://www.leboncoin.fr" );
 
 $c1->addContent( "bonjour Toto");
 //$t2->move( 20, 0);
