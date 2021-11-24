@@ -35,19 +35,19 @@ $c2 = new Carre( -3, -15, 50, "black");
 $c3 = new Carre( 30, 150, 10, "orange");
 
 $t1 = new Text( 150, 200, 50, "red", "Hello Toto" );
-$t1 = new TextT( 150, 200, 50, "red", "Hello Toto" );
+//$t1 = new TextT( 150, 200, 50, "red", "Hello Toto" );
 $t2 = new Text( 100, 100, 50, "red", '<img class="fototadapt" src="images/av1.jpeg">' );
 $f1 = new Foto( 150, 200, 50, "images/av1.jpeg" );
 
-$l1 = new Lien( 250, 200, 50, "red", "http://www.leboncoin.fr" );
-$l2 = new LienT( 400, 150, 150, "green", "allez au LOSC", "http://www.losc.fr" );
+$l1 = new Lien(  250, 200, 50,  "purple",                    "http://www.leboncoin.fr" );
+$l2 = new MyButton(  400, 200, 50,  "red", "OK !", "http://www.leboncoin.fr" );
+$l3 = new LienT( 500, 150, 150, "grey", "allez au LOSC", "http://www.losc.fr" );
 
 $c1->addContent( "bonjour Toto");
 //$t2->move( 20, 0);
 
 $p = new Page();
 // creation de la page
-
 
 $p->addFigure( $c1 );
 $p->addFigure( $c2 );
@@ -57,6 +57,7 @@ $p->addFigure( $t2 );
 $p->addFigure( $f1 );
 $p->addFigure( $l1 );
 $p->addFigure( $l2 );
+$p->addFigure( $l3 );
 
 $p->affiche();
 
