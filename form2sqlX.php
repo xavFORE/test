@@ -13,13 +13,32 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 
+    // creer un table nom et pw
+
+
     if ( $_GET )
     {
-        $maValeur = $_GET[ "carouf" ];
-        print( "la valeur du champ : $maValeur<br> ");
+        $nom = $_GET[ "nom" ];
+        $pw = $_GET[ "pw" ];
+        //print( "la valeur du champ : $maValeur<br> ");
         
 
-        exit(0);
+        // connecter à votre DB
+        $servername = "localhost";
+        $database = "test";
+        $username = "xxx";
+        $password = "xxx";
+        $mysqli = new mysqli($servername, $username, $password, $database);
+
+        // forger la requete
+        $query  = "insert into user (nom) values ('$nom');";
+        // un print bien utile pour débugger
+        print( $query );
+
+        // execute la requete
+        $mysqli->query( $query );
+        //fermer la DB
+        $mysqli->close();
     }
 ?>
 
@@ -35,7 +54,10 @@ echo "Connected successfully";
 <body>
     
 <form action="#" method="GET">
-    <input type="text" placeholder="saisir nom" name="carouf" >
+    <input type="text" placeholder="saisir nom" name="nom" >
+    <br>
+    <input type="text" placeholder="saisir PW" name="pw" >
+    <br>
     <button type="submit">OK</button>
 </form>
 
