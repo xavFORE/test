@@ -49,8 +49,6 @@ class Carre extends Point
 
 class Text extends Carre 
 {
-    private $text;
-
     function __construct( $x, $y, $cote, $color, $text )
     {
         parent::__construct( $x, $y, $cote, $color );
@@ -69,7 +67,7 @@ class Foto extends Carre
 
 class Lien extends Carre 
 {
-    private $lien;
+    private $lien;  
 
     function __construct( $x, $y, $cote, $color, $lien )
     {
@@ -79,9 +77,27 @@ class Lien extends Carre
 
     function affHTML()
     {
-        print( "<a href='$this->lien'>");
+        print( "<a href='$this->lien'>\n");
         parent::affHTML();
-        print( "</a>");
+        print( "</a>\n");
+    }
+}
+
+class MyButton extends Lien 
+{
+    function __construct( $x, $y, $cote, $color, $libel, $lien )
+    {
+        parent::__construct( $x, $y, $cote, $color, $lien);
+        parent::addContent( "<h3>$libel</h3>");
+    }
+}
+
+class LienT extends Carre
+{
+    function __construct( $x, $y, $cote, $color, $libel, $lien )
+    {
+        parent::__construct( $x, $y, $cote, $color );
+        parent::addContent( "<a href='$lien'>$libel</a>" );
     }
 }
 
