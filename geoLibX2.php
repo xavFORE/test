@@ -47,7 +47,7 @@ class Carre extends Point
 }
 
 
-class Text extends Carre 
+class TextT extends Carre 
 {
     private $text;
 
@@ -85,7 +85,7 @@ class Lien extends Carre
     }
 }
 
-class LienN extends Carre 
+class LienT extends Carre 
 {
     private $lien;
     private $content1;
