@@ -109,6 +109,15 @@ class LienN extends Carre
     }
 }
 
+class LienT extends Carre
+{     
+    function __construct( $x, $y, $cote, $color, $text, $lien )
+    {
+        parent::__construct( $x, $y, $cote, $color );
+         
+        parent::addContent( "<a href='$lien'>$text</a>");
+    }
+}
 
 
 class Page

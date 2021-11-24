@@ -96,6 +96,7 @@ class Foto extends Carre
 
 
 
+
 class Page
 {
     private $formes = [];
