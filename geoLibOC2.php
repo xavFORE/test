@@ -1,7 +1,5 @@
 <?php
 
-use Carre as GlobalCarre;
-
 class Point
 {
     protected $x;
@@ -51,8 +49,6 @@ class Carre extends Point
 
 class Text extends Carre 
 {
-    protected $text;
-
     function __construct( $x, $y, $cote, $color, $text )
     {
         parent::__construct( $x, $y, $cote, $color );
@@ -71,7 +67,7 @@ class Foto extends Carre
 
 class Lien extends Carre 
 {
-    protected $lien;
+    private $lien;  
 
     function __construct( $x, $y, $cote, $color, $lien )
     {
@@ -81,17 +77,34 @@ class Lien extends Carre
 
     function affHTML()
     {
-        print( "<a href='$this->lien'>");
-      
-        
-        print( "</a>");
+        print( "<a href='$this->lien'>\n");
+        parent::affHTML();
+        print( "</a>\n");
+    }
+}
+
+class MyButton extends Lien 
+{
+    function __construct( $x, $y, $cote, $color, $libel, $lien )
+    {
+        parent::__construct( $x, $y, $cote, $color, $lien);
+        parent::addContent( "<h3>$libel</h3>");
+    }
+}
+
+class LienT extends Carre
+{
+    function __construct( $x, $y, $cote, $color, $libel, $lien )
+    {
+        parent::__construct( $x, $y, $cote, $color );
+        parent::addContent( "<a href='$lien'>$libel</a>" );
     }
 }
 
 class LienN extends Carre 
 {
-    protected $lien;
-    protected $content1;
+    private $lien;
+    private $content1;
 
     function __construct( $x, $y, $cote, $color, $lien )
     {
@@ -128,35 +141,6 @@ class Page
         foreach( $this->formes as $forme)
             $forme->affHTML();
     }
-}
-class LienT extends LienN{ 
-
-
-
-
-function __construct( $x, $y, $cote, $color ,  $str , $lien  )
-{
-    parent::__construct( $x, $y, $cote, $color , $str , $lien );
-   
-}
-function affHTML()
-{
-    print( "<div class=\"figure\" style=\"left:".$this->x."; top:".$this->y."px; width:".$this->cote."px; height:50px; background-color:".$this->color.";>");
-    print( $this->content1 );
-    print( "</div>);" );
-}
-
-function addContent( $str )
-{
-    $this->content1 = $str;
-}
-
-
-
-
-   // print( "<a href='".$this->lien."';>".$this->content."</a>");
-  
-
 }
 
 ?>
