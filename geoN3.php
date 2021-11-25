@@ -23,7 +23,7 @@
 
 <?php
 
-require_once "geoLibX2.php";
+require_once "geoLibN2.php";
 
 
 $p1 = new Point( 12, 5 );
