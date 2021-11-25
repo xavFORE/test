@@ -1,4 +1,5 @@
 <?php
+    #require_once "affTable.php";
 
     if ( $_GET )
     {
