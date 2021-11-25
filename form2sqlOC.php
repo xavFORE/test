@@ -1,40 +1,41 @@
 <?php
 
+    // creer un table nom et pw
+
+
     if ( $_GET )
     {
-        $maValeur = $_GET[ "carouf" ];
-        print( "la valeur du champ : $maValeur<br> ");
-    
-$servername = "localhost";
-$username = "root";
-$password = "";
+        $nom = $_GET[ "nom" ];
+        $pw = $_GET[ "pw" ];
+        $donnees = $reponse->fetch();
+        //print( "la valeur du champ : $maValeur<br> ");
+        
+
+        // connecter à votre DB
+        $servername = "localhost";
+        $database = "formulaire";
+        $username = "root";
+        $password = "";
+        $mysqli = new mysqli($servername, $username, $password, $database);
 
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+        
+        // forger la requete
+        $query  = "insert into form1 (nom, pw) values ('$nom','$pw');";
+        // un print bien utile pour débugger
+        print( $query );
 
-$sql = "INSERT INTO MyGuests (firstname, lastname, email)
-VALUES ('John', 'Doe', 'john@example.com')";
-
-if ($conn->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$conn->close();
-
-        exit(0);
+        // execute la requete
+        $mysqli->query( $query );
+        //fermer la DB
+        $mysqli->close();
+        
     }
 ?>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,10 +45,15 @@ $conn->close();
 <body>
     
 <form action="#" method="GET">
-    <input type="text" placeholder="saisir nom" name="carouf" >
+    <input type="text" placeholder="saisir nom" name="nom" >
+    <br>
+    <input type="text" placeholder="saisir PW" name="pw" >
+    <br>
     <button type="submit">OK</button>
 </form>
 
 
+
 </body>
 </html>
+
