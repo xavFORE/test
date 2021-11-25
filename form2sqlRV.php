@@ -1,46 +1,32 @@
-<script>
-  
-        if (nom ==="")
-        document.getElementById("btOK").disabled = false;
-        else {
-        document.getElementById("btOK").disabled = true;
-      
-
-    
-</script>
-
-
 <?php
-
     // creer un table nom et pw
-    
-
 
     if ( $_GET )
     {
         $nom = $_GET[ "nom" ];
-        $pw = $_GET[ "pw" ];
+        $pw  = $_GET[ "pw" ];
         //print( "la valeur du champ : $maValeur<br> ");
         
-
         // connecter à votre DB
         $servername = "localhost";
-        $database = "toto";
+        $database = "test";
         $username = "root";
         $password = "";
         $mysqli = new mysqli($servername, $username, $password, $database);
 
         // forger la requete
-        $query  = "insert into human (nom, pw) values ('$nom', '$pw');";
+        $query  = "insert into users (nom, pw) values ('$nom', '$pw' );";
         // un print bien utile pour débugger
         print( $query );
-        
+
         // execute la requete
         $mysqli->query( $query );
-     
         //fermer la DB
         $mysqli->close();
     }
+
+
+    
 ?>
 
 
@@ -59,7 +45,7 @@
     <br>
     <input type="text" placeholder="saisir PW" name="pw" >
     <br>
-    <button id="btOK" type="submit">OK</button>
+    <button type="submit">OK</button>
 </form>
 
 
