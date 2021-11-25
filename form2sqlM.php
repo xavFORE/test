@@ -14,7 +14,7 @@
           exit();
         }
 
-        $sql = "INSERT INTO users (nom, pw, age) VALUES ('$nomUser', '$mdpUser', '$ageUser')";
+        $sql = "INSERT INTO users (nom, pw, age) VALUES ('$nomUser', '$mdpUser', $ageUser)";
         #$sqlSelect = "SELECT * FROM users";
         
         if ($mysqli->query($sql) === TRUE)
