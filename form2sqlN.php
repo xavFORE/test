@@ -1,26 +1,29 @@
 <?php
+    // creer un table nom et pw
 
     if ( $_GET )
     {
-        $maValeur = $_GET[ "carouf" ];
-        print( "la valeur du champ : $maValeur<br> ");
+        $nom = $_GET[ "nom" ];
+        $pw  = $_GET[ "pw" ];
+        //print( "la valeur du champ : $maValeur<br> ");
         
+        // connecter à votre DB
+        $servername = "localhost";
+        $database = "toto";
+        $username = "root";
+        $password = "";
+        $mysqli = new mysqli($servername, $username, $password, $database);
 
-        exit(0);
+        // forger la requete
+        $query  = "insert into nellyfea (nom, pw) values ('$nom', '$pw' );";
+        // un print bien utile pour débugger
+        print( $query );
+
+        // execute la requete
+        $mysqli->query( $query );
+        //fermer la DB
+        $mysqli->close();
     }
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-print "Connected successfully";
 ?>
 
 
@@ -35,7 +38,10 @@ print "Connected successfully";
 <body>
     
 <form action="#" method="GET">
-    <input type="text" placeholder="saisir nom" name="carouf" >
+    <input type="text" placeholder="saisir nom" name="nom" >
+    <br>
+    <input type="text" placeholder="saisir PW" name="pw" >
+    <br>
     <button type="submit">OK</button>
 </form>
 
