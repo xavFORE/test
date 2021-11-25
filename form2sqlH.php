@@ -1,30 +1,25 @@
+
 <?php
-
     // creer un table nom et pw
-
     require_once "ressources.php";
+
     if ( $_GET )
     {
-        $preRoot = $_GET[ "prenom" ];
-        $nomRoot = $_GET[ "nom" ];
-        $ageRoot = $_GET[ "age" ];
-        $mdpRoot = $_GET[ "password" ];
-
+        $nom = $_GET[ "nom" ];
+        $pw  = $_GET[ "pw" ];
+        $age = $_GET[ "age" ];
         //print( "la valeur du champ : $maValeur<br> ");
         
-
         // connecter à votre DB
-      
-
-        $mysqli = new mysqli($servername,$username, $password, $database);
+        $mysqli = new mysqli($servername, $username, $password, $database);
 
         // forger la requete
-        $query  = "insert into clients (prenom,nom, age, pwd) values ('$preRoot','$nomRoot','$ageRoot', '$mdpRoot')";
+        $query  = "insert into users (nom, pw, age) values ( '$nom', '$pw', $age );";
         // un print bien utile pour débugger
         print( $query );
 
         // execute la requete
-        $mysqli->query( $query );
+        $ret = $mysqli->query( $query );
         //fermer la DB
         $mysqli->close();
     }
@@ -42,13 +37,11 @@
 <body>
     
 <form action="#" method="GET">
-    <input type="text" placeholder="saisir prénom" name="prenom" >
-    <br>
     <input type="text" placeholder="saisir nom" name="nom" >
     <br>
-    <input type="text" placeholder="saisir age" name="age" >
+    <input type="text" placeholder="saisir PW" name="pw" >
     <br>
-    <input type="text" placeholder="saisir PW" name="password" >
+    <input type="text" placeholder="saisir age" name="age" >
     <br>
     <button type="submit">OK</button>
 </form>

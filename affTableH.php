@@ -1,25 +1,22 @@
 <?php
-require_once "ressources.php";
     // creer un table nom et pw
-    
-        
+
+        require_once "ressources.php";
+
         // connecter à votre DB
         $mysqli = new mysqli($servername, $username, $password, $database);
 
+
+
         // forger la requete
-        $query  = "select * from clients;";
+        $query  = "select * from users;";
         
         // execute la requete
         $res = $mysqli->query( $query );
-         $moyen = 0;
-         $total = 0;
 
         print( "<table>\n");
         while(  ($ligne = $res->fetch_assoc()) )
         {
-            $moyen+= $ligne["age"];
-            $total ++;
-
             print( "<tr>\n" );
             foreach( $ligne as $key => $values )
             {
@@ -30,8 +27,25 @@ require_once "ressources.php";
             print( "</tr>\n" );
         }
         print( "</table>\n");
-        $resulta = $moyen/$total;
-         print("moyene des age : $resulta");
+
+
+        print( "<br><br>");
+
+
+        
+
+                // execute la requete
+        $res = $mysqli->query( "select avg(age) as moy from users;" );
+        
+        //print_r( $res );
+        $ligne = $res->fetch_assoc();
+        //print_r( $ligne );
+        $moyenne = $ligne[ "moy" ];
+
+        print( "moyenne : $moyenne<br>");
+
+        
+
         //fermer la DB
         $mysqli->close();
 ?>
