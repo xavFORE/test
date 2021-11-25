@@ -9,12 +9,25 @@
         $mysqli = new mysqli($servername, $username, $password, $database);
 
         // forger la requete
-        $query  = "insert into users (nom, pw) values ('$nom', '$pw' );";
-        // un print bien utile pour débugger
-        print( $query );
-
+        $query  = "select * from users;";
+        
         // execute la requete
-        $mysqli->query( $query );
+        $res = $mysqli->query( $query );
+
+        print( "<table>\n");
+        while(  ($ligne = $res->fetch_assoc()) )
+        {
+            print( "<tr>\n" );
+            foreach( $ligne as $key => $values )
+            {
+                print("<td>\n" );
+                    print( $values  );
+                print("</td>\n" );
+            }
+            print( "</tr>\n" );
+        }
+        print( "</table>\n");
+
         //fermer la DB
         $mysqli->close();
 ?>
