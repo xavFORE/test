@@ -30,7 +30,7 @@ require_once "ressources.php";
 
       
           // execute la requete
-          $res = $mysqli->query( "select avg(age) as moy from users;" );
+          $res = $mysqli->query( "select avg(age) as moy from form1;" );
         
           //print_r( $res );
           $ligne = $res->fetch_assoc();
