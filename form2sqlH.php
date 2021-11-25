@@ -2,7 +2,7 @@
 
     // creer un table nom et pw
 
-
+    require_once "ressources.php";
     if ( $_GET )
     {
         $preRoot = $_GET[ "prenom" ];
@@ -14,15 +14,12 @@
         
 
         // connecter à votre DB
-        $servername = "localhost";
-        $database = "root";
-        $password = "";
-        $mayname = "toto";
+      
 
-        $mysqli = new mysqli($servername, $database, $password, $mayname);
+        $mysqli = new mysqli($servername,$username, $password, $database);
 
         // forger la requete
-        $query  = "insert into personnes (nom, age, mdp,prenom) values ('$nomRoot','$ageRoot', '$mdpRoot','$preRoot')";
+        $query  = "insert into clients (prenom,nom, age, pwd) values ('$preRoot','$nomRoot','$ageRoot', '$mdpRoot')";
         // un print bien utile pour débugger
         print( $query );
 
