@@ -1,3 +1,4 @@
+
 <?php
     // creer un table nom et pw
 
@@ -15,12 +16,12 @@
         $mysqli = new mysqli($servername, $username, $password, $database);
 
         // forger la requete
-        $query  = "insert into users (nom, pw) values ('$nom', '$pw' );";
+        $query  = "select * from users;";
         // un print bien utile pour débugger
         print( $query );
 
         // execute la requete
-        $mysqli->query( $query );
+        $ret = $mysqli->query( $query );
         //fermer la DB
         $mysqli->close();
     }
