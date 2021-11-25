@@ -26,33 +26,20 @@ require_once "ressources.php";
         print( "</table>\n");
 
 
-        $query  = "SELECT avg(age) FROM `form1`;";
 
 
       
+          // execute la requete
+          $res = $mysqli->query( "select avg(age) as moy from users;" );
+        
+          //print_r( $res );
+          $ligne = $res->fetch_assoc();
+          //print_r( $ligne );
+          $moyenne = $ligne[ "moy" ];
   
-        
-        $resultat =$mysqli->query( $query );
-        
-        $ligne = $resultat->fetch_assoc();
-
-
-        $moyenne = $ligne [ "moy" ];
-
-
-        print("moyenne :$moyenne <br>");
+          print( "moyenne : $moyenne<br>");
   
-       
-       
-       
-       
-       
-       
-       
-    
-
-        
-
+          
         //fermer la DB
        $mysqli->close();
 ?>
