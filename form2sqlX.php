@@ -1,15 +1,12 @@
 <?php
-
     // creer un table nom et pw
-
 
     if ( $_GET )
     {
         $nom = $_GET[ "nom" ];
-        $pw = $_GET[ "pw" ];
+        $pw  = $_GET[ "pw" ];
         //print( "la valeur du champ : $maValeur<br> ");
         
-
         // connecter à votre DB
         $servername = "localhost";
         $database = "test";
@@ -18,7 +15,7 @@
         $mysqli = new mysqli($servername, $username, $password, $database);
 
         // forger la requete
-        $query  = "insert into user (nom) values ('$nom');";
+        $query  = "insert into users (nom, pw) values ('$nom', '$pw' );";
         // un print bien utile pour débugger
         print( $query );
 
