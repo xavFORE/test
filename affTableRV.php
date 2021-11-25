@@ -2,13 +2,15 @@
     // creer un table nom et pw
 
         require_once "ressources.php";
-        
+
         // connecter à votre DB
         $mysqli = new mysqli($servername, $username, $password, $database);
 
+
+
         // forger la requete
         $query  = "select * from users;";
-       
+        
         // execute la requete
         $res = $mysqli->query( $query );
 
@@ -23,12 +25,27 @@
                 print("</td>\n" );
             }
             print( "</tr>\n" );
-        } 
-        
+        }
         print( "</table>\n");
-        $query = "select avg(age) from users";
-        $ress = $mysqli->query( $query );
-        print_r("$ress");
+
+
+        print( "<br><br>");
+
+
+        
+
+                // execute la requete
+        $res = $mysqli->query( "select avg(age) as moy from users;" );
+        
+        //print_r( $res );
+        $ligne = $res->fetch_assoc();
+        //print_r( $ligne );
+        $moyenne = $ligne[ "moy" ];
+
+        print( "moyenne : $moyenne<br>");
+
+        
+
         //fermer la DB
         $mysqli->close();
 ?>
