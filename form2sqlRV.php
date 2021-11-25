@@ -1,21 +1,21 @@
 <?php
     // creer un table nom et pw
-
+        require_once  'ressources.php'; 
     if ( $_GET )
     {
         $nom = $_GET[ "nom" ];
         $pw  = $_GET[ "pw" ];
+        $age  = $_GET[ "age" ];
         //print( "la valeur du champ : $maValeur<br> ");
         
         // connecter à votre DB
-        $servername = "localhost";
-        $database = "test";
-        $username = "root";
-        $password = "";
+
+        
+
         $mysqli = new mysqli($servername, $username, $password, $database);
 
         // forger la requete
-        $query  = "insert into users (nom, pw) values ('$nom', '$pw' );";
+        $query  = "insert into users (nom, pw, age) values ('$nom', '$pw', $age );";
         // un print bien utile pour débugger
         print( $query );
 
@@ -44,6 +44,8 @@
     <input type="text" placeholder="saisir nom" name="nom" >
     <br>
     <input type="text" placeholder="saisir PW" name="pw" >
+    <br>
+    <input type="text" placeholder="saisir age" name="age" >
     <br>
     <button type="submit">OK</button>
 </form>
