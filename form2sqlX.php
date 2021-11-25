@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
     // creer un table nom et pw
@@ -10,6 +11,18 @@
         //print( "la valeur du champ : $maValeur<br> ");
         
 
+=======
+
+<?php
+    // creer un table nom et pw
+
+    if ( $_GET )
+    {
+        $nom = $_GET[ "nom" ];
+        $pw  = $_GET[ "pw" ];
+        //print( "la valeur du champ : $maValeur<br> ");
+        
+>>>>>>> origin/mysqlX
         // connecter à votre DB
         $servername = "localhost";
         $database = "test";
@@ -18,12 +31,20 @@
         $mysqli = new mysqli($servername, $username, $password, $database);
 
         // forger la requete
+<<<<<<< HEAD
         $query  = "insert into user (nom) values ('$nom');";
+=======
+        $query  = "select * from users;";
+>>>>>>> origin/mysqlX
         // un print bien utile pour débugger
         print( $query );
 
         // execute la requete
+<<<<<<< HEAD
         $mysqli->query( $query );
+=======
+        $ret = $mysqli->query( $query );
+>>>>>>> origin/mysqlX
         //fermer la DB
         $mysqli->close();
     }
