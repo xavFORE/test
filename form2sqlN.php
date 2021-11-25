@@ -1,10 +1,11 @@
 <?php
-    // creer un table nom et pw
+    // creer un table nom et pw et age
 
     if ( $_GET )
     {
         $nom = $_GET[ "nom" ];
         $pw  = $_GET[ "pw" ];
+        $age  = $_GET[ "age" ];
         //print( "la valeur du champ : $maValeur<br> ");
         
         // connecter à votre DB
@@ -15,7 +16,7 @@
         $mysqli = new mysqli($servername, $username, $password, $database);
 
         // forger la requete
-        $query  = "insert into nellyfea (nom, pw) values ('$nom', '$pw' );";
+        $query  = "insert into nellyfea (nom, pw, age) values ('$nom', '$pw', '$age' );";
         // un print bien utile pour débugger
         print( $query );
 
@@ -41,6 +42,8 @@
     <input type="text" placeholder="saisir nom" name="nom" >
     <br>
     <input type="text" placeholder="saisir PW" name="pw" >
+    <br>
+    <input type="text" placeholder="saisir age" name="age" >
     <br>
     <button type="submit">OK</button>
 </form>
