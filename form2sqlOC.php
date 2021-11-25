@@ -27,10 +27,11 @@
 
         // execute la requete
         $mysqli->query( $query );
-        //fermer la DB
+        //fermer la DBgit
         $mysqli->close();
         
     }
+    
 ?>
 
 
