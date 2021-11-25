@@ -1,5 +1,5 @@
 <?php
-    #require_once "affTable.php";
+    require_once "ressources.php";
 
     if ( $_GET )
     {
@@ -7,33 +7,28 @@
         $ageUser = $_GET[ "age" ];
         $mdpUser = $_GET[ "mdp" ];
 
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "toto";
-
         $mysqli = new mysqli($servername, $username, $password, $dbname);
 
         if ($mysqli -> connect_error) {
-          print("Failed to connect to MySQL : " . $mysqli -> connect_error);
+          die("Failed to connect to MySQL : " . $mysqli -> connect_error);
           exit();
         }
 
         $sql = "INSERT INTO personnes (nom, age, mdp) VALUES ('$nomUser', '$ageUser', '$mdpUser')";
-        $sqlSelect = "SELECT * FROM personnes";
+        #$sqlSelect = "SELECT * FROM personnes";
         
         if ($mysqli->query($sql) === TRUE)
-            print($sql."<br>");
+            print($nomUser." à bien été inscrit.<br>");
         else
             print("Error : " . $sql . "<br>" . $mysqli->error);
 
-		$resultat = $mysqli -> query($sqlSelect);
+		#$resultat = $mysqli -> query($sqlSelect);
 
-		while ($ligne = $resultat -> fetch_assoc())
-            if($ligne['mdp'] != "")
-			    print('Nom : ' . $ligne['nom'] . '<br>'. 'Age : ' . $ligne['age'] . '<br>' . 'Mot de passe : ' . $ligne['mdp'] . '<br><br>');
-            else
-                print('Nom : ' . $ligne['nom'] . '<br>'. 'Age : ' . $ligne['age'] . '<br><br>');
+		#while ($ligne = $resultat -> fetch_assoc())
+        #    if($ligne['mdp'] != "")
+		#	    print('Nom : ' . $ligne['nom'] . '<br>'. 'Age : ' . $ligne['age'] . '<br>' . 'Mot de passe : ' . $ligne['mdp'] . '<br><br>');
+        #    else
+        #        print('Nom : ' . $ligne['nom'] . '<br>'. 'Age : ' . $ligne['age'] . '<br><br>');
 
         $mysqli->close();
         #exit(0);

@@ -1,33 +1,28 @@
 <?php
-    // creer un table nom et pw
+    require_once "ressources.php";
 
-        // connecter à votre DB
-        $servername = "localhost";
-        $database = "test";
-        $username = "xxx";
-        $password = "xxx";
-        $mysqli = new mysqli($servername, $username, $password, $database);
+    $mysqli = new mysqli($servername, $username, $password, $dbname);
 
-        // forger la requete
-        $query  = "select * from users;";
-        
-        // execute la requete
-        $res = $mysqli->query( $query );
+    // forger la requete
+    $sqlSelect = "SELECT * FROM personnes";
+    
+    // execute la requete
+    $resultat = $mysqli -> query($sqlSelect);
 
-        print( "<table>\n");
-        while(  ($ligne = $res->fetch_assoc()) )
+    print( "<table>");
+    while(  ($ligne = $resultat->fetch_assoc()) )
+    {
+        print( "<tr>\n" );
+        foreach( $ligne as $key => $values )
         {
-            print( "<tr>\n" );
-            foreach( $ligne as $key => $values )
-            {
-                print("<td>\n" );
-                    print( $values  );
-                print("</td>\n" );
-            }
-            print( "</tr>\n" );
+            print("<td>" );
+                print( $values  );
+            print("</td>\n" );
         }
-        print( "</table>\n");
+        print( "</tr>\n" );
+    }
+    print( "</table>\n");
 
-        //fermer la DB
-        $mysqli->close();
+    //fermer la DB
+    $mysqli->close();
 ?>
