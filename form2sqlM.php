@@ -1,11 +1,11 @@
 <?php
     require_once "ressources.php";
 
-    if ( $_GET )
+    if ( $_POST )
     {
-        $nomUser = $_GET[ "nom" ];
-        $ageUser = $_GET[ "age" ];
-        $mdpUser = $_GET[ "mdp" ];
+        $nomUser = $_POST[ "nom" ];
+        $ageUser = $_POST[ "age" ];
+        $mdpUser = $_POST[ "mdp" ];
 
         $mysqli = new mysqli($servername, $username, $password, $dbname);
 
@@ -14,7 +14,9 @@
           exit();
         }
 
-        $sql = "INSERT INTO users (nom, pw, age) VALUES ('$nomUser', '$mdpUser', $ageUser)";
+        $hash = md5($mdpUser);
+
+        $sql = "INSERT INTO users (nom, pw, age, pwhash) VALUES ('$nomUser', '$mdpUser', $ageUser, '$hash')";
         #$sqlSelect = "SELECT * FROM users";
         
         if ($mysqli->query($sql) === TRUE)
@@ -46,7 +48,7 @@
 </head>
 <body>
     
-<form action="#" method="GET">
+<form action="#" method="POST">
     <input type="text" placeholder="saisir nom" name="nom"><br>
     <input type="text" placeholder="saisir age" name="age"><br>
     <input type="password" placeholder="saisir mot de passe" name="mdp"><br>

@@ -13,25 +13,21 @@
             exit();
         }
 
-        $query = "SELECT pwhash FROM users WHERE nom='".$nom."' AND pw='".$pw."';";
+        $pw = md5( $pw );
+        $query = "SELECT * FROM users WHERE nom='".$nom."' AND pwhash='".$pw."';";
         $resultat = $mysqli->query($query);
 
-        while($ligne = $resultat->fetch_assoc())
+        if ( $resultat->num_rows > 0 )
         {
-            print_r("ligne : ".$ligne['pwhash']."<br>");
+            print( "login valide<br>");
+            $ligne = $resultat->fetch_assoc();
+            $id = $ligne[ 'id' ];
+            $nom = $ligne[ 'nom' ];
+            $age = $ligne['age'];
+            print( "bonjour $nom, tu as $age ans et ton ID est $id<br>");
         }
-
-        /*if($ligne["pwhash"]=='aa36dc6e81e2ac7ad03e12fedcb6a2c0')
-            print("Ok $nom tu es bien dans la DB !");
-        
         else
-            print("Qui es tu $nom ?");*/
-
-        /*if($nom == $ligne["nom"] && $pw == $ligne["pw"])
-            print("Ok $nom tu es bien dans la DB !");
-        
-        else
-            print("Qui es tu $nom ?");*/
+            print( "login invalide<br>");
 
         $mysqli->close();
     }
