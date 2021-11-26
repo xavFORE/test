@@ -25,6 +25,17 @@
         
        print("</table>\n");
 
+       print("<br><br>");
+
+       //execute le requete
+       $res = $mysqli->query("select avg(age) as moy from nellyfea;");
+       //print_r($res);
+       $ligne = $res->fetch_assoc();
+       //print_r($ligne);
+       $moyenne = $ligne["moy"];
+
+       print("La moyenne d'âge est de : $moyenne<br>");
+
         //fermer la DB
         $mysqli->close();
     

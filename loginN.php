@@ -3,23 +3,33 @@
     // creer un table nom et pw
     require_once "ressources.php";
 
+
     if ( $_GET )
     {
         $nom = $_GET[ "nom" ];
         $pw  = $_GET[ "pw" ];
-        $age = $_GET[ "age" ];
         //print( "la valeur du champ : $maValeur<br> ");
         
         // connecter à votre DB
         $mysqli = new mysqli($servername, $username, $password, $database);
-
+    
         // forger la requete
-        $query  = "insert into users (nom, pw, age) values ( '$nom', '$pw', $age );";
+        $query  = "select id from nellyfea where nom='$nom' and pw='$pw'";
+
         // un print bien utile pour débugger
-        print( $query );
+        //print( $query );
 
         // execute la requete
-        $ret = $mysqli->query( $query );
+       $res = $mysqli->query( $query );
+       //print_r($res);
+       if($res->num_rows >0 )
+       {
+            print("login valide<br>");
+
+       }
+       else
+            print("login invalide<br>");
+
         //fermer la DB
         $mysqli->close();
     }
@@ -37,13 +47,11 @@
 <body>
     
 <form action="#" method="GET">
-    <input type="text" placeholder="saisir nom" name="nom" >
+    <input type="text" placeholder="saisir login" name="nom" >
     <br>
     <input type="text" placeholder="saisir PW" name="pw" >
     <br>
-    <input type="text" placeholder="saisir age" name="age" >
-    <br>
-    <button type="submit">OK</button>
+    <button type="submit">CONNECT</button>
 </form>
 
 

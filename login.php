@@ -7,7 +7,6 @@
     {
         $nom = $_GET[ "nom" ];
         $pw  = $_GET[ "pw" ];
-        $age = $_GET[ "age" ];
         //print( "la valeur du champ : $maValeur<br> ");
         
         // connecter à votre DB
@@ -37,13 +36,11 @@
 <body>
     
 <form action="#" method="GET">
-    <input type="text" placeholder="saisir nom" name="nom" >
+    <input type="text" placeholder="saisir login" name="nom" >
     <br>
     <input type="text" placeholder="saisir PW" name="pw" >
     <br>
-    <input type="text" placeholder="saisir age" name="age" >
-    <br>
-    <button type="submit">OK</button>
+    <button type="submit">CONNECT</button>
 </form>
 
 
