@@ -1,10 +1,10 @@
 <?php
     require_once "ressources.php";
 
-    if ($_GET)
+    if ( $_POST )
     {
-        $nom = $_GET[ "nom" ];
-        $pw  = $_GET[ "pw" ];
+        $nom = $_POST[ "nom" ];
+        $pw  = $_POST[ "pw" ];
 
         $mysqli = new mysqli($servername, $username, $password, $dbname);
 
@@ -12,19 +12,26 @@
             die("Failed to connect to MySQL : " . $mysqli -> connect_error);
             exit();
         }
-    
-        $query = "SELECT nom FROM users";
+
+        $query = "SELECT pwhash FROM users WHERE nom='".$nom."' AND pw='".$pw."';";
         $resultat = $mysqli->query($query);
 
-        $ligne = $resultat->fetch_assoc();
-
-        foreach( $ligne as $key => $values )
+        while($ligne = $resultat->fetch_assoc())
         {
-            if($nom == $values)
-                print("Ok $nom tu es bien dans la DB !");
-            else
-                print("Qui es tu $nom ?");
+            print_r("ligne : ".$ligne['pwhash']."<br>");
         }
+
+        /*if($ligne["pwhash"]=='aa36dc6e81e2ac7ad03e12fedcb6a2c0')
+            print("Ok $nom tu es bien dans la DB !");
+        
+        else
+            print("Qui es tu $nom ?");*/
+
+        /*if($nom == $ligne["nom"] && $pw == $ligne["pw"])
+            print("Ok $nom tu es bien dans la DB !");
+        
+        else
+            print("Qui es tu $nom ?");*/
 
         $mysqli->close();
     }
@@ -40,7 +47,7 @@
 </head>
 <body>
     
-<form action="#" method="GET">
+<form action="#" method="POST">
     <input type="text" placeholder="saisir login" name="nom">
     <br>
     <input type="password" placeholder="saisir PW" name="pw">
