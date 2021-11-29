@@ -6,7 +6,7 @@
         $mysqli = new mysqli($servername, $username, $password, $database);
 
         // forger la requete
-        $query  = "select * from form1;";
+        $query  = "select * from voitures;";
         
         // execute la requete
         $res = $mysqli->query( $query );
@@ -27,7 +27,7 @@
         print( "<br><br>");
 
         // execute la requete
-        $res = $mysqli->query( "select avg(age) as moy from form1;" );
+        $res = $mysqli->query( "select avg(prix) as moy from voitures;" );
         //print_r( $res );
         $ligne = $res->fetch_assoc();
         //print_r( $ligne );
