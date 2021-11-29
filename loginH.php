@@ -8,29 +8,36 @@
         $nom = $_GET[ "nom" ];
         $pw  = $_GET[ "pw" ];
         //print( "la valeur du champ : $maValeur<br> ");
+        
         // connecter à votre DB
         $mysqli = new mysqli($servername, $username, $password, $database);
+
         // forger la requete
-        $query  = " select id from clients where nom='$nom' and pwd='$pw';";
-        $ret = $mysqli->query( $query );
-        $ligne = $ret->fetch_assoc();
-        if($ligne["id"]==3)
-        print("conexion");
-        else
-        print("invalide");
-        
-
-
+        //  select id from users where nom='Germaine' and pw='123';
+        $query  = "select * from users where nom='$nom' and pw='$pw';";
         // un print bien utile pour débugger
-        //print( $query );
+        print( $query."<br>" );
 
-        // execute la requete
-        //$ret = $mysqli->query( $query );
-        //print_r($ret);
+        $res = $mysqli->query( $query );
+        //print_r( $res );
+        if ( $res->num_rows > 0 )
+        {
+            print( "login valide<br>");
+            $ligne = $res->fetch_assoc();
+            //print_r( $ligne );
+            $id = $ligne[ 'id' ];
+            $nom = $ligne[ 'nom' ];
+            $age = $ligne[ 'age' ];
+            print( "bonjour $nom, tu as $age ans et ton ID est $id<br>");
+        }
+        else
+            print( "login invalide<br>");
+
+
+
         //fermer la DB
         $mysqli->close();
     }
-  
 ?>
 
 
