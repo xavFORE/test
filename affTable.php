@@ -10,7 +10,9 @@
         
         // execute la requete
         $res = $mysqli->query( $query );
-
+        //print_r( $res );
+        //print( "<br><br><br>" );
+        
         print( "<table>\n");
         while(  ($ligne = $res->fetch_assoc()) )
         {
@@ -29,6 +31,7 @@
         // execute la requete
         $res = $mysqli->query( "select avg(age) as moy from users;" );
         //print_r( $res );
+        //print( "<br><br><br>" );
         $ligne = $res->fetch_assoc();
         //print_r( $ligne );
         $moyenne = $ligne[ "moy" ];
