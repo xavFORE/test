@@ -13,23 +13,29 @@
         $mysqli = new mysqli($servername, $username, $password, $database);
 
         // forger la requete
-        
-        $query  = "select id from users where nom='$nom' and pw='$pw';";
+        //  select id from users where nom='Germaine' and pw='123';
+        $query  = "select * from users where nom='$nom' and pw='$pw';";
         // un print bien utile pour débugger
-        print( $query );
+        print( $query."<br>" );
 
-        // execute la requete
-        $ret = $mysqli->query( $query );
-        if ( $ret-> num_rows > 0)
+        $res = $mysqli->query( $query );
+        //print_r( $res );
+        if ( $res->num_rows > 0 )
         {
-        $ligne = $ret->fetch_assoc();
-        $id = $ligne ["id"];
-        print("votre ID : $id <br>"); 
-        //fermer la DB
-       }
-       else
-        print("login invalide <br>"); 
+            print( "login valide<br>");
+            $ligne = $res->fetch_assoc();
+            //print_r( $ligne );
+            $id = $ligne[ 'id' ];
+            $nom = $ligne[ 'nom' ];
+            $age = $ligne[ 'age' ];
+            print( "bonjour $nom, tu as $age ans et ton ID est $id<br>");
+        }
+        else
+            print( "login invalide<br>");
 
+
+
+        //fermer la DB
         $mysqli->close();
     }
 ?>
