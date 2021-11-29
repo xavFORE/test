@@ -6,7 +6,7 @@
         $mysqli = new mysqli($servername, $username, $password, $database);
 
         // forger la requete
-        $query  = "select nom, age from users;";
+        $query  = "select * from users;";
         
         // execute la requete
         $res = $mysqli->query( $query );

@@ -1,4 +1,3 @@
-
 <?php
     // creer un table nom et pw
     require_once "ressources.php";
