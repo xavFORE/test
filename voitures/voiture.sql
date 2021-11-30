@@ -1,4 +1,4 @@
-
+```
 drop table if exists voitures;
 create table voitures (
     id int PRIMARY KEY not null auto_increment,
@@ -8,7 +8,7 @@ create table voitures (
     kilometrage int,
     prix int
 );
-
+ 
 insert into voitures ( nom, annee, puissance, kilometrage, prix )
 values( "ford T", 1925, 1, 189897, 70 );
 insert into voitures ( nom, annee, puissance, kilometrage, prix )
@@ -21,5 +21,5 @@ insert into voitures ( nom, annee, puissance, kilometrage, prix )
 values( "Dauphine", 1973, 2, 33041, 100 );
 insert into voitures ( nom, annee, puissance, kilometrage, prix )
 values( "Multipla", 2005, 6, 130002, 150 );
-
+```
 
