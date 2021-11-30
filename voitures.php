@@ -13,6 +13,7 @@
         $id = $_GET[ 'voiture' ];
 
         require_once "ressources.php";
+        $database = "voitures";
         $mysqli = new mysqli($servername, $username, $password, $database);
         $query  = "select * from voitures where id=$id;";
         $res = $mysqli->query( $query );
@@ -37,6 +38,7 @@
 <?php
         // affichage des voitures dans le COMBO
         require_once "ressources.php";
+        $database = "voitures";
         $mysqli = new mysqli($servername, $username, $password, $database);
         $query  = "select * from voitures;";
         $res = $mysqli->query( $query );
