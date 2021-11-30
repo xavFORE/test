@@ -1,31 +1,3 @@
-<?php
-      require_once "ressources.php";
-
-      $nom = $_GET[ "voiture" ];
-      $id = $_GET[ "ID" ];
-      
-      // connecter à votre DB
-      $mysqli = new mysqli($servername, $username, $password, $database);
-
-      $id="select id from voitures;";
-           print( $id );
-
-      // forger la requete
-      $query  = "select * from voitures;";
-    
-      //print( $query );
-      // execute la requete
-      $res = $mysqli->query( $query );
-      //print_r( $res );
-      //print( "<br><br><br>" );
-      
-      print( "<form>\n");
- 
-
-
-      $mysqli->close();
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,20 +7,41 @@
     <title>Document</title>
 </head>
 <body>
-    
-<form action="#" method="get">
+<?php
+require_once "function.php";
+    if ($_GET)
+    {
+        $id = $_GET[ 'voitures' ];
+        print($id);
+        require_once "ressources.php";
+        $mysqli = new mysqli($servername, $username, $password, $database);
+        $query  = "select * from voitures where id=$id;";
+        $res = $mysqli->query( $query );
+        $ligne = $res->fetch_assoc();
+        
+        $id          = $ligne[ 'id' ];
+        $nom         = $ligne[ 'nom' ];
+        $annee       = $ligne[ 'annee' ];
+        $puissance   = $ligne[ 'puissance' ];
+        $kilometrage = $ligne[ 'kilometrage' ];
+        $prix        = $ligne[ 'prix' ];
+        $mysqli->close();
 
-<select name="voiture" id="cars">
-<option value="ID">ford</option>
-<option value="ID">2cv</option>
-<option value="ID">Juvaquatre</option>
-<option value="ID">renauld 4</option>
-</select>
-</form>
-<button type="submit">ok</button>
+        print( "<h3>$nom</h3> la puisance et $puissance cv l'année et de $annee le kilometrage et de $kilometrage le prix par jour et de $prix <br>");
+       
+    }
+?>
+
+
+<form action="#" method="get"> 
+
+<?php
+combobox("voitures");
+?>    
 
 <br>
-</select>
+<button type="submit">OK</button>
 </form>
 </body>
 </html>
+
