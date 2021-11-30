@@ -1,60 +1,77 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-<?php
-    require_once "fonctions.php";
-
-    if ($_GET)
-    {
-        $id_voiture = $_GET[ 'voitures' ];
-        $id_client  = $_GET[ 'clients' ];
-        $id_couleur = $_GET[ 'couleurs' ];
-        $dateDeb    = $_GET[ 'dateDeb' ];
-        $dateFin    = $_GET[ 'dateFin' ];
-
-        //print( "$id_voiture - $id_voiture - $dateDeb" );
-
+    <?php
+    if ($_GET) {
+        $id = $_GET['voiture'];
+        print($id);
         require_once "ressources.php";
         $mysqli = new mysqli($servername, $username, $password, $database);
-        $query  = "select * from clients where id=$id_client;";
-        //print( $query."<br>");
-        $res = $mysqli->query( $query );
+        $query  = "select * from voitures where id=$id;";
+        $res = $mysqli->query($query);
         $ligne = $res->fetch_assoc();
-        $nom_client = $ligne[ 'nom' ] ;
 
-        $query  = "select * from voitures where id=$id_voiture;";
-        //print( $query."<br>");
-        $res = $mysqli->query( $query );
+        $id          = $ligne['id'];
+        $nom         = $ligne['nom'];
+        $annee       = $ligne['annee'];
+        $puissance   = $ligne['puissance'];
+        $kilometrage = $ligne['kilometrage'];
+        $prix        = $ligne['prix'];
+
+
+        print("<h3>$nom</h3> la puisance et $puissance cv l'année et de $annee le kilometrage et de $kilometrage le prix par jour et de $prix <br>");
+        $id = $_GET['voiture'];
+        // print($id);
+
+        $query  = "select * from client where id=$id;";
+        $res = $mysqli->query($query);
         $ligne = $res->fetch_assoc();
-        $nom_voiture = $ligne[ 'nom' ] ;
-  
-        //$nom = utf8_encode($nom);
-        //$nom = utf8_decode($nom);
-  
-        $query = "insert into locations ( id_client, id_voiture, id_couleur, date_deb, date_fin )values ( , 3, 2, '2021-11-30', '2021-12-25'  );";
 
+        $id          = $ligne['id'];
+        $nom         = $ligne['nom'];
+
+        $query  = "select * from client;";
+        $res = $mysqli->query($query);
+
+        while (($ligne = $res->fetch_assoc())) {
+            $id  = $ligne['id'];
+            $nom = $ligne['nom'];
+            print("<option value=$id> $nom</option>\n");
+        }
         $mysqli->close();
 
-        print( "<h3>$nom_client loue $nom_voiture</h3>");
+        print("<h3>Bonjour $nom !!!! tu est le numero $id de le liste.</h3><br>");
     }
-?>
-<form action="#" method="get"> 
-    <?php
-        comboBox( "voitures");
-        comboBox( "clients");
-        comboBox( "couleurs");
     ?>
-    <br>
-    <input type="date" name="dateDeb">
-    <input type="date" name="dateFin">
 
-    <button type="submit">OK</button>
-</form>
+
+    <form action="#" method="get">
+        <select name="voiture">
+            <?php
+            // affichage des voitures dans le COMBO
+            require_once "ressources.php";
+            $mysqli = new mysqli($servername, $username, $password, $database);
+            $query  = "select * from voitures;";
+            $res = $mysqli->query($query);
+            while (($ligne = $res->fetch_assoc())) {
+                $id  = $ligne['id'];
+                $nom = $ligne['nom'];
+                print("<option value=$id> $nom</option>\n");
+            }
+            $mysqli->close();
+            ?>
+        </select>
+        <br>
+        <button type="submit">OK</button>
+    </form>
 </body>
+
 </html>
