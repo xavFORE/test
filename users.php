@@ -39,9 +39,21 @@ Monsieur<input type="checkbox" name='mr'>
 Madame<input type="checkbox" name='mme'>
 <br>
 
+<select name="departement">
 <?php
-comboBox( "departement", "select departement_id as id, departement_nom as nom from departement;");
+    require_once "ressources.php";
+    $mysqli = new mysqli($servername, $username, $password, $dbname);
+    $query  = "select * from departement;";
+    $res = $mysqli->query( $query );
+    while(  ($ligne = $res->fetch_assoc()) )
+    {
+        $id  = $ligne[ 'departement_code' ];
+        $nom = $ligne[ 'departement_nom' ];
+        print( "<option value=$id>".utf8_encode($nom)."</option>\n" );
+    }
+    $mysqli->close();
 ?>    
+</select> 
 <br>
 <button type="submit">OK</button>
 </form>
