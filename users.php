@@ -16,13 +16,11 @@ require_once "fonctions.php";
         $pw = $_GET[ 'pw' ];
         $idDep = $_GET[ 'departement' ];
 
-        $pw = md5( $pw );
-
         require_once "ressources.php";
-        $mysqli = new mysqli($servername, $username, $password, $database);
+        $mysqli = new mysqli($servername, $username, $password, $dbname);
         
         //insert into users ( nom, pw, idDep ) values( "Zorro", "zora", 22 );
-        $query  = "insert into users ( nom, pw, idDep ) values( '$nom', '$pw', $idDep );";
+        $query  = "insert into users ( nom, pw, age, pwhash, idDep ) values( '$nom', '$pw', 20, '".md5($pw)."',$idDep );";
         print( $query );
         $res = $mysqli->query( $query );
         $mysqli->close();
@@ -35,6 +33,10 @@ require_once "fonctions.php";
 <input type="text" name='nom' placeholder="ton nom">
 <br>
 <input type="text" name='pw' placeholder="ton pw">
+<br>
+Monsieur<input type="checkbox" name='mr'>
+<br>
+Madame<input type="checkbox" name='mme'>
 <br>
 
 <?php

@@ -10,17 +10,16 @@
 <?php
 require_once "fonctions.php";
 
-    if ($_GET)
+    if ($_POST)
     {
-        $nom = $_GET[ 'nom' ];
-        $pw = $_GET[ 'pw' ];
+        $nom = $_POST[ 'nom' ];
+        $pw = $_POST[ 'pw' ];
 
         $pw = md5( $pw );
 
         require_once "ressources.php";
-        $mysqli = new mysqli($servername, $username, $password, $database);
-        
-        $query  = "select * from users where nom='$nom' and pw='$pw';";
+        $mysqli = new mysqli($servername, $username, $password, $dbname);
+        $query  = "select * from users inner join departement on users.idDep = departement.departement_id where nom='$nom' and pwhash='$pw';";
         //print( $query );
         $res = $mysqli->query( $query );
         if ( $res->num_rows == 0 )
@@ -31,14 +30,15 @@ require_once "fonctions.php";
         {
             $ligne = $res->fetch_assoc();
             $nom = $ligne[ "nom"];
-            print( "<h3>bienvenue $nom</h3>");
+            $dpt = $ligne['departement_nom'];
+            print( "<h3>bienvenue $nom (".utf8_encode($dpt).")</h3>");
         }
         $mysqli->close();
     }
 ?>
 
 
-<form action="#" method="get"> 
+<form action="#" method="POST"> 
 <input type="text" name='nom' placeholder="login">
 <br>
 <input type="text" name='pw' placeholder="pw">

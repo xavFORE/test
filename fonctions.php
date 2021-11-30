@@ -1,6 +1,6 @@
 <?php
 
-function comboBox( $table )
+function comboBox( $table, $query="" )
 {
     GLOBAL $servername, $username, $password, $dbname;
 
