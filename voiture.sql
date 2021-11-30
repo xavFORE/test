@@ -123,4 +123,15 @@ values( "Vert");
 insert into couleurs ( nom )
 values( "bleu");
 
+/*locations*/
+create table locations (
+    id int PRIMARY KEY not null auto_increment,
+    nom  varchar(30)
+);
+
+insert into locations ( nom )
+values( "Noir");
+
+
+
 

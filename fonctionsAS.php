@@ -1,7 +1,7 @@
 <?php
 
  function comboBoxHtml ($table){
-    
+    global $servername, $username, $password, $database;
   require "ressources.php";
   //
     $database = "voitures";

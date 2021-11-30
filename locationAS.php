@@ -14,17 +14,20 @@
         require_once "ressources.php";
         $database = "voitures";
         $mysqli = new mysqli($servername, $username, $password, $database);
+        //
+        
         //html 
         $id_voiture = $_GET['voitures'];
         $id_client  = $_GET['clients'];
         $id_couleur = $_GET['couleurs'];
-        //$id_date = $_GET[ 'datedeb' ];
+        $id_date_deb = $_GET['datedeb'];
+        $id_date_fin = $_GET['datefin'];
 
         $query  = "select * from voitures where id=$id_voiture;";
         $res = $mysqli->query($query);
         $ligne = $res->fetch_assoc();
-        $id          = $ligne['id'];
-        $nom_voiture         = $ligne['nom'];
+        $id_voiture  = $ligne['id'];
+        $nom_voiture        = $ligne['nom'];
         $annee       = $ligne['annee'];
         $puissance   = $ligne['puissance'];
         $kilometrage = $ligne['kilometrage'];
@@ -44,15 +47,20 @@
         $ligne = $res->fetch_assoc();
         $id          = $ligne['id'];
         $nom_couleur = $ligne['nom'];
-        print("<h3>nom du client $nom conduit $nom_voiture de couleur $nom_couleur</h3> ");
+        print("<h3>nom du client $nom conduit $nom_voiture de couleur $nom_couleur </h3> ");
 
-        $mysqli->close();
+        $query = "insert into locations ( id_client, id_voiture, id_couleur, date_deb, date_fin )
+                                values ( $id_client, $id_voiture, $id_couleur, '$id_date_deb', '$id_date_fin'  );";
+        print($query);
+        $res = $mysqli->query($query);
+        
+        
     }
     ?>
 
 
     <?php
-    
+
     //partie connection 
     require_once "ressources.php";
     $database = "voitures";
@@ -64,21 +72,21 @@
         print "connection ok\n";
     }
     //
-    require_once "fonctions.php";
-    print('<form action="#" method="get">');
-    comboBoxHtml ("voitures");
-    comboBoxHtml ("clients");
-    comboBoxHtml ("couleurs");
+    require_once "fonctionsAS.php";
+    print('<form action="#" method="GET">');
+    comboBoxHtml("voitures");
+    comboBoxHtml("clients");
+    comboBoxHtml("couleurs");
 
     //calendrier
     print('<input type="date" name="datedeb">');
+    print('<input type="date" name="datefin">');
     //btn ok
     print('</select><button type="submit">OK</button></form>');
     //deconnection
     $mysqli->close();
 
     ?>
-
 </body>
 
 </html>
