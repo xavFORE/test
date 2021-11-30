@@ -8,7 +8,6 @@
 </head>
 <body>
 <?php
-
     require_once "fonctions.php";
 
     if ($_GET)
