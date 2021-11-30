@@ -10,35 +10,32 @@
 <?php
     if ($_GET)
     {
-        $id = $_GET[ 'voiture' ];
+        $id = $_GET[ 'clients' ];
 
         require_once "ressources.php";
         $mysqli = new mysqli($servername, $username, $password, $database);
-        $query  = "select * from voitures where id=$id;";
+        $query  = "select * from clients where id=$id;";
         $res = $mysqli->query( $query );
         $ligne = $res->fetch_assoc();
         
         $id          = $ligne[ 'id' ];
         $nom         = $ligne[ 'nom' ];
-        $annee       = $ligne[ 'annee' ];
-        $puissance   = $ligne[ 'puissance' ];
-        $kilometrage = $ligne[ 'kilometrage' ];
-        $prix        = $ligne[ 'prix' ];
+    
         $mysqli->close();
 
         print( "<h3>$nom</h3>");
-        print( "puissance : $puissance<br>");
+    
     }
 ?>
 
 
 <form action="#" method="get"> 
-<select name="voiture">
+<select name="clients">
 <?php
         // affichage des voitures dans le COMBO
         require_once "ressources.php";
         $mysqli = new mysqli($servername, $username, $password, $database);
-        $query  = "select * from voitures;";
+        $query  = "select * from clients;";
         $res = $mysqli->query( $query );
         while(  ($ligne = $res->fetch_assoc()) )
         {
@@ -48,6 +45,7 @@
         }
         $mysqli->close();
 ?>    
+
 </select>
 <br>
 <button type="submit">OK</button>

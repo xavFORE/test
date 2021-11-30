@@ -10,47 +10,45 @@
 <?php
     if ($_GET)
     {
-        $id = $_GET[ 'voiture' ];
+        $idco = $_GET[ 'couleur' ];
+        
 
         require_once "ressources.php";
         $mysqli = new mysqli($servername, $username, $password, $database);
-        $query  = "select * from voitures where id=$id;";
+
+
+        $query  = "select * from couleurs where id=$idco;";
         $res = $mysqli->query( $query );
         $ligne = $res->fetch_assoc();
-        
-        $id          = $ligne[ 'id' ];
         $nom         = $ligne[ 'nom' ];
-        $annee       = $ligne[ 'annee' ];
-        $puissance   = $ligne[ 'puissance' ];
-        $kilometrage = $ligne[ 'kilometrage' ];
-        $prix        = $ligne[ 'prix' ];
+   
+       
         $mysqli->close();
 
-        print( "<h3>$nom</h3>");
-        print( "puissance : $puissance<br>");
+        print( "<h3> couleur $nom </h3>");
+      
     }
 ?>
 
 
 <form action="#" method="get"> 
-<select name="voiture">
+
+
+<select name="couleur">
 <?php
         // affichage des voitures dans le COMBO
         require_once "ressources.php";
         $mysqli = new mysqli($servername, $username, $password, $database);
-        $query  = "select * from voitures;";
+        $query  = "select * from couleurs;";
         $res = $mysqli->query( $query );
         while(  ($ligne = $res->fetch_assoc()) )
         {
-            $id  = $ligne[ 'id' ];
+            $idco  = $ligne[ 'id' ];
             $nom = $ligne[ 'nom' ];
-            print( "<option value=$id> $nom</option>\n" );
+            print( "<option value=$idco> $nom</option>\n" );
         }
-        $mysqli->close();
-?>    
+?>
 </select>
 <br>
 <button type="submit">OK</button>
 </form>
-</body>
-</html>
