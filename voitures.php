@@ -18,7 +18,7 @@
         $res = $mysqli->query( $query );
         $ligne = $res->fetch_assoc();
         
-        $id          = $ligne[ 'ID' ];
+        $id          = $ligne[ 'id' ];
         $nom         = $ligne[ 'nom' ];
         $annee       = $ligne[ 'annee' ];
         $puissance   = $ligne[ 'puissance' ];

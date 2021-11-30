@@ -12,43 +12,40 @@
 
 if($_GET)
 {
-    $id = $_GET['voitures'];
+    $id = $_GET['departement'];
 
     require_once "ressources.php";
     $mysqli = new mysqli($servername, $username, $password, $database);
-    $query  = "select * from voitures where id=$id;";
+    $query  = "select * from departement where departement_id=$id;";
     $res = $mysqli->query( $query );
     $ligne = $res->fetch_assoc();
 
-    $id          = $ligne[ 'id' ];
-    $nom         = $ligne[ 'nom' ];
-    $annee       = $ligne[ 'annee' ];
-    $puissance   = $ligne[ 'puissance' ];
-    $kilometrage = $ligne[ 'kilometrage' ];
-    $prix        = $ligne[ 'prix' ];
+    $id          = $ligne[ 'departement_id' ];
+    $nom         = utf8_encode($ligne[ 'departement_nom' ]);
+    $numeroD     = $ligne[ 'departement_code' ];
+    
     $mysqli->close();
 
     print( "<h3>$nom</h3>");
-    print( "puissance : $puissance<br>");
+    print( "numero du département : $numeroD<br>");
     
 }
 
 ?>
-
-  
+ 
     <form action="#" method="get">
-      <select name="voitures">
+      <select name="departement">
 <?php
    
        require_once "ressources.php";
         $mysqli = new mysqli($servername, $username, $password, $database);
-        $query  = "select * from voitures;";
+        $query  = "select * from departement;";
         $res = $mysqli->query( $query );
 
        while ( ($ligne = $res->fetch_assoc()))
        {
-        $id  = $ligne[ 'id' ];
-        $nom = $ligne[ 'nom' ];
+        $id  = $ligne[ 'departement_id' ];
+        $nom = utf8_encode($ligne[ 'departement_nom' ]);
         print( "<option value=$id> $nom</option>\n" );
         }
         $mysqli->close();
