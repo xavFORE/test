@@ -33,4 +33,8 @@ where
     locations.id_client = clients.id and 
     locations.id_voiture = voitures.id and 
     locations.id_couleur = couleurs.id
+<<<<<<< HEAD
     ;
+=======
+    ; 
+>>>>>>> origin/mysqlX
