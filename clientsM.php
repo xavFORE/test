@@ -14,8 +14,6 @@
             <option value="" selected="select">Choisissez un client</option>
             <?php
                 require_once "ressources.php";
-
-                $selected = $_POST['clients'];
                 
                 $mysqli = new mysqli($servername, $username, $password, $dbname);
 
@@ -42,8 +40,6 @@
             <option value="" selected="select">Choisissez un departement</option>
             <?php
                 require_once "ressources.php";
-
-                $selected = $_POST['departement'];
                 
                 $mysqli = new mysqli($servername, $username, $password, $dbname);
 
@@ -87,8 +83,7 @@
     }
     else
         print("Veuillez choisir un client !<br>");
-?>
-<?php
+
     if(!empty($_POST['departement']))
     {
         $id = $_POST[ 'departement' ];

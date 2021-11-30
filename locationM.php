@@ -9,76 +9,46 @@
 <body>
     
     <form method="POST" action="#"><br>
-        <select name="clients">
-            <option value="" selected="select">Choisissez un client</option>
-            <?php
-                require_once "ressources.php";
-
-                $selected = $_POST['clients'];
-                
-                $mysqli = new mysqli($servername, $username, $password, $dbname);
-
-                if ($mysqli -> connect_error) {
-                    die("Failed to connect to MySQL : " . $mysqli -> connect_error);
-                    exit();
-                }
-                
-                $query = "SELECT * FROM clients;";
-                $resultat = $mysqli->query($query);
-
-                while(  ($ligne = $resultat->fetch_assoc()) )
-                {
-                    $id  = $ligne[ 'id' ];
-                    $nom = $ligne[ 'nom' ];
-                    print( "<option value=$id>$nom</option>\n" );
-                }
-
-                $mysqli->close();
-            ?>
-        </select>
-
-        <select name="voitures">
-            <option value="" selected="select">Choisissez une voiture</option>
-            <?php
-                require_once "ressources.php";
-
-                $selected = $_POST['voitures'];
-                
-                $mysqli = new mysqli($servername, $username, $password, $dbname);
-
-                if ($mysqli -> connect_error) {
-                    die("Failed to connect to MySQL : " . $mysqli -> connect_error);
-                    exit();
-                }
-                
-                $query = "SELECT * FROM voitures;";
-                $resultat = $mysqli->query($query);
-
-                while(  ($ligne = $resultat->fetch_assoc()) )
-                {
-                    $id  = $ligne[ 'id' ];
-                    $nom = $ligne[ 'nom' ];
-                    print( "<option value=$id>".$nom."</option>\n" );
-                }
-
-                $mysqli->close();
-            ?>
-        </select>
-
+        <?php
+            require_once "ressources.php";
+            require_once "fonctions.php";
+            comboBox("clients");
+            comboBox("voitures");
+            comboBox("couleurs");
+        ?>
+        <br><br>
+        <p>Date de début : <input type="date" name="dateDebut"></p>
+        <p>Date de fin : <input type="date" name="dateFin"></p>
+        <br>
         <input value="Valider" type="submit">
     </form>
     <br>
 <?php
-    if(!empty($_POST['clients']) && !empty($_POST['voitures']))
+    if($_POST)
     {
         $idClient = $_POST[ 'clients' ];
         $idVoiture = $_POST[ 'voitures' ];
+        $idCouleur = $_POST[ 'couleurs' ];
+        $dateDebut = $_POST['dateDebut'];
+        $dateFin = $_POST['dateFin'];
 
         require_once "ressources.php";
 
         $mysqli = new mysqli($servername, $username, $password, $dbname);
 
-        $query  = "select * from clients where id=$idClient;";
+        //$query = "insert into locations (id_client,id_voiture,id_couleur,date_deb,date_fin) values ($idClient,$idVoiture,$idCouleur,'$dateDebut','$dateFin');";
+        //$res = $mysqli->query( $query );
+
+
+        $query = "select clients.nom as nomC,voitures.nom as nomV,couleurs.nom as nomK,date_deb,date_fin from locations,clients,voitures,couleurs where locations.id_client = clients.id and locations.id_voiture = voitures.id and locations.id_couleur = couleurs.id;";
+        $res = $mysqli->query($query);
+
+        while($ligne = $res->fetch_assoc())
+        {
+            print("client, voiture, couleur : ".$ligne['nomC']." ".$ligne['nomV']." ".$ligne['nomK']."<br>");
+        }
+
+        /*$query  = "select * from clients where id=$idClient;";
         $res = $mysqli->query( $query );
         $ligne = $res->fetch_assoc();
         $nom         = $ligne[ 'nom' ];
@@ -88,12 +58,15 @@
         $ligne = $res->fetch_assoc();
         $marque      = $ligne[ 'nom' ];
 
+        $query  = "select * from couleurs where id=$idCouleur;";
+        $res = $mysqli->query( $query );
+        $ligne = $res->fetch_assoc();
+        $couleur      = $ligne[ 'nom' ];*/
+
         $mysqli->close();
         
-        print($nom." à loué une ".$marque."<br>");
+        //print("<h3>".$nom." à loué une ".$marque." $couleur du $dateDebut au $dateFin</h3><br>\n");
     }
-    else
-        print("Veuillez choisir une location !<br>");
 ?>
 </body>
 </html>
