@@ -17,7 +17,7 @@ require_once "fonctions.php";
         $idEmprunteur = $_GET[ 'emprunteurs' ];
         $idLivre = $_GET['livres'];
 
-        $mysqli = new mysqli($servername, $username, $password, $dbname);
+        $mysqli = new mysqli($servername, $username, $password, $database);
 
         $query  = "insert into emprunts (ide,idl,dateDeb,dateFin) values ($idEmprunteur,$idLivre,DATE(NOW()),NULL );";
         //print( $query );

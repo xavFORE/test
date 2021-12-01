@@ -21,7 +21,7 @@ require_once "fonctions.php";
 
         //$pw = md5( $pw );
 
-        $mysqli = new mysqli($servername, $username, $password, $dbname);
+        $mysqli = new mysqli($servername, $username, $password, $database);
         //insert into users ( nom, pw, idDep ) values( "Zorro", "zora", 22 );
 
         // insert into emprunteurs ( nom, pw, dateNaiss, civil ) values ( "Zorro", "123", '1955-07-14', 2 );
