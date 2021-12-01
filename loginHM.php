@@ -15,14 +15,20 @@ require_once "fonctions.php";
         //print( $query );
         $res = $mysqli->query( $query );
 
-        if ($res->num_rows == 0)
-            print("<h3>circulez y'a rien à voir</h3>");
-        else
+        if ($res)
         {
-            $ligne = $res->fetch_assoc();
-            $_SESSION['id_client'] = $ligne['id'];
-            header("location: emprunt1HM.php");
+            if ($res->num_rows == 0)
+                print("<h3>circulez y'a rien à voir</h3>");
+        
+            else
+            {
+                $ligne = $res->fetch_assoc();
+                $_SESSION['id_client'] = $ligne['id'];
+                header("location: emprunt1HM.php");
+            }
         }
+        else
+            print("<h3>erreur</h3>");
 
         $mysqli->close();
     }
