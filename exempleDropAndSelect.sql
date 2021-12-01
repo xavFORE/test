@@ -16,17 +16,12 @@ values
 ( 1, 2, 4, '2021-12-01', '2021-12-02'  );
 
 
-insert into locations 
-( id_client, id_voiture, id_couleur, date_deb, date_fin )
-values ( 2, 3, 2, '2021-11-30', '2021-12-25'  );
-
-
 select * from locations;
 
 select 
-    clients.nom as nomC, 
-    voitures.nom as nomV, 
-    couleurs.nom as nomK, 
+    clients.nom, 
+    voitures.nom, 
+    couleurs.nom, 
     date_deb, 
     date_fin
 from 
@@ -40,5 +35,3 @@ where
     locations.id_couleur = couleurs.id
     ; 
 
-    select users.nom as nom,  departement.departement_nom as nomdep 
-    from users, departement where users.idDep= departement.departement_id;

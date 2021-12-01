@@ -15,12 +15,16 @@ require_once "fonctions.php";
         $nom = $_GET[ 'nom' ];
         $pw = $_GET[ 'pw' ];
 
-        $pw = md5( $pw );
+       // $pw = md5( $pw );
 
         require_once "ressources.php";
         $mysqli = new mysqli($servername, $username, $password, $database);
+
+        $query = "select users.nom as nom,departement.departement_nom as dep
+        from users,departement
+        where users.nom='$nom' and users.pw='$pw'= departement.departement_id;";
         
-        $query  = "select * from users where nom='$nom' and pw='$pw';";
+       // $query  = "select * from users where nom='$nom' and pw='$pw';";
         //print( $query );
         $res = $mysqli->query( $query );
         if ( $res->num_rows == 0 )
@@ -31,7 +35,8 @@ require_once "fonctions.php";
         {
             $ligne = $res->fetch_assoc();
             $nom = $ligne[ "nom"];
-            print( "<h3>bienvenue $nom</h3>");
+            $dep= $ligne["dep"];
+            print( "<h3>bienvenue $nom</h3> ($dep)");
         }
         $mysqli->close();
     }
