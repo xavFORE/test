@@ -1,5 +1,5 @@
 <?php
-require_once "ressources.php";
+
 
 /*
 function query( $q )
