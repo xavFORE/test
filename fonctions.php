@@ -14,10 +14,10 @@ function query( $q )
 
 function comboBox(  $table, $query=""  )
 {
-    GLOBAL $servername, $username, $password, $database;
+    GLOBAL $servername, $username, $password, $dbname;
 
     print( "<select name='$table'>\n");
-    $mysqli = new mysqli($servername, $username, $password, $database);
+    $mysqli = new mysqli($servername, $username, $password, $dbname);
     if ( $query == "")
         $query  = "select * from $table;";
     //print( $query."<br>");
@@ -26,7 +26,7 @@ function comboBox(  $table, $query=""  )
     {
         $id  = $ligne[ 'id' ];
         $nom = $ligne[ 'nom' ];
-        print( "<option value=$id> $nom</option>\n" );
+        print( "<option value=$id>".utf8_encode($nom)."</option>\n" );
     }
     $mysqli->close();
     print( "</select>\n");

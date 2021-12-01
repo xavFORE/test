@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inscription emprumteur</title>
+    <title>inscription emprunteur</title>
 </head>
 <body>
 <?php
@@ -21,7 +21,7 @@ require_once "fonctions.php";
 
         //$pw = md5( $pw );
 
-        $mysqli = new mysqli($servername, $username, $password, $database);
+        $mysqli = new mysqli($servername, $username, $password, $dbname);
         //insert into users ( nom, pw, idDep ) values( "Zorro", "zora", 22 );
 
         // insert into emprunteurs ( nom, pw, dateNaiss, civil ) values ( "Zorro", "123", '1955-07-14', 2 );
