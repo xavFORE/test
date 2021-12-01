@@ -8,13 +8,13 @@
 </head>
 <body>
 <?php
-
+session_start();
 require_once "ressources.php";
 require_once "fonctions.php";
 
     if ($_GET)
     {
-        $idEmprunteur = $_GET[ 'emprunteurs' ];
+        $idEmprunteur = $_SESSION['id_client'];
         $idLivre = $_GET['livres'];
 
         $mysqli = new mysqli($servername, $username, $password, $database);
@@ -25,6 +25,7 @@ require_once "fonctions.php";
             print( "<h3>Votre emprunt a bien été pris en compte.</h3>");
         else
             print( "<h3>erreur</h3>");
+
         $mysqli->close();
     }
 ?>
@@ -32,8 +33,8 @@ require_once "fonctions.php";
 
 <form action="#" method="get">
 <?php
-comboBox( "emprunteurs" );
-comboBox( "livres" );
+    print("Bonjour ".$_SESSION['nom_client']."<br><br>");
+    comboBox( "livres" );
 ?>
 <br>
 <button type="submit">OK</button>
