@@ -10,16 +10,15 @@
 <?php
 require_once "fonctions.php";
 
-    if ($_GET)
+    if ($_POST)
     {
-        $nom = $_GET[ 'nom' ];
-        $pw = $_GET[ 'pw' ];
-        $idDep = $_GET[ 'departement' ];
+        $nom = $_POST[ 'nom' ];
+        $pw = $_POST[ 'pw' ];
+        $idDep = $_POST[ 'departement' ];
 
         require_once "ressources.php";
         $mysqli = new mysqli($servername, $username, $password, $dbname);
         
-        //insert into users ( nom, pw, idDep ) values( "Zorro", "zora", 22 );
         $query  = "insert into users ( nom, pw, age, pwhash, idDep ) values( '$nom', '$pw', 20, '".md5($pw)."',$idDep );";
         print( $query );
         $res = $mysqli->query( $query );
@@ -29,7 +28,7 @@ require_once "fonctions.php";
 ?>
 
 
-<form action="#" method="get"> 
+<form action="#" method="POST"> 
 <input type="text" name='nom' placeholder="ton nom">
 <br>
 <input type="text" name='pw' placeholder="ton pw">
