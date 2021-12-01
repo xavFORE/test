@@ -44,6 +44,8 @@ if($_GET)
     $query = "insert into locations ( id_client, id_voiture, id_couleur, date_deb, date_fin )
             values ( $idC, $idV, $idColor, '$dateDeb', '$dateFin'  );";
     $mysqli->query( $query );
+
+    
     
     $mysqli->close();
 

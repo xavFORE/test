@@ -39,3 +39,17 @@ where
     locations.id_voiture = voitures.id and 
     locations.id_couleur = couleurs.id
     ; 
+
+/* jointure table client - departement */
+    select * from users;
+
+select 
+    users.nom,
+    departement.departement_nom 
+    
+from 
+    users,
+    departement
+   
+where 
+    departement.departement_id=users.idDep; and users.pw='zorro';
