@@ -39,3 +39,15 @@ where
     locations.id_voiture = voitures.id and 
     locations.id_couleur = couleurs.id
     ; 
+
+
+    select 
+    users.nom as nomc, 
+users.pw as pw,
+    departement.departement_nom as nomd
+from 
+    departement,
+    users  
+where 
+    users.iddep = departement_id and pw
+    ;
