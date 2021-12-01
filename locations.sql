@@ -30,10 +30,8 @@ select
     date_deb, 
     date_fin
 from 
-    locations,
-    clients,
-    voitures,
-    couleurs
+
+                  couleurs
 where 
     locations.id_client = clients.id and 
     locations.id_voiture = voitures.id and 
