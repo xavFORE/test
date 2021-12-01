@@ -36,6 +36,8 @@ require_once "fonctions.php";
 <br>
 <input type="text" name='pw' placeholder="ton pw">
 <br>
+<input type="text" name='pw' placeholder="ton pw">
+<br>
 
 <?php
 comboBox( "departement", "select departement_id as id, departement_nom as nom from departement;");
