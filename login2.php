@@ -20,34 +20,26 @@ require_once "fonctions.php";
         require_once "ressources.php";
         $mysqli = new mysqli($servername, $username, $password, $database);
         
-        $query  = "select * from users where nom='$nom' and pw='$pw';";
+        $query  = "select users.nom as nom, departement.departement_nom as dep 
+        from users, departement
+        where users.nom='$nom' and users.pw='$pw' and users.idDep=departement.departement_id ;";
+        
         //print( $query );
-        $res = $mysqli->query( $query );
-        if ( $res->num_rows == 0 )
+        if ( $res = $mysqli->query( $query ))
         {
-            print( "<h3>circulez y'a rien à voir</h3>");            
+            if ( $res->num_rows == 0 )
+                print( "<h3>bouhhh $nom</h3>");
+            else
+                while( $ligne = $res->fetch_assoc() )
+                {
+                    $nom = $ligne[ "nom"];
+                    $dep = $ligne[ "dep"];
+                    print( "<h3>bienvenue $nom</h3>($dep)");
+                }
         }
         else
-        {
-            $ligne = $res->fetch_assoc();
-            $nom = $ligne[ "nom"];
-            $pw = $ligne [ "pw"]; 
-            $dep = $ligne[ "idDep" ];
-            $query = " SELECT  users.nom as nom,
-                             departement.departement_nom as departement,
-                             users.pw
-                      FROM users,
-                         departement
-                      where users.nom ='$nom' and
-                            users.pw = '$pw'and
-                            users.idDep = departement.departement_id;";
-            $res = $mysqli->query( $query );
-            $ligne = $res->fetch_assoc();
-            $dep= $ligne[ "departement" ];
-            $dep = utf8_encode($dep); 
-            
-            print( "<h3>bienvenue $nom tu est en  $dep </h3>");
-        }
+            print( "<h3>erreur </h3>");
+
         $mysqli->close();
     }
 ?>
