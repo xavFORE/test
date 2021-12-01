@@ -20,10 +20,11 @@
         
         $id          = $ligne[ 'id' ];
         $nom         = $ligne[ 'nom' ];
+        
         $mysqli->close();
 
         print( "<h3>$nom</h3>");
-        
+        print( "id : $id<br>");
     }
 ?>
 
@@ -36,7 +37,7 @@
         $mysqli = new mysqli($servername, $username, $password, $database);
         $query  = "select * from clients;";
         $res = $mysqli->query( $query );
-        while(  $ligne = $res->fetch_assoc() )
+        while(  ($ligne = $res->fetch_assoc()) )
         {
             $id  = $ligne[ 'id' ];
             $nom = $ligne[ 'nom' ];
