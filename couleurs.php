@@ -20,16 +20,15 @@
         
         $id          = $ligne[ 'id' ];
         $nom         = $ligne[ 'nom' ];
-        
         $mysqli->close();
 
         print( "<h3>$nom</h3>");
-        print( "id : $id<br>");
     }
 ?>
 
+
 <form action="#" method="get"> 
-<select name="couleur">
+<select name="couleurs">
 <?php
         // affichage des voitures dans le COMBO
         require_once "ressources.php";

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,54 +7,78 @@
     <title>Document</title>
 </head>
 <body>
+
 <?php
-    require_once "fonctions.php";
+  require_once "ressources.php";
+ 
+  if ($_GET)
+  {
+              $idc = $_GET[ 'clients' ];
+              $idv = $_GET[ 'voitures' ];
+              $idr = $_GET[ 'couleurs' ];
+              $idd = $_GET[ 'datedeb' ]; 
+              $idf = $_GET[ 'datefin' ];
 
-    if ($_GET)
-    {
-        $id_voiture = $_GET[ 'voitures' ];
-        $id_client  = $_GET[ 'clients' ];
-        $id_couleur = $_GET[ 'couleurs' ];
-        $dateDeb    = $_GET[ 'dateDeb' ];
-        $dateFin    = $_GET[ 'dateFin' ];
+      require_once "ressources.php";
+      $mysqli = new mysqli($servername, $username, $password, $database);
+      $query ="    insert into locations 
+      ( id_client, id_voiture, id_couleur, date_deb, date_fin )
+      values ( $idc, $idv, $idr, '$idd', '$idf'  );";
+      $res = $mysqli->query( $query );
 
-        //print( "$id_voiture - $id_voiture - $dateDeb" );
 
-        require_once "ressources.php";
-        $mysqli = new mysqli($servername, $username, $password, $database);
-        $query  = "select * from clients where id=$id_client;";
-        //print( $query."<br>");
-        $res = $mysqli->query( $query );
-        $ligne = $res->fetch_assoc();
-        $nom_client = $ligne[ 'nom' ] ;
 
-        $query  = "select * from voitures where id=$id_voiture;";
-        //print( $query."<br>");
-        $res = $mysqli->query( $query );
-        $ligne = $res->fetch_assoc();
-        $nom_voiture = $ligne[ 'nom' ] ;
-  
-        //$nom = utf8_encode($nom);
-        //$nom = utf8_decode($nom);
-  
-        $query = "insert into locations ( id_client, id_voiture, id_couleur, date_deb, date_fin )values ( , 3, 2, '2021-11-30', '2021-12-25'  );";
 
-        $mysqli->close();
 
-        print( "<h3>$nom_client loue $nom_voiture</h3>");
-    }
-?>
+      $query  = "select * from clients where id=$idc;";
+      $res = $mysqli->query( $query );
+      $ligne = $res->fetch_assoc();
+      $nomc        = $ligne[ 'nom' ];
+
+
+      $query  = "select * from voitures where id=$idv;";
+      $res = $mysqli->query( $query );
+      $ligne = $res->fetch_assoc();
+      $nomv         = $ligne[ 'nom' ];
+
+
+
+      $query  = "select * from couleurs where id=$idr;";
+      $res = $mysqli->query( $query );
+      $ligne = $res->fetch_assoc();
+      $nomr         = $ligne[ 'nom' ];
+
+
+
+      $mysqli->close();
+
+      print( "<h3>$nomc  loue  $nomv couleur $nomr datedeb $idd datefin $idf </h3><br>");
+  }
+?> 
+
 <form action="#" method="get"> 
-    <?php
-        comboBox( "voitures");
-        comboBox( "clients");
-        comboBox( "couleurs");
-    ?>
-    <br>
-    <input type="date" name="dateDeb">
-    <input type="date" name="dateFin">
 
-    <button type="submit">OK</button>
+
+
+<?php
+  require_once "ressources.php";
+  require_once "fonction.php";
+
+      comboBox("voitures");
+      comboBox("clients");
+      comboBox("couleurs");
+      
+
+?>
+
+
+
+<!--cree une table pour calandrie-->
+<input type="date" name="datedeb" >
+
+<input type="date" name="datefin" >
+<br>
+<button type="submit">OK</button>
 </form>
 </body>
 </html>

@@ -7,37 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-<?php
-    if ($_GET)
-    {
-        $id = $_GET[ 'clients' ];
-
-        require_once "ressources.php";
-        $mysqli = new mysqli($servername, $username, $password, $database);
-        $query  = "select * from clients where id=$id;";
-        $res = $mysqli->query( $query );
-        $ligne = $res->fetch_assoc();
-        
-        $id          = $ligne[ 'id' ];
-        $nom         = $ligne[ 'nom' ];
-        $mysqli->close();
-
-        print( "<h3>$nom</h3>");
-    }
-?>
-
-
 <form action="#" method="get"> 
-<select name="clients">
+<select name="voiture">
 <?php
-        // affichage des voitures dans le COMBO
-        require_once "ressources.php";
+        require_once "ressourcesH.php";
         $mysqli = new mysqli($servername, $username, $password, $database);
-        $query  = "select * from clients;";
+        $query  = "select * from voitures;";
         $res = $mysqli->query( $query );
         while(  ($ligne = $res->fetch_assoc()) )
         {
-            $id  = $ligne[ 'id' ];
+            $id  = $ligne[ 'ID' ];
             $nom = $ligne[ 'nom' ];
             print( "<option value=$id> $nom</option>\n" );
         }
