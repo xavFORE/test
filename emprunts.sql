@@ -7,14 +7,14 @@ create table emprunts (
     dateDeb date,
     dateFin date
 );
-
+emprunteur , livre , date debut , date fin
 insert into emprunts ( ide, idl, dateDeb, dateFin ) values
 ( 2, 5, '2021-11-22', '2021-11-27' ),
-( 2, 7, '2021-11-22', '' ),
-( 2, 8, '2021-11-22', '' ),
+( 2, 7, '2021-11-22', NULL ),
+( 2, 8, '2021-11-22', NULL ),
 ( 4, 6, '2021-11-25', '2021-11-26' ),
-( 4, 2, '2021-11-26', '' ),
-( 6, 1, '2021-11-26', '' )
+( 4, 2, '2021-11-26', NULL ),
+( 6, 1, '2021-11-26', NULL )
 ;
 
 
