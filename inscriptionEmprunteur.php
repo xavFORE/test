@@ -46,7 +46,8 @@ require_once "fonctions.php";
 <input type="date" name='dateNaiss'>
 
 <br>
-<button type="submit">OK</button>
+<button type="submit"><a href="login.php">OK</a></button>
+
 </form>
 </body>
 </html>
