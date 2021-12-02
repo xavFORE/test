@@ -1,16 +1,15 @@
 <?php
 require_once "ressources.php";
 
-/*
+
 function query( $q )
 {
     GLOBAL $servername, $username, $password, $database;
     $mysqli = new mysqli($servername, $username, $password, $database);
-    $res = $mysqli->query( $q );
+    return $mysqli->query( $q );
     $mysqli->close();
     return $res;
 }
-*/
 
 function comboBox(  $table, $query=""  )
 {
@@ -30,7 +29,30 @@ function comboBox(  $table, $query=""  )
     }
     $mysqli->close();
     print( "</select>\n");
+    print( "<div class='buttonCombo' onclick=\"addItem( '$table', 'ajout $table' )\" >+</div>\n");
+}
+
+function entete( $titre_page )
+{
+    $var = <<<TOTO123
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>$titre_page</title>
+        <link rel="stylesheet" href="fonctions.css">
+        <script type="text/javascript" src="fonctions.js"></script>
+    </head>
+    <body>
+    TOTO123;
+    print( $var );
 }
 
 
+
+
 ?>
+
+
