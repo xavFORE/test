@@ -9,13 +9,18 @@ create table emprunts (
 );
 
 insert into emprunts ( ide, idl, dateDeb, dateFin ) values
-( 2, 5, '2021-11-22', '2021-11-27' ),
-( 2, 7, '2021-11-22', '' ),
-( 2, 8, '2021-11-22', '' ),
-( 4, 6, '2021-11-25', '2021-11-26' ),
-( 4, 2, '2021-11-26', '' ),
-( 6, 1, '2021-11-26', '' )
-;
+( 2, 5, '2021-11-22', '2021-11-27' );
+
+insert into emprunts ( ide, idl, dateDeb, dateFin ) values
+( 2, 7, '2021-11-22', NULL );
+insert into emprunts ( ide, idl, dateDeb, dateFin ) values
+( 2, 8, '2021-11-22', NULL );
+insert into emprunts ( ide, idl, dateDeb, dateFin ) values
+( 4, 6, '2021-11-25', '2021-11-26' );
+insert into emprunts ( ide, idl, dateDeb, dateFin ) values
+( 4, 2, '2021-11-26', NULL );
+insert into emprunts ( ide, idl, dateDeb, dateFin ) values
+( 6, 1, '2021-11-26', NULL );
 
 
 
