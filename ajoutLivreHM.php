@@ -32,9 +32,8 @@
     
 ?>
 <form action="#" method="get">
+        <input type="text" name='nom' placeholder=" nom">
 
-        <input type="text" name='nom' placeholder="votre nom">
-        
         <input type="text" name='auteur' placeholder="auteur">
         
         <button type="submit">OK</button>
