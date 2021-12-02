@@ -17,6 +17,13 @@ insert into emprunts ( ide, idl, dateDeb, dateFin ) values
 ( 6, 1, '2021-11-26', NULL )
 ;
 
+<<<<<<< HEAD
 ```
 
   
+=======
+insert into emprunts ( ide, idl, dateDeb )
+value ( $ide, $idl, current_date);
+
+```
+>>>>>>> biblioX
