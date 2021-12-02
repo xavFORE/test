@@ -42,8 +42,6 @@ require_once "fonctions.php";
 <input type="text" name='auteur' placeholder="auteur">
 <br>
 
-
-<br>
 <button type="submit">OK</button>
 </form>
 </body>
