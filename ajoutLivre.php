@@ -23,8 +23,8 @@
     <input type="text" name='nom' placeholder="titre">
     <br>
     <?php 
-        comboBox(auteurs);
-        comboBox(genres);
+        comboBox("auteurs");
+        comboBox("genres");
     ?>
     <br>
     <button type="submit">OK</button>
