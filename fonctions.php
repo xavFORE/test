@@ -11,7 +11,7 @@ function query( $q )
     return $res;
 }
 
-function comboBox(  $table, $query=""  )
+function comboBox(  $table, $query="", $visibleAdd=1  )
 {
     GLOBAL $servername, $username, $password, $database;
 
@@ -29,7 +29,8 @@ function comboBox(  $table, $query=""  )
     }
     $mysqli->close();
     print( "</select>\n");
-    print( "<div class='buttonCombo' onclick=\"addItem( '$table', 'ajout $table' )\" >+</div>\n");
+    if($visibleAdd)
+        print( "<div class='buttonCombo' onclick=\"addItem( '$table', 'ajout $table' )\" >+</div>\n");
 }
 
 function entete( $titre_page )

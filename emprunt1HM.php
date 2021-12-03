@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emprunt</title>
-</head>
-<body>
 <?php
 session_start();
 require_once "ressources.php";
 require_once "fonctions.php";
+entete( "emprunt livre" );
 
     if ($_GET)
     {
@@ -34,7 +26,7 @@ require_once "fonctions.php";
 <form action="#" method="get">
 <?php
     print("Bonjour ".$_SESSION['nom_client']."<br><br>");
-    comboBox( "livres" );
+    comboBox( "livres", "", 0 );
 ?>
 <br>
 <button type="submit">OK</button>
