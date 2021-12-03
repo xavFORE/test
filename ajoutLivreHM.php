@@ -33,9 +33,9 @@
 ?>
 <form action="#" method="get">
         <input type="text" name='nom' placeholder=" nom">
-
+           <br>
         <input type="text" name='auteur' placeholder="auteur">
-        
+           ll<br>    
         <button type="submit">OK</button>
 </form>
 
