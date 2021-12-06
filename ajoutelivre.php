@@ -1,15 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>livres</title>
+</head>
+<body>
 <?php
 
 require_once "ressources.php";
 require_once "fonctions.php";
-entete( "inscription emprunteur" );
 
     if ($_GET)
     {
         $nom            = $_GET[ 'nom' ];
-        $pw             = $_GET[ 'pw' ];
-        $dateNaiss      = $_GET[ 'dateNaiss' ];
-        $civilite       = $_GET[ 'civils' ];
+        $auteur         = $_GET[ 'auteur' ];
+       
 
         //$pw = md5( $pw );
 
@@ -17,7 +24,7 @@ entete( "inscription emprunteur" );
         //insert into users ( nom, pw, idDep ) values( "Zorro", "zora", 22 );
 
         // insert into emprunteurs ( nom, pw, dateNaiss, civil ) values ( "Zorro", "123", '1955-07-14', 2 );
-        $query  = "insert into emprunteurs ( nom, pw, dateNaiss, civil ) values ( '$nom', '$pw', '$dateNaiss', $civilite );";
+        $query  = "insert into livres ( nom, auteur ) values ( '$nom', '$auteur'  );";
         //print( $query );
         if ( $mysqli->query( $query ) )
             print( "<h3>$nom enregistré</h3>");
@@ -29,15 +36,12 @@ entete( "inscription emprunteur" );
 
 
 <form action="#" method="get">
+    
+<input type="text" name='nom' placeholder="livre">
+<br>
+<input type="text" name='auteur' placeholder="auteur">
+<br>
 
-<?php comboBox( "civils" ); ?>    
-<input type="text" name='nom' placeholder="ton nom">
-<br>
-<input type="text" name='pw' placeholder="ton pw">
-<br>
-<input type="date" name='dateNaiss'>
-
-<br>
 <button type="submit">OK</button>
 </form>
 </body>
