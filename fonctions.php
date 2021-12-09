@@ -35,7 +35,7 @@ function comboBox(  $table, $query="", $visibleAdd=1  )
 
 function entete( $titre_page )
 {
-    $var = <<<TOTO123
+$var = <<<TOTO123
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -49,8 +49,8 @@ function entete( $titre_page )
 
     </head>
     <body>
-    TOTO123;
-    print( $var );
+TOTO123;
+print( $var );
 }
 
 function affTab( $tableau )

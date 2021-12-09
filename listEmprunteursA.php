@@ -10,6 +10,8 @@
         {
             color:red;
             font-size: 30px;
+            height:40px;
+            background-color:gray;
         }
     </style>
 </head>
@@ -36,6 +38,7 @@
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
     <div id="affiche1"></div>
+    <div id="affiche2"></div>
 
 
 
