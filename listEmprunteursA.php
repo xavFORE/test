@@ -21,7 +21,7 @@
         const xhttp = new XMLHttpRequest();
         
         xhttp.onload = function() {
-                document.getElementById("affiche1").innerHTML =
+                document.getElementById("affiche1","affiche2").innerHTML =
                 this.responseText;
         }
 
@@ -35,6 +35,7 @@
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
     <div id="affiche1"></div>
+    <div id="affiche2"></div>
 
 
 
