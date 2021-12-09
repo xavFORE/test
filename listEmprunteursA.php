@@ -32,6 +32,7 @@
 
 </script>
 
+
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
     <div id="affiche1"></div>
