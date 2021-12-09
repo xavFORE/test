@@ -9,4 +9,6 @@ require_once "fonctions.php";
         $ligne = $res->fetch_assoc(); 
         $nom = $ligne['nom']; 
         print( $nom );
+        $dateN = $ligne['dateNaiss']; 
+        print( $dateN );
 ?>
