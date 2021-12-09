@@ -2,7 +2,7 @@
 require_once "ressources.php";
 require_once "fonctions.php";
 
-        $query  = "select * from emprunteurs;";
+        $query  = "select * from livres;";
         //print( $query );
         $res = query( $query );
         
@@ -14,12 +14,9 @@ require_once "fonctions.php";
 
         $ligne = $tab[0];
         $nom        = $ligne[ 'nom' ];
-        $dateNaiss  = $ligne[ 'dateNaiss' ];
 
         $dict[ 'list' ] = $tab;
         $dict[ 'nom' ] = $nom;
-        $dict[ 'dateNaiss' ] = $dateNaiss;
-        
 
-        print( json_encode( $dict ) );
+        print( json_encode( $dict    ) );
 ?>
