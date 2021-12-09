@@ -3,10 +3,11 @@ require_once "ressources.php";
 require_once "fonctions.php";
 
 
-        $query  = "select * from emprunteurs;";
+        $query  = "select * from emprunteurs where id=5;";
         //print( $query );
         $res = query( $query );
         $ligne = $res->fetch_assoc(); 
-        $nom = $ligne['nom']; 
-        print( $nom );
+        $nom = $ligne['nom'];
+        $date = $ligne['dateNaiss'] 
+        print( $nom , $date );
 ?>

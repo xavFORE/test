@@ -35,6 +35,8 @@
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
     <div id="affiche1"></div>
+    <div id="affiche2"></div>
+    
 
 
 
