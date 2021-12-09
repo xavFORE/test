@@ -10,6 +10,9 @@
         {
             color:red;
             font-size: 30px;
+            height: 50px;
+            background-color: pink;
+            border: 2px solid;
         }
     </style>
 </head>
@@ -21,7 +24,7 @@
         const xhttp = new XMLHttpRequest();
         
         xhttp.onload = function() {
-                document.getElementById("affiche1").innerHTML =
+                document.getElementById("affiche1, affiche2").innerHTML =
                 this.responseText;
         }
 
@@ -35,7 +38,8 @@
 
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
-    <div id="affiche1"></div>
+    <div id="affiche1">Nom</div>
+    <div id="affiche2">Date de naissance</div>
 
 
 
