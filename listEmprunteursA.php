@@ -15,14 +15,16 @@
 </head>
 
 <body>
+    
 <script>
     function chercherDataBackB1()
     {
         const xhttp = new XMLHttpRequest();
         
-        xhttp.onload = function() {
-                document.getElementById("affiche1").innerHTML =
-                this.responseText;
+        xhttp.onload = function()
+        {
+            document.getElementById("affiche1").innerHTML =
+            this.responseText;
         }
 
         xhttp.open("GET", "donneEmprunteurs.php");
@@ -35,10 +37,6 @@
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
     <div id="affiche1"></div>
-
-
-
-
 
 </body>
 </html>
