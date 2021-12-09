@@ -10,6 +10,9 @@
         {
             color:red;
             font-size: 30px;
+            height: 40px;
+            background-color: gray;
+            border: 2px solid red;
         }
     </style>
 </head>
@@ -32,11 +35,17 @@
 
 </script>
 
+
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
+<<<<<<< HEAD
     <div id="affiche1"></div>
     <div id="affiche2"></div>
     
+=======
+    <div id="affiche1">nom</div>
+    <div id="affiche2">date</div>
+>>>>>>> origin/bibliox
 
 
 
