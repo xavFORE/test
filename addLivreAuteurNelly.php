@@ -7,17 +7,22 @@
     $auteur = $_GET[ 'auteur'];
     // je regare si il est dans la tables des auteurs
 
-    if ($query = "select * from livres WHERE auteur='$auteur';")
+    $query = "select * from livres WHERE auteur='$auteur';"
+    $res =  query( $query );
+
+    if ($res->num_rows == 0 )
     {
-       // si oui -> je récupère son ID  # code...
+       // si oui -> je récupère son ID
+       $query = "insert into livres ( auteur ) values ( '$auteur' );";
+       query( $query );
+
     }
-    else {
+    else
+    {
         // si non -> je l'enregistre dans la table et je récupère son IDe...
+        
     }
    
-    
-
-
 
     $query  = "insert into livres ( nom, auteur ) values ('$titre', $id );";
     //print( $query );
