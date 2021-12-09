@@ -29,35 +29,34 @@
     function chercherDataBackB1()
     {
         const xhttp = new XMLHttpRequest();
-        
         xhttp.onload = function() 
         {
             console.log(this.responseText );
-            let dict =  JSON.parse(  this.responseText );
-            document.getElementById("affiche1").innerHTML = dict[ 'nom' ];
-            document.getElementById("affiche2").innerHTML = dict[ 'dateNaiss' ];
-            document.getElementById("list").innerHTML ='';
-            for ( let ligne of dict['list']) 
+            let tab =  JSON.parse(  this.responseText );
+            document.getElementById("list").innerHTML = '';
+            for ( let ligne of tab) 
             {
                 //console.log( ligne )
                 document.getElementById("list").innerHTML += ligne['nom']+"<br>"
             }
-        
         }
 
-        xhttp.open("GET", "donneEmprunteursList.php");
+        xhttp.open("GET", "donneLivresList.php");
         xhttp.send();
     }
 
 
 </script>
 
-                     
+        
+
+    <input type="text" id="nom" placeholder="titre livre">
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
-    <div class="aff" id="affiche1">nom</div>
-    <div class="aff" id="affiche2">date</div>
-    <div  class="list" id="list"></div>
+
+
+
+
 
 </body>
 </html>
