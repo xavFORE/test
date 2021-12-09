@@ -29,20 +29,15 @@
     function chercherDataBackB1()
     {
         const xhttp = new XMLHttpRequest();
-        xhttp.onload = function() 
-        {
-            console.log(this.responseText );
-            let tab =  JSON.parse(  this.responseText );
-            document.getElementById("list").innerHTML = '';
-            for ( let ligne of tab) 
-            {
-                //console.log( ligne )
-                document.getElementById("list").innerHTML += ligne['nom']+"<br>"
-            }
-        }
-
-        xhttp.open("GET", "donneLivresList.php");
+        titre=document.getElementById('nom').value;
+        url="addLivre.php?titre="+titre;
+        console.log(url);
+        xhttp.open("GET", url);
         xhttp.send();
+       
+
+       
+
     }
 
 
