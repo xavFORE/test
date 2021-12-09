@@ -14,6 +14,7 @@
             background-color: gray;
             border: 2px solid red;
         }
+
         .list 
         {
             color:red;
@@ -29,34 +30,25 @@
     function chercherDataBackB1()
     {
         const xhttp = new XMLHttpRequest();
+
+        let titre = document.getElementById('livre').value;
+        let nom = document.getElementById('auteur').value;
+        
         xhttp.onload = function() 
         {
-            console.log(this.responseText );
-            let tab =  JSON.parse(  this.responseText );
-            document.getElementById("list").innerHTML = '';
-            for ( let ligne of tab) 
-            {
-                //console.log( ligne )
-                document.getElementById("list").innerHTML += ligne['nom']+"<br>"
-            }
+            document.getElementById("aff").innerHTML = this.responseText;
         }
 
-        xhttp.open("GET", "donneLivresList.php");
+        xhttp.open("GET", "addLivre.php?titre="+titre+"&auteur="+nom);
         xhttp.send();
     }
-
-
 </script>
 
-        
-
-    <input type="text" id="nom" placeholder="titre livre">
+    <input type="text" id="livre" placeholder="ajouter livre">
+    <input type="text" id="auteur" placeholder="ajouter auteur">
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
-
-
-
-
+    <div id='aff'></div>
 
 </body>
 </html>

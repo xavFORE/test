@@ -1,16 +1,26 @@
 <?php
-require_once "ressources.php";
-require_once "fonctions.php";
+    require_once "ressources.php";
+    require_once "fonctions.php";
 
-        $query  = "select * from livres;";
-        //print( $query );
+    $titreLivre = $_GET['titre'];
+    $nomAuteur = $_GET['auteur'];
+
+    $query  = "select * from auteurs;";
+    $res = query( $query );
+    $ligne = $res->fetch_assoc();
+
+    if($ligne['nom'] == $nomAuteur)
+    {
+        $query  = "insert into auteurs (nom) values ('$nomAuteur');";
         $res = query( $query );
+        $ligne = $res->fetch_assoc();
+        $query = "insert into livres (nom, auteur) values ('$nomAuteur');";
+    }
+        $query  = "insert into livres (nom, auteur) values ('$titreLivre', '$nomAuteur');";
+        //print( $query );
 
-        $tab = [];
-        while ( $ligne = $res->fetch_assoc())
-        {
-            $ligne['nom'] = utf8_encode($ligne[ 'nom']);
-            $tab[] = $ligne;
-        }
-        print( json_encode( $tab ) );
+    if($res = query( $query ))
+        print( $titreLivre.' de '.$nomAuteur.' enregistré' );
+    else
+        print('erreur');
 ?>
