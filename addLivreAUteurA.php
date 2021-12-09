@@ -30,16 +30,17 @@
     {
         const xhttp = new XMLHttpRequest();
 
-        titre=document.getElementById('nom').value;
-        url="addLivre.php?titre="+titre;
-        console.log(url);
+        titre  = document.getElementById( 'nom' ).value;
+        auteur = document.getElementById( 'auteur' ).value;
 
-
-       
-
+        url = "addLivreAUteur.php?titre="+titre+"&"+"auteur="+auteur;
+        console.log( url );
+        xhttp.open("GET", url);
+        xhttp.send();
     }
 </script>
-    <input type="text" id="nom" placeholder="titre livre">
+    <input type="text" id="nom"    placeholder="titre livre">
+    <input type="text" id="auteur" placeholder="auteur">
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
 </body>

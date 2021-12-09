@@ -7,3 +7,4 @@ require_once "fonctions.php";
          query( $query );
 
 ?>        
+
