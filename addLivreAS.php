@@ -1,11 +1,10 @@
 <?php
-require_once "ressources.php";
-require_once "fonctions.php";
+    require_once "ressources.php";
+    require_once "fonctions.php";
 
-        $titre = $_GET['titre'];
-        $query  = "insert into livres (nom) values ('$titre')";
-        //print( $query );
-        $res = query( $query );
-    
-        
+    $auteur = $_GET[ 'auteur'];
+    $titre = $_GET['titre'];
+    $query  = "insert into livres ( nom, auteur ) values ('$titre' , '$auteur');";
+    //print( $query );
+    query( $query );
 ?>

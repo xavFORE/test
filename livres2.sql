@@ -40,7 +40,7 @@ create table livres (
     id int PRIMARY KEY not null auto_increment,
     nom  varchar(30),
     auteur int,
-    genre int
+    genre in
 );
 
 insert into livres ( nom, auteur, genre ) values

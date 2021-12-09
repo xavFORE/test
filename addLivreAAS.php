@@ -26,25 +26,21 @@
 
 <body>
     <script>
-        
         function chercherDataBackB1() {
-
             const xhttp = new XMLHttpRequest();
 
-            let x = document.getElementById('nom').value;
-            console.log(x);
-
-            xhttp.open("GET", "addLivresAS.php?titre="+x);
+            auteur = document.getElementById('auteur').value;
+            titre = document.getElementById('titre').value;
+            url = "addLivreAS.php?auteur="+auteur+"&titre="+titre;
+            console.log(url);
+            xhttp.open("GET", url);
             xhttp.send();
-            
         }
-        
-       
     </script>
 
 
-
-    <input type="text" id="nom" placeholder="titre livre">
+    <input type="text" id="titre" placeholder="titre">
+    <input type="text" id="auteur" placeholder="auteur">
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
 
