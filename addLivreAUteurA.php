@@ -32,8 +32,9 @@
 
         titre  = document.getElementById( 'nom' ).value;
         auteur = document.getElementById( 'auteur' ).value;
+        document.getElementById('aff').innerHTML = this.responseText;
 
-        url = "addLivreAUteur.php?titre="+titre+"&"+"auteur="+auteur;
+        url = "addLivreAuteur.php?titre="+titre+"&auteur="+auteur;
         console.log( url );
         xhttp.open("GET", url);
         xhttp.send();
@@ -43,5 +44,6 @@
     <input type="text" id="auteur" placeholder="auteur">
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
+    <div id='aff'></div>
 </body>
 </html>
