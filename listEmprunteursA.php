@@ -24,7 +24,7 @@
         const xhttp = new XMLHttpRequest();
         
         xhttp.onload = function() {
-                document.getElementById("affiche1").innerHTML =
+        document.getElementById("affiche1").innerHTML =
                 this.responseText;
         }
 
