@@ -36,6 +36,7 @@
             let dict =  JSON.parse(  this.responseText );
             document.getElementById("affiche1").innerHTML = dict[ 'nom' ];
             document.getElementById("affiche2").innerHTML = dict[ 'auteur' ];
+            document.getElementById("list").innerHTML = dict[ 'list' ];
             for ( let ligne of dict['list']) 
             {
                 //console.log( ligne )

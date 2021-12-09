@@ -27,7 +27,7 @@
 <body>
 <script>
     function chercherDataBackB1()
-    {
+    {   var addLivre = document.getElementById("nom").value;
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() 
         {
@@ -41,7 +41,7 @@
             }
         }
 
-        xhttp.open("GET", "donneLivresList.php");
+        xhttp.open("GET", "addLivre.php");
         xhttp.send();
     }
 
