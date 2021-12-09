@@ -6,10 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div 
+        .aff 
         {
             color:red;
             font-size: 30px;
+            height: 40px;
+            background-color: gray;
+            border: 2px solid red;
+        }
+        .list 
+        {
+            color:red;
+            font-size: 10px;
+            background-color: gray;
+            border: 2px solid red;
         }
     </style>
 </head>
@@ -20,21 +30,32 @@
     {
         const xhttp = new XMLHttpRequest();
         
-        xhttp.onload = function() {
-                document.getElementById("affiche1").innerHTML =
-                this.responseText;
-        }
+        xhttp.onload = function() 
+        {
+            console.log(this.responseText );
+            let dict =  JSON.parse(  this.responseText );
+            // document.getElementById("affiche1").innerHTML = dict[ 'nom' ];
+            // document.getElementById("affiche2").innerHTML = dict[ 'dateNaiss' ];
+        for (let ligne of tab)
+        {
+            
+             document.getElementById("list").innerHTML+= ligne['nom']+"<br>";
 
-        xhttp.open("GET", "donneEmprunteursH.php");
+        }
+   
+        xhttp.open("GET", "donneEmprunteursList.php");
         xhttp.send();
     }
 
 
 </script>
 
+
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
-    <div id="affiche1"></div>
+    <div class="aff" id="affiche1">nom</div>
+    <div class="aff" id="affiche2">date</div>
+    <div  class="list" id="list">list</div>
 
 
 
