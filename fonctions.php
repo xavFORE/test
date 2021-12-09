@@ -1,7 +1,7 @@
 <?php
 require_once "ressources.php";
 
-/*
+
 function query( $q )
 {
     GLOBAL $servername, $username, $password, $database;
@@ -10,7 +10,7 @@ function query( $q )
     $mysqli->close();
     return $res;
 }
-*/
+
 
 function comboBox(  $table, $query=""  )
 {
