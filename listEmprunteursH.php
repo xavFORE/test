@@ -25,7 +25,7 @@
                 this.responseText;
         }
 
-        xhttp.open("GET", "donneEmprunteursA.php");
+        xhttp.open("GET", "donneEmprunteursH.php");
         xhttp.send();
     }
 
