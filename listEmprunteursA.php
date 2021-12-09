@@ -10,6 +10,9 @@
         {
             color:red;
             font-size: 30px;
+            height: 40px;
+            background-color: gray;
+            border: 2px solid red;
         }
     </style>
 </head>
@@ -25,18 +28,20 @@
         {
             document.getElementById("affiche1").innerHTML =
             this.responseText;
+
+            document.getElementById("affiche2").innerHTML =
+            this.responseText;
         }
 
         xhttp.open("GET", "donneEmprunteurs.php");
         xhttp.send();
     }
-
-
 </script>
 
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
     <div id="affiche1"></div>
+    <div id="affiche2"></div>
 
 </body>
 </html>

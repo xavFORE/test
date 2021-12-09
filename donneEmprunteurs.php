@@ -8,5 +8,5 @@ require_once "fonctions.php";
         $ligne = $res->fetch_assoc(); 
         $nom = $ligne['nom']; 
         $dateNaiss = $ligne['dateNaiss'];
-        print( $nom.'<br>'.$dateNaiss );
+        print( json_encode($nom . $dateNaiss ));
 ?>
