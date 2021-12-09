@@ -12,5 +12,5 @@ require_once "fonctions.php";
             $ligne['nom'] = utf8_encode($ligne[ 'nom']);
             $tab[] = $ligne;
         }
-        print( json_encode( $tab ) );
+         print( json_encode( $tab ) );
 ?>
