@@ -48,20 +48,14 @@
 
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div id="affiche1"></div>
-    <div id="affiche2"></div>
-    
-=======
+
     <div id="affiche1">nom</div>
     <div id="affiche2">date</div>
->>>>>>> origin/bibliox
-=======
+
     <div class="aff" id="affiche1">nom</div>
     <div class="aff" id="affiche2">date</div>
     <div  class="list" id="list">list</div>
->>>>>>> origin/bibliox
+
 
 
 
