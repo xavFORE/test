@@ -6,25 +6,29 @@ require_once "fonctions.php";
     
 
 
-        $query  = "select * from emprunteurs;";
+        $query  = "select * from livres;";
         //print( $query );
         $res = query( $query );
         
         //print_r($res );
 
         $tab = [];
-        while ( $ligne = $res->fetch_assoc())
-            $tab[] = $ligne;
-
+        while ( $ligne = $res->fetch_assoc()){
+            $ligne[ 'nom' ]= utf8_encode($ligne[ 'nom' ]);
+             $tab[] = $ligne;
+}
         $ligne = $tab[0];
+       
         $nom        = $ligne[ 'nom' ];
-        $dateNaiss  = $ligne[ 'dateNaiss' ];
+       
+        $auteur  = $ligne[ 'auteur' ];
 
         $dict[ 'list' ] = $tab;
         $dict[ 'nom' ] = $nom;
-        $dict[ 'dateNaiss' ] = $dateNaiss;
-        
+        $dict[ 'auteur' ] = $auteur;
 
-        print( json_encode( $dict ) );
         
+        print( json_encode( $dict ) );
+
+      
 ?>
