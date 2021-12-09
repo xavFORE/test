@@ -17,7 +17,7 @@
         .list 
         {
             color:black;
-            font-size: 10px;
+            font-size: 20px;
             background-color: pink;
             border: 2px solid red;
         }
@@ -34,16 +34,18 @@
         {
             console.log(this.responseText );
             let dict =  JSON.parse(  this.responseText );
-            // document.getElementById("affiche1").innerHTML = dict[ 'nom' ];
-            // document.getElementById("affiche2").innerHTML = dict[ 'dateNaiss' ];
+             document.getElementById("affiche1").innerHTML = dict[ 'nom' ];
+             document.getElementById("affiche2").innerHTML = dict[ 'dateNaiss' ];
+             document.getElementById("list").innerHTML = dict[ '' ];
+
         for (let ligne of tab)
         {
             
-             document.getElementById("list").innerHTML+= ligne['nom']+"<>";
+             document.getElementById("livres").innerHTML+= ligne['nom']+"<>";
 
         }
    
-        xhttp.open("GET", "donneEmprunteursList.php");
+        xhttp.open("GET", "donneEmprunteursListH.php");
         xhttp.send();
     }
 
@@ -55,7 +57,9 @@
     <br>
     <div class="aff" id="affiche1">nom</div>
     <div class="aff" id="affiche2">date</div>
-    <div  class="list" id="list">list</div>
+    <div class="list" id="list">list</div>
+
+    <div  class="livres" id="livres">livres</div>
 
 
 
