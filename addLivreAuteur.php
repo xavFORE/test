@@ -5,18 +5,30 @@
     $titre = $_GET[ 'titre'];
     $auteur = $_GET[ 'auteur'];
 
-    $query  = "select * from auteurs;";
+    $id=0;
+    $query  = "select id from auteurs where nom='$auteur';";
     $res = query( $query );
 
-    while($ligne = $res->fetch_assoc())
+    if ( $res->num_rows>0)
     {
-        if($ligne['nom'] == $nomAuteur)
-        {
-            $query  = "select id from auteurs where nom='$nomAuteur';";
-            $res = query( $query );
-            print($res);
-        }
+        $id = $res->fetch_assoc()['id'];
+        $query  = "insert into livres (nom, auteur) values ('$titre', $id);";
+        $res = query( $query );
+        print("$titre de $auteur à bien été enregistré");
     }
+    else
+    {
+        $query  = "insert into auteurs ( nom ) values ('$auteur');";
+        $res = query( $query );
+        $id=0;
+        $query  = "select id from auteurs where nom='$auteur';";
+        $res = query( $query );
+        $id = $res->fetch_assoc()['id'];
+        $query  = "insert into livres (nom, auteur) values ('$titre', $id);";
+        $res = query( $query );
+        print("$titre de $auteur à bien été enregistré");
+    }
+    
     // else
     //     $query  = "insert into livres (nom, auteur) values ('$titreLivre', '$nomAuteur');";
     //     //print( $query );
