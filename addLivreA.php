@@ -27,22 +27,15 @@
 <body>
 <script>
     function chercherDataBackB1()
-    {   var addLivre = document.getElementById("nom").value;
+    {   
         const xhttp = new XMLHttpRequest();
-        xhttp.onload = function() 
-        {
-            console.log(this.responseText );
-            let tab =  JSON.parse(  this.responseText );
-            document.getElementById("list").innerHTML = '';
-            for ( let ligne of tab) 
-            {
-                //console.log( ligne )
-                document.getElementById("list").innerHTML += ligne['nom']+"<br>"
-            }
-        }
 
-        xhttp.open("GET", "addLivre.php");
-        xhttp.send();
+        titre = document.getElementById( 'nom' ).value;
+        auteur = document.getElementById( 'auteur').value; 
+        url = "addLivre.php?titre="+titre+"&auteur="+auteur;
+        console.log(url);
+        xhttp.open("GET", url);
+        xhttp.send(); 
     }
 
 
@@ -51,6 +44,7 @@
         
 
     <input type="text" id="nom" placeholder="titre livre">
+    <input type="text" id="auteur" placeholder="auteur livre">
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
 
