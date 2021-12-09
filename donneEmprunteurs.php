@@ -8,7 +8,10 @@ require_once "fonctions.php";
         $res = query( $query );
         $ligne = $res->fetch_assoc(); 
         $nom = $ligne['nom'];
-        $dateNaiss = $ligne['dateNaiss'];
+        
         print( $nom ); 
-        print( $dateNaiss);
+        $res = query( $query );
+        $ligne = $res->fetch_assoc();
+        $dateNaiss = $ligne['dateNaiss'];
+        print( $dateNaiss ); 
 ?>

@@ -24,7 +24,9 @@
         const xhttp = new XMLHttpRequest();
         
         xhttp.onload = function() {
-                document.getElementById("affiche1","affiche2").innerHTML =
+                document.getElementById("affiche1").innerHTML =
+                this.responseText;
+                document.getElementById("affiche2").innerHTML =
                 this.responseText;
         }
 
@@ -38,13 +40,10 @@
 
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
-<<<<<<< HEAD
-    <div id="affiche1"></div>
-    <div id="affiche2"></div>
-=======
+
     <div id="affiche1">nom</div>
     <div id="affiche2">date</div>
->>>>>>> biblioX
+
 
 
 
