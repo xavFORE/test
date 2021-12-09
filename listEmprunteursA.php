@@ -12,6 +12,7 @@
             font-size: 30px;
             height:40px;
             background-color:gray;
+            border: red 2px:
         }
     </style>
 </head>
@@ -24,6 +25,8 @@
         
         xhttp.onload = function() {
                 document.getElementById("affiche1").innerHTML =
+                this.responseText;
+                document.getElementById("affiche2").innerHTML =
                 this.responseText;
         }
 
