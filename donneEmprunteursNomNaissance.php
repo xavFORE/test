@@ -7,7 +7,6 @@ require_once "fonctions.php";
         //print( $query );
         $res = query( $query );
         $ligne = $res->fetch_assoc(); 
-        $nom = $ligne['nom']; 
-        $dateN = $ligne['dateNaiss']; 
-        print( $nom );
+        $data = json_encode( $ligne );
+        print( $data );
 ?>
