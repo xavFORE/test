@@ -6,7 +6,7 @@ function query( $q )
 {
     GLOBAL $servername, $username, $password, $database;
     $mysqli = new mysqli($servername, $username, $password, $database);
-    return $mysqli->query( $q );
+    $res = $mysqli->query( $q );
     $mysqli->close();
     return $res;
 }
