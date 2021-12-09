@@ -49,7 +49,7 @@ function entete( $titre_page )
 
     </head>
     <body>
-    TOTO123;
+TOTO123;
     print( $var );
 }
 

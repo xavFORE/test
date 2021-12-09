@@ -10,6 +10,9 @@
         {
             color:red;
             font-size: 30px;
+            height: 40px;
+            background-color: gray;
+            border: 2px solid red;
         }
     </style>
 </head>
@@ -35,7 +38,8 @@
 
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
-    <div id="affiche1"></div>
+    <div id="affiche1">nom</div>
+    <div id="affiche2">date</div>
 
 
 
