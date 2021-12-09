@@ -50,7 +50,11 @@ $var = <<<TOTO123
     </head>
     <body>
 TOTO123;
+<<<<<<< HEAD
 print( $var );
+=======
+    print( $var );
+>>>>>>> biblioX
 }
 
 function affTab( $tableau )
