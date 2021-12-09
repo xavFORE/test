@@ -28,8 +28,10 @@
 <script>
     function chercherDataBackB1()
     {
+        // new creation d'un objet XMLHttpRequest 
         const xhttp = new XMLHttpRequest();
         
+        // je defini la fonction qui sera utilisé une fois les données chargées
         xhttp.onload = function() 
         {
             console.log(this.responseText );
@@ -38,7 +40,9 @@
             document.getElementById("affiche2").innerHTML = dict[ 'dateNaiss' ];
         }
 
+        // je prépare l'appel de l'URL
         xhttp.open("GET", "donneEmprunteursList.php");
+        // j'envoie l'url
         xhttp.send();
     }
 
