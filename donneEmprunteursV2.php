@@ -6,7 +6,9 @@ require_once "fonctions.php";
 
     // $query  = "select * from emprunteurs;";
     // print( $query );
-    if($requete == 'select * from emprunteurs;' || $requete == 'select * from livres;' || $requete == 'select livres.nom, livres.id from livres, emprunts where livres.id=emprunts.idl and emprunts.dateFin is NULL;' || $requete == 'select nom from livres where absent=0;')
+    if($requete == 'select * from emprunteurs;' || $requete == 'select * from livres;' ||
+        $requete == 'select livres.nom, livres.id from livres, emprunts where livres.id=emprunts.idl and emprunts.dateFin is NULL;' ||
+        $requete == 'select nom from livres where absent=0;')
     {
         $res = query( $requete );
         
