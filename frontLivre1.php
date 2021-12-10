@@ -40,7 +40,7 @@ function getData( url )
                 let chaine = "<table>";
                 for ( ligne of tableauData )
                 {
-                    chaine += "<tr><td>"+ligne['nom']+"</td></tr>";
+                    chaine += "<tr><td>"+ligne['nom']+"</td></tr>";;
                 }
                 chaine += "</table>";
                 //console.log( chaine );
@@ -81,8 +81,8 @@ function getData( url )
 
 
 </script>
-<button onclick="listOnclic('select * from emprunteurs;')">EMPRUNTEURS</button>
-<button onclick="listOnclic('select * from livres;')">LIVRES</button>
+<button onclick="listEmprunteurs()">EMPRUNTEURS</button>
+<button onclick="listLivres()">LIVRES</button>
 <button onclick="listLivresSortis()">LIVRES SORTIS</button>
 <button onclick="listLivresDispos()">LIVRES DISPOS</button>
 <button onclick="listAuteurs()">AUTEURS</button>
