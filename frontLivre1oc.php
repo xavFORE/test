@@ -26,6 +26,33 @@
 
 <body>
 <script>
+    
+    function listdata(url)
+    {
+        // new creation d'un objet XMLHttpRequest 
+        const xhttp = new XMLHttpRequest();
+        
+        // je defini la fonction qui sera utilisé une fois les données chargées
+        xhttp.onload = function() 
+        {
+                //console.log( this.responseText );
+                let tableauData = JSON.parse( this.responseText );  
+                let chaine = "<table>";
+                for ( ligne of tableauData )
+                {
+                    chaine += "<tr><td>"+ligne['nom']+"</td></tr>";;
+                }
+                chaine += "</table>";
+                //console.log( chaine );
+                document.getElementById("aff").innerHTML = chaine;
+        }
+        // je prépare l'appel de l'URL
+        xhttp.open("GET", url);
+        // j'envoie l'url
+        xhttp.send();
+    }
+
+    
     function listEmprunteurs()
     {
         // new creation d'un objet XMLHttpRequest 
@@ -34,50 +61,102 @@
         // je defini la fonction qui sera utilisé une fois les données chargées
         xhttp.onload = function() 
         {
-            console.log(this.responseText );
-            let dict =  JSON.parse(  this.responseText );
-            document.getElementById("affiche1").innerHTML = dict[ 'nom' ];
-            document.getElementById("affiche2").innerHTML = dict[ 'dateNaiss' ];
+                //console.log( this.responseText );
+                let tableauData = JSON.parse( this.responseText );  
+                let chaine = "<table>";
+                for ( ligne of tableauData )
+                {
+                    chaine += "<tr><td>"+ligne['nom']+"</td></tr>";;
+                }
+                chaine += "</table>";
+                //console.log( chaine );
+                document.getElementById("aff").innerHTML = chaine;
         }
-
         // je prépare l'appel de l'URL
         xhttp.open("GET", "listEmprunteurs.php");
         // j'envoie l'url
         xhttp.send();
     }
-    function listLivres()     
-    {    {
+    function listLivres()
+    {
+        // new creation d'un objet XMLHttpRequest 
         const xhttp = new XMLHttpRequest();
         
+        // je defini la fonction qui sera utilisé une fois les données chargées
         xhttp.onload = function() 
         {
-            console.log(this.responseText );
-            let dict =  JSON.parse(  this.responseText );
-            document.getElementById("affiche1").innerHTML = dict[ 'nom' ];
-            document.getElementById("affiche2").innerHTML = dict[ 'auteur' ];
-            for ( let ligne of dict['list']) 
-            {
-                console.log( ligne )
-                document.getElementById("list").innerHTML += ligne['nom']+"<br>"
-            }
-        
+                console.log( this.responseText );
+                let tableauData = JSON.parse( this.responseText );  
+                let chaine = "<table>";
+                for ( ligne of tableauData )
+                {
+                    chaine += "<tr><td>"+ligne['nom']+"</td></tr>";;
+                }
+                chaine += "</table>";
+                console.log( chaine );
+                document.getElementById("aff").innerHTML = chaine;
         }
-
-        xhttp.open("GET", "donnelivreslistes.php");
+        // je prépare l'appel de l'URL
+        xhttp.open("GET", "listLivres.php");
+        // j'envoie l'url
         xhttp.send();
-    }}
-    function listLivresSortis() 
-    {}
-    function listLivresDispos() 
-    {}
+    }
+    function listLivresDispos()
+    {
+        // new creation d'un objet XMLHttpRequest 
+        const xhttp = new XMLHttpRequest();
+        
+        // je defini la fonction qui sera utilisé une fois les données chargées
+        xhttp.onload = function() 
+        {
+                console.log( this.responseText );
+                let tableauData = JSON.parse( this.responseText );  
+                let chaine = "<table>";
+                for ( ligne of tableauData )
+                {
+                    chaine += "<tr><td>"+ligne['nom']+"</td></tr>";;
+                }
+                chaine += "</table>";
+                console.log( chaine );
+                document.getElementById("aff").innerHTML = chaine;
+        }
+        // je prépare l'appel de l'URL
+        xhttp.open("GET", "listLivresDispos.php");
+        // j'envoie l'url
+        xhttp.send();
+    }
+    function listLivresSortis()
+    {
+        // new creation d'un objet XMLHttpRequest 
+        const xhttp = new XMLHttpRequest();
+        
+        // je defini la fonction qui sera utilisé une fois les données chargées
+        xhttp.onload = function() 
+        {
+                console.log( this.responseText );
+                let tableauData = JSON.parse( this.responseText );  
+                let chaine = "<table>";
+                for ( ligne of tableauData )
+                {
+                    chaine += "<tr><td>"+ligne['nom']+"</td></tr>";;
+                }
+                chaine += "</table>";
+                console.log( chaine );
+                document.getElementById("aff").innerHTML = chaine;
+        }
+        // je prépare l'appel de l'URL
+        xhttp.open("GET", "listLivresSortis.php");
+        // j'envoie l'url
+        xhttp.send();
+    }
+
 </script>
 <button onclick="listEmprunteurs()">EMPRUNTEURS</button>
 <button onclick="listLivres()">LIVRES</button>
 <button onclick="listLivresSortis()">LIVRES SORTIS</button>
 <button onclick="listLivresDispos()">LIVRES DISPOS</button>
 <br>
-<div class="aff"></div>
-
+<div  id="aff"></div>
 
 
 </body>

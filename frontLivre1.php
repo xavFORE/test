@@ -50,6 +50,7 @@
         // j'envoie l'url
         xhttp.send();
     }
+
 </script>
 <button onclick="listEmprunteurs()">EMPRUNTEURS</button>
 <button onclick="listLivres()">LIVRES</button>

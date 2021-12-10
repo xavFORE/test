@@ -1,0 +1,12 @@
+select livres.nom,
+emprunteurs.nom
+from livres, emprunts , emprunteurs
+where livres.id=emprunts.idl and emprunts.dateFin is NULL and
+emprunteurs.id=emprunts.ide
+;
+
+
+select nom
+from livres
+where absent='0'
+;
