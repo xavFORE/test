@@ -30,12 +30,17 @@
     {
         const xhttp = new XMLHttpRequest();
 
-        titre  = document.getElementById( 'nom' ).value;
-        auteur = document.getElementById( 'auteur' ).value;
-        document.getElementById('aff').innerHTML = this.responseText;
+        xhttp.onload = function()
+        { 
+            titre  = document.getElementById( 'nom' ).value;
+            auteur = document.getElementById( 'auteur' ).value;
+            
+            document.getElementById('aff').innerHTML = this.responseText;
 
-        url = "addLivreAuteur.php?titre="+titre+"&auteur="+auteur;
-        console.log( url );
+            url = "addLivreAuteur.php?titre="+titre+"&auteur="+auteur;
+            console.log( url );
+        }
+
         xhttp.open("GET", url);
         xhttp.send();
     }
