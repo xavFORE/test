@@ -8,12 +8,12 @@
     <style>
         .aff 
         {
-            color:red;
+            color:blue;
             font-size: 30px;
-            height: 40px;
             background-color: gray;
             border: 2px solid red;
         }
+
         .list 
         {
             color:red;
@@ -34,30 +34,105 @@
         // je defini la fonction qui sera utilisé une fois les données chargées
         xhttp.onload = function() 
         {
-            console.log(this.responseText );
-            let dict =  JSON.parse(  this.responseText );
-            document.getElementById("affiche1").innerHTML = dict[ 'nom' ];
-            document.getElementById("affiche2").innerHTML = dict[ 'dateNaiss' ];
+            // console.log( this.responseText );
+            let tab = JSON.parse( this.responseText );
+            // console.log( tab );
+            document.getElementById("affiche1").innerHTML = "";
+
+            for ( let ligne of tab) 
+            {
+                // console.log( ligne )
+                document.getElementById("affiche1").innerHTML += ligne+"<br>";
+            }
         }
 
         // je prépare l'appel de l'URL
-        xhttp.open("GET", "listEmprunteurs.php");
+        xhttp.open("GET", "donneEmprunteurs.php");
         // j'envoie l'url
         xhttp.send();
     }
+
     function listLivres()     
-    {}
+    {
+        // new creation d'un objet XMLHttpRequest 
+        const xhttp = new XMLHttpRequest();
+        
+        // je defini la fonction qui sera utilisé une fois les données chargées
+        xhttp.onload = function() 
+        {
+            // console.log(this.responseText );
+            let tab =  JSON.parse( this.responseText );
+            document.getElementById("affiche1").innerHTML = "";
+
+            for ( let ligne of tab) 
+            {
+                // console.log( ligne )
+                document.getElementById("affiche1").innerHTML += ligne+"<br>";
+            }
+        }
+
+        // je prépare l'appel de l'URL
+        xhttp.open("GET", "donneLivresList.php");
+        // j'envoie l'url
+        xhttp.send();
+    }
+
     function listLivresSortis() 
-    {}
+    {
+        // new creation d'un objet XMLHttpRequest 
+        const xhttp = new XMLHttpRequest();
+        
+        // je defini la fonction qui sera utilisé une fois les données chargées
+        xhttp.onload = function() 
+        {
+            // console.log( this.responseText );
+            let tab =  JSON.parse( this.responseText );
+            document.getElementById("affiche1").innerHTML = "";
+
+            for ( let ligne of tab) 
+            {
+                // console.log( ligne )
+                document.getElementById("affiche1").innerHTML += ligne+"<br>";
+            }
+        }
+
+        // je prépare l'appel de l'URL
+        xhttp.open("GET", "donneLivresListSortis.php");
+        // j'envoie l'url
+        xhttp.send();
+    }
+
     function listLivresDispos() 
-    {}
+    {
+        // new creation d'un objet XMLHttpRequest 
+        const xhttp = new XMLHttpRequest();
+        
+        // je defini la fonction qui sera utilisé une fois les données chargées
+        xhttp.onload = function() 
+        {
+            // console.log(this.responseText );
+            let tab =  JSON.parse( this.responseText );
+            document.getElementById("affiche1").innerHTML = "";
+
+            for ( let ligne of tab) 
+            {
+                // console.log( ligne )
+                document.getElementById("affiche1").innerHTML += ligne+"<br>";
+            }
+        }
+
+        // je prépare l'appel de l'URL
+        xhttp.open("GET", "donneLivresListDispos.php");
+        // j'envoie l'url
+        xhttp.send();
+    }
 </script>
 <button onclick="listEmprunteurs()">EMPRUNTEURS</button>
 <button onclick="listLivres()">LIVRES</button>
 <button onclick="listLivresSortis()">LIVRES SORTIS</button>
 <button onclick="listLivresDispos()">LIVRES DISPOS</button>
 <br>
-<div class="aff"></div>
+<div id='affiche1' class="aff"></div>
 
 
 

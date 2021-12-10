@@ -26,29 +26,29 @@
     // si oui -> je récupère son ID
     // si non -> je l'enregistre dans la table et je récupère son ID
 
-    $id=0;
-    $query  = "select id from auteurs where nom='$auteur';";
-    $res = query( $query );
+    // $id=0;
+    // $query  = "select id from auteurs where nom='$auteur';";
+    // $res = query( $query );
 
-    if ( $res->num_rows>0)
-    {
-        $id = $res->fetch_assoc()['id'];
-        $query  = "insert into livres (nom, auteur) values ('$titre', $id);";
-        $res = query( $query );
-        print("$titre de $auteur à bien été enregistré");
-    }
-    else
-    {
-        $query  = "insert into auteurs ( nom ) values ('$auteur');";
-        $res = query( $query );
-        $id=0;
-        $query  = "select id from auteurs where nom='$auteur';";
-        $res = query( $query );
-        $id = $res->fetch_assoc()['id'];
-        $query  = "insert into livres (nom, auteur) values ('$titre', $id);";
-        $res = query( $query );
-        print("$titre de $auteur à bien été enregistré");
-    }
+    // if ( $res->num_rows>0)
+    // {
+    //     $id = $res->fetch_assoc()['id'];
+    //     $query  = "insert into livres (nom, auteur) values ('$titre', $id);";
+    //     $res = query( $query );
+    //     print("$titre de $auteur à bien été enregistré");
+    // }
+    // else
+    // {
+    //     $query  = "insert into auteurs ( nom ) values ('$auteur');";
+    //     $res = query( $query );
+    //     $id=0;
+    //     $query  = "select id from auteurs where nom='$auteur';";
+    //     $res = query( $query );
+    //     $id = $res->fetch_assoc()['id'];
+    //     $query  = "insert into livres (nom, auteur) values ('$titre', $id);";
+    //     $res = query( $query );
+    //     print("$titre de $auteur à bien été enregistré");
+    // }
     
     // else
     //     $query  = "insert into livres (nom, auteur) values ('$titreLivre', '$nomAuteur');";
