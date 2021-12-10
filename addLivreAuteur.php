@@ -4,17 +4,7 @@
 
     $titre = $_GET[ 'titre'];
     $auteur = $_GET[ 'auteur'];
-<<<<<<< HEAD
-    $query="select id from auteurs where nom='$auteur';";
-    $res=query($query);
-    if($res->num_rows==0)
-    {
-        $query="insert into auteurs(nom)values('$auteur');";
-        $res=query($query);
-    }
-    $ligne=$res->fetch_assoc()['id'];
-    $id=$ligne['id'];
-=======
+
 
     $query = "select id from auteurs where nom='$auteur';";
     $res = query( $query );
@@ -32,7 +22,7 @@
     //print_r( $res);
     $ligne = $res->fetch_assoc();
     $id = $ligne['id'];
->>>>>>> biblioX
+
 
     // je regare si il est dans la tables des auteurs
     // si oui -> je récupère son ID
