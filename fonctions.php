@@ -73,6 +73,16 @@ function affTab( $tableau )
         print( "<br><br>");
 }
 
+function query2json( $query )
+{
+    $res = query( $query ); 
+    $tableauData = [];
+    while ( $ligne = $res->fetch_assoc())
+    {
+        $tableauData[] = $ligne;
+    } 
+    print( json_encode( $tableauData ) );
+}
 
 ?>
 

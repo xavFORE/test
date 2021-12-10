@@ -2,6 +2,7 @@
     require_once "ressources.php";
     require_once "fonctions.php";
 
+<<<<<<< HEAD
     $query  = "select nom from livres;";
     //print( $query );
     $res = query( $query );
@@ -20,4 +21,7 @@
     -> (JSON.parse)
     -> tableau brute
     */
+=======
+    query2json( "select * from livres;" ); 
+>>>>>>> origin/biblioX
 ?>
