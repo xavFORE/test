@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .aff 
+        #aff 
         {
             color:red;
             font-size: 30px;
-            height: 40px;
+           
             background-color: gray;
             border: 2px solid red;
         }
@@ -26,38 +26,31 @@
 
 <body>
 <script>
-    function listEmprunteurs()
-    {
-        // new creation d'un objet XMLHttpRequest 
+   
+    function requete(url){
         const xhttp = new XMLHttpRequest();
-        
-        // je defini la fonction qui sera utilisé une fois les données chargées
-        xhttp.onload = function() 
-        {
+        xhttp.onload = function(){
             console.log(this.responseText );
-            let dict =  JSON.parse(  this.responseText );
-            document.getElementById("affiche1").innerHTML = dict[ 'nom' ];
-            document.getElementById("affiche2").innerHTML = dict[ 'dateNaiss' ];
+            let tab =  JSON.parse( this.responseText );
+            document.getElementById("aff").innerHTML = '';
+            for ( let ligne of tab) 
+            {
+                //console.log( ligne )
+                document.getElementById("aff").innerHTML += ligne["nom"]+"<br>";
+            }
         }
-
-        // je prépare l'appel de l'URL
-        xhttp.open("GET", "listEmprunteurs.php");
+             xhttp.open("GET",url);
         // j'envoie l'url
-        xhttp.send();
-    }
-    function listLivres()     
-    {}
-    function listLivresSortis() 
-    {}
-    function listLivresDispos() 
-    {}
+             xhttp.send();
+                 }
+
 </script>
-<button onclick="listEmprunteurs()">EMPRUNTEURS</button>
-<button onclick="listLivres()">LIVRES</button>
-<button onclick="listLivresSortis()">LIVRES SORTIS</button>
-<button onclick="listLivresDispos()">LIVRES DISPOS</button>
+<button onclick="requete('list.php?query=select * from emprunteurs;')">EMPRUNTEURS</button>
+<button onclick="requete('list.php?query=select * from livres;')">LIVRES</button>
+<button onclick="requete('list.php?query=select nom from livres where absent = 1;')">LIVRES SORTIS</button>
+<button onclick='requete("list.php?query=update livres set absent=0;update emprunts, livres set livres.absent=1 where livres.id = emprunts.idl and emprunts.dateFin is NULL; livres, select id, nom from livres where absent=0;")'>LIVRES DISPOS</button>
 <br>
-<div class="aff"></div>
+<div id="aff"></div>
 
 
 
