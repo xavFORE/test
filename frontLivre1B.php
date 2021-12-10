@@ -35,9 +35,14 @@
         xhttp.onload = function() 
         {
             console.log(this.responseText );
-            let dict =  JSON.parse(  this.responseText );
-            document.getElementById("affiche1").innerHTML = dict[ 'nom' ];
-            document.getElementById("affiche2").innerHTML = dict[ 'dateNaiss' ];
+            let tableauData =  JSON.parse(  this.responseText );
+            let chaine = "<table>";
+            for (ligne of tableauData)
+            {
+                chaine +="<tr><td>"+ligne['nom']+"</tr></td>";
+            }
+            chaine +="</table>";
+            document.getElementById("aff").innerHTML = chaine;
         }
 
         // je prépare l'appel de l'URL
@@ -45,10 +50,52 @@
         // j'envoie l'url
         xhttp.send();
     }
+
     function listLivres()     
-    {}
+    {
+        const xhttp = new XMLHttpRequest();
+
+        xhttp.onload = function() 
+        {   
+            let tableauData =  JSON.parse(  this.responseText );
+            //console.log(tableauData);
+            //console.log(tableauData.length);
+            let chaine = "<table>";
+
+            for (ligne of tableauData)
+            {
+                //console.log(ligne);
+                chaine +="<tr><td>"+ligne['nom']+"</tr></td>";
+            }
+            chaine +="</table>";
+            document.getElementById("aff").innerHTML = chaine;
+        }
+        xhttp.open("GET", "listLivres.php");
+        xhttp.send();
+    }
     function listLivresSortis() 
-    {}
+    { 
+        const xhttp = new XMLHttpRequest();
+
+        xhttp.onload = function() 
+        {   
+        let tableauData =  JSON.parse(  this.responseText );
+            //console.log(this.responseText);
+            //console.log(tableauData.length);
+            let chaine = "<table>";
+
+            for (ligne of tableauData)
+            {
+                //console.log(ligne);
+                chaine +="<tr><td>"+ligne['nom']+"</tr></td>";
+            }
+            chaine +="</table>";
+            document.getElementById("aff").innerHTML = chaine;
+        }
+        xhttp.open("GET", "listLivresSortis.php");
+        xhttp.send();   
+    }
+
     function listLivresDispos() 
     {}
 </script>
@@ -57,7 +104,7 @@
 <button onclick="listLivresSortis()">LIVRES SORTIS</button>
 <button onclick="listLivresDispos()">LIVRES DISPOS</button>
 <br>
-<div class="aff"></div>
+<div id="aff"></div>
 
 
 
