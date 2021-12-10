@@ -20,4 +20,47 @@ insert into emprunts ( ide, idl, dateDeb, dateFin ) values
 insert into emprunts ( ide, idl, dateDeb )
 value ( $ide, $idl, current_date);
 
+
+select livres.nom, livres.id 
+from livres, emprunts
+where livres.id=emprunts.idl and emprunts.dateFin is NULL;
+
+
+select livres.id 
+from livres, emprunts
+where livres.id=emprunts.idl and emprunts.dateFin is NULL;
+
+
+update livres set absent=0;
+flush table livres;
+update 
+    emprunts, livres 
+set 
+    livres.absent=1
+where 
+    livres.id = emprunts.idl and emprunts.dateFin is NULL;
+select nom from livres where absent=0;
+
+
+
+select 
+    livres.nom 
+from 
+    livres,  
+    (select livres.id 
+    from livres, emprunts
+    where livres.id=emprunts.idl and emprunts.dateFin is NULL) as absents
+where 
+    livres.id != absents.id;
+
+
+select 
+    livres.nom, livres.id
+from 
+    livres, emprunts
+where emprunts.ide=2 and livres.id=emprunts.idl and emprunts.dateFin is NULL;
+
+
+
+
 ```

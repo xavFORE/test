@@ -12,7 +12,7 @@ function query( $q )
     return $res;
 }
 
-function comboBox(  $table, $query=""  )
+function comboBox(  $table, $query="", $visibleAdd=1  )
 {
     GLOBAL $servername, $username, $password, $database;
 
@@ -20,7 +20,7 @@ function comboBox(  $table, $query=""  )
     $mysqli = new mysqli($servername, $username, $password, $database);
     if ( $query == "")
         $query  = "select * from $table;";
-    //print( $query."<br>");
+    print( $query."<br>");
     $res = $mysqli->query( $query );
     while(  ($ligne = $res->fetch_assoc()) )
     {
@@ -30,7 +30,8 @@ function comboBox(  $table, $query=""  )
     }
     $mysqli->close();
     print( "</select>\n");
-    print( "<div class='buttonCombo' onclick=\"addItem( '$table', 'ajout $table' )\" >+</div>\n");
+    if ( $visibleAdd )
+        print( "<div class='buttonCombo' onclick=\"addItem( '$table', 'ajout $table' )\" >+</div>\n");
 }
 
 function entete( $titre_page )
@@ -45,13 +46,31 @@ function entete( $titre_page )
         <title>$titre_page</title>
         <link rel="stylesheet" href="fonctions.css">
         <script type="text/javascript" src="fonctions.js"></script>
+
+
     </head>
     <body>
-    TOTO123;
+TOTO123;
     print( $var );
 }
 
-
+function affTab( $tableau )
+{
+        print( "<table>\n");
+        foreach(  $tableau as $key1 => $ligne )
+        {
+            print( "<tr>\n" );
+            foreach( $ligne as $key => $values )
+            {
+                print("<td>\n" );
+                    print( $values  );
+                print("</td>\n" );
+            }
+            print( "</tr>\n" );
+        }
+        print( "</table>\n");
+        print( "<br><br>");
+}
 
 
 ?>
