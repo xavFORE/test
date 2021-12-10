@@ -26,115 +26,68 @@
 
 <body>
 <script>
+
+function getData( url )
+    {
+        // new creation d'un objet XMLHttpRequest 
+        const xhttp = new XMLHttpRequest();
+        
+        // je defini la fonction qui sera utilisé une fois les données chargées
+        xhttp.onload = function() 
+        {
+                //console.log( this.responseText );
+                let tableauData = JSON.parse( this.responseText );  
+                let chaine = "<table>";
+                for ( ligne of tableauData )
+                {
+                    chaine += "<tr><td>"+ligne['nom']+"</td></tr>";;
+                }
+                chaine += "</table>";
+                //console.log( chaine );
+                document.getElementById("aff").innerHTML = chaine;
+        }
+        // je prépare l'appel de l'URL
+        xhttp.open("GET", url );
+        // j'envoie l'url
+        xhttp.send();
+    } 
+
     function listEmprunteurs()
     {
-        // new creation d'un objet XMLHttpRequest 
-        const xhttp = new XMLHttpRequest();
-        
-        // je defini la fonction qui sera utilisé une fois les données chargées
-        xhttp.onload = function() 
-        {
-            // console.log( this.responseText );
-            let tab = JSON.parse( this.responseText );
-            // console.log( tab );
-            document.getElementById("affiche1").innerHTML = "";
-
-            for ( let ligne of tab) 
-            {
-                // console.log( ligne )
-                document.getElementById("affiche1").innerHTML += ligne+"<br>";
-            }
-        }
-
-        // je prépare l'appel de l'URL
-        xhttp.open("GET", "donneEmprunteurs.php");
-        // j'envoie l'url
-        xhttp.send();
+        getData("listEmprunteurs.php");
     }
 
-    function listLivres()     
+    function listLivres()
     {
-        // new creation d'un objet XMLHttpRequest 
-        const xhttp = new XMLHttpRequest();
-        
-        // je defini la fonction qui sera utilisé une fois les données chargées
-        xhttp.onload = function() 
-        {
-            // console.log(this.responseText );
-            let tab =  JSON.parse( this.responseText );
-            document.getElementById("affiche1").innerHTML = "";
-
-            for ( let ligne of tab) 
-            {
-                // console.log( ligne )
-                document.getElementById("affiche1").innerHTML += ligne+"<br>";
-            }
-        }
-
-        // je prépare l'appel de l'URL
-        xhttp.open("GET", "donneLivresList.php");
-        // j'envoie l'url
-        xhttp.send();
+        getData("listLivres.php");
     }
 
-    function listLivresSortis() 
+    function listLivresSortis()
     {
-        // new creation d'un objet XMLHttpRequest 
-        const xhttp = new XMLHttpRequest();
-        
-        // je defini la fonction qui sera utilisé une fois les données chargées
-        xhttp.onload = function() 
-        {
-            // console.log( this.responseText );
-            let tab =  JSON.parse( this.responseText );
-            document.getElementById("affiche1").innerHTML = "";
-
-            for ( let ligne of tab) 
-            {
-                // console.log( ligne )
-                document.getElementById("affiche1").innerHTML += ligne+"<br>";
-            }
-        }
-
-        // je prépare l'appel de l'URL
-        xhttp.open("GET", "donneLivresListSortis.php");
-        // j'envoie l'url
-        xhttp.send();
+        getData("livresSortis.php");
     }
 
-    function listLivresDispos() 
+    function listLivresDispos()
     {
-        // new creation d'un objet XMLHttpRequest 
-        const xhttp = new XMLHttpRequest();
-        
-        // je defini la fonction qui sera utilisé une fois les données chargées
-        xhttp.onload = function() 
-        {
-            // console.log(this.responseText );
-            let tab =  JSON.parse( this.responseText );
-            document.getElementById("affiche1").innerHTML = "";
-
-            for ( let ligne of tab) 
-            {
-                // console.log( ligne )
-                document.getElementById("affiche1").innerHTML += ligne+"<br>";
-            }
-        }
-
-        // je prépare l'appel de l'URL
-        xhttp.open("GET", "donneLivresListDispos.php");
-        // j'envoie l'url
-        xhttp.send();
+        getData( "livresDispos.php");
     }
+
+    function listAuteurs()
+    {
+        getData( "listAuteurs.php");
+    }
+
+
+
+
 </script>
 <button onclick="listEmprunteurs()">EMPRUNTEURS</button>
 <button onclick="listLivres()">LIVRES</button>
 <button onclick="listLivresSortis()">LIVRES SORTIS</button>
 <button onclick="listLivresDispos()">LIVRES DISPOS</button>
+<button onclick="listAuteurs()">AUTEURS</button>
+
 <br>
-<div id='affiche1' class="aff"></div>
-
-
-
+<div  id="aff"></div>
 </body>
 </html>
