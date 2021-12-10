@@ -30,17 +30,11 @@
     {
         const xhttp = new XMLHttpRequest();
 
-        xhttp.onload = function()
-        { 
-            titre  = document.getElementById( 'nom' ).value;
-            auteur = document.getElementById( 'auteur' ).value;
-            
-            document.getElementById('aff').innerHTML = this.responseText;
+        titre  = document.getElementById( 'nom' ).value;
+        auteur = document.getElementById( 'auteur' ).value;
 
-            url = "addLivreAuteur.php?titre="+titre+"&auteur="+auteur;
-            console.log( url );
-        }
-
+        url = "addLivreAuteur.php?titre="+titre+"&"+"auteur="+auteur;
+        console.log( url );
         xhttp.open("GET", url);
         xhttp.send();
     }
@@ -49,6 +43,5 @@
     <input type="text" id="auteur" placeholder="auteur">
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
-    <div id='aff'></div>
 </body>
 </html>
