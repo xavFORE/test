@@ -8,17 +8,17 @@
     <style>
         .aff 
         {
-            color:black;
+            color:red;
             font-size: 30px;
             height: 40px;
-            background-color: pink;
+            background-color: gray;
             border: 2px solid red;
         }
         .list 
         {
-            color:black;
+            color:red;
             font-size: 10px;
-            background-color: pink;
+            background-color: gray;
             border: 2px solid red;
         }
     </style>
@@ -29,34 +29,28 @@
     function chercherDataBackB1()
     {
         const xhttp = new XMLHttpRequest();
-        
-            xhttp.onload = function() 
+        xhttp.onload = function() 
+        {
+            console.log(this.responseText );
+            let tab =  JSON.parse(  this.responseText );
+            document.getElementById("list").innerHTML = '';
+            for ( let ligne of tab) 
             {
-                console.log(this.responseText );
-                let dict =  JSON.parse(  this.responseText );
-                document.getElementById("affiche1").innerHTML = dict[ 'nom' ];
-                // document.getElementById("affiche2").innerHTML = dict[ 'dateNaiss' ];
-            
-                    document.getElementById("list").innerHTML="";
-                for (let ligne of dict[ 'list'] )
-                {
-                    
-                    document.getElementById("list").innerHTML+= ligne['nom']+"<br>";
-
-                }
+                //console.log( ligne )
+                document.getElementById("list").innerHTML += ligne['nom']+"<br>"
             }
-        xhttp.open("GET", "donneLivresH.php");
+        }
+
+        xhttp.open("GET", "listLivreH.php");
         xhttp.send();
     }
 
 
 </script>
 
-
+                     
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
-    <div class="aff" id="affiche1">nom</div>
-    <div class="aff" id="affiche2">date</div>
     <div  class="list" id="list">list</div>
 
 
