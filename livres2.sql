@@ -1,4 +1,3 @@
-```
 drop table if exists auteurs;
 create table auteurs (
     id int PRIMARY KEY not null auto_increment,
@@ -40,7 +39,8 @@ create table livres (
     id int PRIMARY KEY not null auto_increment,
     nom  varchar(30),
     auteur int,
-    genre int
+    genre int,
+    absent int default 0
 );
 
 insert into livres ( nom, auteur, genre ) values
