@@ -32,7 +32,7 @@
         // execute la requete
        $ligne = $res->fetch_assoc() ;
       
-
+       
 
        
         $mysqli->close();
