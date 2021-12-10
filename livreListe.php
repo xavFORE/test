@@ -45,7 +45,16 @@
         
         }
 
+<<<<<<< HEAD:livreListe.php
         xhttp.open("GET", "donneLivresList.php");
+=======
+        titre  = document.getElementById( 'nom' ).value;
+        auteur = document.getElementById( 'auteur' ).value;
+
+        url = "addLivreAuteur.php?titre="+titre+"&"+"auteur="+auteur;
+        console.log( url );
+        xhttp.open("GET", url);
+>>>>>>> biblioX:addLivreAuteurA.php
         xhttp.send();
     }
 
