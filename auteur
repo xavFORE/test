@@ -1,0 +1,10 @@
+select 
+    livres.nom ,
+    auteurs.nom,
+    livres.id
+from 
+    livres, 
+    auteurs  
+where 
+    livres.id =  auteurs.nom,
+    livres.nom = livres.nom;
