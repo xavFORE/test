@@ -26,7 +26,8 @@
 
 <body>
 <script>
-    function listEmprunteurs()
+
+function getData( url )
     {
         // new creation d'un objet XMLHttpRequest 
         const xhttp = new XMLHttpRequest();
@@ -46,15 +47,46 @@
                 document.getElementById("aff").innerHTML = chaine;
         }
         // je prépare l'appel de l'URL
-        xhttp.open("GET", "listEmprunteurs.php");
+        xhttp.open("GET", url );
         // j'envoie l'url
         xhttp.send();
+    } 
+
+    function listEmprunteurs()
+    {
+        getData("listEmprunteurs.php");
     }
+
+    function listLivres()
+    {
+        getData("listLivres.php");
+    }
+
+    function listLivresSortis()
+    {
+        getData("livresSortis.php");
+    }
+
+    function listLivresDispos()
+    {
+        getData( "livresDispos.php");
+    }
+
+    function listAuteurs()
+    {
+        getData( "listAuteurs.php");
+    }
+
+
+
+
 </script>
 <button onclick="listEmprunteurs()">EMPRUNTEURS</button>
 <button onclick="listLivres()">LIVRES</button>
 <button onclick="listLivresSortis()">LIVRES SORTIS</button>
 <button onclick="listLivresDispos()">LIVRES DISPOS</button>
+<button onclick="listAuteurs()">AUTEURS</button>
+
 <br>
 <div  id="aff"></div>
 </body>

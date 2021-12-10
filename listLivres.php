@@ -2,6 +2,7 @@
     require_once "ressources.php";
     require_once "fonctions.php";
 
+<<<<<<< HEAD
     $query  = "select * from livres;";
     //$uery  = "select livres.nom, auteurs.nom as auteur from livres, auteurs where livres.auteur=auteurs.id;";
     //print( $query );
@@ -28,3 +29,7 @@
 
 
 
+=======
+    query2json( "select * from livres;" ); 
+?>
+>>>>>>> origin/biblioX
