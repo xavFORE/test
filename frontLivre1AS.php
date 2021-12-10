@@ -45,6 +45,7 @@
     <button onclick='de_base("testsql01.php?requet=select * from livres;")'>LIVRES</button>
     <button onclick='de_base("testsql01.php?requet=select livres.nom, livres.id from livres, emprunts where livres.id=emprunts.idl and emprunts.dateFin is NULL;")'>LIVRES SORTIS</button>
     <button onclick='de_base("testsql01.php?requet=select nom from livres where livres.absent = 0;")'>LIVRES DISPOS</button>
+    <button onclick='de_base("testsql01.php?requet=select * from genres;")'>Genres</button>
     <br>
     <div id="aff" class="aff"></div>
 
