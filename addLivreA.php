@@ -29,26 +29,15 @@
     function chercherDataBackB1()
     {
         const xhttp = new XMLHttpRequest();
-
         titre = document.getElementById( 'nom' ).value;
         url = "addLivre.php?titre="+titre;
-        console.log(url );
+        console.log( url );
         xhttp.open("GET", url);
         xhttp.send();
     }
-
-
 </script>
-
-        
-
     <input type="text" id="nom" placeholder="titre livre">
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
-
-
-
-
-
 </body>
 </html>

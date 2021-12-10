@@ -38,17 +38,10 @@
         xhttp.open("GET", url);
         xhttp.send();
     }
-
-
 </script>
-    <input type="text" id="nom" placeholder="titre livre">
+    <input type="text" id="nom"    placeholder="titre livre">
     <input type="text" id="auteur" placeholder="auteur">
     <button onclick="chercherDataBackB1()">GO</button>
     <br>
-
-
-
-
-
 </body>
 </html>
