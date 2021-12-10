@@ -77,8 +77,10 @@ function getData( url )
         getData( "listAuteurs.php");
     }
 
-
-
+    function listGenres()
+    {
+        getData( "listGenres.php");
+    }
 
 </script>
 <button onclick="listEmprunteurs()">EMPRUNTEURS</button>
@@ -86,6 +88,7 @@ function getData( url )
 <button onclick="listLivresSortis()">LIVRES SORTIS</button>
 <button onclick="listLivresDispos()">LIVRES DISPOS</button>
 <button onclick="listAuteurs()">AUTEURS</button>
+<button onclick="listGenres()">GENRES</button>
 
 <br>
 <div  id="aff"></div>
