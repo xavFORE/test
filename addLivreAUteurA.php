@@ -33,7 +33,7 @@
         titre  = document.getElementById( 'nom' ).value;
         auteur = document.getElementById( 'auteur' ).value;
 
-        url = "addLivreAUteur.php?titre="+titre+"&"+"auteur="+auteur;
+        url = "addLivreAuteur.php?titre="+titre+"&"+"auteur="+auteur;
         console.log( url );
         xhttp.open("GET", url);
         xhttp.send();
