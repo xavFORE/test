@@ -26,18 +26,18 @@
 
 <body>
 <script>
-    function chercherDataBackB1()
+    function chercherDataBackB2()
     {
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() 
         {
             console.log(this.responseText );
             let tab =  JSON.parse(  this.responseText );
-            document.getElementById("list").innerHTML = '';
+            document.getElementById("list2").innerHTML = '';
             for ( let ligne of tab) 
             {
                 //console.log( ligne )
-                document.getElementById("list").innerHTML += ligne['nom']+"<br>"
+                document.getElementById("list2").innerHTML += ligne['nom']+"<br>"
             }
         }
 
@@ -49,11 +49,9 @@
 </script>
 
                      
-    <button onclick="chercherDataBackB1()">GO</button>
+    <button onclick="chercherDataBackB2()">GO</button>
     <br>
-    <div  class="list" id="list">list</div>
-
-
+    <div  class="list" id="list2">list</div>
 
 
 
