@@ -31,4 +31,3 @@
     $query  = "insert into livres ( nom, auteur ) values ('$titre', $id );";
     //print( $query );
     query( $query );
-?>
