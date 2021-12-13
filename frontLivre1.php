@@ -102,6 +102,7 @@
         sendData( url );
     }
 
+<<<<<<< HEAD
     function enregistreAuteur()
     {
         let nom = document.getElementById( "saisie").value;
@@ -117,6 +118,8 @@
         sendData( url );
     }
 
+=======
+>>>>>>> origin/biblioX
 </script>
 <input type="text" id="saisie" placeholder="saisie">
 <br>
@@ -134,8 +137,6 @@
 <button onclick="listGenre()">GENRE</button>
 
 <br>
-
-
 
 <div  id="aff"></div>
 </body>
