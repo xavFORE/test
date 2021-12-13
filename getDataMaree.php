@@ -28,8 +28,7 @@
 <script>
     function getData( )
     {
-        //  https://opendata.lillemetropole.fr/explore/embed/dataset/disponibilite-parkings/map/?location=11,50.6677,3.12012&basemap=jawg.streets
-url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=disponibilite-parkings&q=&facet=libelle&facet=ville&facet=etat'
+      url = 'http://dx.doi.org/10.17183/REFMAR'
         // new creation d'un objet XMLHttpRequest 
         const xhttp = new XMLHttpRequest();
         
@@ -41,18 +40,18 @@ url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=dispon
 
                 console.log( receivedData );
 
-                tableau = receivedData.records;
+               tableau = receivedData.records;
 
 
                 let chaine = '<table>';
-                for( parking of tableau )
+                for( ligne of tableau )
                 {
-                    ville = parking.fields.ville;
-                    nom =  parking.fields.libelle;
-                    place =  parking.fields.dispo;
-                    adresse =  parking.fields.adresse;
-                    console.log( ville + " " + nom  + " " +place+" "+adresse );
-                    chaine += "<tr><td>"+nom + "</td><td>(" +place+")</td><td>(" +adresse+")</td></tr>";
+                    
+                    nbvelosdispo =  ligne.fields.nbvelosdispo;
+                    adresse = ligne.fields.adresse
+                    //adresse =  parking.fields.adresse;
+                    console.log( nbvelosdispo + " " + adresse );
+                    chaine += "<tr><td>"+nbvelosdispo + "</td><td>"+adresse + "</td></tr>";
                 }
                 chaine += '</table>';
                 document.getElementById("aff").innerHTML = chaine;
