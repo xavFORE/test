@@ -28,7 +28,7 @@
 <script>
     function getData( )
     {
-      url = 'http://dx.doi.org/10.17183/REFMAR'
+      url = 'https://www.data.gouv.fr/fr/datasets/zones-de-maree/'
         // new creation d'un objet XMLHttpRequest 
         const xhttp = new XMLHttpRequest();
         
