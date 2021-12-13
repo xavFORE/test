@@ -29,8 +29,7 @@
     function getData( )
     {
         //  https://opendata.lillemetropole.fr/explore/embed/dataset/disponibilite-parkings/map/?location=11,50.6677,3.12012&basemap=jawg.streets
-//url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=disponibilite-parkings&q=&facet=libelle&facet=ville&facet=etat'
-url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille-realtime&q=&lang=fr&facet=libelle&facet=nom&facet=commune&facet=etat&facet=type&facet=etatconnexion'
+url = 'https://public.opendatasoft.com/api/records/1.0/search/?dataset=arome-0025-sp1_sp2&q='
         // new creation d'un objet XMLHttpRequest 
         const xhttp = new XMLHttpRequest();
         
@@ -42,17 +41,16 @@ url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille
 
                 console.log( receivedData );
 
-                tableau = receivedData.records;
+                records = receivedData.records;
 
 
                 let chaine = '<table>';
-                for( parking of tableau )
-                {
-                    ville = parking.fields.ville;
-                    nom =  parking.fields.libelle;
-                    place =  parking.fields.dispo;
-                    console.log( ville + " " + nom  + " (" +place+")"   );
-                    chaine += "<tr><td>"+nom + "</td><td>(" +place+")</td></tr>";
+                for( record of records )
+                {   metre_temperature = record.fields['2_metre_temperature']; 
+                    relative_humidity = record.fields.relative_humidity;
+                    wind_speed = record.fields.wind_speed;
+                    //console.log( ville + " " + nom  + " (" +place+")"   );
+                    chaine += "<tr><td>"+relative_humidity+ "</td><td>" +wind_speed+"</td><td>"+metre_temperature+ "</td></tr>";
                 }
                 chaine += '</table>';   
                 document.getElementById("aff").innerHTML = chaine;
