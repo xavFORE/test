@@ -29,8 +29,9 @@
     function getData( )
     {
         //  https://opendata.lillemetropole.fr/explore/embed/dataset/disponibilite-parkings/map/?location=11,50.6677,3.12012&basemap=jawg.streets
-url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=disponibilite-parkings&q=&facet=libelle&facet=ville&facet=etat'
-        // new creation d'un objet XMLHttpRequest 
+//url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=disponibilite-parkings&q=&facet=libelle&facet=ville&facet=etat'
+        // new creation d'un objet XMLHttpRequest
+        url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille-realtime&q=&lang=fr&facet=libelle&facet=nom&facet=commune&facet=etat&facet=type&facet=etatconnexion' 
         const xhttp = new XMLHttpRequest();
         
         // je defini la fonction qui sera utilisé une fois les données chargées
@@ -41,17 +42,18 @@ url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=dispon
 
                 console.log( receivedData );
 
-                tableau = receivedData.records;
+                records = receivedData.records;
 
 
                 let chaine = '<table>';
-                for( parking of tableau )
+                for( record of records )
                 {
-                    ville = parking.fields.ville;
-                    nom =  parking.fields.libelle;
-                    place =  parking.fields.dispo;
-                    console.log( ville + " " + nom  + " (" +place+")"   );
-                    chaine += "<tr><td>"+nom + "</td><td>(" +place+")</td></tr>";
+
+                    commune = record.fields.commune;
+                    nbplacesdispo = record.fields.nbplacesdispo;
+                    nbvelosdispo =  record.fields.nbvelosdispo;
+                    console.log(commune + " " + nbplacesdispo + " (" +nbvelosdispo+")");
+                    chaine += "<tr><td>"+commune + "</td><td>(" +nbvelosdispo+")</td></td><td>(" +nbplacesdispo+")</td></tr>";
                 }
                 chaine += '</table>';
                 document.getElementById("aff").innerHTML = chaine;
