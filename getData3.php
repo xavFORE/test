@@ -31,7 +31,7 @@
         // url =
         //     'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=disponibilite-parkings&q=&facet=libelle&facet=ville&facet=etat'
         url =
-            'https://imdb-api.com/Posters/s300/s2bT29y0ngXxxu2IA8AOzzXTRhd.jpg'
+            'https://world.openfoodfacts.org/api/v0/product/737628064502.json'
         // new creation d'un objet XMLHttpRequest 
         const xhttp = new XMLHttpRequest();
 
@@ -43,15 +43,14 @@
             console.log(receivedData);
 
             tableau = receivedData.records;
-
-
+            [0]
             let chaine = '<table>';
-            for (meteo of tableau) {
-
+            for (top of tableau) {
+                image = items[0]
 
 
                 // console.log(ville + " " + nom + " (" + place + ")");
-                chaine += "<tr><td>" + ville + "</td></tr>";
+                chaine += "<tr><td>" + image + "</td></tr>";
 
             }
             chaine += '</table>';
