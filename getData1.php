@@ -28,9 +28,10 @@
     <script>
     function getData() {
         //  https://opendata.lillemetropole.fr/explore/embed/dataset/disponibilite-parkings/map/?location=11,50.6677,3.12012&basemap=jawg.streets
+        // url =
+        //     'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=disponibilite-parkings&q=&facet=libelle&facet=ville&facet=etat'
         url =
-            'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=disponibilite-parkings&q=&facet=libelle&facet=ville&facet=etat'
-
+            'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille-realtime&q=&lang=fr&facet=libelle&facet=nom&facet=commune&facet=etat&facet=type&facet=etatconnexion'
         // new creation d'un objet XMLHttpRequest 
         const xhttp = new XMLHttpRequest();
 
@@ -45,13 +46,18 @@
 
 
             let chaine = '<table>';
-            for (parking of tableau) {
-                ville = parking.fields.ville;
-                nom = parking.fields.libelle;
-                place = parking.fields.dispo;
-                adresse = parking.fields.adresse;
-                console.log(ville + " " + nom + " (" + place + ")");
-                chaine += "<tr><td>" + nom + "</td><td>(" + place + ")</td><td>(" + adresse + ", " + ville +
+            for (vlille of tableau) {
+                ville = vlille.fields.commune;
+                adresse = vlille.fields.adresse;
+                nom = vlille.fields.nom;
+                dispo = vlille.fields.nbvelosdispo;
+                placemax = vlille.fields.nbplacesdispo;
+                service = vlille.fields.etat;
+
+                // console.log(ville + " " + nom + " (" + place + ")");
+                chaine += "<tr><td>" + nom + "   -   " + service + " </td><td>(" + dispo + "/" + placemax +
+                    ")</td><td>(" + adresse +
+                    ", " + ville +
                     ")</td></tr>";
 
             }

@@ -86,7 +86,6 @@
         getData("listGenres.php");
     }
 
-<<<<<<< HEAD
     function enregistreLivre() {
         sendData("Livre");
     }
@@ -94,16 +93,6 @@
     function enregistreAuteur() {
         sendData("Auteur");
     }
-=======
-</script>
-<input type="text" id="saisie" placeholder="saisie">
-<br>
-<button onclick="enregistreLivre()">LIVRE</button>
-<button onclick="enregistreAuteur()">AUTEUR</button>
-<button onclick="enregistreEmprunteur()">EMPRUNTEUR</button>
-<br>
-<br>
->>>>>>> origin/bibliox
 
     function enregistreEmprunteur() {
         sendData("Emprunteur");
@@ -124,13 +113,9 @@
     <button onclick="listAuteurs()">AUTEURS</button>
     <br>
 
-<<<<<<< HEAD
-
 
     <div id="aff"></div>
-=======
-<div  id="aff"></div>
->>>>>>> origin/bibliox
+    >>>>>>> origin/bibliox
 </body>
 
 </html>

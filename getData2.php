@@ -28,9 +28,10 @@
     <script>
     function getData() {
         //  https://opendata.lillemetropole.fr/explore/embed/dataset/disponibilite-parkings/map/?location=11,50.6677,3.12012&basemap=jawg.streets
+        // url =
+        //     'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=disponibilite-parkings&q=&facet=libelle&facet=ville&facet=etat'
         url =
-            'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=disponibilite-parkings&q=&facet=libelle&facet=ville&facet=etat'
-
+            'https://public.opendatasoft.com/api/records/1.0/search/?dataset=arome-0025-sp1_sp2&q='
         // new creation d'un objet XMLHttpRequest 
         const xhttp = new XMLHttpRequest();
 
@@ -45,14 +46,13 @@
 
 
             let chaine = '<table>';
-            for (parking of tableau) {
-                ville = parking.fields.ville;
-                nom = parking.fields.libelle;
-                place = parking.fields.dispo;
-                adresse = parking.fields.adresse;
-                console.log(ville + " " + nom + " (" + place + ")");
-                chaine += "<tr><td>" + nom + "</td><td>(" + place + ")</td><td>(" + adresse + ", " + ville +
-                    ")</td></tr>";
+            for (meteo of tableau) {
+                ville = records[0].fields["2_metre_temperature"]
+                adresse = meteo.fields["2_metre_temperature"]
+
+
+                // console.log(ville + " " + nom + " (" + place + ")");
+                chaine += "<tr><td>" + ville + "</td></tr>";
 
             }
             chaine += '</table>';
