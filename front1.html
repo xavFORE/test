@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function chercher()
+        {
+
+            // new creation d'un objet XMLHttpRequest 
+            const xhttp = new XMLHttpRequest();
+            
+            // je defini la fonction qui sera utilisé une fois les données chargées
+            xhttp.onload = function() 
+            {
+                let tableauData = JSON.parse( this.responseText );  
+
+                let chaine = "<table>"
+                for ( ligne of tableauData )
+                {
+                    let ligneAff = "<tr><td>"+ligne['nom']+"</td><td>"+ligne['auteur']+"</td></tr>"; 
+                    chaine += ligneAff;
+                }
+                chaine += "</table>";
+                console.log( chaine );
+                document.getElementById("affichage").innerHTML = chaine;
+  
+                chaine = "<select>";
+                for ( ligne of tableauData )
+                {
+                    let ligneAff = "<option>"+ligne['nom']+" ("+ligne['auteur']+")</option>"; 
+                    chaine += ligneAff;
+                }
+                chaine += "</select>";
+                console.log( chaine );
+                document.getElementById("combo").innerHTML = chaine;
+            }
+
+            // je prépare l'appel de l'URL
+            xhttp.open("GET", "donneData1.php");
+            // j'envoie l'url
+            xhttp.send();
+        }
+
+    </script>
+
+    <button onclick="chercher()">CHERCHER</button>
+    <br>    
+    <div id='affichage'></div>
+    <div id='combo'></div>
+    
+
+
+</body>
+</html>
+
+
+
