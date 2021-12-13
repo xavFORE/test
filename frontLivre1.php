@@ -26,8 +26,7 @@
 
 <body>
 <script>
-
-function getData( url )
+    function getData( url )
     {
         // new creation d'un objet XMLHttpRequest 
         const xhttp = new XMLHttpRequest();
@@ -47,6 +46,18 @@ function getData( url )
                 document.getElementById("aff").innerHTML = chaine;
         }
         // je prépare l'appel de l'URL
+        xhttp.open("GET", url );
+        // j'envoie l'url
+        xhttp.send();
+    } 
+
+    function sendData( url )
+    {
+        // new creation d'un objet XMLHttpRequest 
+        const xhttp = new XMLHttpRequest();
+        
+        // je prépare l'appel de l'URL
+        // enregistreLivre.php?nom=martine à la plage
         xhttp.open("GET", url );
         // j'envoie l'url
         xhttp.send();
@@ -74,20 +85,43 @@ function getData( url )
 
     function listAuteurs()
     {
-        getData( "listAuteurs.php");
+        getData( "livresDispos.php");
+    }
+
+    function enregistreLivre()
+    {
+        let nom = document.getElementById( "saisie").value;
+        let url = "enregistreLivre.php?nom="+encodeURIComponent(nom);
+        //console.log( url );
+        sendData( url );
+    }
+    function enregistreAuteur()
+    {
+        let nom = document.getElementById( "saisie").value;
+        let url = "enregistreAuteur.php?nom="+encodeURIComponent(nom);
+        //console.log( url );
+        sendData( url );
     }
 
 
-
-
 </script>
+<input type="text" id="saisie" placeholder="saisie">
+<br>
+<button onclick="enregistreLivre()">LIVRE</button>
+<button onclick="enregistreAuteur()">AUTEUR</button>
+<button onclick="enregistreEmprunteur()">EMPRUNTEUR</button>
+<br>
+<br>
+
 <button onclick="listEmprunteurs()">EMPRUNTEURS</button>
 <button onclick="listLivres()">LIVRES</button>
 <button onclick="listLivresSortis()">LIVRES SORTIS</button>
 <button onclick="listLivresDispos()">LIVRES DISPOS</button>
 <button onclick="listAuteurs()">AUTEURS</button>
-
 <br>
+
+
+
 <div  id="aff"></div>
 </body>
 </html>
