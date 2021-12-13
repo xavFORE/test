@@ -1,15 +1,15 @@
 <?php
 require_once "ressources.php";
-
-
 function query( $q )
 {
     GLOBAL $servername, $username, $password, $database;
     $mysqli = new mysqli($servername, $username, $password, $database);
-    return $mysqli->query( $q );
+   $res = $mysqli->query( $q );
     $mysqli->close();
-    return $res;
+    return $res ;
 }
+
+
 
 function comboBox(  $table, $query="", $visibleAdd=1  )
 {
@@ -71,6 +71,16 @@ function affTab( $tableau )
         print( "<br><br>");
 }
 
+function query2json( $query )
+{
+    $res = query( $query ); 
+    $tableauData = [];
+    while ( $ligne = $res->fetch_assoc())
+    { $ligne['nom']  = utf8_encode($ligne['nom']);
+        $tableauData[] = $ligne;
+    } 
+    print( json_encode( $tableauData ) );
+}
 
 
 
