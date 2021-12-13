@@ -7,7 +7,7 @@ function query( $q )
 {
     GLOBAL $servername, $username, $password, $database;
     $mysqli = new mysqli($servername, $username, $password, $database);
-    return $mysqli->query( $q );
+    $res= $mysqli->query( $q );
     $mysqli->close();
     return $res;
 }
@@ -78,8 +78,10 @@ function query2json( $query )
     $tableauData = [];
     while ( $ligne = $res->fetch_assoc())
     {
+        $ligne[ 'nom' ] = utf8_encode( $ligne['nom'] );
         $tableauData[] = $ligne;
     } 
+    //print_r($tableauData );
     print( json_encode( $tableauData ) );
 }
 
