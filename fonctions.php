@@ -6,7 +6,8 @@ function query( $q )
 {
     GLOBAL $servername, $username, $password, $database;
     $mysqli = new mysqli($servername, $username, $password, $database);
-    return $mysqli->query( $q );
+    $res = $mysqli->query( $q );
+    //print( $q );
     $mysqli->close();
     return $res;
 }
@@ -84,5 +85,3 @@ function query2json( $query )
 }
 
 ?>
-
-
