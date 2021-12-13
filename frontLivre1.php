@@ -83,10 +83,15 @@
         getData( "livresDispos.php");
     }
 
-    function listAuteurs()
+   
+        function enregistreAuteur()
     {
-        getData( "livresDispos.php");
+        let nom = document.getElementById( "saisie").value;
+        let url = "enregistreAuteur.php?nom="+encodeURIComponent(nom);
+        //console.log( url );
+        sendData( url );
     }
+ 
 
     function enregistreLivre()
     {
