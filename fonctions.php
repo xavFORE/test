@@ -4,12 +4,8 @@ function query( $q )
 {
     GLOBAL $servername, $username, $password, $database;
     $mysqli = new mysqli($servername, $username, $password, $database);
-<<<<<<< HEAD
-   $res = $mysqli->query( $q );
-=======
     $res = $mysqli->query( $q );
     //print( $q );
->>>>>>> origin/bibliox
     $mysqli->close();
     return $res ;
 }
@@ -81,23 +77,17 @@ function query2json( $query )
     $res = query( $query ); 
     $tableauData = [];
     while ( $ligne = $res->fetch_assoc())
-<<<<<<< HEAD
-    { $ligne['nom']  = utf8_encode($ligne['nom']);
-=======
     {
-        //$ligne[ 'nom' ] = utf8_encode( $ligne[ 'nom' ] );
->>>>>>> origin/bibliox
+        $ligne[ 'nom' ] = utf8_encode( $ligne[ 'nom' ] );
         $tableauData[] = $ligne;
     } 
     print( json_encode( $tableauData ) );
 }
-
-<<<<<<< HEAD
-
-
+function query3json($table,$nom)
+{
+    
+    $nom = $_GET[ 'nom' ];
+    $nom = urldecode( $nom );
+    query( "insert into $table (nom) values ( '$nom' );" );
+}
 ?>
-
-
-=======
-?>
->>>>>>> origin/bibliox
