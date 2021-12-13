@@ -127,8 +127,6 @@
 <button onclick="listAuteurs()">AUTEURS</button>
 <br>
 
-
-
 <div  id="aff"></div>
 </body>
 </html>
