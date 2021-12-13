@@ -7,12 +7,8 @@ function query( $q )
 {
     GLOBAL $servername, $username, $password, $database;
     $mysqli = new mysqli($servername, $username, $password, $database);
-<<<<<<< HEAD
-    $res= $mysqli->query( $q );
-=======
     $res = $mysqli->query( $q );
     //print( $q );
->>>>>>> origin/biblioX
     $mysqli->close();
     return $res;
 }

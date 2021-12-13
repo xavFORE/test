@@ -95,7 +95,20 @@
         //console.log( url );
         sendData( url );
     }
-
+    function enregistreAuteur()
+    {
+        let nom = document.getElementById( "saisie").value;
+        let url = "enregistreAuteur.php?nom="+encodeURIComponent(nom);
+        //console.log( url );
+        sendData( url );
+    }
+    function enregistreEmprunteur()
+    {
+        let nom = document.getElementById( "saisie").value;
+        let url = "enregistreEmprunteur.php?nom="+encodeURIComponent(nom);
+        //console.log( url );
+        sendData( url );
+    }
 
 </script>
 <input type="text" id="saisie" placeholder="saisie">
@@ -111,10 +124,6 @@
 <button onclick="listLivresSortis()">LIVRES SORTIS</button>
 <button onclick="listLivresDispos()">LIVRES DISPOS</button>
 <button onclick="listAuteurs()">AUTEURS</button>
-<<<<<<< HEAD
-<button onclick="listGenres()">GENRES</button>
-=======
->>>>>>> origin/biblioX
 <br>
 
 
