@@ -92,10 +92,20 @@
     {
         let nom = document.getElementById( "saisie").value;
         let url = "enregistreLivre.php?nom="+encodeURIComponent(nom);
-        //console.log( url );
         sendData( url );
     }
-
+    function enregistreAuteur()
+    {
+        let auteur = document.getElementById( "saisie").value;
+        let url = "enregistreAuteur.php?nom="+encodeURIComponent(auteur);
+        sendData( url );
+    }
+    function enregistreEmprunteur()
+    {
+        let emprunteur = document.getElementById( "saisie").value;
+        let url = "enregistreEmprunteur.php?nom="+encodeURIComponent(emprunteur);
+        sendData( url );
+    }
 
 </script>
 <input type="text" id="saisie" placeholder="saisie">
