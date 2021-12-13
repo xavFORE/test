@@ -94,6 +94,7 @@
         let url = "enregistreLivre.php?nom="+encodeURIComponent(nom);
         sendData( url );
     }
+<<<<<<< HEAD
     function enregistreAuteur()
     {
         let auteur = document.getElementById( "saisie").value;
@@ -106,6 +107,8 @@
         let url = "enregistreEmprunteur.php?nom="+encodeURIComponent(emprunteur);
         sendData( url );
     }
+=======
+>>>>>>> origin/biblioX
 
 </script>
 <input type="text" id="saisie" placeholder="saisie">
@@ -122,8 +125,6 @@
 <button onclick="listLivresDispos()">LIVRES DISPOS</button>
 <button onclick="listAuteurs()">AUTEURS</button>
 <br>
-
-
 
 <div  id="aff"></div>
 </body>
