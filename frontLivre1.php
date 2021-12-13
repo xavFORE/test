@@ -103,7 +103,6 @@
         sendData( url );
     }
 
-
 </script>
 <input type="text" id="saisie" placeholder="saisie">
 <br>
@@ -119,8 +118,6 @@
 <button onclick="listLivresDispos()">LIVRES DISPOS</button>
 <button onclick="listAuteurs()">AUTEURS</button>
 <br>
-
-
 
 <div  id="aff"></div>
 </body>
