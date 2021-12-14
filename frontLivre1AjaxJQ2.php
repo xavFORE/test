@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style>
+    <script src="fonctions.js"></script>
+  <style>
         .aff 
         {
             color:red;
@@ -80,9 +81,11 @@
     {
         if($('#saisie').val() != "")
         {
-            $.post("enregistreLivre.php",
+            $.post("enregistreLivrePost.php",
                 {
-                    'nom' : $('#saisie').val()
+                    'livre' : $('#saisie').val(),
+                    'auteur' : $('#auteurs').val(),
+                    'genre' : $('#genres').val()
                 },
                 function(data,status)
                 {}
@@ -93,7 +96,14 @@
     }
 </script>
 <input type="text" id="saisie" placeholder="saisie">
-<br>
+<?php
+    require_once "ressources.php";
+    require_once "fonctions.php";
+    
+    comboBox(  "auteurs", $query="", $visibleAdd=1  );
+    comboBox(  "genres", $query="", $visibleAdd=1  );
+?>
+<br><br>
 <!-- https://www.w3schools.com/jquery/jquery_ajax_get_post.asp -->
 <button onclick="addLivre()">ADD LIVRE</button>
 <br>
