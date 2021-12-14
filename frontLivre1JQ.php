@@ -15,93 +15,62 @@
             background-color: gray;
             border: 2px solid red;
         }
-        .list 
+        .red 
         {
             color:red;
-            font-size: 10px;
+            font-size: 40px;
             background-color: gray;
             border: 2px solid red;
         }
     </style>
 </head>
 
-<body>
+<body >
 <script>
-    function getData( url )
-    {
-        // new creation d'un objet XMLHttpRequest 
-        const xhttp = new XMLHttpRequest();
-        
-        // je defini la fonction qui sera utilisé une fois les données chargées
-        xhttp.onload = function() 
+    $( document ).ready(
+        function() 
         {
-                //console.log( this.responseText );
-                let tableauData = JSON.parse( this.responseText );  
-                let chaine = "<table>";
-                for ( ligne of tableauData )
-                {
-                    chaine += "<tr><td>"+ligne['nom']+"</td></tr>";;
-                }
-                chaine += "</table>";
-                //console.log( chaine );
-                document.getElementById("aff").innerHTML = chaine;
-        }
-        // je prépare l'appel de l'URL
-        xhttp.open("GET", url );
-        // j'envoie l'url
-        xhttp.send();
-    } 
+            $("#aff3").hide();
+        });
 
-
-    function listEmprunteurs()
+    function test()
     {
-        getData("listEmprunteurs.php");
+        $(".red").
+        text( "hello Coco").
+        animate(
+            {
+                opacity: 0.25,
+                top: "+=50",
+                height: "toggle"
+            }, 
+            5000, 
+            function() 
+            {
+                $("#aff2").text( "fin !");
+            }
+          );
     }
 
-    function listLivres()
+    function disparait()
     {
-        getData("listLivres.php");
-    }
-
-    function listLivresSortis()
-    {
-        getData("livresSortis.php");
-    }
-
-    function listLivresDispos()
-    {
-        getData( "livresDispos.php");
-    }
-
-    function listAuteurs()
-    {
-        getData( "livresDispos.php");
-    }
-
-    function enregistreLivre()
-    {
-        let nom = document.getElementById( "saisie").value;
-        let url = "enregistreLivre.php?nom="+encodeURIComponent(nom);
-        //console.log( url );
-        sendData( url );
+        $("#aff3").toggle();
     }
 
 </script>
-<input type="text" id="saisie" placeholder="saisie">
-<br>
-<button onclick="enregistreLivre()">LIVRE</button>
-<button onclick="enregistreAuteur()">AUTEUR</button>
-<button onclick="enregistreEmprunteur()">EMPRUNTEUR</button>
-<br>
+<button onclick="test()">test</button>
 <br>
 
-<button onclick="listEmprunteurs()">EMPRUNTEURS</button>
-<button onclick="listLivres()">LIVRES</button>
-<button onclick="listLivresSortis()">LIVRES SORTIS</button>
-<button onclick="listLivresDispos()">LIVRES DISPOS</button>
-<button onclick="listAuteurs()">AUTEURS</button>
+<div class="red" id="aff1"></div>
 <br>
+<div id="aff2"></div>
+<br>
+<button onclick="disparait()">ident</button>
+<br>
+<br>
+<div class="red" id="aff3">
+<input type="text" placeholder="login">
+<input type="text" placeholder="password">
+</div>
 
-<div  id="aff"></div>
 </body>
 </html>
