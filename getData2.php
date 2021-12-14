@@ -14,7 +14,6 @@
             background-color: gray;
             border: 2px solid red;
         }
-
         .list 
         {
             color:red;
@@ -30,10 +29,7 @@
     function getData( )
     {
         //  https://opendata.lillemetropole.fr/explore/embed/dataset/disponibilite-parkings/map/?location=11,50.6677,3.12012&basemap=jawg.streets
-        // url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=disponibilite-parkings&q=&facet=libelle&facet=ville&facet=etat'
-        // url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille-realtime&q=&lang=fr&facet=libelle&facet=nom&facet=commune&facet=etat&facet=type&facet=etatconnexion';
-        // url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=previsions-meteo-france-metropole&q=';
-        url = 'https://imdb-api.com/en/API/MostPopularMovies/k_z77iskfw';
+url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille-realtime&q=&lang=fr&facet=libelle&facet=nom&facet=commune&facet=etat&facet=type&facet=etatconnexion'
         // new creation d'un objet XMLHttpRequest 
         const xhttp = new XMLHttpRequest();
         
@@ -45,26 +41,17 @@
 
                 console.log( receivedData );
 
-                tableau = receivedData.items;
-                css = " style='border:solid black;'";
+                tableau = receivedData.records;
 
-                let chaine = '<table' + css + '>';
+
+                let chaine = '<table>';
                 for( parking of tableau )
                 {
-                    // ville = parking.fields.commune;
-                    // nom =  parking.fields.nom;
-                    // place =  parking.fields.nbplacesdispo;
-                    // adresse = parking.fields.adresse;
-                    // hm = parking.fields.relative_humidity;
-                    // w = parking.fields.wind_speed;
-                    // j = parking.fields['2_metre_temperature'];
-                    p = parking.image;
-                    t = parking.fullTitle;
-                    n = parking.imDbRating;
-
-                    chaine += "<tr><td><img src='"+ p +"'/></td><td>"+t+"</td><td>Note /10 : "+n+"</td></tr>";
-                    // console.log( ville + " " + nom + " " + adresse + " (" + place + ")" );
-                    // chaine += "<tr><td" + css + ">" + hm + "</td><td" + css + ">" + w + "</td><td" + css + ">" + j + "</td></tr>";
+                    ville = parking.fields.ville;
+                    nom =  parking.fields.libelle;
+                    place =  parking.fields.dispo;
+                    console.log( ville + " " + nom  + " (" +place+")"   );
+                    chaine += "<tr><td>"+nom + "</td><td>(" +place+")</td></tr>";
                 }
                 chaine += '</table>';   
                 document.getElementById("aff").innerHTML = chaine;
