@@ -45,6 +45,24 @@
             }   
         );
     }
+    function listLivres()
+    {
+        $.get(
+            // premier param URL qui fournit les données
+            "listLivres.php",
+            // deuxieme param fonction callBack qui traite les données 
+            function( data, status )
+            {
+                    let tableau = JSON.parse( data );
+                    console.log( tableau ); 
+                    let chaine = "<table>";
+                    for ( ligne of tableau )
+                        chaine += "<tr><td>"+ligne['nom']+"</td></tr>";;
+                    chaine += "</table>";
+                    $( "#aff" ).append( chaine );
+            }   
+        );
+    }
 
 </script>
 <button onclick="listEmprunteurs()">EMPRUNTEURS</button>
