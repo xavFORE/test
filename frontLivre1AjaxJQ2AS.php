@@ -44,13 +44,37 @@
                 }
             );
         }
+
+        function addLivre() {
+            let nom = $("#saisie").val();
+            
+            console.log(nom);
+            $.post("addLivrePostAS.php", {
+                    name: nom
+                },
+                function(data, status) {
+                    alert("Data: " + data + "\nStatus: " + status);
+                });
+            
+        };
     </script>
+    <input type="text" id="saisie" placeholder="saisie">
+    <br>
+    <!-- https://www.w3schools.com/jquery/jquery_ajax_get_post.asp -->
+    <button onclick="addLivre()">ADD LIVRE</button>
+    <br>
+    <br>
+    <br>
+
+
     <button onclick="list('listEmprunteurs.php')">EMPRUNTEURS</button>
     <button onclick="list('listLivres.php')">LIVRES</button>
     <button onclick="list('livresSortis.php')">LIVRES SORTIS</button>
     <button onclick="list('livresDispos.php')">LIVRES DISPOS</button>
     <button onclick="list('listAuteurs.php')">AUTEURS</button>
     <br>
+
+
     <div id="aff"></div>
 </body>
 
