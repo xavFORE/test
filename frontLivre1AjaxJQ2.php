@@ -63,6 +63,18 @@
             }   
         );
     }
+    function addLivre()
+    {
+        let titre = $("#saisie").val();
+        console.log(titre);
+        $.post("addLivrePost.php",
+        {
+            titrePost: titre  
+        },
+        function(data, status){
+     
+        });
+    }
 
 </script>
 <input type="text" id="saisie" placeholder="saisie">
