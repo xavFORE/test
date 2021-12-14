@@ -75,11 +75,12 @@ function affTab( $tableau )
 
 function query2json( $query )
 {
+    
     $res = query( $query ); 
     $tableauData = [];
     while ( $ligne = $res->fetch_assoc())
     {
-        //$ligne[ 'nom' ] = utf8_encode( $ligne[ 'nom' ] );
+        $ligne[ 'nom' ] = utf8_encode( $ligne[ 'nom' ] );
         $tableauData[] = $ligne;
     } 
     //print_r($tableauData );
