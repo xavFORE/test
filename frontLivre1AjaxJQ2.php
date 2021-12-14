@@ -75,12 +75,30 @@
     {
         sendData("listAuteurs.php");
     }
-</script>
 
-<input type="text" placeholder="ajouter un livre">
-<br><br>
+    function addLivre()
+    {
+        if($('#saisie').val() != "")
+        {
+            $.post("enregistreLivre.php",
+                {
+                    'nom' : $('#saisie').val()
+                },
+                function(data,status)
+                {}
+            );
+        }
+        else
+            alert("Champ vide !!!");
+    }
+</script>
+<input type="text" id="saisie" placeholder="saisie">
+<br>
+<!-- https://www.w3schools.com/jquery/jquery_ajax_get_post.asp -->
 <button onclick="addLivre()">ADD LIVRE</button>
-<br><br><br>
+<br>
+<br>
+<br>
 
 <button onclick="listEmprunteurs()">EMPRUNTEURS</button>
 <button onclick="listLivres()">LIVRES</button>
