@@ -21,6 +21,11 @@
             background-color: gray;
             border: 2px solid red;
         }
+        img 
+        {
+            height: 300px;
+            width: 200px;
+        }
     </style>
 </head>
 
@@ -28,9 +33,7 @@
 <script>
     function getData( )
     {
-        //  https://opendata.lillemetropole.fr/explore/embed/dataset/disponibilite-parkings/map/?location=11,50.6677,3.12012&basemap=jawg.streets
-//url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=disponibilite-parkings&q=&facet=libelle&facet=ville&facet=etat'
-url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille-realtime&q=&lang=fr&facet=libelle&facet=nom&facet=commune&facet=etat&facet=type&facet=etatconnexion'
+        url = 'https://imdb-api.com/en/API/Posters/k_9e5xbgg3/tt137566/name/?name=funes'
         // new creation d'un objet XMLHttpRequest 
         const xhttp = new XMLHttpRequest();
         
@@ -42,19 +45,17 @@ url = 'https://opendata.lillemetropole.fr/api/records/1.0/search/?dataset=vlille
 
                 console.log( receivedData );
 
-                records = receivedData.records;
+                fullTitle = receivedData.fullTitle;
+                posters = receivedData.posters;
 
-
+                
                 let chaine = '<table>';
-                for( record of records )
-                {
-
-                    commune = record.fields.commune;
-                    nbplacesdispo = record.fields.nbplacesdispo;
-                    nbvelosdispo =  record.fields.nbvelosdispo;
-                    console.log(commune + " " + nbplacesdispo + " (" +nbvelosdispo+")");
-                    chaine += "<tr><td>"+commune + "</td><td>(" +nbvelosdispo+")</td></td><td>(" +nbplacesdispo+")</td></tr>";
-                }
+                poster = posters[0];
+                    height = poster.height;
+                    width = poster.width;
+                    link = poster.link;
+                    console.log( link  );
+                    chaine += "<img src='"+link+"'>";
                 chaine += '</table>';   
                 document.getElementById("aff").innerHTML = chaine;
         }

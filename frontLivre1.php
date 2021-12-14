@@ -36,12 +36,12 @@
         {
                 //console.log( this.responseText );
                 let tableauData = JSON.parse( this.responseText );  
-                let chaine = "<table>";
-                for ( ligne of tableauData )
-                {
-                    chaine += "<tr><td>"+ligne['nom']+"</td></tr>";;
-                }
-                chaine += "</table>";
+                    let chaine = "<table>";
+                    for ( ligne of tableauData )
+                    {
+                        chaine += "<tr><td>"+ligne['nom']+"</td></tr>";;
+                    }
+                    chaine += "</table>";
                 //console.log( chaine );
                 document.getElementById("aff").innerHTML = chaine;
         }
