@@ -17,7 +17,7 @@ function comboBox(  $table, $query="", $visibleAdd=1  )
 {
     GLOBAL $servername, $username, $password, $database;
 
-    print( "<select name='$table'>\n");
+    print( "<select name='$table' id='$table'>\n");
     $mysqli = new mysqli($servername, $username, $password, $database);
     if ( $query == "")
         $query  = "select * from $table;";

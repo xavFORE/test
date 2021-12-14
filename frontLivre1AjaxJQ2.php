@@ -32,6 +32,8 @@
     function addLivre()
     {
         let nom = $( "#saisie" ).val();
+        let idAuteur = $( "#saisie" ).val();
+        let idgenre = $( "#saisie" ).val();
 
         $.post(
             "addLivrePost.php",
@@ -144,10 +146,6 @@
     
     
 
-<<<<<<< HEAD
-  
-   
-=======
     function listLivres()
     {
         $.get(
@@ -167,7 +165,6 @@
         );
     }
 
->>>>>>> origin/ajaxX
 </script>
 <input type="text" id="saisie" placeholder="saisie">
 <?php
@@ -175,6 +172,8 @@
     require_once "fonctions.php";
     
     comboBox(  "auteurs", $query="", $visibleAdd=1  );
+    comboBox(  "livres", $query="", $visibleAdd=1  );
+    comboBox(  "livres",  "auteurs" ,$query="", $visibleAdd=""  );
 ?>
 <br>
 <!-- https://www.w3schools.com/jquery/jquery_ajax_get_post.asp -->
