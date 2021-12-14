@@ -172,8 +172,7 @@
     require_once "fonctions.php";
     
     comboBox(  "auteurs", $query="", $visibleAdd=1  );
-    comboBox(  "livres", $query="", $visibleAdd=1  );
-    comboBox(  "livres",  "auteurs" ,$query="", $visibleAdd=""  );
+    comboBox(  "genres", $query="", $visibleAdd=1  );
 ?>
 <br>
 <!-- https://www.w3schools.com/jquery/jquery_ajax_get_post.asp -->
