@@ -69,6 +69,22 @@
         );
     }
 
+    function addLivre()
+    {
+            
+             
+            $.post("addLivre.php",
+                {
+                    
+                   $titre = $( "#saisie" ).val( data )
+                },
+                
+             function(data, status)
+             {
+                alert("Data: " + data + "\nStatus: " + status)
+             });
+              console.log($titre);
+    }
 </script>
 <input type="text" id="saisie" placeholder="saisie">
 <br>
