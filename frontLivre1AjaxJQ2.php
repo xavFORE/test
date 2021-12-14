@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style>
+    <script src="fonctions.js"></script>
+  <style>
         .aff 
         {
             color:red;
@@ -27,6 +28,23 @@
 
 <body>
 <script>
+
+    function addLivre()
+    {
+        let nom = $( "#saisie" ).val();
+
+        $.post(
+            "addLivrePost.php",
+            {
+                titre : nom 
+            },
+            function(data, status)
+            {
+                
+            }
+        );
+    }
+
     function listEmprunteurs()
     {
         $.get(
@@ -46,8 +64,33 @@
         );
     }
 
+    function listLivres()
+    {
+        $.get(
+            // premier param URL qui fournit les données
+            "listLivres.php",
+            // deuxieme param fonction callBack qui traite les données 
+            function( data, status )
+            {
+                    let tableau = JSON.parse( data );
+                    console.log( tableau ); 
+                    let chaine = "<table>";
+                    for ( ligne of tableau )
+                        chaine += "<tr><td>"+ligne['nom']+"</td></tr>";;
+                    chaine += "</table>";
+                    $( "#aff" ).append( chaine );
+            }   
+        );
+    }
+
 </script>
 <input type="text" id="saisie" placeholder="saisie">
+<?php
+    require_once "ressources.php";
+    require_once "fonctions.php";
+    
+    comboBox(  "auteurs", $query="", $visibleAdd=1  );
+?>
 <br>
 <!-- https://www.w3schools.com/jquery/jquery_ajax_get_post.asp -->
 <button onclick="addLivre()">ADD LIVRE</button>
