@@ -103,7 +103,19 @@
         );
     }
 
+    function addLivre()
+    {
+        let nom = $("#saisie").val();
+
+        s.post("addLivrePost.php",
+        {
+
+        })
+    }
+
+
 </script>
+
 <input type="text" id="saisie" placeholder="saisie">
 <br>
 <!-- https://www.w3schools.com/jquery/jquery_ajax_get_post.asp -->
