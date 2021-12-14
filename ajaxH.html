@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+
+        div
+        {
+            height: 30px;
+            font-size: 30px;
+            margin: 4px;
+            padding: 5px;
+            text-align: center;
+            color: white;
+            border: solid 1px #666;
+            width: 90%;
+            
+        }
+
+        #affichage1
+        {
+            color:  rgb(177, 39, 39);
+        }
+
+        #affichage2
+        {
+            color:  rgb(44, 83, 43);
+            
+        }
+        #affichage3
+        {
+            color:  rgb(39, 63, 38);
+        }
+        .maDiv
+        {
+            background-color: rgb(74, 138, 98);
+            
+        }
+
+        .taDiv
+        {
+            background-color: pink;
+
+        }
+
+    </style>
+
+
+</head>
+<body>
+<script>
+
+    function JA()
+    {
+                $( "#affichage3" ).text( "joyeux anniversaire" );
+                $( "#affichage4" ).text( "HANANE" );
+                $("#affichage4").css("color", "red").slideUp(2000).slideDown(2000);
+
+    }
+    
+    function klickj()
+    {
+        $( ".maDiv" ).text( "joyeux anniversaire" );
+        JA();
+        $("div").animate({
+        height: '+=50px',
+        width: '+=50px'
+
+    });
+    }
+
+    function cache()
+    {
+        $( ".taDiv" ).toggle();
+    }
+
+    function effet()
+    {
+        /*
+        var p = $(".maDiv").css("background-color", "yellow");
+        p.hide(1500).show(1500);
+        p.queue( function() {
+        p.css("background-color", "red");
+        });
+        */
+        //$( ".maDiv" ).hide(500).show(500);
+        
+        //$(".maDiv").animate({fontSize: '50px'}, "slow").animate({fontSize: '30px'}, "slow");
+       
+        
+        $( ".maDiv" ).animate
+        (
+            {
+                opacity: '0.5',
+            },
+            1500,
+            // fonction callback
+            JA
+        );
+    }
+
+</script>
+
+<button onclick="klickj()">JA</button>
+<button onclick="cache()">cache</button>
+<button onclick="effet()">effet</button>
+<br>
+<div class="maDiv" id="affichage1"></div>
+<div class="maDiv" id="affichage2"></div>
+<div class="taDiv" id="affichage3"></div>
+<div class="taDiv" id="affichage4"></div>
+
+</body>
+</html>
