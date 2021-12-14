@@ -90,6 +90,7 @@
     require_once "fonctions.php";
     
     comboBox(  "auteurs", $query="", $visibleAdd=1  );
+    comboBox(  "genres", $query="", $visibleAdd=1  );
 ?>
 <br>
 <!-- https://www.w3schools.com/jquery/jquery_ajax_get_post.asp -->
