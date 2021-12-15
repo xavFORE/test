@@ -16,6 +16,7 @@ require_once "fonctions.php";
         $ligne = $tab[0];
         $nom        = $ligne[ 'nom' ];
         $dateNaiss  = $ligne[ 'dateNaiss' ];
+        
 
         $dict[ 'list' ] = $tab;
         $dict[ 'nom' ] = $nom;
