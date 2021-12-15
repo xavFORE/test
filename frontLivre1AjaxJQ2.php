@@ -45,14 +45,19 @@
         );
     }
 
-    function addAuteurs()
+    function addLivre()
     {
         let nom = $( "#saisie" ).val();
+        let auteur = $( "#auteurs" ).val();
+        let genre = $( "#genres" ).val();
 
         $.post(
             "addLivrePost.php",
+            
             {
-                titre : nom 
+                titre : nom, 
+                auteur : auteur,
+                genre : genre
             },
             function(data, status)
             {
@@ -109,9 +114,7 @@
     require_once "fonctions.php";
     
     comboBox(  "auteurs", $query="", $visibleAdd=1  );
-
-
-    comboBox(  "genre", $query="", $visibleAdd=1  );
+    comboBox(  "genres", $query="", $visibleAdd=1  );
 ?>
 <br>
 <!-- https://www.w3schools.com/jquery/jquery_ajax_get_post.asp -->

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax test </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <input type="text" id="saisie" placeholder="saisir texte">
+    <input type="number" id="idNumber" >
+    <input type="password" id="idPw" placeholder="saisir texte">
+    <label for="points">Points :</label>
+    <input type="range" id="idRange" max="10" min="1">
+    
+
+
+    <button onclick="doClick()">OK</button>
+    <br>
+    <div id="affjs"></div>
+    <br>
+    <div id="affjq"></div>
+    <br>
+    <div class="myDiv"></div>
+
+    <script>
+        function doClick(){
+            let prenom = document.getElementById("saisie").value;
+            document.getElementById("affjs").innerHTML="joyeux noel "+ prenom;
+
+                prenom=$("#saisie").val();
+             $('#affjq').text("joyeux noel " + prenom);
+
+         
+        }
+
+    </script>
+
+</body>
+</html>
