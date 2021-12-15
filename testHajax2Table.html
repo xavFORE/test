@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testHajax2</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<script>
+        function affDataTableau(data, status) 
+        {
+                console.log(data);
+                let prenoms = JSON.parse(data); 
+
+                console.log(prenoms);
+                let chaine = "<table>";
+
+                for (prenom of prenoms) 
+                    {
+                    chaine +=  "<tr><td>" + prenom + "</td></tr>";
+
+                    }
+
+                console.log(chaine);
+
+                chaine += "</table>";
+
+                $("#liste").append(chaine);
+
+        }
+        function doClick()
+        {
+            $.get("sourceData2.php",
+            affDataTableau
+            );
+        }
+
+
+</script>
+
+        <button onclick="doClick()">OK</button>
+          <br>
+        <div id="liste"></div>
+
+
+</body>
+</html>

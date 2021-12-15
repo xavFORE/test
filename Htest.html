@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Htest</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<script>
+
+        function doClick()
+        {
+
+            //javascript
+        let prenom = document.getElementById("saisie").value;
+        document.getElementById("affJS").innerHTML="JS : joyeux";
+           // jquery
+        prenom = $("#saisie").val();
+        $("#affJQ").text("JQ : joyeux noel "+prenom);
+
+        }
+
+
+</script>
+
+
+<input type="text" id="saisie" placeholder="saisir texte">
+<!--<input type="number">
+<input type="password" placeholder="saisir pw">
+<input type="range" max="10" min="-10">-->
+        <br>
+        <button onclick="doClick()">OK</button>
+          <br>
+        <div id="affJS"></div>
+          <br>
+        <div id="affJQ"></div>
+
+
+</body>
+</html>
