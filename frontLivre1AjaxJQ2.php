@@ -32,11 +32,15 @@
     function addLivre()
     {
         let nom = $( "#saisie" ).val();
+        let ida = $( "#auteurs" ).val();
+        let idg = $( "#genres" ).val();
 
         $.post(
             "addLivrePost.php",
             {
-                titre : nom 
+                titre : nom,
+                idAuteur : ida, 
+                idGenre : idg 
             },
             function(data, status)
             {
