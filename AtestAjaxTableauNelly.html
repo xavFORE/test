@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function affDataTableau(data, status)
+      {
+        console.log(data);
+
+        let tableauPrenom = JSON.parse(data);
+        console.log(tableauPrenom);
+
+        let chaineTableau = "<table>";
+            for(prenom of tableauPrenom)
+            
+                chaineTableau += "<tr><td>"+prenom+"</td></tr>";
+                chaineTableau += "</table>";
+                //console.log(chaineTableau);
+            
+
+        $("#liste").append(chaineTableau);
+      }
+      function doClick()
+      {
+        $.get("sourceData2N.php", affDataTableau);
+      }
+    </script>
+
+    <button onclick="doClick()">OK</button>
+    <br />
+
+    <div id="liste"></div>
+  </body>
+</html>

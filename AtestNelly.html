@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function doClick() {
+
+        let prenom;
+
+        // javascript
+        prenom = document.getElementById("saisie").value;
+        document.getElementById("affJS").innerHTML = "joyeux noel "+prenom;
+
+
+        // jquery
+        prenom = $("#saisie").val();
+        $( "#affJQ" ).text("JOYEUX NOEL "+prenom);
+      }
+    </script>
+
+    <input type="text" id="saisie" placeholder="saisir le texte">
+    <button onclick="doClick()">OK</button>
+    <br />
+
+    <div id="affJS"></div>
+    <br>
+    <div class="myDiv" id="affJQ"></div>
+    <br>
+    <div class="myDiv" id="affJQ"></div>
+
+    
+  </body>
+</html>

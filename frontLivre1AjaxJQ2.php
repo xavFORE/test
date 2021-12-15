@@ -32,13 +32,19 @@
     function addLivre()
     {
         let nom = $( "#saisie" ).val();
-        let idAuteur = $( "#auteurs" ).val();
-        let idGenre = $( "#genres" ).val();
+        let ida = $( "#auteurs" ).val();
+        let idg = $( "#genres" ).val();
+
+        console.log(nom);
+        console.log(ida);
+        console.log(idg);
 
         $.post(
             "addLivrePost.php",
             {
-                titre : nom 
+                titre : nom,
+                idAuteur : ida,
+                idGenre : idg
             },
             function(data, status)
             {
@@ -83,18 +89,7 @@
             }   
         );
     }
-    function addLivre()
-    {
-        let titre = $("#saisie").val();
-        console.log(titre);
-        $.post("addLivrePost.php",
-        {
-            titrePost: titre  
-        },
-        function(data, status){
-     
-        });
-    }
+   
 
     function listLivres()
     {
