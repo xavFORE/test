@@ -34,7 +34,7 @@
         {
             console.log(this.responseText );
             let dict =  JSON.parse(  this.responseText );
-            document.getElementById("affiche1").innerHTML = dict[ 'nom' ];
+            document.getElementById("affiche1").innerHTML = dict[ 'nom' ] ;
             document.getElementById("affiche2").innerHTML = dict[ 'dateNaiss' ];
             document.getElementById("list").innerHTML ='';
             for ( let ligne of dict['list']) 
