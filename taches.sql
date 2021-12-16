@@ -11,7 +11,7 @@ create table taches (
     dateCreation date,
     dateLimit date,
     dateFinie date
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 insert into taches ( titre, description, status, priorite, dateCreation, dateLimit, dateFinie ) 
 values( "Courses", "Acheter des légumes", 1, 0, "2021-12-16", "2021-12-18", NULL );

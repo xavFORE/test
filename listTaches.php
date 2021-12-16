@@ -8,38 +8,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="fonctions.js"></script>
     <link rel="stylesheet" href="fonctions.css">
-    <script>
-        $.(document).ready(function()
-                        {
-                            $.get("listTachesBack.php",
-                                function( data, status )
-                                {
-                                    let tableau = JSON.parse( data );
-                                    console.log( tableau ); 
-                                    let chaine = "<table>";
-                                    for ( ligne of tableau )
-                                        chaine += "<tr><td>"+ligne['nom']+"</td></tr>";;
-                                    chaine += "</table>";
-                                    $( "#aff" ).append( chaine );
-                                }
-                            );
-                        });
-
-        function dateTri()
-        {
-           
-        }
-
-        function prioriteTri()
-        {
-
-        }
-
-        function statusTri()
-        {
-
-        }
-    </script>
 </head>
 
 <body>
@@ -47,12 +15,8 @@
     <button onclick="prioriteTri()">Trier par priorité</button>
     <button onclick="statusTri()">Trier par statut</button>
 
-    <div id="list">
-        <div id="title">TITRE</div>
-        <div id="edit">MODIFIER</div>
-        <div id="delete">SUPPRIMER</div>
-    </div>
+    <div id="list"></div>
 
-    <button>Ajouter</button>
+    <button onclick="addTache()">Ajouter</button>
 </body>
 </html>

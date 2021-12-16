@@ -1,5 +1,5 @@
 ```
-create database todolist;
+create database todolist CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 use todolist;
 
@@ -14,7 +14,7 @@ create table users (
     login varchar(30),
     pw varchar(256),
     role int default 0
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 insert into users ( login, pw, role ) values( "Remi", "remi", 0 );
 insert into users ( login, pw, role ) values( "Nelly", "nelly", 0 );
