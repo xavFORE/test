@@ -23,3 +23,7 @@ values( "Apéro", "Aller voir les amis", 1, 1, "2021-12-16", "2021-12-19", NULL 
 -- status => soit 0 (en cours) ou 1 (finis); 
 -- dateCreation => now(); 
 -- priorite => 1 (urgent), 2(Important), 3(pas Important); 
+
+-- select * from taches where id= $id; 
+
+-- update taches set titre='$titre', description='$description', priorite=$priorite, dateLimit='$dateLimit' where id= $id; 
