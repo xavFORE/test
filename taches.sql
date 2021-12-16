@@ -11,7 +11,7 @@ create table taches (
     dateCreation date,
     dateLimit date,
     dateFinie date
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 insert into taches ( titre, description, status, priorite, dateCreation, dateLimit, dateFinie ) 
 values( "Courses", "Acheter des légumes", 1, 0, "2021-12-16", "2021-12-18", NULL );
@@ -22,7 +22,7 @@ values( "Apéro", "Aller voir les amis", 1, 1, "2021-12-16", "2021-12-19", NULL 
 ```
 -- status => soit 0 (en cours) ou 1 (finis); 
 -- dateCreation => now(); 
--- priorite => 1 (urgent), 2(Important), 3(pas Important); 
+-- priorite => 1 (urgent), 2(Important), 3(normal); 
 
 -- select * from taches where id= $id; 
 

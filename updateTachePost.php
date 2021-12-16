@@ -2,6 +2,8 @@
     require_once "ressources.php";
     require_once "fonctions.php";
 
+    
+
     $titre = $_POST['titre'];
     $description = $_POST['description']; 
     $priorite = $_POST['priorite'];
