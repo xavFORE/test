@@ -1,13 +1,7 @@
 <?php
     require_once "ressources.php";
     require_once "fonctions.php";
-<<<<<<< HEAD
     $id = $_POST['id'];
-=======
-
-    
-
->>>>>>> origin/todoRNMB
     $titre = $_POST['titre'];
     $description = $_POST['description']; 
     $priorite = $_POST['priorite'];

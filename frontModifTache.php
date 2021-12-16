@@ -10,6 +10,7 @@
 </head>
 <body onload= init()>
 <script>
+    
 
 function init()
     {
@@ -19,13 +20,18 @@ function init()
             // deuxieme param fonction callBack qui traite les données 
             function( data, status )
             {
-                    let tableau = JSON.parse( data );
-                    console.log( tableau ); 
-                    let chaine = "<table>";
-                    for ( ligne of tableau )
-                        chaine += "<tr><td>"+ligne['nom']+"</td></tr>";;
-                    chaine += "</table>";
-                    $( "#aff" ).append( chaine );
+                    let resultat = JSON.parse( data );
+                    console.log( resultat ); 
+                    id = ligne['id']; 
+                    titre = ligne['titre'];
+                    description = ligne['description'];
+                    priorite = ligne['priorite'];
+                    dateLimit = ligne['dateLimit'];
+
+                    $('#titre').val(titre);
+                    $('#description').val(description);
+                    $('#priorite').val(priorite);
+                    $('#dateLimit').val(dateLimit);
             }   
         );
     }
