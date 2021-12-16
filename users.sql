@@ -13,7 +13,7 @@ create table users (
     id int PRIMARY KEY not null auto_increment,
     login varchar(30),
     pw varchar(256),
-    role int
+    role int default 0
 );
 
 insert into users ( login, pw, role ) values( "Remi", "remi", 0 );
