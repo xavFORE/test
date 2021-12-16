@@ -10,17 +10,20 @@
 </head>
 <body>
 <script>
-function addUsers()
+function addCreateTask()
     {
-        let login = $( "#login" ).val();
-        let mail = $( "#mail" ).val();
-        let pw = $( "#pw" ).val();
+        let titre = $( "#titre" ).val();
+        let description = $( "#description" ).val();
+        let priorite = $( "#priorite" ).val();
+        let dateLimit = $( "#dateLimit" ).val();
+
         $.post(
-            "addUsersPost.php",
+            "addTachePost.php",
             {
-                login : login,
-                mail : mail, 
-                pw : pw
+                titre : titre,
+                description : description, 
+                priorite : priorite, 
+                dateLimit : dateLimit
             },
             function(data, status)
             {
@@ -29,14 +32,15 @@ function addUsers()
         );
     }
 </script>
-<input type="email" id="mail" placeholder="mail">
+<input type="text" id="titre" placeholder="titre">
 <br>
-<input type="text" id="login" placeholder="login">
+<input type="text" id="description" placeholder="description">
 <br>
-<input type="text" id="pw" placeholder="password">
+<input type="range" id="priorite" min="1" max="3">
 <br>
 
-
+<input type="date" id="dateLimit">
+<br>
 <?php
     require_once "ressources.php";
     require_once "fonctions.php";
@@ -44,7 +48,7 @@ function addUsers()
 ?>
 <br>
 
-<button onclick="addUsers()">OK</button>
+<button onclick="addCreateTask()">OK</button>
 <br>
 </body>
 </html>
