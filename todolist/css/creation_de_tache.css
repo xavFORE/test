@@ -1,0 +1,58 @@
+body {
+  position: relative;
+  width: 360px;
+  height: 800px;
+
+  background: url(../image/tache.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  width: 100%;
+}
+.enregistrer{
+    position: absolute;
+  width: 120px;
+  height: 30px;
+  left: 280px;
+  top: 30px;
+  background: rgba(22, 73, 156, 0.72);
+  border-radius: 20px;
+}
+.titre {
+  position: absolute;
+  width: 256px;
+  height: 53px;
+  left: 70px;
+  top: 67px;
+  background: rgba(22, 73, 156, 0.72);
+  border-radius: 20px;
+}
+.texte{
+    position: absolute;
+width: 216px;
+height: 400px;
+left: 90px;
+top: 170px;
+
+background: rgba(255, 236, 54, 0.72);
+}
+.date{
+    position: absolute;
+width: 216px;
+height: 66px;
+left: 90px;
+top: 580px;
+
+background: rgba(30, 63, 132, 0.72);
+}
+.radio{
+    position: absolute;
+width: 216px;
+height: 66px;
+left: 90px;
+top: 650px;
+font-size: 20px;
+text-align: center;
+
+background: rgba(150, 61, 150, 0.72);
+text-align: center;
+}
