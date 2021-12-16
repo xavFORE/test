@@ -14,4 +14,3 @@
     //print( $query );
     query( $query );
 ?>
- where id= $id
