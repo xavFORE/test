@@ -8,17 +8,38 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="fonctions.js"></script>
 </head>
-<body>
+<body onload= init()>
 <script>
-function addCreateTask()
+
+function init()
+    {
+        $.get(
+            // premier param URL qui fournit les données
+            "init.php",
+            // deuxieme param fonction callBack qui traite les données 
+            function( data, status )
+            {
+                    let tableau = JSON.parse( data );
+                    console.log( tableau ); 
+                    let chaine = "<table>";
+                    for ( ligne of tableau )
+                        chaine += "<tr><td>"+ligne['nom']+"</td></tr>";;
+                    chaine += "</table>";
+                    $( "#aff" ).append( chaine );
+            }   
+        );
+    }
+
+function updateTask()
     {
         let titre = $( "#titre" ).val();
         let description = $( "#description" ).val();
         let priorite = $( "#priorite" ).val();
         let dateLimit = $( "#dateLimit" ).val();
 
+        
         $.post(
-            "addTachePost.php",
+            "updateTachePost.php",
             {
                 titre : titre,
                 description : description, 
@@ -48,7 +69,7 @@ function addCreateTask()
 ?>
 <br>
 
-<button onclick="addCreateTask()">OK</button>
+<button onclick="updateTask()">OK</button>
 <br>
 </body>
 </html>
