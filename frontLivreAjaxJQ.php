@@ -43,7 +43,7 @@
                         }
                         chaine += "</table>";
                         $( "#aff").text( chaine );
-
+                        
                    }
                 );
             });
