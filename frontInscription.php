@@ -13,13 +13,14 @@
 function addUsers()
     {
         let login = $( "#login" ).val();
+        let mail = $( "#mail" ).val();
         let pw = $( "#pw" ).val();
-
         $.post(
             "addUsersPost.php",
             {
                 login : login,
-                pw : pw,  
+                mail : mail, 
+                pw : pw
             },
             function(data, status)
             {
@@ -28,6 +29,8 @@ function addUsers()
         );
     }
 </script>
+<input type="text" id="mail" placeholder="mail">
+<br>
 <input type="text" id="login" placeholder="login">
 <br>
 <input type="text" id="pw" placeholder="password">

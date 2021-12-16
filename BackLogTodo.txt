@@ -1,14 +1,14 @@
 BackLog
     chaque client a un compte
         creer table         (1 heure)               1       M(terminé)
-        page inscription    (4 heures)              1       R
+        page inscription    (4 heures)              1       R(terminé)
         page login          (4 heures)              1       B
 
 
     enregistrer une tache à faire
         creer table         (1 heures)              1       M(terminé)
         page list tache     (8 heures)              1       M
-        page creation tache (8 heures)              1
+        page creation tache (8 heures)              1	    R
 
 
     pouvoir supprimer la tâche

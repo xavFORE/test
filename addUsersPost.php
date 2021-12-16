@@ -4,8 +4,8 @@
 
     $login = $_POST['login'];
     $pw = $_POST['pw']; 
-   
-    $query  = "insert into users ( login, pw ) values ('$login', $pw);";
+    $mail = $_POST['mail']; 
+    $query  = "insert into users ( mail,login, pw ) values ('$mail','$login','$pw');";
     //print( $query );
     query( $query );
 ?>
