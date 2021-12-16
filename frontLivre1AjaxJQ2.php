@@ -32,11 +32,15 @@
     function addLivre()
     {
         let nom = $( "#saisie" ).val();
+        let ida = $( "#auteurs" ).val();
+        let idg = $( "#genres" ).val();
 
         $.post(
             "addLivrePost.php",
             {
-                titre : nom 
+                titre : nom,
+                idAuteur : ida, 
+                idGenre : idg 
             },
             function(data, status)
             {
@@ -90,6 +94,7 @@
     require_once "fonctions.php";
     
     comboBox(  "auteurs", $query="", $visibleAdd=1  );
+    comboBox(  "genres", $query="", $visibleAdd=1  );
 ?>
 <br>
 <!-- https://www.w3schools.com/jquery/jquery_ajax_get_post.asp -->
