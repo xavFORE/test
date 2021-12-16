@@ -1,13 +1,13 @@
 BackLog
     chaque client a un compte
-        creer table         (1 heure)               1       M
+        creer table         (1 heure)               1       M(terminé)
         page inscription    (4 heures)              1       R
-        page login          (4 heures)              1
+        page login          (4 heures)              1       B
 
 
     enregistrer une tache à faire
-        creer table         (1 heures)              1       M
-        page list tache     (8 heures)              1
+        creer table         (1 heures)              1       M(terminé)
+        page list tache     (8 heures)              1       M
         page creation tache (8 heures)              1
 
 
@@ -32,7 +32,7 @@ BackLog
 
 
     mobil first
-        maquette                                    1
+        maquette                                    1       N
 
 
 
