@@ -13,15 +13,15 @@
     
 
 function init()
-    {
+    {   
         $.get(
             // premier param URL qui fournit les données
             "init.php",
             // deuxieme param fonction callBack qui traite les données 
             function( data, status )
-            {
+            {       console.log( data ); 
                     let res = JSON.parse( data );
-                    console.log( res ); 
+                    res = res[0]; 
                     let id = res['id']; 
                     let titre = res['titre'];
                     let description = res['description'];

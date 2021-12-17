@@ -6,7 +6,7 @@ function addItem(  table, message )
         "width=200,height=100"     );    
 }
 
-$(document).ready(liste( "listTachesBack.php" ));
+//$(document).ready(liste( "listTachesBack.php" ));
 
 function dateTri()
 {

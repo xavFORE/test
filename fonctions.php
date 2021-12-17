@@ -78,7 +78,8 @@ function query2json( $query )
     $tableauData = [];
     while ( $ligne = $res->fetch_assoc())
     {
-        $ligne[ 'nom' ] = utf8_encode( $ligne[ 'nom' ] );
+      //  $ligne[ 'titre' ] = utf8_encode( $ligne[ 'titre' ] );
+      //  $ligne[ 'description' ] = utf8_encode( $ligne[ 'description' ] );
         $tableauData[] = $ligne;
     } 
     print( json_encode( $tableauData ) );
