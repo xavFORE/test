@@ -32,7 +32,7 @@ function addCreateTask()
         );
     }
 </script>
-<input type="text" id="titre" placeholder="titre">
+<input type="text" id="titre" placeholder="titre" required>
 <br>
 <input type="text" id="description" placeholder="description">
 <br>

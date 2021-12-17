@@ -33,14 +33,13 @@ function addTache()
 function editTache(idTache)
 {
     $.post(
-        "0000.php",
+        "init.php",
         {
-            idTache : idTache
+            id : idTache
         },
         function(data, status)
         {
-            $( "#list" ).text("");
-            liste( "listTachesBack.php" );
+            window.location.href = "frontModifTache.php";
         }
     );
 }

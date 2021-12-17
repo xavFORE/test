@@ -29,11 +29,11 @@ function addUsers()
         );
     }
 </script>
-<input type="email" id="mail" placeholder="mail">
+<input type="email" id="mail" placeholder="mail" required>
 <br>
-<input type="text" id="login" placeholder="login">
+<input type="text" id="login" placeholder="login" required>
 <br>
-<input type="text" id="pw" placeholder="password">
+<input type="text" id="pw" placeholder="password" required>
 <br>
 
 
