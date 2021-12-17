@@ -20,18 +20,19 @@ function init()
             // deuxieme param fonction callBack qui traite les données 
             function( data, status )
             {
-                    let resultat = JSON.parse( data );
-                    console.log( resultat ); 
-                    id = ligne['id']; 
-                    titre = ligne['titre'];
-                    description = ligne['description'];
-                    priorite = ligne['priorite'];
-                    dateLimit = ligne['dateLimit'];
+                    let res = JSON.parse( data );
+                    console.log( res ); 
+                    let id = res['id']; 
+                    let titre = res['titre'];
+                    let description = res['description'];
+                    let priorite = res['priorite'];
+                    let dateLimit = res['dateLimit'];
 
                     $('#titre').val(titre);
                     $('#description').val(description);
                     $('#priorite').val(priorite);
                     $('#dateLimit').val(dateLimit);
+                    console.log(id, titre, description, priorite, dateLimit); 
             }   
         );
     }
@@ -59,7 +60,7 @@ function updateTask()
         );
     }
 </script>
-<input type="text" id="titre" placeholder="titre">
+<input type="text" id="titre" placeholder="titre" value="">
 <br>
 <input type="text" id="description" placeholder="description">
 <br>
