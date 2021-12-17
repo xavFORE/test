@@ -6,8 +6,6 @@ function addItem(  table, message )
         "width=200,height=100"     );    
 }
 
-$(document).ready(liste( "listTachesBack.php" ));
-
 function dateTri()
 {
     $( "#list" ).text("");
@@ -32,12 +30,34 @@ function addTache()
 }
 
 
-function editTache()
+function editTache(idTache)
 {
-
+    $.post(
+        "0000.php",
+        {
+            idTache : idTache
+        },
+        function(data, status)
+        {
+            $( "#list" ).text("");
+            liste( "listTachesBack.php" );
+        }
+    );
 }
 
 function deleteTache( idTache )
+{
+    $("#"+idTache).text("");
+    $("#"+idTache).append("Are you sure ?<button onclick='suppr("+idTache+")'>Oui</button><button onclick='annuler()'>Annuler</button>");
+}
+
+function annuler()
+{
+    $( "#list" ).text("");
+    liste( "listTachesBack.php" );
+}
+
+function suppr(idTache)
 {
     $.post(
         "deleteTacheBack.php",
@@ -45,7 +65,10 @@ function deleteTache( idTache )
             idTache : idTache
         },
         function(data, status)
-        {}
+        {
+            $( "#list" ).text("");
+            liste( "listTachesBack.php" );
+        }
     );
 }
 
@@ -58,8 +81,8 @@ function liste( url )
             let chaine = "";
             for ( ligne of tableau )
             {
-                chaine += "<div class='title'>"+ligne['titre'];
-                chaine += "<button onclick='editTache()' class='edit'>Modifer</button>";
+                chaine += "<div id='"+ligne['id']+"' class='tache'>"+ligne['titre'];
+                chaine += "<button onclick='editTache("+ligne['id']+")' class='edit'>Modifer</button>";
                 chaine += "<button onclick='deleteTache("+ligne['id']+")' class='delete'>Supprimer</button></div>";
             }
             $( "#list" ).append( chaine );
