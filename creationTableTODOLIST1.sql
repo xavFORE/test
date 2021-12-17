@@ -1,37 +1,43 @@
+
+drop table if exists enregistrementTache;
 CREATE TABLE enregistrementTache
 (
-    id int(20) PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+    id int PRIMARY KEY  NOT NULL AUTO_INCREMENT,
     titre VARCHAR(30),
     descriptio VARCHAR(200),
     statu INT,
     priorite INT,
-    dateCreation date NOT NULL CURRENT_DATE,
-    dateFin date,
+    dateCreation datetime NOT NULL  CURRENT_TIMESTAMP,
+    dateFin datetime
     
-); ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 
-insert into enregistrementTache (titre, descriptio, statu,priorite,dateCreation,dateFin)values("faire la vaiselle","il faut tout bien laver et surtout ne pas oublier d'esseuyer la vaiselle", 1,)
+insert into enregistrementTache (titre, descriptio, statu,priorite,dateCreation,dateFin)
+values("faire la vaiselle","il faut tout bien laver et surtout ne pas oublier d'essuyer la vaiselle", 1,1,"2021-12-17","2021-12-19");
 
 
+
+drop table if exists statu;
 CREATE TABLE statu
 (
     id int PRIMARY KEY  NOT NULL AUTO_INCREMENT,
-    etat VARCHAR(30),
+    etat VARCHAR(30)
 
-); ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
-insert into  statu (etat) values('a faire', 'en cours','fait');
+insert into  statu (etat) values('a faire'), ('en cours'),('fait');
 
 
+drop table if exists priorite;
 CREATE TABLE priorite 
 (
   id int PRIMARY KEY  NOT NULL AUTO_INCREMENT,
-    priorisation VARCHAR(30),
+    priorisation VARCHAR(30)
 
-); ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
-insert into priorite (priorisation) values('Urgent-important','pas urgent-important','pas important-urgent', 'pas important-pas urgent');
+insert into priorite (priorisation) values('Urgent-important'),('pas urgent-important'),('pas important-urgent'), ('pas important-pas urgent');
 
 
 
