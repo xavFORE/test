@@ -1,17 +1,18 @@
 <?php
     require_once "ressources.php";
     require_once "fonctions.php";
-    $id = $_POST['id'];
-    $titre = $_POST['titre'];
-    $description = $_POST['description']; 
-    $priorite = $_POST['priorite'];
-    $dateLimit = $_POST['dateLimit'];
-    $query  = "update taches set titre='$titre', 
-                                 description='$description', 
-                                 priorite=$priorite, 
-                                 dateLimit='$dateLimit'
-               where id= $id;";
-    //print( $query );
-    query( $query );
+    
+
+    
+    $res = query( "select * from taches where id=1;" ); 
+    $tableauData = [];
+    while ( $ligne = $res->fetch_assoc())
+    {
+        $ligne[ 'titre' ] = utf8_encode( $ligne[ 'titre' ] );
+        $ligne[ 'description' ] = utf8_encode( $ligne[ 'description' ] );
+        $tableauData[] = $ligne;
+    } 
+    
+    print( json_encode( $tableauData ) );
+   // print_r( $tableauData );
 ?>
- 
