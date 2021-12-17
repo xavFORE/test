@@ -1,0 +1,57 @@
+BackLog
+    chaque client a un compte
+        creer table         (1 heure)               1       
+        page inscription    (4 heures)              1
+        page login          (4 heures)              1
+
+
+    enregistrer une tache à faire
+        creer table         (1 heures)              1
+        page list tache     (8 heures)              1
+        page creation tache (8 heures)              1
+
+
+    pouvoir supprimer la tâche
+        page list -> bouton suppression             2
+
+
+    hierarchiser les taches
+        page creation tache -> bouton de priorité   2
+
+
+    affichage par priorite ou par date
+        page list -> bouton mode affichage          2
+
+
+    la couleur des taches fonction de la priorité
+        CSS                                         2
+
+
+    administrateur
+        page administrateur                         3
+
+
+    mobil first
+        maquette                                    1
+
+
+
+
+USERS
+    login   pw    role
+
+
+TACHES 
+    titre   description     status      priorite    dateCreation    dateLimit dateFinie         
+
+
+
+Maquette
+
+
+
+
+
+
+
+
