@@ -13,26 +13,27 @@
     
 
 function init()
-    {   
+    {
         $.get(
             // premier param URL qui fournit les données
             "init.php",
             // deuxieme param fonction callBack qui traite les données 
             function( data, status )
-            {       console.log( data ); 
-                    let res = JSON.parse( data );
-                    res = res[0]; 
-                    let id = res['id']; 
-                    let titre = res['titre'];
-                    let description = res['description'];
-                    let priorite = res['priorite'];
-                    let dateLimit = res['dateLimit'];
+            {
+                console.log( data ); 
+                let res = JSON.parse( data );
+                res = res[0]; 
+                let id = res['id']; 
+                let titre = res['titre'];
+                let description = res['description'];
+                let priorite = res['priorite'];
+                let dateLimit = res['dateLimit'];
 
-                    $('#titre').val(titre);
-                    $('#description').val(description);
-                    $('#priorite').val(priorite);
-                    $('#dateLimit').val(dateLimit);
-                    console.log(id, titre, description, priorite, dateLimit); 
+                $('#titre').val(titre);
+                $('#description').val(description);
+                $('#priorite').val(priorite);
+                $('#dateLimit').val(dateLimit);
+                console.log(id, titre, description, priorite, dateLimit); 
             }   
         );
     }
@@ -73,6 +74,7 @@ function updateTask()
     require_once "ressources.php";
     require_once "fonctions.php";
 
+    $id = $_GET['id'];
 ?>
 <br>
 

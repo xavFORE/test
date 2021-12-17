@@ -39,7 +39,7 @@ function editTache(idTache)
         },
         function(data, status)
         {
-            window.location.href = "frontModifTache.php";
+            window.location.href = "frontModifTache.php?id="+idTache;
         }
     );
 }
