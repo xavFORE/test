@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naviguer dans le dom en JS</title>
+</head>
+<body>
+    <h1 id= "gros_titre"> Le DOM</h1> 
+
+    <div>
+        <p class='para'> Lorem ipsum dolor sit amet
+        <a href="https://google.fr">un lien ici</a> consectetur adipisicing elit</p>
+
+        <p class='para'> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, possimus?</p>
+    </div>
+    
+    <script>
+    var p = document.querySelector('.para');
+    var div = p.parentNode;
+
+    div.style.color='orange';
+    </script>
+</body>
+</html>

@@ -11,7 +11,7 @@
 
     <style>
         div {
-            height: 50px;
+            height : 50px;
             font-size: 30px;
             background-color: gray;
             margin: 4px;
@@ -77,9 +77,13 @@
                         // fonction callback
                         JA
                     );
+                    
             }
 
-        }
+          
+        
+
+        
 
     </script>
 

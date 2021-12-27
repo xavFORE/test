@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>la concaténation</title>
+</head>
+
+<body>
+
+
+
+<h1> La concaténation.</h1> 
+<h2> les conditions.</h2>
+    <script>
+
+        let prenom = "karim", nom = "megri", espace =" ";
+        let moi = prenom + espace + nom;
+        let toi = "steeve "+ " "+ " madeen";
+
+        let sport = "boxe";
+        let hobbie = " j'aime la + " + sport + ".";
+
+        let x1 = 4+2+"1";
+        let y1 ="1"+2+4;
+
+        alert("variable x : " + x1 +
+        "\n variable y : " + y1 +
+        "\n variable moi : "+ moi+
+        "\n variable toi : " + toi);
+
+    
+
+        
+        let x= 7, y=14;
+        let vrai = x<y;
+        let = faux = 14 <= 7;
+
+        let egalval = 4 == "4";
+        let egalvaltype = 4 ==="4";
+
+        alert(" vrai : " + vrai +
+        "\n faux : " + faux + 
+        "\n egal val : " + egalval +
+        "\n egalvaltype : " + egalvaltype);
+
+
+        let heure = 12;
+
+        if (typeof(heure)== "number"){
+
+        if (heure == 12)
+            {
+           alert ( "il est midi");
+            }
+        else if (heure <=18)
+           {
+            alert(" bonjour");
+           }
+        else{
+            alert("bonsoir");
+            }
+
+        } else{
+            alert("mauvais type de valeur");
+        }   
+
+        // les conditions ternaires
+
+        let heure1 = 19, bon = "";
+
+        bon = (heure1 <= 18) ? "bonjour" : "bonsoir";
+         alert(bon);
+
+          function multiplication(a,b){
+                  return a * b ;
+                  alert("ce message ne sera pas affiché car il est après un return !!!")
+          }
+
+        let resultat1  = multiplication(5,10);
+        let resultat2  = multiplication(-5,10);
+        let resultat3  =  multiplication(-4,60);
+
+        resultat1 +=1;
+        alert(resultat1);
+
+        // Les objets
+
+        let primitive =" je suis une valeur primitive";
+        let moi1 ={
+            prenom : "karim",
+            nom :"megri",
+            age : 38,
+
+            identite : function(){
+                return  'Prénom: '+ this.prenom +
+                        '\nNom : '+ this.nom +
+                        '\nAge : '+ this.age ;
+            }
+        }
+
+        alert(moi1.identite());
+
+        let primitive2 ="je suis aussi une primitive";
+        let type_prim = typeof(primitive2);
+        let chaine = new String (" je suis un objet"); 
+        // attention new String avec une majuscule
+
+        let type_chaine = typeof(chaine);
+
+        alert('type de primitive :' + type_prim +
+        '\nType de chaine : '+ type_chaine);
+
+        let longeur_prim = primitive2.length;
+        let maj_prim = primitive2.toUpperCase();
+
+        let longeur_chaine = chaine.length;
+        let maj_chaine = chaine.toUpperCase();
+
+        alert('Longeur de la primitive :' + longeur_chaine +
+        '\n primitive en majuscule : '+ maj_prim +
+        '\n Longeur de la chaine : ' + longeur_chaine+
+        '\n chaine en majuscule :' + maj_chaine);
+
+        let obj_string = new String("je suis un objet");
+        let obj_cree = new Object();
+
+        obj_cree.prenom = "karim";
+        obj_cree.nom = "megri";
+        obj_cree.age = 38;
+
+        alert(obj_cree.prenom);
+
+
+        let moi2 = {
+            prenom : "karim",
+            nom : "megri",
+            age : 38,
+
+            id:function(){
+                return this.prenom + " " +  this.nom + " " + this.age;
+            }
+        }
+
+        alert(moi2.id());
+
+        function Identite (p, n, a){
+            this.prenom = p;
+            this.nom = n;
+            this.age = a;
+        }
+
+        let karimovitch = new Identite ("karimovitch","Meg", 100);
+        let tonton = new Identite ("anthony", "Chadli", 102);
+
+        alert('age de karimovitch : '+ karimovitch.age +
+        '\n age de tonton : '+ tonton.age);
+
+        // les methodes de l'objet string 
+
+        let texte = "j'apprends le JAVASCRIPT ";
+        let texte2 = "          j'apprends le JAVASCRIPT         ";
+
+        let texteMin = texte.toLowerCase();
+        let texteMaj = texte.toLocaleUpperCase();
+
+        alert('texte de base : ' + texte +
+        '\n texte en minuscule : '+ texteMin +
+        '\n texte en majuscule : '+ texteMaj);
+
+        let pos0 = texte.charAt(0);
+        let pos3= texte.charAt(3);
+        let pos11= texte.charAt(11);
+
+        alert('position 0 : '+ pos0 +
+        '\n position 3 : '+ pos3 +
+        '\n position 11 : '+ pos11);
+
+        let premiereOccurence = texte.indexOf('p');
+        let derniere = texte.lastIndexOf('p'); // attention sensible à la casse
+        let sequence = texte.indexOf('le');
+        let jMaj = texte.indexOf('J',1);
+        // on recherche J majuscule ) partir de l'index 1.
+
+        alert ('premier p : '+ premiereOccurence +
+        '\n dernier p : '+ derniere+
+        '\n la sequence le : '+ sequence +
+        '\n J majuscule à partir de l\'index 1 : '+jMaj );
+
+        alert (texte.replace("JAVASCRIPT", "PHP"));
+        alert(texte.slice(0,10));
+
+        let texteNettoye = texte2.trim();
+
+        alert(' texte nettoyé : '+ texteNettoye); 
+        // nettoie des espace etc...
+
+        let az = 10.35698;
+        let aq = az.toFixed(2);
+        // maintenant la valeur de aq est de type string.
+
+        alert ( aq + 
+        '\n le type de la variable aq est : ' + typeof(aq) );// aq = string
+
+        parseInt(); // convertir en entier
+        parseFloat(); // convertir en decimal
+
+        let prenoms = ['karim', 'anthony','sherif', 'steeve','leonardo']; p ='';
+            prenoms[0]='paul' // paul a écrasé karim à l'indice 0. 
+
+            prenoms[prenoms.length] = 'mike Tyson';
+            prenoms[prenoms.length] = 'mohamed Ali';
+
+            
+            for( let i = 0; i<prenoms.length;i++){
+                p+='prenom n° '+ (i+1)+ ' : ' + prenoms[i]+'\n';
+            }
+
+            alert(p);
+
+        alert(prenoms[1]);
+
+        alert( 'notre tableau comptient : ' + prenoms.length +' elements');
+
+        // la boucle for in pour boucler dans un dictionnaire ou objet itérable
+        //exemple for clefs in prenoms
+
+        p ='';
+        let taille = prenoms.push('florian', 'chloé');
+
+        for(let i = 0; i<prenoms.length; i++){
+            p+='prenom n°'+ (i+1)+ ' : '+prenoms[i]+ '\n';
+        }
+
+        alert('le tableau contient '+ taille +' elements: \n\n'+ p);
+
+        let suppr = prenoms.pop();
+
+        alert('l element supprimé est : ' + suppr);
+
+        p = prenoms.unshift('floyd','sugar ray');
+
+        prenoms.splice(1,0,'Kery','medine','youssoupha');
+        // 1 = position, 0 = le nombre d'elements que je souhaite supprimer
+        // et le troisième argument = les élements que je souhaite ajouter au tableau.
+
+        let tableauJoin = prenoms.join(' - ');
+
+        for(let i = 0; i<prenoms.length; i++){
+            p+='prenom n°'+ (i+1)+ ' : '+prenoms[i]+ '\n'
+            p+='prenom n°'+ (i+1)+ ' : '+ tableauJoin + '\n'
+            ;
+        }
+
+        alert('nouveau tableau : \n' + p + '\n'+
+        tableauJoin );
+
+
+
+
+    </script>
+</body>
+
+</html>

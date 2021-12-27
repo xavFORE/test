@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le DOM en JavaScript.</title>
+</head>
+<body>
+
+    <h1 id= "gros_titre"> Découverte du DOM HTML</h1>
+
+    <p  class='para'> Lorem ipsum dolor sit amet <a href="http://google.fr"></a> consectetur adipisicing elit. Ipsam voluptatum molestias asperiores 
+        qui veniam dolor quod eos esse quia nostrum?</p>
+
+    <p   class='para'> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, possimus?</p>
+    <script>
+        //let titre = document.getElementById('gros_titre');
+
+        let tableau = document.getElementsByTagName('p');
+
+        let para = document.getElementsByClassName('para')
+
+        let lien= document .querySelector('p a');
+
+        let p = document.querySelectorAll('.para')
+
+        let titre = document.getElementById('gros_titre').innerHTML;
+
+        alert(titre);
+
+         let p1 = document.querySelector('.para').innerHTML;
+
+         let t = document.querySelector('.para').textContent;
+
+         alert( 'Ici on ne recupère que le contenu du texte \n et pas ce qui est contenu entre les balises html :\n '+ t);
+
+        alert(p1);
+
+        let titre_page = document.title;
+        let page1 = document.body;
+        let lien1 = document.links;
+
+        alert('contenu du titre page : ' + titre_page + 
+        '\n contenu de page : ' + page1 +
+        '\n contenu du lien ' + lien1[0]);
+
+
+
+        alert(titre);
+        alert('notre tableau contient : '+ tableau.length +' paragraphes.' );
+        alert('notre paragraphe contient : '+ para.length +' paragraphe qui possède la class para.' );
+        alert('Information dans le lien : '+ lien +
+        '\nDans p[0] : '+  p[0] );
+
+        
+
+    </script>
+</body>
+</html>

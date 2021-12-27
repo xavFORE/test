@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>evenements liés au clavier</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <h1> Gestion d'évèments en JQuery</h1>
+    <label for="prenom"> Entrez votre prénom : </label>
+    <input type="text" id="prenom" name="prenom">
+    <p> dernier caractère tapé : <span id='ascii'></span></p>
+
+    <script>
+        $(document).ready(function(){
+
+            $('#prenom').keydown(function(){
+                $(this).css('backgroundColor','#69c');
+            });
+
+            $('#prenom').keyup(function(){
+                $(this).css('backgroundColor','#c72');
+            });
+
+        });
+
+
+        $(document).ready(function(){
+            $('#prenom').keypress(function(e){
+                let touche = String.fromCharCode(e.which);
+                $('#ascii').text(touche);
+            })
+        });
+        
+    </script>
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier du contenu HTML</title>
+</head>
+<body>
+
+    <h1 id= "gros_titre"> Modifier du contenu HTML grace à JavaScript.</h1>
+
+    <p  class='para'> Lorem ipsum dolor sit amet
+        <a href="https://google.fr">un lien ici</a> consectetur adipisicing elit. Ipsam voluptatum molestias asperiores 
+        qui veniam dolor quod eos esse quia nostrum?</p>
+
+    <p   class='para'> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, possimus?</p>
+
+    <script>
+        /*
+         let titre = document.getElementById('gros_titre');
+         let textetitre = titre.innerHTML;
+
+         let textePara = document.querySelector('.para').textContent;
+
+         alert('titre : ' + titre + 
+         '\n texte du titre : '+ textetitre + 
+         '\n Paragrapge 1 : ' + textePara);
+*/
+document.getElementById('gros_titre').innerHTML = 'Ici on remplace le titre grace au = ';
+document.getElementById('gros_titre').innerHTML += '<mark> Ici on remplace le titre grace au += <mark>';
+
+document.querySelector('a').href = 'http://wikipedia.org';
+
+document.querySelector('.para').className ='para1';
+
+document.getElementById('gros_titre').style.color='orange';
+document.getElementById('gros_titre').style.fontSize='40px';
+
+
+let newPara = document.createElement('p');
+newPara.id = 'nouveau';
+
+let texte = document.createTextNode('Inséré');
+newPara.appendChild(texte);
+
+let para1 = document.querySelector('.para');
+
+document.body.insertBefore(newPara, para1);
+
+
+alert(gros_titre);
+        
+
+    </script>
+
+    
+
+</body>
+</html>

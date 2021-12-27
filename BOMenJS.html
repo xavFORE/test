@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le BOM</title>
+</head>
+<body>
+    <h1 id='gros_titre'>Le BOM</h1>
+    <button id='charger'>Charger</button>
+    <button id='recharger'>Recharger</button>
+    <button id='changer'>Changer</button>
+    <P></P>
+
+    <script>
+
+        let para = document.querySelector('p');
+        let charger = document.getElementById('charger');
+        let recharger = document.getElementById('recharger');
+        let changer = document.getElementById('changer');
+
+
+        charger.addEventListener('click', charge);
+        recharger.addEventListener('click', recharge);
+        changer.addEventListener('click', change);
+
+        function charge (){
+
+            location.assign('http://pierre-giraud.com');
+        }
+
+        function recharge(){
+            location.reload();
+        }
+
+        function change(){
+            location.replace('http://pierre-giraud.com');
+        }
+
+        let url = location.href;
+        let chemin = location.pathname;
+
+        para.innerHTML = 'URL : '+ url + '<br> Chemin : '+ chemin;
+
+/*
+        let langue= navigator.language;
+        let navigateur = navigator.appName;
+        let version = navigator.appVersion;
+        let moteur = navigator.product;
+        let cookieA = navigator.cookieEnabled;
+
+        let loc = navigator.geolocation;
+
+        //let para = document.querySelector('p');
+        para.innerHTML = 
+        'Langue utilisée : '+ langue +
+        '<br> Nom du navigateur ' + navigateur +
+        '<br> version : ' + version + 
+        '<br> moteur : ' + moteur + 
+        '<br> cookie activé : ' + cookieA;
+
+        (function(){
+            if (loc){
+                loc.getCurrentPosition(coordonnees);
+            }
+            else{
+                para.innerHTML = 'localisation non disponible';
+            }
+        })();
+
+        function coordonnees(x){
+            para.innerHTML = 
+                'Latitude : '+ x.coords.latitude + 
+                '<br> Longitude : '+ x.coords.longitude;
+        }
+
+        */
+    </script>
+
+</body>
+</html>
