@@ -24,36 +24,43 @@
 
 <table>
 <?php
-        $ligne=7;
-        $colonne=7;
-        for ($i=0;$i<$ligne; $i++){
-            print '<tr>';
-        for ($j=0;$j<$colonne; $j++){
-            if(($j+$i)%2==0)
-                print '<td class="noir"></td>';
-            else
-                print '<td class="blanc"></td>';
+    $ligne = 8;
+    $colone = 8;
+    for( $i=0 ; $i<$ligne ; $i++ )
+    {
+        // la ligne est-elle pair ?
+        if ( $i % 2 == 0 )
+        {
+            print( "<tr>\n");
+            for( $j=0 ; $j < $colone ; $j++ )
+            {
+                // la colonne est-elle pair ?
+                if ( $j % 2 == 0 )
+                    $class="class='noir'";
+                else
+                    $class="class='blanc'";
+                print( "<td $class>\n");
+                print( "</td>\n");
             }
-            print '</tr>';
+            print( "</tr>\n");
         }
-        
+        // sinon
+        else
+        {
+            print( "<tr>\n");
+            for( $j=0 ; $j < $colone ; $j++ )
+            {
+                if ( $j % 2 == 0 )
+                    $class="class='blanc'";
+                else
+                    $class="class='noir'";
+                print( "<td $class>\n");
+                print( "</td>\n");
+            }
+            print( "</tr>\n");
+        }
+    }
 ?>
 </table>
-
-
-        <br>
-        <br>
-
-    <button onclick="myFunction()">Click ici</button>
-
-    <p id="demo"></p>
-
-    <script>
-        function myFunction() 
-        {
-        document.getElementById("demo").innerHTML = "**Bonne Année**";
-        }
-    </script>
-
 </body>
 </html>

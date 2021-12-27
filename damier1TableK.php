@@ -24,26 +24,26 @@
 
 <table>
 <?php
-    $ligne = 7;
-    $colone = 7;
-
+    $ligne = 8;
+    $colone = 8;
+    $compteur=0;    
     for( $i=0 ; $i<$ligne ; $i++ )
     {
         print( "<tr>\n");
         for( $j=0 ; $j < $colone ; $j++ )
         {
             //if ( $i % 2 == 0 && $j % 2 == 0)
-            if ( ($i+$j) % 2 == 0 )
+            if ( $compteur % 2 == 0 )
                 $class="class='noir'";
             else
                 $class="class='blanc'";
             print( "<td $class>\n");
             print( "</td>\n");
+            $compteur++;
         }
         print( "</tr>\n");
     }
 ?>
 </table>
-
 </body>
 </html>
