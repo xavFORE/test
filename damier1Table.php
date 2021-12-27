@@ -24,12 +24,15 @@
 
 <table>
 <?php
-    for( $igne=0 ; $ligne<8 ; $ligne++ )
+
+for( $mesligne=0 ; $mesligne<4 ; $mesligne++ )
+{
+    for( $ligne1=0 ; $ligne1<1 ; $ligne1 )
     {
         print( "<tr>\n");
-        for( $colone=0 ; $colone<8 ; $colone++ )
+        for( $colone1=0 ; $colone1<8 ; $colone1++ )
         {
-            if ( $colone % 2 == 0 )
+            if ( $colone1 % 2 == 0 )
                 $class="class='noir'";
             else
                 $class="class='blanc'";
@@ -38,6 +41,23 @@
         }
         print( "</tr>\n");
     }
+
+    for( $ligne2=0 ; $ligne2<1 ; $ligne2++ )
+    {
+        print( "<tr>\n");
+        for( $colone2=0 ; $colone2<8 ; $colone2++ )
+        {
+            if ( $colone2 % 2 == 0 )
+                $class="class='blanc'";
+            else
+                $class="class='noir'";
+            print( "<td $class>\n");
+            print( "</td>\n");
+        }
+        print( "</tr>\n");
+    }
+}
+
 ?>
 </table>
 
