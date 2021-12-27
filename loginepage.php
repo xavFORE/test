@@ -7,7 +7,8 @@ session_start();
             if ($_GET)
             {
                 $nom = $_GET[ 'Pseudo' ];
-            
+                $pw = $_GET[ 'pw' ];
+
 
                 $mysqli = new mysqli($servername, $username, $password, $database);
                 $query  = "insert into utilisateur_inscrit ( pseudo ) values (' $nom' );";
