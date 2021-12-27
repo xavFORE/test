@@ -8,17 +8,46 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="fonctions.js"></script>
 </head>
-<body>
+<body onload= init()>
 <script>
-function addCreateTask()
+    
+
+function init()
+    {
+        $.get(
+            // premier param URL qui fournit les données
+            "init.php",
+            // deuxieme param fonction callBack qui traite les données 
+            function( data, status )
+            {
+                console.log( data ); 
+                let res = JSON.parse( data );
+                res = res[0]; 
+                let id = res['id']; 
+                let titre = res['titre'];
+                let description = res['description'];
+                let priorite = res['priorite'];
+                let dateLimit = res['dateLimit'];
+
+                $('#titre').val(titre);
+                $('#description').val(description);
+                $('#priorite').val(priorite);
+                $('#dateLimit').val(dateLimit);
+                console.log(id, titre, description, priorite, dateLimit); 
+            }   
+        );
+    }
+
+function updateTask()
     {
         let titre = $( "#titre" ).val();
         let description = $( "#description" ).val();
         let priorite = $( "#priorite" ).val();
         let dateLimit = $( "#dateLimit" ).val();
 
+        
         $.post(
-            "addTachePost.php",
+            "updateTachePost.php",
             {
                 titre : titre,
                 description : description, 
@@ -32,7 +61,7 @@ function addCreateTask()
         );
     }
 </script>
-<input type="text" id="titre" placeholder="titre">
+<input type="text" id="titre" placeholder="titre" value="">
 <br>
 <input type="text" id="description" placeholder="description">
 <br>
@@ -45,10 +74,11 @@ function addCreateTask()
     require_once "ressources.php";
     require_once "fonctions.php";
 
+    $id = $_GET['id'];
 ?>
 <br>
 
-<button onclick="addCreateTask()">OK</button>
+<button onclick="updateTask()">OK</button>
 <br>
 </body>
 </html>
