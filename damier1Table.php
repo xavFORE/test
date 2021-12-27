@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Damier en php</title>
     <style>
         .blanc
         {
@@ -24,7 +24,7 @@
 
 <table>
 <?php
-    for( $igne=0 ; $ligne<8 ; $ligne++ )
+    for( $ligne=0 ; $ligne<8 ; $ligne++ )
     {
         print( "<tr>\n");
         for( $colone=0 ; $colone<8 ; $colone++ )
