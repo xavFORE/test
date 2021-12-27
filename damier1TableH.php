@@ -24,36 +24,21 @@
 
 <table>
 <?php
-        $ligne=7;
-        $colonne=7;
+        $ligne=8;
+        $colonne=8;
         for ($i=0;$i<$ligne; $i++){
             print '<tr>';
         for ($j=0;$j<$colonne; $j++){
             if(($j+$i)%2==0)
-                print '<td class="noir"></td>';
-            else
                 print '<td class="blanc"></td>';
+            else
+                print '<td class="noir"></td>';
             }
             print '</tr>';
         }
         
 ?>
 </table>
-
-
-        <br>
-        <br>
-
-    <button onclick="myFunction()">Click ici</button>
-
-    <p id="demo"></p>
-
-    <script>
-        function myFunction() 
-        {
-        document.getElementById("demo").innerHTML = "**Bonne Année**";
-        }
-    </script>
 
 </body>
 </html>
