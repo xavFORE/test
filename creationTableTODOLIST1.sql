@@ -1,26 +1,57 @@
+<<<<<<< HEAD
 drop table if exists enregistrementTache;
 CREATE TABLE enregistrementTache
 (
     id INT PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+=======
+
+drop table if exists enregistrementTache;
+CREATE TABLE enregistrementTache
+(
+    id int PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+>>>>>>> eb7919f64609691aa1aaa1a6551fe83a9602466a
     titre VARCHAR(30),
     descriptio VARCHAR(200),
     statu INT,
     priorite INT,
+<<<<<<< HEAD
     dateCreation DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     dateFin DATETIME
     
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+=======
+    dateCreation datetime NOT NULL  CURRENT_TIMESTAMP,
+    dateFin datetime
+    
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
+>>>>>>> eb7919f64609691aa1aaa1a6551fe83a9602466a
 
 insert into enregistrementTache (titre, descriptio, statu,priorite,dateCreation,dateFin)
+values("faire la vaiselle","il faut tout bien laver et surtout ne pas oublier d'essuyer la vaiselle", 1,1,"2021-12-17","2021-12-19");
+
+<<<<<<< HEAD
+insert into enregistrementTache (titre, descriptio, statu,priorite,dateCreation,dateFin)
 values                       ("faire la vaiselle","il le",1, 1,"2021-12-05","2021-12-07");
+=======
+
+>>>>>>> eb7919f64609691aa1aaa1a6551fe83a9602466a
 
 drop table if exists statu;
 CREATE TABLE statu
 (
+<<<<<<< HEAD
     id INT PRIMARY KEY  NOT NULL AUTO_INCREMENT,
     etat VARCHAR(30)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+=======
+    id int PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+    etat VARCHAR(30)
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+
+insert into  statu (etat) values('a faire'), ('en cours'),('fait');
+>>>>>>> eb7919f64609691aa1aaa1a6551fe83a9602466a
 
 insert into  statu (etat) values('a faire'), ('en cours'),('fait');
 
@@ -29,7 +60,16 @@ CREATE TABLE priorite
 (
   id int PRIMARY KEY  NOT NULL AUTO_INCREMENT,
     priorisation VARCHAR(30)
+<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+=======
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+
+insert into priorite (priorisation) values('Urgent-important'),('pas urgent-important'),('pas important-urgent'), ('pas important-pas urgent');
+
+
+>>>>>>> eb7919f64609691aa1aaa1a6551fe83a9602466a
 
 insert into priorite (priorisation) values('Urgent-important'),('pas urgent-important'),('pas important-urgent'),('pas important-pas urgent');
 

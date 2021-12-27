@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #damier {
+        border-collapse: collapse;
+        border: solid 1px black;
+      }
+
+      div {
+        width: 50px;
+        height: 50px;
+      }
+
+      .white {
+        background-color: white;
+      }
+
+      .black {
+        background-color: black;
+      }
+      .ligne {
+        display:inline-block;
+      }
+      .message{
+          position: relative;
+          top: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    
+      <div class="ligne">
+        <div class="white" onclick="gagner()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+    </div>
+    <div class="ligne">
+      
+        
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+    </div>
+    <div class="ligne">
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+    </div>
+    <div class="ligne">
+      
+        
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+    </div>
+    <div class="ligne">
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+    </div>
+    <div class="ligne">
+      
+        
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+    </div>
+    <div class="ligne">
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+    </div>
+    <div class="ligne">
+      
+        
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+        <div class="black" onclick="perdu()"></div>
+        <div class="white" onclick="perdu()"></div>
+    </div>
+      <div id="message" class="message"></div>
+      <script>
+          function gagner(){
+              document.getElementById("message").innerHTML = "<h1>gagner</h1>";
+          }
+          function perdu(){
+              document.getElementById("message").innerHTML = "<h1>perdu</h1>";
+              
+          }
+          
+      </script>
+  </body>
+</html>
