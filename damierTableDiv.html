@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .noir, .divTableCellN
+        {
+            background-color: black;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .blanc, .divTableCellB
+        {
+            background-color: white;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .divTable
+        {
+            display: table;
+            border: 1px solid black;
+        }
+        
+        .divTableCellN, .divTableCellB
+        {
+            display: table-cell;
+        }
+    </style>
+
+    <script>
+        function perdu()
+        {
+            $("#texte").text("");
+            $("#texte").append("<h1 style='color:white;'>Perdu !</h1>");
+            $("body").css("background-color", "red");
+        }
+
+        function gagner()
+        {
+            $("#texte").text("");
+            $("#texte").append( "<h1 style='color:white;'>Gagné !</h1>" );
+            $("body").css("background-color", "green");
+        }
+    </script>
+</head>
+<body>
+
+<div id='texte'></div>
+
+Table :<br><br>
+<table style="border: 1px solid black;">
+    <tr>
+        <td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td>
+    </tr>
+    <tr>
+        <td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td>
+    </tr>
+    <tr>
+        <td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td>
+    </tr>
+    <tr>
+        <td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td>
+    </tr>
+    <tr>
+        <td onclick="perdu()" class="noir"></td><td onclick="gagner()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td>
+    </tr>
+    <tr>
+        <td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td>
+    </tr>
+    <tr>
+        <td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td>
+    </tr>
+    <tr>
+        <td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td><td onclick="perdu()" class="blanc"></td><td onclick="perdu()" class="noir"></td>
+    </tr>
+</table>
+<br>
+
+Div :<br><br>
+
+<div class="divTable"  >
+    <div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+    </div>
+    <div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+    </div>
+    <div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+    </div>
+    <div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+    </div>
+    <div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+    </div>
+    <div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="gagner()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+    </div>
+    <div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+    </div>
+    <div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+        <div onclick="perdu()" class="divTableCellB"></div>
+        <div onclick="perdu()" class="divTableCellN"></div>
+    </div>
+</div>
+
+</body>
+</html>
