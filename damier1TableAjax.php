@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<<<<<<< HEAD
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+=======
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+>>>>>>> origin/revisionX
     <style>
         .blanc
         {
@@ -21,15 +25,20 @@
         }
     </style>
 </head>
-<body>
+<body onload="setBoard()">
 
-<table>
-<?php
-    $ligne = 8;
-    $colone = 8;
-    $compteur=0;    
-    for( $i=0 ; $i<$ligne ; $i++ )
+<div id="board"></div>
+<input type="range" min='2' max='8' onchange="newBoard( this.value )">
+<div id="mess"></div>
+
+<script>
+
+    var numHaz = getRND( ???? )
+    var nrbCase = 0;
+
+    function setBoard( )
     {
+<<<<<<< HEAD
         print( "<tr>\n");
         for( $j=0 ; $j < $colone ; $j++ )
         {
@@ -49,9 +58,28 @@
 
 ?>
 </table>
+=======
+        newBoard( 8 );
+    }
 
-<div id="mess"></div>
+    function newBoard( sizex )
+    {
+        console.log( sizex );
+        $.post(  
+                'http://localhost/work/test/createBoard.php',
+                {
+                    size : sizex
+                },
+                function( datas, status)
+                {
+                    $( "#board").html( datas ); 
+                }
+        );
+    }
+>>>>>>> origin/revisionX
 
+
+<<<<<<< HEAD
 <script>
     
    /* function getNumberRandom1()
@@ -69,6 +97,8 @@
     }*/
     var numHaz =getNumberRandom(<?=$compteur?>);
     
+=======
+>>>>>>> origin/revisionX
     function testCase( numCase )
     {
         console.log( "je suis la case : " + numCase);
@@ -95,9 +125,25 @@
             console.log(dictVal); 
             let numHaz = dictVal['numHaz']; 
 
+<<<<<<< HEAD
             console.log(numHaz);
             return numHaz;      
     } 
+=======
+    function getNumberRandom( nbrCase  )
+    {
+        let dictTXT =  $.ajax(
+            {
+                type: "POST",
+                url: 'http://localhost/work/test/getRandom.php',
+                async: false
+            }).responseText;
+
+        dictVAL = JSON.parse( dictTXT );
+        let hazard = dictVAL[ 'valeurHazard' ]; 
+        return hazard;
+    }
+>>>>>>> origin/revisionX
 
 
 </script>
