@@ -24,22 +24,43 @@
 
 <table>
 <?php
-    for( $igne=0 ; $ligne<8 ; $ligne++ )
+    $ligne = 8;
+    $colone = 8;
+    for( $i=0 ; $i<$ligne ; $i++ )
     {
-        print( "<tr>\n");
-        for( $colone=0 ; $colone<8 ; $colone++ )
+        // la ligne est-elle pair ?
+        if ( $i % 2 == 0 )
         {
-            if ( $colone % 2 == 0 )
-                $class="class='noir'";
-            else
-                $class="class='blanc'";
-            print( "<td $class>\n");
-            print( "</td>\n");
+            print( "<tr>\n");
+            for( $j=0 ; $j < $colone ; $j++ )
+            {
+                // la colonne est-elle pair ?
+                if ( $j % 2 == 0 )
+                    $class="class='noir'";
+                else
+                    $class="class='blanc'";
+                print( "<td $class>\n");
+                print( "</td>\n");
+            }
+            print( "</tr>\n");
         }
-        print( "</tr>\n");
+        // sinon
+        else
+        {
+            print( "<tr>\n");
+            for( $j=0 ; $j < $colone ; $j++ )
+            {
+                if ( $j % 2 == 0 )
+                    $class="class='blanc'";
+                else
+                    $class="class='noir'";
+                print( "<td $class>\n");
+                print( "</td>\n");
+            }
+            print( "</tr>\n");
+        }
     }
 ?>
 </table>
-
 </body>
 </html>
