@@ -50,6 +50,7 @@
         }
         ?>
     </table>
+    <div id="text_indice"></div>
     <div id="text"></div>
     <script>
         
@@ -57,6 +58,15 @@
         var NbrMax = <?=$NbrAzar?>;
         console.log(NbrMax);
         function ici(nbr){
+            if (nbr<NbrMax) {
+                document.getElementById("text_indice").innerHTML= "<h1>trop petit</h1>"
+            }
+            else if(nbr>NbrMax){
+                document.getElementById("text_indice").innerHTML= "<h1>trop grand</h1>"
+            }
+            else{
+            document.getElementById("text_indice").innerHTML= "<h1>Parfait</h1>"
+            }
             if (nbr == NbrMax) {
                 document.getElementById("text").innerHTML= "<h1>Gagner</h1>"
             }
