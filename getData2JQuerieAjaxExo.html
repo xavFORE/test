@@ -25,8 +25,13 @@
     <script>
         function additionne()
         {
-            $( "#display" ).text( resulat );                    
+            let val1 = parseFloat( $( "#val1" ).val());
+            let val2 = parseFloat( $( "#val2" ).val());
+            let resultat = val1 + val2;
+            $( "#display" ).text( resultat );                    
         }
+
+        // 101
 
 
         /*
