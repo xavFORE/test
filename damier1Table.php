@@ -11,56 +11,65 @@
             width: 50px;
             height: 50px;
             background-color: white;
+            border: solid black 1px;
+
         }
         .noir
         {
             width: 50px;
             height: 50px;
             background-color: black;
+            border: solid  black 1px;
+
         }
     </style>
 </head>
 <body>
 
+
 <table>
 <?php
-    $ligne = 8;
-    $colone = 8;
-    for( $i=0 ; $i<$ligne ; $i++ )
-    {
-        // la ligne est-elle pair ?
-        if ( $i % 2 == 0 )
+
+    $ligne    = 7;
+    $colone   = 7;
+    $compteur = 0;
+        for( $i=0 ; $i<$ligne ; $i++ )
         {
             print( "<tr>\n");
-            for( $j=0 ; $j < $colone ; $j++ )
+            for( $j=0 ; $j<$colone ; $j++ )
             {
-                // la colonne est-elle pair ?
-                if ( $j % 2 == 0 )
+                if ( ($j+$i) % 2 == 0 )
                     $class="class='noir'";
                 else
                     $class="class='blanc'";
-                print( "<td $class>\n");
+                print( "<td onclick='testCase($compteur)' $class>\n");
                 print( "</td>\n");
+                $compteur++;
             }
             print( "</tr>\n");
         }
-        // sinon
-        else
-        {
-            print( "<tr>\n");
-            for( $j=0 ; $j < $colone ; $j++ )
-            {
-                if ( $j % 2 == 0 )
-                    $class="class='blanc'";
-                else
-                    $class="class='noir'";
-                print( "<td $class>\n");
-                print( "</td>\n");
-            }
-            print( "</tr>\n");
-        }
-    }
+
+        $numHaz = rand( 0, $compteur );
 ?>
 </table>
+<br>
+<div id="message"></div> 
+
+
+<script>
+    let numHaz = <?=random(0,$compteur)?>
+    var valeurATrouver = 
+   
+    function testCase(numeroCase)
+    {
+        let message= "perdu";
+        if (numeroCase == <?=$numHaz?>)
+        message = "gagné"
+        document.getElementById("message").innerHTML = message; 
+    }
+    
+</script>
+
+
 </body>
 </html>
