@@ -17,21 +17,33 @@
 <body>
     <input type="text"  id="val1">
     <input type="text"  id="val2">
-    <button onclick="additionne()">+</button>
+    <br>
+    <button onclick="operateB('add')">+</button>
+    <button onclick="operateB('sous')">-</button>
 
     <br>
     <div id="display"></div>
 
     <script>
-        function additionne()
+
+        function operateB( operator )
         {
             let val1 = parseFloat( $( "#val1" ).val());
             let val2 = parseFloat( $( "#val2" ).val());
-            let resultat = val1 + val2;
-            $( "#display" ).text( resultat );                    
+            $.post( 
+                'http://localhost/work/test/calcul.php',
+                {
+                    v1 : val1,
+                    v2 : val2,
+                    op : operator
+                },
+                function( data )
+                {
+                    console.log( data );
+                    $( "#display" ).text( data );
+                }
+            );
         }
-
-        // 101
 
 
         /*
