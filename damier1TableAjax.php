@@ -52,7 +52,7 @@
 <div id="mess"></div>
 
 <script>
-    let numHaz = <?=$numHaz?>;
+    let numHaz = getNumberRandom();
     
     function testCase( numCase )
     {
@@ -67,6 +67,11 @@
             message = "gagné !!!!";
 
         document.getElementById( "mess").innerHTML = message;
+    }
+
+    function getNumberRandom()
+    {
+        
     }
 
 </script>
