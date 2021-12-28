@@ -53,7 +53,9 @@
 <div id="mess"></div>
 
 <script>
-    let numHaz = getNumberRandom();
+    var numHaz = getNumberRandom( );
+
+    console.log( numHaz );
     
     function testCase( numCase )
     {
@@ -70,23 +72,25 @@
         document.getElementById( "mess").innerHTML = message;
     }
 
-    function getNumberRandom()
+
+    function getNumberRandom( nbrCase  )
     {
-       $.get('http://localhost/work/test/getRandom.php', 
-       function(data, status){
-        retour = JSON.parse(data);
-       }
-      
-    });
+        let dictTXT =  $.ajax(
+            {
+                type: "GET",
+                url: 'http://localhost/work/test/getRandom.php',
+                async: false
+            }).responseText;
 
-
-    
-$(document).ready(function(){
-  $("*td").click(function(){
-    $("#mess").load("damierNumAleatoire.php");
-  });
-});
-
+        dictVAL = JSON.parse( dictTXT );
+        
+        let nom = dictVAL[ 'nom' ];
+        console.log( nom );
+        console.log( dictVAL );
+        
+        let hazard = dictVAL[ 'valeurHazard' ]; 
+        return hazard;
+    }
 
 </script>
 
