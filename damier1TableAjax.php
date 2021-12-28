@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Document</title>
     <style>
         .blanc
@@ -24,8 +25,17 @@
 
 <table>
 <?php
-    $ligne = 8;
-    $colone = 8;
+    if($_POST)
+    {
+        $ligne = $_POST['damier'];
+        $colone = $_POST['damier'];
+    }
+    else
+    {
+        $ligne = 8;
+        $colone = 8;
+    }
+
     $compteur=0;    
     for( $i=0 ; $i<$ligne ; $i++ )
     {
@@ -45,14 +55,30 @@
         print( "</tr>\n");
     }
 
-    $numHaz = rand( 0, $compteur);
+    // $numHaz = rand( 0, $compteur);
 ?>
 </table>
 
 <div id="mess"></div>
+<br>
+
+<form action="damier1TableAjax.php" method="post">
+    <input onchange="damierValue()" name="damier" type="range" id="damier" value="<?=$ligne?>" min="2" max="12">
+    <label for="damier">Damier</label>
+    <button type="submit">Ok</button>
+</form>
+
+<p id="desc"></p>
 
 <script>
     let numHaz = getNumberRandom();
+    damierValue();
+    
+    function damierValue()
+    {
+        let valeur = $("#damier").val();
+        $("#desc").text(valeur);
+    }
     
     function testCase( numCase )
     {
@@ -71,9 +97,12 @@
 
     function getNumberRandom()
     {
-        
+        return $.ajax({
+                            type: "GET",
+                            url: "rand.php?cpt=<?=$compteur?>",
+                            async: false
+                        }).responseText;
     }
-
 </script>
 
 </body>
