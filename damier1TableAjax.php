@@ -21,42 +21,38 @@
         }
     </style>
 </head>
-<body>
+<body onload="setBoard()">
 
-<table>
-<?php
-    $ligne = 8;
-    $colone = 8;
-    $compteur=0;    
-    for( $i=0 ; $i<$ligne ; $i++ )
-    {
-        print( "<tr>\n");
-        for( $j=0 ; $j < $colone ; $j++ )
-        {
-            //if ( $i % 2 == 0 && $j % 2 == 0)
-            if ( ($i+$j) % 2 == 0 )
-                $class="class='noir'";
-            else
-                $class="class='blanc'";
-            //print( "<td $class>\n");
-            print( "<td onclick='testCase( $compteur )' $class>\n");
-            print( "</td>\n");
-            $compteur++;
-        }
-        print( "</tr>\n");
-    }
-
-    $numHaz = rand( 0, $compteur);
-?>
-</table>
-
+<div id="board"></div>
+<input type="range" min='2' max='8' onchange="newBoard( this.value )">
 <div id="mess"></div>
 
 <script>
-    var numHaz = getNumberRandom( );
 
-    console.log( numHaz );
-    
+    var numHaz = getRND( ???? )
+    var nrbCase = 0;
+
+    function setBoard( )
+    {
+        newBoard( 8 );
+    }
+
+    function newBoard( sizex )
+    {
+        console.log( sizex );
+        $.post(  
+                'http://localhost/work/test/createBoard.php',
+                {
+                    size : sizex
+                },
+                function( datas, status)
+                {
+                    $( "#board").html( datas ); 
+                }
+        );
+    }
+
+
     function testCase( numCase )
     {
         console.log( "je suis la case : " + numCase);
@@ -72,22 +68,16 @@
         document.getElementById( "mess").innerHTML = message;
     }
 
-
     function getNumberRandom( nbrCase  )
     {
         let dictTXT =  $.ajax(
             {
-                type: "GET",
+                type: "POST",
                 url: 'http://localhost/work/test/getRandom.php',
                 async: false
             }).responseText;
 
         dictVAL = JSON.parse( dictTXT );
-        
-        let nom = dictVAL[ 'nom' ];
-        console.log( nom );
-        console.log( dictVAL );
-        
         let hazard = dictVAL[ 'valeurHazard' ]; 
         return hazard;
     }
