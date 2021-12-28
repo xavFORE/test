@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <style>
         .blanc
         {
@@ -20,40 +21,38 @@
         }
     </style>
 </head>
-<body>
+<body onload="setBoard()">
 
-<table>
-<?php
-    $ligne = 8;
-    $colone = 8;
-    $compteur=0;    
-    for( $i=0 ; $i<$ligne ; $i++ )
-    {
-        print( "<tr>\n");
-        for( $j=0 ; $j < $colone ; $j++ )
-        {
-            //if ( $i % 2 == 0 && $j % 2 == 0)
-            if ( ($i+$j) % 2 == 0 )
-                $class="class='noir'";
-            else
-                $class="class='blanc'";
-            //print( "<td $class>\n");
-            print( "<td onclick='testCase( $compteur )' $class>\n");
-            print( "</td>\n");
-            $compteur++;
-        }
-        print( "</tr>\n");
-    }
-
-    $numHaz = rand( 0, $compteur);
-?>
-</table>
-
+<div id="board"></div>
+<input type="range" min='2' max='8' onchange="newBoard( this.value )">
 <div id="mess"></div>
 
 <script>
-    let numHaz = getNumberRandom();
-    
+
+    var numHaz = getRND( ???? )
+    var nrbCase = 0;
+
+    function setBoard( )
+    {
+        newBoard( 8 );
+    }
+
+    function newBoard( sizex )
+    {
+        console.log( sizex );
+        $.post(  
+                'http://localhost/work/test/createBoard.php',
+                {
+                    size : sizex
+                },
+                function( datas, status)
+                {
+                    $( "#board").html( datas ); 
+                }
+        );
+    }
+
+
     function testCase( numCase )
     {
         console.log( "je suis la case : " + numCase);
@@ -69,9 +68,18 @@
         document.getElementById( "mess").innerHTML = message;
     }
 
-    function getNumberRandom()
+    function getNumberRandom( nbrCase  )
     {
-        
+        let dictTXT =  $.ajax(
+            {
+                type: "POST",
+                url: 'http://localhost/work/test/getRandom.php',
+                async: false
+            }).responseText;
+
+        dictVAL = JSON.parse( dictTXT );
+        let hazard = dictVAL[ 'valeurHazard' ]; 
+        return hazard;
     }
 
 </script>
