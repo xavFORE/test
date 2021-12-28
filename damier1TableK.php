@@ -37,7 +37,7 @@
                 $class="class='noir'";
             else
                 $class="class='blanc'";
-            print( "<td $class>\n");
+            print( "<td $class onclick='caseTest($compteur)'>\n");
             print( "</td>\n");
             $compteur++;
         }

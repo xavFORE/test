@@ -26,6 +26,8 @@
 <?php
     $ligne = 8;
     $colone = 8;
+    $compteur =0;
+    $numRandom= rand(0, 63);
     for( $i=0 ; $i<$ligne ; $i++ )
     {
         // la ligne est-elle pair ?
@@ -39,8 +41,9 @@
                     $class="class='noir'";
                 else
                     $class="class='blanc'";
-                print( "<td $class>\n");
+                print( "<td onclick='caseTest($compteur)' $class >\n");
                 print( "</td>\n");
+                $compteur++; 
             }
             print( "</tr>\n");
         }
@@ -54,13 +57,26 @@
                     $class="class='blanc'";
                 else
                     $class="class='noir'";
-                print( "<td $class>\n");
+                print( "<td onclick='caseTest($compteur)' $class >\n");
                 print( "</td>\n");
+                $compteur++; 
             }
             print( "</tr>\n");
         }
     }
 ?>
 </table>
+<script>
+function caseTest(num)
+{    
+    let cases = "Tu as perdu"; 
+    if (num == <?=$numRandom?>)
+    document.getElementById('res').innerHTML = "Tu as gagné";
+    else 
+    document.getElementById('res').innerHTML = cases;
+}
+
+</script>
+<div id="res"></div>
 </body>
 </html>
