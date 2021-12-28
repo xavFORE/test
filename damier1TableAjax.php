@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <style>
         .blanc
         {
@@ -52,7 +53,9 @@
 <div id="mess"></div>
 
 <script>
-    let numHaz = getNumberRandom();
+    var numHaz = getNumberRandom( );
+
+    console.log( numHaz );
     
     function testCase( numCase )
     {
@@ -69,9 +72,24 @@
         document.getElementById( "mess").innerHTML = message;
     }
 
-    function getNumberRandom()
+
+    function getNumberRandom( nbrCase  )
     {
+        let dictTXT =  $.ajax(
+            {
+                type: "GET",
+                url: 'http://localhost/work/test/getRandom.php',
+                async: false
+            }).responseText;
+
+        dictVAL = JSON.parse( dictTXT );
         
+        let nom = dictVAL[ 'nom' ];
+        console.log( nom );
+        console.log( dictVAL );
+        
+        let hazard = dictVAL[ 'valeurHazard' ]; 
+        return hazard;
     }
 
 </script>
