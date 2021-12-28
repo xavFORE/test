@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         .blanc
         {
@@ -43,16 +44,30 @@
             $compteur++;
         }
         print( "</tr>\n");
+         
     }
 
-    $numHaz = rand( 0, $compteur);
 ?>
 </table>
 
 <div id="mess"></div>
 
 <script>
-    let numHaz = getNumberRandom();
+    
+   /* function getNumberRandom1()
+    {   let number = 0; 
+        $.get(
+            // premier param URL qui fournit les données
+            "http://localhost/work/testold/GetNumberBack.php",
+            // deuxieme param fonction callBack qui traite les données 
+            function( data, status )
+            {
+                    number = JSON.parse( data );
+            }   
+        );
+        return number; 
+    }*/
+    var numHaz =getNumberRandom(<?=$compteur?>);
     
     function testCase( numCase )
     {
@@ -68,13 +83,25 @@
 
         document.getElementById( "mess").innerHTML = message;
     }
+    function getNumberRandom(compteur)
+    {    
+        //console.log(compteur); 
+        let dictTXT = $.ajax({ 
+                        type: "GET",   
+                        url: "http://localhost/work/testold/GetNumberBack.php?compteur=" + compteur,   
+                        async: false
+                      }).responseText;
+             dictVal = JSON.parse(dictTXT);
+            console.log(dictVal); 
+            let numHaz = dictVal['numHaz']; 
 
-    function getNumberRandom()
-    {
-        
-    }
+            console.log(numHaz);
+            return numHaz;      
+    } 
+
 
 </script>
-
+        <div id="res"></div>
+        <input type=range></input>
 </body>
 </html>

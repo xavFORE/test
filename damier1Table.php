@@ -27,7 +27,7 @@
     $ligne = 8;
     $colone = 8;
     $compteur =0;
-    $numRandom= rand(0, 63);
+   // $numRandom= rand(0, 63);
     for( $i=0 ; $i<$ligne ; $i++ )
     {
         // la ligne est-elle pair ?
