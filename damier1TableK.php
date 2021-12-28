@@ -37,12 +37,8 @@
                 $class="class='noir'";
             else
                 $class="class='blanc'";
-<<<<<<< HEAD
-            print( "<td $class onclick='caseTest($compteur)'>\n");
-=======
             //print( "<td $class>\n");
             print( "<td onclick='testCase( $compteur )' $class>\n");
->>>>>>> origin/revisionX
             print( "</td>\n");
             $compteur++;
         }
