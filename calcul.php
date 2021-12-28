@@ -14,5 +14,9 @@
         $resultat = $val1 + $val2; 
     elseif ( $operator   == "sous" )
         $resultat = $val1 - $val2; 
-    print( $resultat ); 
+   
+    else ( $operator == "mult" )
+        $resultat = $val1 * $val2;
+
+     print( $resultat );
 ?>
