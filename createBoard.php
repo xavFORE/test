@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
     $ligne = 8;
     $colone = 8;
@@ -25,4 +26,5 @@
         print( "</tr>\n");
     }
     print( "</table>\n");
+ 
 ?>
