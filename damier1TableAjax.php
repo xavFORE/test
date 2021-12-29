@@ -29,7 +29,8 @@
 
 <script>
 
-    var numHaz = getRND( ???? )
+    var numHaz; 
+    getRNDCB( 64 );
     var nrbCase = 0;
 
     function setBoard( )
@@ -47,7 +48,8 @@
                 },
                 function( datas, status)
                 {
-                    $( "#board").html( datas ); 
+                    $( "#board").html( datas );
+                    getRNDCB( sizex * sizex ); 
                 }
         );
     }
@@ -68,20 +70,38 @@
         document.getElementById( "mess").innerHTML = message;
     }
 
-    function getNumberRandom( nbrCase  )
+    function getRND( nbrCase  )
     {
         let dictTXT =  $.ajax(
             {
                 type: "POST",
                 url: 'http://localhost/work/test/getRandom.php',
-                async: false
+                async: false,
+                data : { max : nbrCase }
             }).responseText;
 
         dictVAL = JSON.parse( dictTXT );
         let hazard = dictVAL[ 'valeurHazard' ]; 
+        console.log( "hazard : " + hazard );
         return hazard;
     }
 
+    function getRNDCB( nbrCase  )
+    {
+        $.post(
+                'http://localhost/work/test/getRandom.php',
+                { 
+                    max : nbrCase 
+                },
+                function( datas, status )
+                {
+                    dictVAL = JSON.parse( datas );
+                    let hazard = dictVAL[ 'valeurHazard' ]; 
+                    console.log( "hazard : " + hazard );
+                    numHaz = hazard;
+                }
+        );
+    }
 </script>
 
 </body>
