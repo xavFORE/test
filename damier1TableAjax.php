@@ -28,11 +28,18 @@
 <div id="mess"></div>
 
 <script>
+<<<<<<< HEAD
     
     
     var numHaz = getNumberRandom( nbrCase  );
     var sizeX = 0; 
     var nbrCase = sizeX;
+=======
+
+    var numHaz; 
+    getRNDCB( 64 );
+    var nrbCase = 0;
+>>>>>>> origin/revisionX
 
     function setBoard( )
     {
@@ -49,7 +56,8 @@
                 },
                 function( datas, status)
                 {
-                    $( "#board").html( datas ); 
+                    $( "#board").html( datas );
+                    getRNDCB( sizex * sizex ); 
                 }
         );
         $.ajax({
@@ -74,6 +82,7 @@
 
         document.getElementById( "mess").innerHTML = message;
     }
+<<<<<<< HEAD
     
  
     function getNumberRandom( nbrCase  )
@@ -83,6 +92,17 @@
                 type: "POST",
                 url: 'http://localhost/work/testold/getRandom.php',
                 async: false
+=======
+
+    function getRND( nbrCase  )
+    {
+        let dictTXT =  $.ajax(
+            {
+                type: "POST",
+                url: 'http://localhost/work/test/getRandom.php',
+                async: false,
+                data : { max : nbrCase }
+>>>>>>> origin/revisionX
             }).responseText;
             console.log(nbrCase);
        
@@ -90,10 +110,36 @@
   
         let hazard = dictTXT[ 'valeurHazard' ]; 
 
+<<<<<<< HEAD
         console.log (hazard);
         return hazard;
     }
 
+=======
+        dictVAL = JSON.parse( dictTXT );
+        let hazard = dictVAL[ 'valeurHazard' ]; 
+        console.log( "hazard : " + hazard );
+        return hazard;
+    }
+
+    function getRNDCB( nbrCase  )
+    {
+        $.post(
+                'http://localhost/work/test/getRandom.php',
+                { 
+                    max : nbrCase 
+                },
+                function( datas, status )
+                {
+                    dictVAL = JSON.parse( datas );
+                    let hazard = dictVAL[ 'valeurHazard' ]; 
+                    console.log( "hazard : " + hazard );
+                    numHaz = hazard;
+                }
+        );
+    }
+</script>
+>>>>>>> origin/revisionX
 
 </script>
         

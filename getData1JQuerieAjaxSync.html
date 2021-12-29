@@ -24,8 +24,19 @@
 
     <script>
 
+        var numHaz;
+
         function doSomething()
         {
+            $( "#display" ).text( 'TATA' ); 
+            let datex = getDatex();                    
+            $( "#date" ).text( datex );                    
+        }
+
+        function doSomethingCB()
+        {
+            $( "#display" ).text( 'TATA' );                    
+
             $.get(
                 'http://localhost/work/test/sendData.php', 
                 function( datas, status )
@@ -37,6 +48,7 @@
             );
             console.log( "fin doSomething()" );
         }
+
 
         // appel synchrone
         function getDatex()
