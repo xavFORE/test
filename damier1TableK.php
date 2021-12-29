@@ -33,17 +33,43 @@
         for( $j=0 ; $j < $colone ; $j++ )
         {
             //if ( $i % 2 == 0 && $j % 2 == 0)
-            if ( $compteur % 2 == 0 )
+            if ( ($i+$j) % 2 == 0 )
                 $class="class='noir'";
             else
                 $class="class='blanc'";
-            print( "<td $class>\n");
+            //print( "<td $class>\n");
+            print( "<td onclick='testCase( $compteur )' $class>\n");
             print( "</td>\n");
             $compteur++;
         }
         print( "</tr>\n");
     }
+
+    $numHaz = rand( 0, $compteur);
 ?>
 </table>
+
+<div id="mess"></div>
+
+<script>
+    let numHaz = <?=$numHaz?>;
+    
+    function testCase( numCase )
+    {
+        console.log( "je suis la case : " + numCase);
+        let message = "";
+        if ( numCase > numHaz  )
+            message = "trop grand !!!!";
+        else 
+        if ( numCase < numHaz )
+            message = "trop petit !!!!";
+        else
+            message = "gagné !!!!";
+
+        document.getElementById( "mess").innerHTML = message;
+    }
+
+</script>
+
 </body>
 </html>
