@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
+    <h1> Gestion des évènements en JQuery</h1>
+
+    <p class='p1'> Un premier paragraphe</p>
+    <p class='p2'> un deuxième paragraphe</p>
+
+    <script>
+
+        /*
+        $(document).ready(function(){
+            $('.p2').hide();
+
+            $('.p1').mouseenter(function(){
+               $('.p2').show(); 
+            });
+            
+            $('.p1').mouseleave(function(){
+               $('.p2').hide(); 
+            });
+
+         });                                 */    
+
+// ici au survole du paragraphe 1, paragraphe 2  s'affiche 
+         $(document).ready(function(){
+
+            $('.p2').hide();
+
+            $('.p1').hover(
+                function(){$('.p2').show();},
+                function(){$('.p2').hide();},
+                );
+         });
+
+    </script>
+
+
+</body>
+</html>
