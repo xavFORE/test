@@ -6,34 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-   <style>
-        .date
-        { 
-            color:tomato;
-            font-size: 30px;
-        }
-    </style>
 </head>
 <body>
-    <input type="text"  id="val1">
-    <input type="text"  id="val2">
+    <input type="text"  id="login" placeholder="login">
+    <input type="text"  id="password" placeholder="password">
     <br>
-    <button onclick="operateB('add')">+</button>
-    <button onclick="operateB('sous')">-</button>
-    <button onclick="operateB('mult')">x</button>
-    <button onclick="operateB('div')">/</button>
-
-
+    <button onclick="testLogin()">OK</button>
     <br>
     <div id="display"></div>
 
     <script>
-        function operateB( operator )
+        function testLogin( )
         {
             let val1 = parseFloat( $( "#val1" ).val());
             let val2 = parseFloat( $( "#val2" ).val());
             $.post( 
-                'http://localhost/work/test/calcul.php',
+                'http://localhost/work/test/testLogin.php',
                 {
                     v1 : val1,
                     v2 : val2,
@@ -46,19 +34,6 @@
                 }
             );
         }
-
-        function multiplication()
-        {
-
-            let val1 = parseInt($('#val1').val(),10);
-            let val2 = parseInt($('#val2').val());
-
-            let resultat = val1 * val2;
-            $( "#display" ).text( resultat );                    
-        }
-
-
-
         /*
             front   ->  HTML
                         CSS
