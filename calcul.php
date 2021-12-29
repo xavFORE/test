@@ -14,5 +14,16 @@
         $resultat = $val1 + $val2; 
     elseif ( $operator   == "sous" )
         $resultat = $val1 - $val2; 
+    elseif ( $operator   == "div" )
+    {
+        if ( $val2 != 0 ) 
+            $resultat = $val1 / $val2;  
+        else 
+            $resultat = "division par zéro impossible";
+    }
+    elseif ( $operator   == "mul" )
+        $resultat = $val1 * $val2; 
+    else
+        $resultat = "operator inconnu";
     print( $resultat ); 
 ?>
