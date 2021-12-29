@@ -25,40 +25,76 @@
 <body onload="setBoard()">
 
 <div id="board"></div>
-<input type="range" min='2' max='8' onchange="newBoard( this.value )">
+<input type="range" min='2' max='12' onchange="newBoard( this.value )">
 <div id="mess"></div>
+<br>
+<button onclick="rejouer()">Rejouer</button>
 
 <script>
+    var nbrCase = $("input").val()*$("input").val();
+    var numHaz;
+    var clic = 0;
+    console.log("nbrCase : "+nbrCase);
 
-    var numHaz = getRND( 0 );
-    var nrbCase = 0;
+    function rejouer()
+    {
+        nbrCase = $("input").val()*$("input").val();
+        clic = 0;
+        setBoard();
+    }
 
     function setBoard( )
     {
-        newBoard( 8 );
+        newBoard( nbrCase/$("input").val() );
+        $("#mess").text(nbrCase/$("input").val());
     }
 
     function newBoard( sizex )
     {
-        $.post(  
-                'createBoard.php',
-                {
-                    size : sizex
-                },
-                function( datas, status)
-                {
-                    $( "#board").html( datas ); 
-                }
-        );
-    }
-
-    function getRND(v)
-    {
+        // $.post(  
+        //         'createBoard.php',
+        //         {
+        //             size : sizex
+        //         },
+        //         function( datas, status)
+        //         {
+        //             $( "#board").html( datas ); 
+        //         }
+        // );
         
+        let ligne = sizex;
+        let colone = sizex;
+        let compteur = 0;
+        let classe = "";
+        numHaz = getNumberRandom( sizex*sizex -1);
+        console.log("numHaz : "+numHaz);
+        console.log("size    : "+sizex);
+
+        $("#mess").text(sizex);
+        $("#board").text( "" );
+
+        $("#board").append( "<table>\n");
+        for( let i=0 ; i<ligne ; i++ )
+        {
+            $("#board").append( "<tr>\n");
+            for( let j=0 ; j < colone ; j++ )
+            {
+                if ( (i+j) % 2 == 0 )
+                    classe="class='noir'";
+                else
+                    classe="class='blanc'";
+                    $("#board").append( "<td onclick='testCase( "+compteur+" )' "+classe+">\n");
+                    $("#board").append( "</td>\n");
+                compteur++;
+            }
+            $("#board").append( "</tr>\n");
+        }
+        $("#board").append( "</table>\n");
     }
 
     function testCase( numCase )
     {
+        clic++;
         console.log( "je suis la case : " + numCase);
         let message = "";
         if ( numCase > numHaz  )
@@ -67,23 +103,27 @@
         if ( numCase < numHaz )
             message = "trop petit !!!!";
         else
+        {
+            $.post("sendDataDamier.php", { nbrClic: clic });
             message = "gagné !!!!";
-
-        document.getElementById( "mess").innerHTML = message;
+        }
+            
+        $( "#mess").text(message);
     }
 
     function getNumberRandom( nbrCase  )
     {
-        let dictTXT =  $.ajax(
+        return $.ajax(
             {
                 type: "POST",
                 url: 'getRandom.php',
+                data: { max: nbrCase },
                 async: false
             }).responseText;
 
-        dictVAL = JSON.parse( dictTXT );
-        let hazard = dictVAL[ 'valeurHazard' ]; 
-        return hazard;
+        // dictVAL = JSON.parse( dictTXT );
+        // let hazard = dictVAL[ 'valeurHazard' ]; 
+        // return hazard;
     }
 </script>
 
