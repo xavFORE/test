@@ -12,7 +12,7 @@ session_start();
 // je demarre la session
 // un cookie va être déposé
 // je peux gérer la durée du cookie
-session_start( ['cookie_lifetime' => 3600 * 24 * 15 ] );
+//session_start( ['cookie_lifetime' => 3600 * 24 * 15 ] );
 
 
 // mes variables persos
