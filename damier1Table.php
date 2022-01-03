@@ -24,8 +24,8 @@
 
 <table>
 <?php
-    $ligne = 8;
-    $colone = 8;
+    $ligne = $colone = 9;
+     
     for( $i=0 ; $i<$ligne ; $i++ )
     {
         // la ligne est-elle pair ?
@@ -40,6 +40,7 @@
                 else
                     $class="class='blanc'";
                 print( "<td $class>\n");
+                
                 print( "</td>\n");
             }
             print( "</tr>\n");
@@ -55,6 +56,7 @@
                 else
                     $class="class='noir'";
                 print( "<td $class>\n");
+                
                 print( "</td>\n");
             }
             print( "</tr>\n");

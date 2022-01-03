@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="gros_titre"> DECOUVERTE DU DOM</h1>
+
+    <p class="para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore perferendis temporibus sunt! Iste accusamus,
+    magnam accusantium vel dicta ullam nam consectetur,
+    deleniti temporibus, amet est?</p>
+
+    <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+        Veniam cupiditate sint iure, eaque nulla molestias!</p>
+
+    <script>
+        let p1 = document.querySelector('.para');
+        
+         
+        p1.addEventListener('click', changeTexte, );
+
+        function changeTexte(){
+            this.innerHTML='Voilà, voilà,';
+            this.style.color='orange';
+            this.style.fontSize='24px';
+            this.style.backgroundColor='#f2f';
+        }
+
+        let titre=document.getElementById('gros_titre').innerHTML+=" texte ajouté";
+        
+
+        let textePara= document.querySelector('.para').textContent;
+
+        alert( texteTitre + "  "+ textePara);
+    </script>
+</body>
+</html>

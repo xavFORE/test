@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection et modification d'elements</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    
+    <!-- premier exercice
+    <span id="test"></span>
+
+    <label for="prenom">entrez un prenom : </label>
+    <input type="text" id="prenom" name="prenom">
+    <span id="sp1"></span><br>
+
+    <select multiple="multiple">
+        <option>option 1</option>
+        <option>option 2</option>
+        <option>option 3</option>
+    </select>
+    <span id="sp2"></span>
+
+    <script>
+        $(document).ready(function () {
+            $('#prenom').keyup(function () {
+                let valeurInput = $(this).val();
+                $('#sp1').text(valeurInput);
+            });
+            $('select').change(function () {
+                let valeurSelect = $('select').val() || [];
+                $('#sp2').text(valeurSelect.join(', '));
+            });
+        });
+
+    </script>                         -->
+    <!-- un autre exercice-->
+<h1 class="titre">selection et modification <mark> d'élèments.</mark></h1>
+    <h2> utilisation de attr()</h2>
+    <a href="">un lien</a><br>
+
+    <span id="test"></span>
+
+    <script>
+        $(document).ready(function () {
+            let atth1 = $('h1').attr('class');
+            $('#test').text('valeur de la class de h1 : ' +atth1);
+            $('h2').attr('class', 'titre');
+            $('a').attr({
+                href: 'http://pierre-giraud.com',
+                target: '_blank'
+            });
+        });
+
+    </script>
+
+
+</body>
+
+</html>
