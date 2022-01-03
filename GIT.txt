@@ -1,5 +1,0 @@
-git config --global credential.helper 'store --file ~/.my-credentials-git'
-
-~/.my-credentials-git'
-git credential
-git config credential.helper store
