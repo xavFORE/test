@@ -28,18 +28,10 @@
 <div id="mess"></div>
 
 <script>
-<<<<<<< HEAD
-    
-    
-    var numHaz = getNumberRandom( nbrCase  );
-    var sizeX = 0; 
-    var nbrCase = sizeX;
-=======
 
     var numHaz; 
     getRNDCB( 64 );
     var nrbCase = 0;
->>>>>>> origin/revisionX
 
     function setBoard( )
     {
@@ -48,7 +40,7 @@
 
     function newBoard( sizex )
     {    
-        console.log( sizex );
+       // console.log( sizex );
         $.post(  
                 'http://localhost/work/testold/createBoard.php',
                 {
@@ -60,11 +52,7 @@
                     getRNDCB( sizex * sizex ); 
                 }
         );
-        $.ajax({
-                method: "POST",
-                url: "http://localhost/work/testold/getRandom.php",
-                data: { max: sizeX }
-})
+      
     }
 
 
@@ -82,50 +70,32 @@
 
         document.getElementById( "mess").innerHTML = message;
     }
-<<<<<<< HEAD
-    
- 
-    function getNumberRandom( nbrCase  )
-    {   
-        let dictTXT  =  $.ajax(
-            {
-                type: "POST",
-                url: 'http://localhost/work/testold/getRandom.php',
-                async: false
-=======
 
-    function getRND( nbrCase  )
+   /* function getRND( nbrCase  )
     {
         let dictTXT =  $.ajax(
             {
                 type: "POST",
-                url: 'http://localhost/work/test/getRandom.php',
+                url: 'http://localhost/work/testold/getRandom.php',
                 async: false,
                 data : { max : nbrCase }
->>>>>>> origin/revisionX
             }).responseText;
             console.log(nbrCase);
        
      
   
-        let hazard = dictTXT[ 'valeurHazard' ]; 
+        
 
-<<<<<<< HEAD
-        console.log (hazard);
-        return hazard;
-    }
-
-=======
         dictVAL = JSON.parse( dictTXT );
         let hazard = dictVAL[ 'valeurHazard' ]; 
         console.log( "hazard : " + hazard );
         return hazard;
-    }
+    }*/
 
     function getRNDCB( nbrCase  )
     {
         $.post(
-                'http://localhost/work/test/getRandom.php',
+                'http://localhost/work/testold/getRandom.php',
                 { 
                     max : nbrCase 
                 },
@@ -139,9 +109,7 @@
         );
     }
 </script>
->>>>>>> origin/revisionX
 
-</script>
         
 </body>
 </html>
