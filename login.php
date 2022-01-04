@@ -10,7 +10,7 @@
             $_SESSION[ 'nom' ] = $nom;
             $_SESSION[ 'ip' ] = $IP;
             $_SESSION[ 'nav' ] = $nav;
-
+            
             header( "location: mapage.php" );
         }
     }
