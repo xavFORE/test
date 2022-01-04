@@ -10,6 +10,17 @@
         {
             background-image : url( "images/av4.png");
         }
+        .pop 
+        {   
+            width: 50%;
+            height: 100%; 
+            padding: 10px; 
+            background-color: white;
+            border: 1px solid black; 
+            box-shadow: 6px 6px 3px 3px black; 
+            margin: auto; 
+            text-align: center;  
+        }
     </style>
 
 </head>
