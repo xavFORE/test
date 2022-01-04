@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+if ( !isset( $_SESSION[ 'nom' ]) )
+{
+    session_destroy();
+    header( "location: questions1.php");
+}
+
+$nom = $_SESSION[ 'nom' ];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,17 +43,13 @@
         }
     </style>
 </head>
-<body>
-<?php
-    require_once "questions1.php";
-?>
-    <div class="myDiv">
-        ma super belle page <br>
-        <a href="session2WC.php">suite</a>
+<body >
+    <div>
+    ma super belle page de <?=$nom?><br>
+    <br>
+    <a href="session2WC.php">suite</a>
     </div>
 </body>
 </html>
 <?php
-    $_SESSION[ 'plat']      = "couscous";
-    $_SESSION[ 'boisson']   = "sidi brahim";
 ?>
