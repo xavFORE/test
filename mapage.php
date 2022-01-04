@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ( !isset( $_SESSION[ 'nom' ]) )
+if ( !isset( $_SESSION[ 'nom' ] && ) )
 {
     session_destroy();
     header( "location: questions1.php");
@@ -22,18 +22,6 @@ $nom = $_SESSION[ 'nom' ];
         {
             background-image : url( "images/av4.png");
         }
-<<<<<<< HEAD
-        .pop 
-        {   
-            width: 50%;
-            height: 100%; 
-            padding: 10px; 
-            background-color: white;
-            border: 1px solid black; 
-            box-shadow: 6px 6px 3px 3px black; 
-            margin: auto; 
-            text-align: center;  
-=======
         .pop
         {
             z-index : 10;
@@ -42,7 +30,6 @@ $nom = $_SESSION[ 'nom' ];
             background-color : grey; 
             border: 2px solid black; 
             margin: auto;
->>>>>>> origin/sessions
         }
     </style>
 
