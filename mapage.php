@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+if ( !isset( $_SESSION[ 'nom' ]) )
+{
+    session_destroy();
+    header( "location: questions1.php");
+}
+
+$nom = $_SESSION[ 'nom' ];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +22,7 @@
         {
             background-image : url( "images/av4.png");
         }
+<<<<<<< HEAD
         .pop 
         {   
             width: 50%;
@@ -20,19 +33,27 @@
             box-shadow: 6px 6px 3px 3px black; 
             margin: auto; 
             text-align: center;  
+=======
+        .pop
+        {
+            z-index : 10;
+            width : 300px; 
+            height : 300px;
+            background-color : grey; 
+            border: 2px solid black; 
+            margin: auto;
+>>>>>>> origin/sessions
         }
     </style>
 
 </head>
 <body >
     <div>
-    ma super belle page <br>
+    ma super belle page de <?=$nom?><br>
+    <br>
     <a href="session2WC.php">suite</a>
     </div>
 </body>
 </html>
 <?php
-$_SESSION[ 'plat']      = "couscous";
-$_SESSION[ 'boisson']   = "sidi brahim";
 ?>
-
