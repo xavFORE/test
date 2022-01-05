@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ( !isset( $_SESSION[ 'nom' ]) )
+if ( !isset( $_SESSION[ 'nom' ] ) )
 {
     session_destroy();
     header( "location: questions1.php");
