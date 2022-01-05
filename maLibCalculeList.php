@@ -14,6 +14,7 @@
                 throw new Exception( "$value n'est pas un chiffre" );                
         return $total;
     }
+    
 
 
     function moyenne( $liste)
