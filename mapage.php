@@ -1,11 +1,7 @@
 <?php
 session_start();
 
-<<<<<<< HEAD
-if ( !isset( $_SESSION[ 'nom' ] && ) )
-=======
 if ( !isset( $_SESSION[ 'nom' ] ) )
->>>>>>> origin/sessions
 {
     session_destroy();
     header( "location: questions1.php");

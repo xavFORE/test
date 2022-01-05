@@ -14,18 +14,13 @@ function getUserIP() {
 }
 
 
-<<<<<<< HEAD
-   print( "mon adresse ip est : $IP<br>");
-   print( "mon adresse navigator : $nav<br>");
-?>
-=======
 
 $IP = getUserIP();
-$nav = get_browser(null, true);;
+//$nav = get_browser(null, true);;
 //$_SERVER['HTTP_USER_AGENT'];
 
 print( "mon adresse ip est : $IP<br>");
-print_r( $nav);
+//print_r( $nav);
 
 $agent = $_SERVER["HTTP_USER_AGENT"];
 
@@ -44,4 +39,3 @@ if( preg_match('/MSIE (\d+\.\d+);/', $agent) ) {
 }
 
 ?>
->>>>>>> origin/sessions
