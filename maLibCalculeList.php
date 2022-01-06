@@ -8,17 +8,23 @@
 
         $total = 0;
         foreach ($liste as $key => $value)
-            if ( gettype( $value) == "integer" || gettype( $value) == "double") 
-                $total += $value;
-            else if(is_array($value))
-            {
-                $t= gettype($value);
-                throw new Exception( "$t n'est pas un chiffre" );
-            }
-            // else if(is_string($value))
-            //     $total += intval($value);
+        {
+            $type = gettype( $value );
+
+            if($type == "array")
+                throw new Exception( "Array n'est pas un chiffre" );
+            if ($type == "boolean" && $value)
+                throw new Exception( "1 n'est pas un chiffre" );
+            if ($type == "boolean" && !$value)
+                throw new Exception( "0 n'est pas un chiffre" );
             else
-                throw new Exception( "$value n'est pas un chiffre" );                
+                $type = $value;
+            
+            if ( is_numeric( $value )) 
+                $total += floatval( $value );
+            else
+                throw new Exception( "$value n'est pas un chiffre" );
+        }
         return $total;
     }
 
