@@ -10,7 +10,12 @@
         foreach ($liste as $key => $value)
         {
             $type = gettype( $value );
-            
+            if ($type = "array")
+            throw new Exception( " Array n'est pas un chiffre" );   
+
+            if ($type = "boo")
+            throw new Exception( " Array n'est pas un chiffre" );   
+
             if ( is_numeric( $value )) 
                 $total += floatval( $value );
             else
