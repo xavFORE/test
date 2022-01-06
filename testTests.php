@@ -6,17 +6,19 @@
     {
         try 
         {
-            if ( moyenne( $list ) == $valAttendue )
-                print( "OK<br>" );
+            $res = moyenne( $list );
+            if ( $res == $valAttendue )
+                print( "OK <br>" );
             else 
-                print( "KO<br>" );
+                print( "KO ($res != $valAttendue)<br>" );
         } 
         catch (Exception $th) 
         {
-            if ( $th->getMessage() == $valAttendue) 
-                print( "OK<br>" );
+            $res = $th->getMessage();
+            if ( $res == $valAttendue) 
+                print( "OK <br>" );
             else 
-                print( "KO<br>" );
+                print( "KO ($res != $valAttendue)<br>" );
         }
     }
 
@@ -29,4 +31,9 @@
     test( [  2 , -2 ], 0 );
 
     test( [  '2' , '-2' ], 0 );
+<<<<<<< HEAD
 ?>
+=======
+    test( [  '2' , '4' ], 3 );
+?>
+>>>>>>> origin/testX
