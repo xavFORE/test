@@ -30,7 +30,6 @@
     test( [  2 , [2, 2]  ], "Array n'est pas un chiffre");
     test( [  0 , 0, 0  ], 0 );
     test( [  2 , -2 ], 0 );
-
     test( [  '2' , '-2' ], 0 );
     test( [  '2' , '4' ], 3 );
 ?>

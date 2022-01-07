@@ -10,7 +10,7 @@
         foreach ($liste as $key => $value)
         {
             $type = gettype( $value );
-            if ($type = "array")
+            if (is_array = "array")
             throw new Exception( " Array n'est pas un chiffre" );   
 
             if ($type = "boo")
