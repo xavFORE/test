@@ -10,9 +10,20 @@
         foreach ($liste as $key => $value)
         {
             $type = gettype( $value );
+            if ( $type == 'array') 
+                 throw new Exception( "Array n'est pas un chiffre");
             
+            if ( $type == "boolean" ){
+                if () 
+                throw new Exception( "$value n'est pas un chiffre");
+              }
+            if ($type == "string"){
+                print ("aaaaaaa");
             if ( is_numeric( $value )) 
                 $total += floatval( $value );
+            
+            }
+               
             else
                 throw new Exception( "$type n'est pas un chiffre" );                
         }

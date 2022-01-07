@@ -2,7 +2,7 @@
     function test( $t )
     {
         print( "floatval( $t ) = " );
-        print( floatval( $t ) );
+        print( is_numeric( $t ) );
         print( "<br>");
     }
 
