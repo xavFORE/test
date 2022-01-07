@@ -8,10 +8,14 @@
 
         $total = 0;
         foreach ($liste as $key => $value)
-            if ( gettype( $value) == "integer" || gettype( $value) == "double") 
-                $total += $value;
+        {
+            $type = gettype( $value );
+            
+            if ( is_numeric( $value )) 
+                $total += floatval( $value );
             else
-                throw new Exception( "$value n'est pas un chiffre" );                
+                throw new Exception( "$type n'est pas un chiffre" );                
+        }
         return $total;
     }
 
