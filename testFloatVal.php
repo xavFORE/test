@@ -6,7 +6,7 @@
         print( "<br>");
     }
 
-    $values = [ 1, 1.0, '2', '2.0', 'O', 'toto', '', NULL, True, False ];
+    $values = [ 1, 1.0, '2', '2.0', 'O', 'toto', '', ['toto', 1], NULL, True, False ];
     foreach( $values as $k => $val )
         test( $val );
     ?>
