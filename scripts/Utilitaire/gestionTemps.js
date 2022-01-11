@@ -1,4 +1,4 @@
-const joursSemaine = ['Lundi','Mardi','Mecredi','Jeudi','Vendredi','Samedi','Dimanche'];
+const joursSemaine = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
 
 let ajd = new Date();
 let options = {weekday: 'long'};
