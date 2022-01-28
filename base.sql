@@ -13,7 +13,7 @@ create table animals
     race VARCHAR(255) NOT NULL,
     classe int,
     country int
-)  CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+)  CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = INNODB;
 
 
 drop table if exists classes;
@@ -23,7 +23,7 @@ create table classes
     stampCreate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     libel varchar( 255 ) UNIQUE 
-)  CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+)  CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = INNODB;
 
 
 drop table if exists countries;
@@ -33,7 +33,7 @@ create table countries
     stampCreate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     libel varchar( 255 ) UNIQUE 
-)  CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+)  CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = INNODB;
 
 INSERT INTO classes ( libel ) VALUES 
 ( "mammifère" ),
