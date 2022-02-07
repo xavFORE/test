@@ -12,18 +12,22 @@ class AppFixtures extends Fixture
     {
         $dep = new Departement();
         $dep->setName( 'RH' );
+        $dep->setMail( 'RH@toto.com' );
         $manager->persist( $dep );
 
         $dep = new Departement();
         $dep->setName( 'Direction' );
+        $dep->setMail( 'direction@toto.com' );
         $manager->persist( $dep );
 
         $dep = new Departement();
         $dep->setName( 'Com' );
+        $dep->setMail( 'com@toto.com' );
         $manager->persist( $dep );
 
         $dep = new Departement();
         $dep->setName( 'Développement' );
+        $dep->setMail( 'dev@toto.com' );
         $manager->persist( $dep );
         
         $manager->flush();
