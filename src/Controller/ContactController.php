@@ -45,13 +45,8 @@ class ContactController extends AbstractController
             $email = (new Email())
                         ->from( 'hello@example.com')
                         ->to( $mail )
-                        //->cc('cc@example.com')
-                        //->bcc('bcc@example.com')
-                        //->replyTo('fabien@example.com')
-                        //->priority(Email::PRIORITY_HIGH)
                         ->subject("un message de $name ")
-                        ->text('Sending emails is fun again!')
-                        ->html('<p>See Twig integration for better HTML integration!</p>');
+                        ->text("$name a déposé un contact pour vous");
             
             $mailer->send($email);
         
